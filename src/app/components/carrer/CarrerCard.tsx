@@ -4,14 +4,15 @@ import JobCard from '../JobCard';
 
 export default function Career() {
   const jobs = [
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg3.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/hand1 (1).png' },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/robot.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/card1 (2).svg" },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg3.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/hand1 (1).png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg3.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg3.png' },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/robot.png" },
     { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
   ];
 
@@ -54,7 +55,7 @@ export default function Career() {
       </div>
 
       {/* Jobs Grid */}
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[1500px] m-auto justify-items-center">
+      {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[1500px] m-auto justify-items-center">
         {currentJobs.map((job, index) => (
           <JobCard
             key={index}
@@ -65,7 +66,19 @@ export default function Career() {
             isOdd={index % 2 === 0}
           />
         ))}
-      </div>
+      </div> */}
+<div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8  m-auto justify-items-center">
+  {currentJobs.map((job, index) => (
+    <JobCard
+      key={index}
+      title={job.title}
+      location={job.location}
+      experience={job.experience}
+      imageSrc={job.imageSrc}
+      isOdd={index % 2 === 0}
+    />
+  ))}
+</div>
 
       {/* <div className="flex items-center justify-between gap-4 mt-8"> */}
       <div className="flex items-center m-auto justify-evenly gap-4 mt-20 w-full ">

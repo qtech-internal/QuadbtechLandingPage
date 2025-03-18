@@ -12,7 +12,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 w-full px-6 py-4 bg-white shadow-md z-50 mb-20">
+    <header className="fixed top-0 left-0 w-full px-6 py-4 bg-white shadow-md z-50 mb-20 font-poppins">
       <nav className="max-w-[1600px] mx-auto flex justify-between items-center">
 
         <div>

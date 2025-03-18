@@ -39,7 +39,7 @@ export default function CareerPage() {
           trigger: target,
           start: start,
           end: "top 40%",
-          toggleActions: "play none none reset",
+          // toggleActions: "play none none reset",
           markers: false,
         },
       });
@@ -61,7 +61,7 @@ export default function CareerPage() {
           trigger: target,
           start: "top 75%",
           end: "top 40%",
-          toggleActions: "play none none reset",
+          // toggleActions: "play none none reset",
           markers: false,
         },
       });
@@ -83,7 +83,7 @@ export default function CareerPage() {
           trigger: target,
           start: "top 75%",
           end: "top 40%",
-          toggleActions: "play none none reset",
+          // toggleActions: "play none none reset",
           markers: false,
         },
       });
@@ -105,7 +105,7 @@ export default function CareerPage() {
           trigger: target,
           start: "top 80%",
           end: "top 50%",
-          toggleActions: "play none none reset",
+          // toggleActions: "play none none reset",
           markers: false,
         },
       });
@@ -141,7 +141,7 @@ export default function CareerPage() {
           trigger: ".content .grid",
           start: "top 80%",
           end: "bottom 30%",
-          toggleActions: "play none none reset",
+          // toggleActions: "play none none reset",
         },
       });
 
@@ -162,7 +162,7 @@ export default function CareerPage() {
             trigger: ".job-cards-container",
             start: "top 80%",
             end: "top 40%",
-            toggleActions: "play none none reset",
+            // toggleActions: "play none none reset",
           },
         });
       }
@@ -179,7 +179,7 @@ export default function CareerPage() {
             trigger: ".why-work-section-title",
             start: "top 80%",
             end: "top 40%",
-            toggleActions: "play none none reset",
+            // toggleActions: "play none none reset",
           },
         });
         
@@ -193,7 +193,7 @@ export default function CareerPage() {
             trigger: ".why-work-section-subtitle",
             start: "top 80%",
             end: "top 40%",
-            toggleActions: "play none none reset",
+            // toggleActions: "play none none reset",
           },
         });
 
@@ -208,7 +208,7 @@ export default function CareerPage() {
             trigger: ".benefit-cards-container",
             start: "top 80%",
             end: "top 40%",
-            toggleActions: "play none none reset",
+            // toggleActions: "play none none reset",
           },
         });
 
@@ -223,7 +223,7 @@ export default function CareerPage() {
             trigger: ".bottom-cards-container",
             start: "top 85%",
             end: "top 50%",
-            toggleActions: "play none none reset",
+            // toggleActions: "play none none reset",
           },
         });
       }
@@ -238,7 +238,7 @@ export default function CareerPage() {
             trigger: element,
             start: "top 80%",
             end: "top 40%",
-            toggleActions: "play none none reset",
+            // toggleActions: "play none none reset",
           },
         });
       });
@@ -288,6 +288,11 @@ export default function CareerPage() {
         {/* Section 1 - Hero - Improved spacing and alignment */}
         <section className="flex flex-col items-center justify-center bg-white py-12 sm:py-16 lg:py-20">
           {/* Heading - Refined spacing */}
+          <img
+    src="/Frame 22.png"  
+    alt="QuadB Logo"
+    className="absolute top-20 right-0 w-1/2 h-1/2 object-contain"  
+  />
           <h1
             ref={headingRef}
             className="heading text-3xl sm:text-4xl lg:text-5xl font-bold text-center"
@@ -327,7 +332,7 @@ export default function CareerPage() {
               <div className="h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
                 <Image
                   className="h-full w-full object-cover rounded-lg"
-                  src="/abstract.png"
+                  src="/blog5.jpeg"
                   alt="Abstract Technology Image"
                   width={410}
                   height={300}
@@ -339,7 +344,7 @@ export default function CareerPage() {
               <div className="bg-white shadow-xl rounded-lg flex items-center justify-center h-[250px] sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
                 <img
                   className="h-full w-full object-cover rounded-lg"
-                  src="/vr.png"
+                  src="/blog2.jpeg"
                   alt="VR Technology Image"
                 />
               </div>
@@ -362,7 +367,7 @@ export default function CareerPage() {
               {/* Card 5 - Centered properly */}
               <div className="border-2 border-amber-400 shadow-xl rounded-lg h-[180px] sm:h-[200px] overflow-hidden ml-12 w-3.5/4 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
                 <img
-                  src="/logo.png"
+                  src="/blog1.jpeg"
                   className="w-full h-full rounded-lg object-cover"
                   alt="Company logo"
                 />

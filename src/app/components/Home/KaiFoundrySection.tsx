@@ -8,13 +8,13 @@ import { useEffect, useState } from 'react';
 
 export default function KaiFoundrySection() {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: false });
-  
+
   const imageControls = useAnimation();
   const headingControls = useAnimation();
   const paraControls = useAnimation();
   const tagsControls = useAnimation();
 
-  const [imageAnimationDone, setImageAnimationDone] = useState(false); 
+  const [imageAnimationDone, setImageAnimationDone] = useState(false);
 
   useEffect(() => {
     const sequence = async () => {
@@ -26,16 +26,16 @@ export default function KaiFoundrySection() {
           transition: { duration: 0.5, ease: 'easeOut' }
         });
 
-       
+
         await new Promise(resolve => setTimeout(resolve, 1000));
 
-        
+
         await imageControls.start({
-          x: '30vw', 
-          y: '8vh', 
-          scale: 0.6, 
+          x: '30vw',
+          y: '8vh',
+          scale: 0.6,
           rotate: 120,
-          transition: { duration: 0.5, ease: 'easeInOut' }
+          transition: { duration: 1, ease: 'easeInOut' }
         });
 
         // 4. Mark image animation as done
@@ -76,7 +76,7 @@ export default function KaiFoundrySection() {
       //   });
       //   setImageAnimationDone(false); // reset overlay
       // }
-      
+
     };
 
     sequence();
@@ -85,7 +85,7 @@ export default function KaiFoundrySection() {
   return (
     <section
       ref={ref}
-      className="relative px-6 md:px-10 py-12 md:py-20  mx-auto overflow-hidden mb-20  justify-center "
+      className="relative px-6 md:px-10 py-20 md:py-20 my-20  flex mx-auto overflow-hidden mb-20  justify-center  "
     >
       {/* Image Full Page Animation */}
       <motion.div
@@ -124,7 +124,7 @@ export default function KaiFoundrySection() {
           <motion.p
             initial={{ x: 100, opacity: 0 }}
             animate={paraControls}
-            className="mt-8 text-gray-700 text-lg md:text-xl font-semibold"
+            className="mt-8 text-gray-700 text-lg md:text-xl font-medium"
           >
             Pushing the Boundaries of Decentralization
             <br className="hidden sm:block" />
