@@ -2,8 +2,13 @@
 'use client';
 import { useState } from 'react';
 import { Send } from 'lucide-react';
+import { useInView } from "react-intersection-observer";
 
 export default function ContactUs() {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false,
+  });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,10 +28,24 @@ export default function ContactUs() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Data:', formData);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    });
   };
 
   return (
-    <div className="relative max-w-[1500px] min-h-screen mx-auto px-4 py-20 sm:py-24 md:py-32 mt-10">
+    // <div className="relative max-w-[1500px] min-h-screen mx-auto px-4 py-20 sm:py-24 md:py-32 mt-10">
+    <div
+      ref={ref}
+      className={`
+        relative max-w-[1500px] min-h-screen mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out
+        ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}
+      `}
+    >
       {/* BACKGROUND TITLE */}
       <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-black text-black text-center leading-none relative z-0 select-none">
         CONTACT <span className="ml-2">US</span>

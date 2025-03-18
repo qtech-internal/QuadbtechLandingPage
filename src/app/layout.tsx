@@ -26,10 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+           <title>QuadB Technology</title>
+           <link rel="icon" href="/Logo Black.png" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased` }
       >
-        <div className="container overflow-x-hidden">
+        
+        <div className="container overflow-x-hidden mx-auto">
         <Navbar/>
         {children}
         <Footer/>

@@ -1,6 +1,8 @@
 
 "use client";
 import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 // Type for points array
 type ServiceCardProps = {
@@ -31,45 +33,45 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
 
     <div
-  onMouseEnter={onMouseEnter}
-  onMouseLeave={onMouseLeave}
-  className={`
-    group relative w-full h-16
-    transition-all duration-300 ease-in-out overflow-visible rounded-md
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className={`
+    group relative w-full h-16 
+    transition-all duration-600 ease-in-out overflow-visible rounded-md
     flex items-center justify-center text-xs sm:text-sm md:text-base font-medium cursor-pointer px-3
     ${bg} ${textColor}
     ${isHovered ? "z-20" : "z-10"}
     ${isAnyHovered && !isHovered ? "blur-[3px]" : ""}
       `}
-     >
+    >
 
 
-  {/* Main Title */}
-  <div className="flex items-center justify-center h-full w-full text-center">
-    {title}
-  </div>
+      {/* Main Title */}
+      <div className="flex items-center justify-center h-full w-full text-center">
+        {title}
+      </div>
 
-  {/* Hover Content (Overlay) */}
-  <div
-    className={`
+      {/* Hover Content (Overlay) */}
+      <div
+        className={`
       absolute top-0 left-0 w-full
       ${hoverBg} px-4 py-3 text-left ${textColor}
   
       opacity-0 group-hover:opacity-100
-    transition-all duration-500 ease-in-out  
+    transition-all duration-500 ease-in-out
     rounded-md shadow-lg
-    transform scale-95 group-hover:scale-100  
+    transform scale-95 group-hover:scale-100
     `}
-    style={{ minHeight: "180px" }} 
-  >
-    <h3 className="font-semibold text-sm mb-2">{title}</h3>
-    <ul className="list-disc list-inside text-xs space-y-1">
-      {points.map((point, idx) => (
-        <li key={idx}>{point}</li>
-      ))}
-    </ul>
-  </div>
-</div>
+        style={{ minHeight: "180px" }}
+      >
+        <h3 className="font-semibold text-sm mb-2">{title}</h3>
+        <ul className="list-disc list-inside text-xs space-y-1">
+          {points.map((point, idx) => (
+            <li key={idx}>{point}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
 
   );
 };
@@ -102,7 +104,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 //       {/* Hover Content */}
 //       <div
 //         className={`absolute top-0 left-0 w-full inset-0 ${hoverBg} px-4 py-3 text-left ${textColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-//         style={{ minHeight: "180px" }} 
+//         style={{ minHeight: "180px" }}
 //       >
 //         <h3 className="font-semibold text-sm mb-2">{title}</h3>
 //         <ul className="list-disc list-inside text-xs space-y-1">
@@ -115,9 +117,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 //   );
 // };
 
-
-
-
 type ServiceItem = {
   title: string;
   points: string[];
@@ -125,8 +124,13 @@ type ServiceItem = {
 
 const ServiceSection: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<string | null>(null);
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false,
+  });
 
-  // Data for all rows
+
+
   const firstRow: ServiceItem[] = [
     {
       title: "Custom Web & Mobile Apps",
@@ -220,12 +224,29 @@ const ServiceSection: React.FC = () => {
     ));
 
   return (
-    <section className="max-w-[1500px] mx-auto py-16 text-center px-4">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
+    // <section className="max-w-[1500px] mx-auto py-16 text-center px-4">
+    //   <section
+    //   ref={ref}
+    //   className={`
+    //     max-w-[1500px] mx-auto py-16 text-center px-4
+    //     transition-all duration-1000 ease-out
+    //     ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}
+    //   `}
+    // >
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 3 }}
+      className="max-w-[1500px] mx-auto py-16 text-center px-4"
+    >
+
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black font-poppins">
         Our Services – Future-Ready Tech Solutions
       </h2>
-      <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-base">
-        "From Traditional to Decentralized – We Build the Future of Digital Innovation."
+      <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-base lg:w-3/4 mx-auto">
+        "From Traditional to Decentralized – We Build the Future of Digital Innovation." <br />
+        We offer custom-tailored Web2 & Web3 solutions designed for scalability, security, and seamless user experience. Whether you're launching a blockchain-powered platform or optimizing your digital presence, our expertise ensures success.
       </p>
 
       {/* First Row */}
@@ -252,8 +273,13 @@ const ServiceSection: React.FC = () => {
         {renderRow(thirdRow)}
         <div className="bg-orange-100 h-16 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
       </div>
-    </section>
+      {/* </section> */}
+    </motion.section>
   );
 };
 
 export default ServiceSection;
+
+
+
+

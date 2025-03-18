@@ -177,7 +177,7 @@ import React from "react";
 
 const TestimonialSection = () => {
   return (
-    <div className="relative flex items-center justify-center py-20 bg-white overflow-hidden">
+    <div className="relative flex items-center justify-center py-20 bg-white overflow-hidden ">
       {/* Circular Area */}
       <div className="relative w-[600px] h-[600px] flex items-center justify-center">
         {/* Outer Circle */}
