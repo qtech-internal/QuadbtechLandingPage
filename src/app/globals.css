@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -23,4 +23,35 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+ 
+@font-face {
+  font-family: "Manrope";
+  src: url("/font/regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/font/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply one font globally if needed */
+body {
+  font-family: "Roboto", sans-serif;
+  
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+.custom-clip {
+  clip-path: path('M120,0 H100% V100% H120 C100,100% 0,80% 0,50% C0,20% 100,0 120,0 Z');
+  border-radius: 24px;
+}
+
