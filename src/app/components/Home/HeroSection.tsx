@@ -143,8 +143,7 @@ export default function Home() {
       .to(firstLineRef.current, { x: '22vw', duration: 1 }, "-=2")
 
       // Step 9: Sidebar appears from the left
-      // .fromTo(sidebarRef.current, { x: '-100%' }, { x: '0%', duration: 1 }, "-=1");
-      // }, []);
+
       .fromTo(sidebarRef.current,
         { x: '-100%', opacity: 0 },
         { x: '0%', opacity: 1, duration: 1 }, "-=1"
@@ -185,8 +184,7 @@ export default function Home() {
       </div>
 
       {/* Appearing Text */}
-      {/* <div ref={textRef} className="absolute mt-20 text-2xl md:text-5xl font-bold opacity-0 text-center w-full mb-4 font-poppins"> */}
-      <div ref={textRef} className="absolute mt-20 text-2xl md:text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
+    <div ref={textRef} className="absolute mt-20 text-2xl md:text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
 
         <span ref={firstLineRef} className="block top-[-10px] left-[-10px]">
           <span className="relative inline-block align-super mr-2">
@@ -194,7 +192,7 @@ export default function Home() {
           </span>
           Your vision, your expertise:
         </span>
-        <span ref={secondLineRef} className="block absolute left-[43rem] lg:left-[43rem] whitespace-nowrap">
+        <span ref={secondLineRef} className="block absolute left-[43rem] lg:left-[43rem]  whitespace-nowrap">
           Crafting the <span className="relative inline-block px-3 border-2 border-orange-500 rounded-lg">Future of Technology</span>
           <span className="relative inline-block align-super mr-4">
             <img src="/ending comma.png" alt="Ending Quote" className="w-6 h-6 md:w-8 md:h-8" />
@@ -203,8 +201,7 @@ export default function Home() {
       </div>
 
       {/* Enhanced Carousel */}
-      {/* <div ref={carouselRef} className="absolute w-3/4  opacity-0 mt-50"> */}
-      {/* <div ref={carouselRef} className="absolute w-3/4 opacity-0 top-24 left-0 right-0 mx-auto"> */}
+    
       <div ref={carouselRef} className="absolute w-3/4 opacity-0 top-24 left-0 right-0 mx-auto">
 
 
@@ -282,26 +279,21 @@ export default function Home() {
       {/* <div ref={sidebarRef} className="absolute left-0 top-10 bottom-40 w-1/4 h-auto bg-white p-5  flex flex-col items-start"> */}
       <div ref={sidebarRef} className="absolute left-0 top-10  w-1/4 h-auto bg-white p-5 flex flex-col items-start opacity-0 translate-x-[-100%]">
 
-        <button className="px-4 py-2 text-sm font-medium border border-orange-200 rounded-full hover:bg-gray-200">Start Building Today</button>
-        {/* <p className="mt-4 font-semibold text-black text-left">Empowered Teams, Endless Possibilities</p>
-        <div className="mt-4 flex flex-col items-center space-y-3 rounded-xl shadow-lg justify-start p-4 border-2 border-pink-100">
-          
-          
-      <img src="/person3.jpeg" alt="Person 1" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-      <img src="/person1.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-      <img src="/person2.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-    </div>
-      */}
-        {/* <div className="relative mt-4 flex flex-col items-center space-y-3 rounded-xl shadow-lg justify-start p-4 border-2 border-pink-100 bg-white">
+        {/* <button className="px-4 py-2 text-sm font-medium border border-orange-200 rounded-full hover:bg-gray-200">Start Building Today</button> */}
+        {/* <button className="relative px-6 py-2 text-black font-medium rounded-full border border-orange-500 
+                       bg-gradient-to-l from-transparent to-white hover:from-orange-100">
+      Start Building Today
+    </button> */}
   
-  
-  <div className="absolute right-[-12px] top-1/2 -translate-y-1/2 w-4 h-16 bg-orange-500 rounded-r-full shadow-md cursor-pointer"></div>
+    <button className="relative px-6 py-2 text-black font-medium rounded-full 
+                       border border-orange-100
+                       bg-gradient-to-r from-orange-100 to-transparent
+                       hover:from-orange-100">
+      {/* <span className="absolute inset-0 rounded-full opacity-50"></span> */}
+      <span className="relative">Start Building Today</span>
+    </button>
 
 
-  <img src="/person3.jpeg" alt="Person 1" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-  <img src="/person1.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-  <img src="/person2.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-</div> */}
         <div className="relative mt-4 flex flex-col items-center space-y-6 my-10 ml-0 rounded-xl shadow-lg justify-start p-4   bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
 
           {/* Right side half-visible big button */}
@@ -330,6 +322,8 @@ export default function Home() {
         </div>
       </div>
     </div>
+  
+
   );
 }
 

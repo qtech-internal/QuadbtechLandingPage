@@ -109,12 +109,10 @@ const GetToKnow = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
-  // ✅ State to track screen width
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' && window.innerWidth < 768
   );
 
-  // ✅ Effect to update isMobile on resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -179,7 +177,7 @@ const GetToKnow = () => {
           animate={
             isInView && !isMobile
               ? {
-                x: [0, 200, 200],
+                x: [0, 150, 150],
                 y: [0, 0, -40],
                 opacity: [0, 1, 1],
               }
