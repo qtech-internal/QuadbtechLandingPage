@@ -40,10 +40,11 @@ export default async function handler(
     const info = await transporter.sendMail(mailOptions);
     console.log("Email sent: ", info.response);
     res.status(200).json({ success: true, message: "Email sent successfully" });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Failed to send email:", error);
+    const errorMessage = error instanceof Error ? error.message : "Failed to send email";
     res
       .status(500)
-      .json({ success: false, error: error.message || "Failed to send email" });
+      .json({ success: false, error: errorMessage });
   }
 }

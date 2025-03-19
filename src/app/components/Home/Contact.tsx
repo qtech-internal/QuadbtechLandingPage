@@ -10,7 +10,7 @@ export default function ContactUs() {
     triggerOnce: false,
   });
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{ [key in 'name' | 'email' | 'phone' | 'subject' | 'message']: string }>({
     name: "",
     email: "",
     phone: "",
@@ -19,19 +19,44 @@ export default function ContactUs() {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  interface FormData {
+    name: string;
+    email: string;
+    phone: string;
+    subject: string;
+    message: string;
+  }
+
+  interface ChangeEvent {
+    target: {
+      name: string;
+      value: string;
+    };
+  }
+
+  const handleChange = (e: ChangeEvent) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData((prev: FormData) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleSubmit = async (e) => {
+  interface SubmitEvent {
+    preventDefault: () => void;
+  }
+
+  interface ApiResponse {
+    data: {
+      success: boolean;
+    };
+  }
+
+  const handleSubmit = async (e: SubmitEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("/api/sendEmail", formData);
+      const response: ApiResponse = await axios.post("/api/sendEmail", formData);
       if (response.data.success) {
         alert("✅ Email Sent Successfully!");
         setFormData({
@@ -107,7 +132,7 @@ export default function ContactUs() {
               <input
                 type={field.type}
                 name={field.name}
-                value={formData[field.name]}
+                value={formData[field.name as keyof typeof formData]}
                 onChange={handleChange}
                 placeholder={field.placeholder}
                 className="p-3 pl-10 rounded-md bg-orange-50 placeholder-black text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none transition"
