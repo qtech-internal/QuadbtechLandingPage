@@ -1,9 +1,15 @@
 "use client";
 import { useState } from "react";
 import { Send, User, Mail, Phone, FileText, MessageCircle } from "lucide-react";
+import { useInView } from "react-intersection-observer";
 import axios from "axios";
 
 export default function ContactUs() {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false,
+  });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,29 +19,19 @@ export default function ContactUs() {
   });
   const [loading, setLoading] = useState(false);
 
-  interface FormData {
-    name: string;
-    email: string;
-    phone: string;
-    subject: string;
-    message: string;
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev: FormData) => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
-      const response = await axios.post<{ success: boolean }>("/api/sendEmail", formData);
-
+      const response = await axios.post("/api/sendEmail", formData);
       if (response.data.success) {
         alert("✅ Email Sent Successfully!");
         setFormData({
@@ -57,36 +53,27 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="relative max-w-6xl min-h-screen mx-auto px-6 py-20 sm:py-24 md:py-32 mt-10">
-      {/* Contact Heading */}
-      <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold text-black text-center leading-tight">
-        CONTACT <span className="text-orange-500">US</span>
+    <div
+      ref={ref}
+      className={`relative max-w-[1500px] min-h-screen mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+      }`}
+    >
+      <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-black text-black text-center leading-none relative z-0 select-none">
+        CONTACT <span className="ml-2 text-orange-500">US</span>
       </h1>
 
-      {/* QB Tower Card - Redesigned */}
-      <div className="mt-6 flex justify-center">
-        <div className="bg-white/70 backdrop-blur-md shadow-xl border border-gray-200 px-6 py-5 rounded-lg max-w-lg text-center transition transform hover:scale-105 hover:shadow-2xl">
-          <h2 className="text-lg font-bold text-orange-600 uppercase">
-            QB Tower
-          </h2>
-          <p className="text-gray-700 text-sm">
-            15313 O&apos;Connell Park, Belleville 48990
-          </p>
-          <div className="mt-2 flex items-center justify-center gap-2 text-gray-800 text-sm">
-            <Mail className="w-5 h-5 text-orange-500" />
-            <span>sales@quadbtech.com</span>
-          </div>
-          <div className="mt-1 flex items-center justify-center gap-2 text-gray-800 text-sm">
-            <Phone className="w-5 h-5 text-orange-500" />
-            <span>+91 8360543857</span>
-          </div>
-        </div>
+      <div className="absolute top-[90px] sm:top-[100px] md:top-[140px] left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-3 rounded-md w-[260px] sm:w-[280px] text-xs leading-5 shadow-lg z-10 text-center">
+        <p className="font-bold">QB TOWER</p>
+        <p>15313 O&apos;Connell Park,</p>
+        <p>Belleville 48990</p>
+        <p>sales@quadbtech.com</p>
+        <p>+91 8360543857</p>
       </div>
 
-      {/* Contact Form */}
       <form
         onSubmit={handleSubmit}
-        className="mt-14 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-xl p-6 md:p-10"
+        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
@@ -120,10 +107,10 @@ export default function ContactUs() {
               <input
                 type={field.type}
                 name={field.name}
-                value={formData[field.name as keyof typeof formData]}
+                value={formData[field.name]}
                 onChange={handleChange}
                 placeholder={field.placeholder}
-                className="p-3 pl-10 rounded-md bg-orange-50 placeholder-gray-700 text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none transition"
+                className="p-3 pl-10 rounded-md bg-orange-50 placeholder-black text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none transition"
                 required
               />
             </div>
@@ -139,7 +126,7 @@ export default function ContactUs() {
               onChange={handleChange}
               placeholder="Your Message"
               rows={4}
-              className="p-3 pl-10 rounded-md bg-orange-50 placeholder-gray-700 text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none resize-none transition"
+              className="p-3 pl-10 rounded-md bg-orange-50 placeholder-black text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none resize-none transition"
               required
             ></textarea>
           </div>
