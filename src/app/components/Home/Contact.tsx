@@ -10,7 +10,9 @@ export default function ContactUs() {
     triggerOnce: false,
   });
 
-  const [formData, setFormData] = useState<{ [key in 'name' | 'email' | 'phone' | 'subject' | 'message']: string }>({
+  const [formData, setFormData] = useState<{
+    [key in "name" | "email" | "phone" | "subject" | "message"]: string;
+  }>({
     name: "",
     email: "",
     phone: "",
@@ -55,8 +57,20 @@ export default function ContactUs() {
   const handleSubmit = async (e: SubmitEvent) => {
     e.preventDefault();
     setLoading(true);
+
+    // Execute reCAPTCHA
+    const token = await grecaptcha.execute(
+      "6LcerfkqAAAAAIvyEjoxZj_RRG3EBK2NTsqXpIeC",
+      {
+        action: "submit",
+      }
+    );
+
     try {
-      const response: ApiResponse = await axios.post("/api/sendEmail", formData);
+      const response: ApiResponse = await axios.post("/api/sendEmail", {
+        ...formData,
+        token,
+      });
       if (response.data.success) {
         alert("✅ Email Sent Successfully!");
         setFormData({
