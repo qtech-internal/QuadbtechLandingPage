@@ -1,10 +1,7 @@
-
 "use client";
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-
-// Type for points array
 type ServiceCardProps = {
   title: string;
   points: string[];
@@ -17,8 +14,6 @@ type ServiceCardProps = {
   onMouseLeave: () => void;
   hoverPosition?: "top" | "center" | "bottom";
 };
-
-
 const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   points,
@@ -45,13 +40,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       `}
     >
 
-
-      {/* Main Title */}
       <div className="flex items-center justify-center h-full w-full text-center">
         {title}
       </div>
-
-      {/* Hover Content (Overlay) */}
+ {/* Hover Content  */}
       <div
         className={`
       absolute top-0 left-0 w-full

@@ -283,7 +283,7 @@ export default function CareerPage() {
   ];
 
   return (
-    <main className="flex flex-col text-gray-900 bg-white w-full  ">
+    <main className="flex flex-col text-gray-900 bg-white w-full   ">
       <div className=" px-4 sm:px-6 lg:px-8 mt-20">
         {/* Section 1 - Hero - Improved spacing and alignment */}
         <section className="flex flex-col items-center justify-center bg-white py-12 sm:py-16 lg:py-20">
@@ -365,7 +365,7 @@ export default function CareerPage() {
               </div>
 
               {/* Card 5 - Centered properly */}
-              <div className="border-2 border-amber-400 shadow-xl rounded-lg h-[180px] sm:h-[200px] overflow-hidden ml-12 w-3.5/4 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
+              <div className="border-2 border-amber-400 shadow-xl  rounded-lg h-[180px] sm:h-[200px] overflow-hidden mx-auto ml-12 w-3.5/4 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
                 <img
                   src="/blog1.jpeg"
                   className="w-full h-full rounded-lg object-cover"

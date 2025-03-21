@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -38,7 +37,7 @@ const Navbar = () => {
         </div>
 
 
-        <div className="hidden md:block">
+ <div className="hidden md:block whitespace-nowrap">
           <Link href="/contact">
             <button
               className={`px-4 py-2 rounded-full font-semibold ${pathname === "/contact"
