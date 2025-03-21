@@ -19,12 +19,15 @@ const JobCard: React.FC<JobCardProps> = ({
 }) => {
   return (
     <div
-      className={`rounded-[20px] border font-roboto ${isOdd ? 'bg-orange-400 border-orange-400' : 'bg-white border-orange-400'
-        } w-[320px] h-[380px] flex flex-col justify-between p-4 relative`}
+      // className={`rounded-[20px] border font-roboto ${isOdd ? 'bg-orange-400 border-orange-400' : 'bg-white border-orange-400'
+      //   } w-[320px] h-[380px] flex flex-col justify-between p-4 relative`}
+      className={`rounded-[20px] border font-roboto  ${isOdd ? 'bg-orange-400 border-orange-400' : 'bg-white border-orange-400'
+        } w-[320px] h-[380px] flex flex-col justify-between p-4 relative shadow-md transition-all duration-300 
+      hover:shadow-gray-400 hover:shadow-lg hover:scale-102`}
 
     >
-      {/* Top Content */}
-      <div className="space-y-4 z-10 ml-auto">
+      {/* rop Content */}
+      {/* <div className="space-y-4 z-10 ml-auto">
         <h3
           className={`${isOdd ? 'bg-white text-black' : 'bg-orange-400 text-white'
             } inline-block px-3 py-1 rounded-full text-sm`}
@@ -51,56 +54,44 @@ const JobCard: React.FC<JobCardProps> = ({
             Experience: {experience}
           </p>
         </div>
+      </div> */}
+      <div className="space-y-4 z-10 ml-auto relative">
+        <div className="relative inline-block">
+          <img
+            src="Group 6.png"
+            alt=""
+            className="absolute -top-2 -left-3 w-8 h-8 z-0"
+          />
+          <h3
+            className={`${isOdd ? 'bg-white text-black' : 'bg-orange-400 text-white'} 
+        inline-block px-3 py-1 rounded-full text-sm relative z-10`}
+          >
+            {title}
+          </h3>
+        </div>
+
+        <div>
+          <p
+            className={`rounded-full text-sm px-2 py-1 mb-1 inline-block ${isOdd
+              ? 'bg-transparent text-white border-white'
+              : 'bg-transparent text-black border-black'} border rounded-full`}
+          >
+            Location: {location}
+          </p>
+        </div>
+
+        <div>
+          <p
+            className={`rounded-full text-sm px-2 py-1 inline-block ${isOdd
+              ? 'bg-transparent text-white border-white'
+              : 'bg-transparent text-black border-black'} border rounded-full`}
+          >
+            Experience: {experience}
+          </p>
+        </div>
       </div>
 
-      {/* 
-      <div className="flex justify-between items-end z-10 overflow-visible">
 
-        <div className="w-56 h-56 self-end mb-[-40px]  ml-[-40px]  overflow-visible">
-          <Image
-            src={imageSrc}
-            alt="3D Illustration"
-            width={500}
-            height={500}
-            className="object-cover w-full h-full"
-          />
-        </div>
-
-        <div className="z-10">
-          <button
-            className={`text-sm font-medium py-1 px-4 rounded-full border ${isOdd
-              ? 'bg-white text-black border-white hover:bg-gray-200'
-              : 'bg-orange-400 text-white hover:bg-gray-400'
-              }`}
-          >
-            Apply Now
-          </button>
-        </div>
-      </div> */}
-      {/* <div className="relative w-full h-72 flex justify-end overflow-visible">
-
-  <div className="absolute left-[-30px] bottom-[-40px] w-56 h-80 z-10 overflow-visible border-4">
-    <Image
-      src={imageSrc}
-      alt="3D Illustration"
-      width={500}
-      height={500}
-      className="object-contain w-full h-full"
-    />
-  </div>
-
- 
-  <div className="relative z-20">
-    <button
-      className={`text-sm font-medium py-1 px-4 rounded-full border ${isOdd
-        ? 'bg-white text-black border-white hover:bg-gray-200'
-        : 'bg-orange-400 text-white hover:bg-gray-400'
-        }`}
-    >
-      Apply Now
-    </button>
-  </div>
-</div> */}
       <div className="relative w-full h-72 flex flex-col justify-end overflow-visible">
 
         <div className="absolute left-[-30px] bottom-[-40px] w-56 h-80 z-10 overflow-visible ">
@@ -125,8 +116,6 @@ const JobCard: React.FC<JobCardProps> = ({
           </button>
         </div>
       </div>
-
-
     </div>
   );
 };

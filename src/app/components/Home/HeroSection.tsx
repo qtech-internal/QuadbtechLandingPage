@@ -177,31 +177,32 @@ export default function Home() {
 
 
   return (
-    <div className="relative w-full max-w-[1500px]  h-screen overflow-x-hidden bg-white text-black flex flex-col items-center justify-center mb-10  ">
-      {/* Logo */}
+    <div className="relative w-full max-w-[1500px] min-h-screen overflow-x-hidden bg-white text-black flex flex-col items-center justify-center mb-10  ">
+
+
       <div ref={logoRef} className="absolute text-5xl font-bold">
         <img src="/logo.png" alt="Logo" className="w-54 h-54" />
       </div>
 
-      {/* Appearing Text */}
-    <div ref={textRef} className="absolute mt-20 text-2xl md:text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
 
-        <span ref={firstLineRef} className="block top-[-10px] left-[-10px]">
+      <div ref={textRef} className="absolute mt-20 text-2xl md:text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
+
+        <span ref={firstLineRef} className="block top-[-10px] left-[-10px] 2xl:left-[-20px] whitespace-nowrap">
           <span className="relative inline-block align-super mr-2">
             <img src="/starting comma.png" alt="Ending Quote" className="w-6 h-6 md:w-8 md:h-8" />
           </span>
           Your vision, your expertise:
         </span>
-        <span ref={secondLineRef} className="block absolute left-[43rem] lg:left-[43rem]  whitespace-nowrap">
-          Crafting the <span className="relative inline-block px-3 border-2 border-orange-500 rounded-lg">Future of Technology</span>
+        <span ref={secondLineRef} className=" absolute left-[43rem] lg:left-[43rem] md:left-[20rem] 2xl:left-[96rem]  whitespace-nowrap">
+          Crafting the <span className="relative  px-3 border-2 border-orange-500 rounded-lg">Future of Technology</span>
           <span className="relative inline-block align-super mr-4">
             <img src="/ending comma.png" alt="Ending Quote" className="w-6 h-6 md:w-8 md:h-8" />
           </span>
         </span>
       </div>
 
-      {/* Enhanced Carousel */}
-    
+
+
       <div ref={carouselRef} className="absolute w-3/4 opacity-0 top-24 left-0 right-0 mx-auto">
 
 
@@ -226,7 +227,7 @@ export default function Home() {
           >
             {carouselItems.map((item, index) => (
               <SwiperSlide key={index} className="relative">
-                {/* Background Image */}
+
                 <div
                   className="w-full h-full bg-cover bg-center"
                   style={{
@@ -234,10 +235,10 @@ export default function Home() {
                   }}
                 ></div>
 
-                {/* Gradient Overlay */}
+
                 <div className={`absolute inset-0 ${item.bgColor}`}></div>
 
-                {/* Main Content Card */}
+
 
                 <div className="absolute bottom-8 left-8 max-w-md bg-white/10 backdrop-blur-md p-4 rounded-xl shadow-lg flex items-center space-x-4">
                   <div className="bg-orange-50 p-2 rounded-lg shadow-md">
@@ -252,7 +253,7 @@ export default function Home() {
                 </div>
 
 
-                {/* Free Consultancy Button */}
+
                 <button className="absolute bottom-1/3 left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-orange-500 hover:text-white">
                   <span>Book Free Consultancy</span>
                   <button className="relative w-12 h-12 rounded-full bg-white border-2 border-orange-500 flex items-center justify-center">
@@ -266,7 +267,7 @@ export default function Home() {
               </SwiperSlide>
             ))}
 
-            {/* Navigation Arrows */}
+            {/* Navigation */}
             <div className="swiper-button-next !text-white !after:text-2xl"></div>
             <div className="swiper-button-prev !text-white !after:text-2xl"></div>
           </Swiper>
@@ -278,20 +279,25 @@ export default function Home() {
       {/* Sidebar */}
       {/* <div ref={sidebarRef} className="absolute left-0 top-10 bottom-40 w-1/4 h-auto bg-white p-5  flex flex-col items-start"> */}
       <div ref={sidebarRef} className="absolute left-0 top-10  w-1/4 h-auto bg-white p-5 flex flex-col items-start opacity-0 translate-x-[-100%]">
-
-        {/* <button className="px-4 py-2 text-sm font-medium border border-orange-200 rounded-full hover:bg-gray-200">Start Building Today</button> */}
-        {/* <button className="relative px-6 py-2 text-black font-medium rounded-full border border-orange-500 
-                       bg-gradient-to-l from-transparent to-white hover:from-orange-100">
-      Start Building Today
-    </button> */}
-  
-    <button className="relative px-6 py-2 text-black font-medium rounded-full 
+        <button className="relative px-6 py-2 text-black font-medium rounded-full 
                        border border-orange-100
                        bg-gradient-to-r from-orange-100 to-transparent
                        hover:from-orange-100">
-      {/* <span className="absolute inset-0 rounded-full opacity-50"></span> */}
-      <span className="relative">Start Building Today</span>
-    </button>
+
+          <span className="relative">Start Building Today</span>
+        </button>
+
+        {/* <p className="mt-4 font-semibold text-black text-left">Empowered Teams, Endless Possibilities</p> */}
+        <div className="relative inline-block ">
+          <p className="mt-4 font-semibold text-black text-left">
+            Empowered Teams, Endless Possibilities
+          </p>
+          <img
+            src="/Group 6.png"
+            alt=""
+            className="absolute top-0 right-12 w-8 h-8 "
+          />
+        </div>
 
 
         <div className="relative mt-4 flex flex-col items-center space-y-6 my-10 ml-0 rounded-xl shadow-lg justify-start p-4   bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
@@ -308,12 +314,6 @@ export default function Home() {
           <img src="/person1.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-orange-400" />
           <img src="/person2.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-orange-400" />
         </div>
-
-
-
-        <p className="mt-4 font-semibold text-black text-left">Empowered Teams, Endless Possibilities</p>
-
-
         <div className="mt-4 flex flex-wrap gap-2">
           <span className="px-3 py-1 border border-black rounded-full text-sm">Scalable</span>
           <span className="px-3 py-1 bg-orange-500 text-white rounded-full text-sm">Reliable</span>
@@ -322,7 +322,7 @@ export default function Home() {
         </div>
       </div>
     </div>
-  
+
 
   );
 }
