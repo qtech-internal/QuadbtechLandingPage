@@ -42,7 +42,7 @@ export default function ContactUs() {
     <div
       ref={ref}
       className={`
-        relative max-w-[1500px] min-h-screen mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out
+        relative max-w-[1500px]  mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out
         ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}
       `}
     >
