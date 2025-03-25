@@ -3,12 +3,11 @@ import { useState } from "react";
 import { Send, User, Mail, Phone, FileText, MessageCircle } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
+import toast from "react-hot-toast";
 
 export default function ContactUs() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
-  });
+  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: false });
 
   const [formData, setFormData] = useState<{
     [key in "name" | "email" | "phone" | "subject" | "message"]: string;
@@ -19,60 +18,40 @@ export default function ContactUs() {
     subject: "",
     message: "",
   });
+
   const [loading, setLoading] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [isRateLimited, setIsRateLimited] = useState(false);
 
-  interface FormData {
-    name: string;
-    email: string;
-    phone: string;
-    subject: string;
-    message: string;
-  }
-
-  interface ChangeEvent {
-    target: {
-      name: string;
-      value: string;
-    };
-  }
-
-  const handleChange = (e: ChangeEvent) => {
-    const { name, value } = e.target;
-    setFormData((prev: FormData) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  interface SubmitEvent {
-    preventDefault: () => void;
-  }
-
-  interface ApiResponse {
-    data: {
-      success: boolean;
-    };
-  }
-
-  const handleSubmit = async (e: SubmitEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      toast.error("Please complete the reCAPTCHA verification.");
+      return;
+    }
+
+    if (isRateLimited) {
+      toast.error("Please wait before sending another message.");
+      return;
+    }
+
     setLoading(true);
 
-    // Execute reCAPTCHA
-    const token = await grecaptcha.execute(
-      "6LcerfkqAAAAAIvyEjoxZj_RRG3EBK2NTsqXpIeC",
-      {
-        action: "submit",
-      }
-    );
-
     try {
-      const response: ApiResponse = await axios.post("/api/sendEmail", {
+      const response = await axios.post("/api/sendEmail", {
         ...formData,
-        token,
+        recaptchaToken,
       });
+
       if (response.data.success) {
-        alert("✅ Email Sent Successfully!");
+        toast.success("Email Sent Successfully!");
         setFormData({
           name: "",
           email: "",
@@ -80,11 +59,15 @@ export default function ContactUs() {
           subject: "",
           message: "",
         });
+
+        // Apply client-side rate limiter (Disable for 60 seconds)
+        setIsRateLimited(true);
+        setTimeout(() => setIsRateLimited(false), 60000);
       } else {
-        alert("❌ Email Sending Failed. Please try again.");
+        toast.error("Email Sending Failed. Please try again.");
       }
     } catch (error) {
-      alert("❌ Email Sending Failed. Please try again later.");
+      toast.error("Email Sending Failed. Please try again later.");
       console.error("Error during form submission:", error);
     } finally {
       setLoading(false);
@@ -94,7 +77,7 @@ export default function ContactUs() {
   return (
     <div
       ref={ref}
-      className={`relative max-w-[1500px] min-h-screen mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
+      className={`relative max-w-[1500px] mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       }`}
     >
@@ -173,14 +156,16 @@ export default function ContactUs() {
           <button
             type="submit"
             className={`flex flex-col justify-center items-center text-white rounded-md w-full py-6 ${
-              loading
+              loading || isRateLimited
                 ? "bg-orange-300 cursor-not-allowed"
                 : "bg-orange-500 hover:bg-orange-600 transition"
             }`}
-            disabled={loading}
+            disabled={loading || isRateLimited}
           >
             {loading ? (
               <span className="text-base font-medium">Sending...</span>
+            ) : isRateLimited ? (
+              <span className="text-base font-medium">Wait...</span>
             ) : (
               <>
                 <Send className="w-6 h-6 mb-1" />
@@ -190,6 +175,13 @@ export default function ContactUs() {
           </button>
         </div>
       </form>
+
+      <div className="flex justify-center mt-4">
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+          onChange={setRecaptchaToken}
+        />
+      </div>
     </div>
   );
 }
