@@ -157,15 +157,20 @@ const TestimonialSection = () => {
 
         <div className="absolute -top-5 -right-5 w-20 h-20 bg-white rounded-full flex items-center justify-center overflow-hidden">
           <div className="w-14 h-14 div-bg rounded-full flex items-center justify-center">
-            <img src="/vector.png" alt="Ant" className="w-10 h-10 object-contain" />
+            {/* <img src="/vector.png" alt="Ant" className="w-10 h-10 object-contain" /> */}
+            <svg width="30" height="41" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" stroke-width="0.868933"/>
+<path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" stroke-width="0.868933"/>
+</svg>
+
           </div>
         </div>
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-30 h-16 bg-white rounded-b-full z-10"></div>
         <div className="mt-10 p-4 rounded-lg flex flex-col items-center mx-auto justify-center">
-          <p className="text-theme italic text-center">
+          <p className="text-secondary italic text-center">
             "{currentTestimonial.text}"
           </p>
-          <p className="mt-4 font-bold text-theme opacity-[0.8]">— {currentTestimonial.name}</p>
+          <p className="mt-4 font-bold text-secondary opacity-[0.8]">— {currentTestimonial.name}</p>
         </div>
       </div>
     </div>
