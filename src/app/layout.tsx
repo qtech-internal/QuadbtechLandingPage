@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Script from "next/script";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,13 +34,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Script
-          strategy="beforeInteractive"
-          src="https://www.google.com/recaptcha/api.js?render=6LcerfkqAAAAAIvyEjoxZj_RRG3EBK2NTsqXpIeC"
-        />
         <div className="container overflow-x-hidden mx-auto">
           <Navbar />
           {children}
+          <Toaster position="top-right" />
           <Footer />
         </div>
       </body>
