@@ -77,9 +77,11 @@ export default function ContactUs() {
   return (
     <div
       ref={ref}
+
       className={`relative max-w-[1500px] mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       }`}
+
     >
       <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-black text-black text-center leading-none relative z-0 select-none">
         CONTACT <span className="ml-2 text-orange-500">US</span>

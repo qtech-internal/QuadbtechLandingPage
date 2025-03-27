@@ -1,30 +1,4 @@
 @import "tailwindcss";
-
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
- 
 @font-face {
   font-family: "Manrope";
   src: url("/font/regular.otf") format("opentype");
@@ -44,16 +18,24 @@ body {
   font-weight: semi-bold;
   font-style: normal;
 }
-/* Apply one font globally if needed */
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Roboto-Regular.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 body {
   font-family: "Roboto", sans-serif;
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  /* font-family: Arial, Helvetica, sans-serif; */
+ color: var(--foreground);
+  width:100dvw;
+  height: 100dvh;
+  background-color: #ffffff; 
 }
 .custom-clip {
   clip-path: path('M120,0 H100% V100% H120 C100,100% 0,80% 0,50% C0,20% 100,0 120,0 Z');
@@ -62,4 +44,139 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+/* Default */
+:root {
+  --bg-card: #F97316;
+  --border-card: #e65100;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --button-bg: #ff9800;
+  --button-text: #1b1a1a;
+  --button-border: #F97F07;
+  --p-text:#d15019;
+  --div-bg:#FFEDD5;
+}
+
+
+.olive {
+  --bg-card: #b5b567;
+  --border-card: #556b2f;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --button-bg: #808000;
+  /* --button-text: #ffffff; */
+  --button-text: #1b1a1a;
+  --button-border: #556b2f;
+  --p-text:#115640;
+  --div-bg:#9bb077;
+  
+}
+
+
+.purple {
+  --bg-card: #6a0dad;
+  --border-card: #4b0082;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --button-bg: #6a0dad;
+  /* --button-text: #ffffff; */
+  --button-text: #1b1a1a;
+  --button-border: #4b0082;
+  --p-text:rgb(8, 50, 79);
+  --div-bg:#f1eaf7;
+}
+
+.pink {
+  --bg-card: #ff69b4;
+  --border-card: #d1478f;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --button-bg: #ff69b4;
+  --button-text: #1b1a1a;
+  --button-border: #d1478f;
+  --p-text: #8c1f4d;
+  --div-bg: #ffd1dc;
+}
+
+
+
+.sky {
+  --bg-card: #87ceeb;
+  --border-card: #4682b4;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --button-bg: #87ceeb;
+  --button-text: #1b1a1a;
+  --button-border: #4682b4;
+  --p-text: #205f96;
+  --div-bg: #b3e0ff;
+}
+
+
+
+.red {
+  --bg-card: #bc4f5a;
+  --border-card: #8B0000;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --button-bg: #7C020F;
+  --button-text: #1b1a1a;
+  --button-border: #8B0000;
+  --p-text: #A52A2A;
+  --div-bg: #c59198;
+}
+.brown {
+  --bg-card: #846353;
+  --border-card: #8B5A2B;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --button-bg: #7D4E36;
+  --button-text: #1b1a1a;
+  --button-border: #8B5A2B;
+  --p-text: #A67B5B;
+  --div-bg: #d3af88;
+}
+.cyan {
+  --bg-card: #00A7A7;
+  --border-card: #008B8B;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --button-bg: #00CCCC;
+  --button-text: #1b1a1a;
+  --button-border: #008B8B;
+  --p-text: #20B2AA;
+  --div-bg: #83b4b4;
+}
+/* Utility classes */
+.bg-theme {
+  background-color: var(--bg-card);
+}
+
+.border-theme {
+  border-color: var(--button-border);
+}
+
+.text-theme {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-p {
+  color: var(--p-text);
+}
+.button-theme {
+ color: var(--button-text);
+  border: 2px solid var(--button-border);
+}
+
+.button-theme:hover {
+  background-color: var(--border-card) !important;
+  color: var(--text-primary) !important;
+}
+.div-bg {
+  background-color: var(--div-bg);
 }

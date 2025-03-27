@@ -109,12 +109,10 @@ const GetToKnow = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
-  // ✅ State to track screen width
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' && window.innerWidth < 768
   );
-
-  // ✅ Effect to update isMobile on resize
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -123,6 +121,9 @@ const GetToKnow = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  const xValue = screenWidth >= 768 ? -400 : -50;
+  const kValue = screenWidth >= 768 ? 150 : 80;
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -141,21 +142,22 @@ const GetToKnow = () => {
   };
 
   return (
-    <section ref={ref} className="relative bg-white py-12 px-6 overflow-hidden ">
+    <section ref={ref} className="relative bg-white py-12 px-6  overflow-hidden ">
       <motion.div
-        className="max-w-[1500px] mx-auto flex flex-col items-center gap-10"
+        className="max-w-[1500px] mx-auto flex flex-col items-center gap-10 "
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 1 }}
         transition={{ duration: 2 }}
       >
 
         <motion.div
-          className="w-full md:w-1/4 flex justify-center md:justify-start"
+          className="w-full md:w-1/4 flex justify-center xl:justify-start "
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={
             isInView && !isMobile
               ? {
-                x: [0, -400, -400],
+                // x: [0, -400, -400],
+                x: [0, xValue, xValue],
                 y: [0, 0, 40],
                 opacity: [0, 1, 1],
               }
@@ -166,7 +168,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="border border-orange-500 text-orange-500 px-4 py-2 rounded-full text-sm hover:bg-orange-500 hover:text-white transition-all duration-300"
+            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300"
           >
             Get to Know Us!
           </motion.button>
@@ -174,12 +176,13 @@ const GetToKnow = () => {
 
 
         <motion.div
-          className="w-full md:w-3/4 text-center md:text-left"
+          className="w-full md:w-3/4 text-center md:text-left "
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={
             isInView && !isMobile
               ? {
-                x: [0, 200, 200],
+                // x: [0, 150, 150],
+                x: [0, kValue, kValue],
                 y: [0, 0, -40],
                 opacity: [0, 1, 1],
               }
@@ -187,7 +190,7 @@ const GetToKnow = () => {
           }
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
         >
-          <h2 className="text-2xl md:text-3xl font-semibold leading-snug">
+          <h2 className="text-2xl md:text-2xl lg:text-3xl font-semibold leading-snug">
             At QuadB, we specialize in cutting-edge software development,
             <br />
             from robust Web2 applications to blockchain-powered Web3 ecosystems.
@@ -196,7 +199,7 @@ const GetToKnow = () => {
           </h2>
 
           <motion.div
-            className="mt-6 flex justify-center md:justify-start space-x-10 text-lg font-semibold text-orange-700"
+            className="mt-6 flex flex-col sm:flex-row justify-center md:justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "visible"}
@@ -204,10 +207,11 @@ const GetToKnow = () => {
             <motion.span variants={itemVariants}>100+ Successful Projects</motion.span>
             <motion.span variants={itemVariants}>10+ Years of Expertise</motion.span>
           </motion.div>
+
         </motion.div>
       </motion.div>
 
-      {/* Light Background Shape */}
+      {/* Bg Shape */}
       <div className="absolute top-0 right-0 h-full w-full flex items-center justify-end pointer-events-none">
         <img src="Frame 37 (1).png" alt="" />
       </div>

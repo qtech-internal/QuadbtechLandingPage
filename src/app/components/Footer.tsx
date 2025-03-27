@@ -5,7 +5,7 @@ import { FaInstagram, FaDribbble, FaXTwitter, FaWordpress, FaDiscord, FaLinkedin
 export default function Footer() {
   return (
     <footer className="relative flex flex-wrap justify-between items-center py-10 px-6 bg-white  md:flex-nowrap md:px-10">
-   
+
       <div className="relative flex items-center mb-6 md:mb-0">
         <div className="absolute -left-10 w-32 h-32  -bottom-10 md:w-40 md:h-40">
           <Image src="/Frame 37 (1).png" alt="Background Shape" width={70} height={70} objectFit="contain" />
@@ -13,8 +13,7 @@ export default function Footer() {
         <Image src="/Logo Black.png" alt="QuadB Tech" width={100} height={50} className="relative z-10" />
       </div>
 
-
-      <div className="flex space-x-4 text-gray-500 text-xl md:text-2xl">
+      <div className="flex space-x-4 text-[var(--bg-card)] text-xl md:text-2xl">
         <FaInstagram />
         <FaDribbble />
         <FaXTwitter />
@@ -24,8 +23,8 @@ export default function Footer() {
         <FaFacebook />
       </div>
 
-     
-      <button className="mt-6 md:mt-0 border-2 border-orange-500 text-black px-6 py-2 rounded-full hover:bg-orange-500 hover:text-white transition">
+
+      <button className="mt-6 md:mt-0 border-2 button-theme px-6 py-2 rounded-full hover: hover:text-secondary transition">
         CONTACT US
       </button>
     </footer>

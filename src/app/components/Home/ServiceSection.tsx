@@ -1,10 +1,7 @@
-
 "use client";
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-
-// Type for points array
 type ServiceCardProps = {
   title: string;
   points: string[];
@@ -17,13 +14,11 @@ type ServiceCardProps = {
   onMouseLeave: () => void;
   hoverPosition?: "top" | "center" | "bottom";
 };
-
-
 const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   points,
-  bg = "bg-orange-500",
-  hoverBg = "bg-orange-600",
+  bg = "bg-theme",
+  hoverBg = "bg-theme",
   textColor = "text-white",
   isHovered,
   isAnyHovered,
@@ -45,13 +40,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       `}
     >
 
-
-      {/* Main Title */}
       <div className="flex items-center justify-center h-full w-full text-center">
         {title}
       </div>
-
-      {/* Hover Content (Overlay) */}
+ {/* Hover Content  */}
       <div
         className={`
       absolute top-0 left-0 w-full
@@ -213,8 +205,8 @@ const ServiceSection: React.FC = () => {
         key={idx}
         title={service.title}
         points={service.points}
-        bg={customStyle?.bg || "bg-orange-500"}
-        hoverBg={customStyle?.hoverBg || "bg-orange-600"}
+        bg={customStyle?.bg || "bg-theme"}
+        hoverBg={customStyle?.hoverBg || "bg-theme"}
         textColor={customStyle?.textColor || "text-white"}
         isHovered={hoveredIndex === service.title}
         isAnyHovered={hoveredIndex !== null}
@@ -224,16 +216,7 @@ const ServiceSection: React.FC = () => {
     ));
 
   return (
-    // <section className="max-w-[1500px] mx-auto py-16 text-center px-4">
-    //   <section
-    //   ref={ref}
-    //   className={`
-    //     max-w-[1500px] mx-auto py-16 text-center px-4
-    //     transition-all duration-1000 ease-out
-    //     ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}
-    //   `}
-    // >
-    <motion.section
+   <motion.section
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -251,29 +234,29 @@ const ServiceSection: React.FC = () => {
 
       {/* First Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 items-start relative">
-        <div className="bg-orange-100 h-16 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
+        <div className="div-bg h-16 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
         {renderRow(firstRow)}
-        <div className="bg-orange-100 h-16 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
+        <div className="div-bg h-16 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
       </div>
 
       {/* Second Row */}
       <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-4 mt-10 w-full relative">
-        <div className="bg-orange-100 h-16 w-40 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
+        <div className="div-bg h-16 w-40 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
         {renderRow(secondRow, {
-          bg: "bg-white border-1 border-orange-400",
-          hoverBg: "bg-orange-100 border border-orange-400",
-          textColor: "text-black",
+          bg: "bg-white border-1 border-theme",
+          hoverBg: "bg-theme  ",
+          textColor: "text-primary",
         })}
-        <div className="bg-orange-100 h-16 w-40 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
+        <div className="div-bg h-16 w-40 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
       </div>
 
       {/* Third Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 items-end relative">
-        <div className="bg-orange-100 h-16 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
+        <div className="div-bg h-16 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
         {renderRow(thirdRow)}
-        <div className="bg-orange-100 h-16 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
+        <div className="div-bg h-16 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
       </div>
-      {/* </section> */}
+     
     </motion.section>
   );
 };
