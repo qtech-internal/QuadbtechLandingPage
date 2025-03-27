@@ -10,6 +10,7 @@ import Job from "./components/Home/Job";
 import Contact from "./components/Home/Contact";
 import HeroMobile from "./components/Home/HeroMobile";
 
+
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -29,6 +30,7 @@ export default function Home() {
     <>
       <section className="mt-20 container mx-auto">
         {/* <HeroSection /> */}
+        
         {isMobile ? <HeroMobile /> : <HeroSection />}
         <GetToKnow />
         <ServiceSection />

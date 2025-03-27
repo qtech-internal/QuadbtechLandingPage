@@ -1,93 +1,3 @@
-
-// 'use client';
-
-// import Image from 'next/image';
-// import { useState } from 'react';
-
-// export default function HeroSection() {
-//   const [activeSlide, setActiveSlide] = useState(1);
-
-//   return (
-//     <section className="relative w-full    bg-white flex flex-col items-center px-8 py-10">
-//       {/* Full Width Heading */}
-//           {/* <div className="w-full text-center py-6 bg-white">
-
-//         <h1 className="text-4xl font-bold leading-tight ">
-//           <span className="relative inline-block">
-//             <span className="absolute top-[-10px] left-[-10px] text-orange-500">"</span>
-//             Your Vision, Our Expertise:
-//           </span>
-//           <br />
-//           Crafting the <span className="relative inline-block px-3 border-2 border-orange-500 rounded-lg">Future of Technology</span>
-//           <span className="text-orange-500">"</span>
-//         </h1>
-//       </div> */}
-
-//       {/* Main Container */}
-//       <div className="w-full max-w-[1500px] flex items-start gap-10">
-//         {/* Left Section */}
-//         <div className="flex flex-col items-start gap-6 w-1/3">
-//           <button className="px-4 py-2 bg-orange-500 text-white rounded-full shadow-md ">
-//             Start Building Today
-//           </button>
-//           <p className="text-lg font-semibold">
-//             Empowered Teams<br />Endless Possibilities
-//           </p>
-
-//                       <div className="flex flex-col items-center gap-2 relative">
-//           {[1, 2, 3].map((id) => (
-//             <div key={id} className="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden">
-//               <Image src="/profile-placeholder.jpg" alt="Profile" width={56} height={56} />
-//             </div>
-//           ))}
-//         </div>
-//           <div className="grid grid-cols-2 gap-2">
-//             {['Scalable', 'Reliable', 'Future-Ready', 'Secure'].map((tag) => (
-//               <span key={tag} className={`px-3 py-1 text-sm font-medium rounded-full border-2 ${tag === 'Reliable' ? 'bg-orange-500 text-white' : 'border-orange-500'}`}>{tag}</span>
-//             ))}
-//           </div>
-//         </div>
-
-//         {/* Main Banner */}
-//         <div className="relative w-full max-w-[900px]">
-//                   {/* Banner Image */}
-
-
-//          <h1 className="text-4xl font-bold leading-tight text-left py-6 ">
-//            <span className="relative inline-block">
-//              <span className="absolute top-[-10px] left-[-10px] text-orange-500">"</span>
-//              Your Vision, Our Expertise:
-//            </span>
-//            <br />
-//            Crafting the <span className="relative inline-block px-3 border-2 border-orange-500 rounded-lg">Future of Technology</span>
-//            <span className="text-orange-500">"</span>
-//          </h1>
-
-//           <div className="relative w-full h-[400px] overflow-hidden rounded-2xl">
-//             <Image src="/bg.webp" alt="Banner" layout="fill" objectFit="cover" className="rounded-2xl" />
-//             <button className="absolute top-8 left-8 px-4 py-2 bg-black text-white rounded-lg flex items-center gap-2">
-//               Book Free Consultancy <span>&rarr;</span>
-//             </button>
-//             <div className="absolute bottom-6 left-6 bg-orange-500 text-white p-4 rounded-lg">
-//               <h3 className="text-lg font-semibold">Transforming Ideas into Reality</h3>
-//               <a href="#" className="underline text-sm">Learn More</a>
-//             </div>
-//           </div>
-
-//           {/* Carousel Controls */}
-//           <div className="absolute top-1/2 right-6 transform -translate-y-1/2 flex flex-col items-center gap-2">
-//             {[1, 2, 3].map((id) => (
-//               <button key={id} onClick={() => setActiveSlide(id)} className={`w-8 h-8 flex items-center justify-center rounded-full border ${activeSlide === id ? 'bg-orange-500 text-white' : 'border-orange-500 text-black'}`}>
-//                 {id}
-//               </button>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 'use client';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -157,55 +67,64 @@ export default function Home() {
       description: "Learn More",
       iconSrc: "/first.gif",
       bgColor: "/bg.webp",
-      imageSrc: "/blog5.jpeg",
+      imageSrc: "/1st.png",
     },
     {
       title: "Innovate Your Business",
       description: "Discover How",
       iconSrc: "/first.gif",
       bgColor: "/bg.webp",
-      imageSrc: "/bg.webp",
+      imageSrc: "/2nd.jpeg",
     },
     {
       title: "Engineering Future",
       description: "Get Started",
       iconSrc: "/first.gif",
       bgColor: "/bg.webp",
-      imageSrc: "/bg.webp",
+      imageSrc: "/3rd.jpeg",
     },
   ];
 
 
   return (
-    <div className="relative w-full max-w-[1500px] min-h-screen overflow-x-hidden bg-white text-black flex flex-col items-center justify-center mb-10  ">
-
-
+    <div className="relative w-full max-w-[1500px] h-auto min-h-[700px] overflow-visible bg-white text-black flex flex-col items-center justify-center mb-10 ">
       <div ref={logoRef} className="absolute text-5xl font-bold">
         <img src="/logo.png" alt="Logo" className="w-54 h-54" />
       </div>
 
 
-      <div ref={textRef} className="absolute mt-20 text-2xl md:text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
+      <div ref={textRef} className="absolute   lg:mt-0 xl:mt-10 text-2xl z-30 md:text-3xl lg:text-3xl xl-text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
 
         <span ref={firstLineRef} className="block top-[-10px] left-[-10px] 2xl:left-[-20px] whitespace-nowrap">
           <span className="relative inline-block align-super mr-2">
-            <img src="/starting comma.png" alt="Ending Quote" className="w-6 h-6 md:w-8 md:h-8" />
+
+
+
+            <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.51976 8.34108C8.51912 10.1024 8.86702 11.7138 9.58089 13.4069C9.61535 13.4887 9.65071 13.5707 9.68698 13.6531C9.91403 12.204 10.3733 10.8427 11.0584 9.52226L8.51976 8.34108Z" stroke="var(--bg-card)" stroke-width="6" />
+              <mask id="path-2-inside-1_65020_1056" fill="white">
+                <path d="M25.1824 16.1133C20.9081 19.2458 20.4842 22.6811 21.402 30.2362C16.7495 20.9543 15.8924 16.5748 18.828 10.8571L25.1824 16.1133Z" />
+              </mask>
+              <path d="M21.402 30.2362L36.2925 28.4273L7.99226 36.9578L21.402 30.2362ZM25.1824 16.1133L34.7431 4.55505L49.5817 16.8291L34.0491 28.2122L25.1824 16.1133ZM18.828 10.8571L5.48399 4.00601L14.008 -12.5963L28.3886 -0.701151L18.828 10.8571ZM6.51142 32.045C6.05168 28.2603 5.54202 23.0994 6.75755 18.0232C8.2608 11.7454 11.8797 7.26541 16.3158 4.01446L34.0491 28.2122C33.9341 28.2964 34.3628 28.0043 34.882 27.2744C35.14 26.9117 35.3725 26.5079 35.5632 26.0807C35.752 25.6578 35.8662 25.2874 35.9328 25.0093C36.0553 24.4977 35.9923 24.3946 36.0026 25.0469C36.013 25.7115 36.0882 26.7454 36.2925 28.4273L6.51142 32.045ZM15.6218 27.6716L9.26733 22.4154L28.3886 -0.701151L34.7431 4.55505L15.6218 27.6716ZM32.172 17.7083C31.9322 18.1753 32.004 18.1574 32.071 17.8069C32.103 17.6392 32.121 17.4621 32.1237 17.2974C32.1263 17.1368 32.1133 17.0513 32.1154 17.0661C32.1247 17.13 32.2066 17.6167 32.6388 18.7494C33.0747 19.8918 33.7547 21.4058 34.8117 23.5146L7.99226 36.9578C5.59564 32.1765 3.22469 26.9023 2.42345 21.354C1.48212 14.8357 2.82595 9.18309 5.48399 4.00601L32.172 17.7083Z" fill="var(--bg-card)" mask="url(#path-2-inside-1_65020_1056)" />
+            </svg>
           </span>
           Your vision, your expertise:
         </span>
-        <span ref={secondLineRef} className=" absolute left-[43rem] lg:left-[43rem] md:left-[20rem] 2xl:left-[96rem]  whitespace-nowrap">
-          Crafting the <span className="relative  px-3 border-2 border-orange-500 rounded-lg">Future of Technology</span>
+        <span ref={secondLineRef} className=" absolute left-[43rem] xl:left-[43rem] lg:left-[28rem] md:left-[20rem] 2xl:left-[65rem]  whitespace-nowrap">
+          Crafting the <span className="relative  px-3 border-2 border-theme rounded-full">Future of Technology</span>
           <span className="relative inline-block align-super mr-4">
-            <img src="/ending comma.png" alt="Ending Quote" className="w-6 h-6 md:w-8 md:h-8" />
+            {/* <img src="/ending comma.png" alt="Ending Quote" className="w-6 h-6 md:w-8 md:h-8" /> */}
+            <svg width="22" height="32" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.4517 5.43384C15.328 7.37721 15.6896 9.2738 15.6257 11.4503C15.6065 12.1034 15.549 12.787 15.4521 13.5098C14.5914 11.4475 13.3302 9.79201 11.6162 8.38357L14.4517 5.43384Z" stroke="var(--bg-card)" stroke-width="5" />
+              <path d="M4.5216 17.2351C5.2324 18.2581 5.70588 19.339 6.01549 20.5953C5.29124 19.919 4.48682 19.3596 3.59205 18.8967L4.5216 17.2351Z" stroke="var(--bg-card)" stroke-width="5" />
+            </svg>
+
+
+
           </span>
         </span>
       </div>
-
-
-
-      <div ref={carouselRef} className="absolute w-3/4 opacity-0 top-24 left-0 right-0 mx-auto">
-
-
+      <div ref={carouselRef} className="absolute w-3/4 opacity-0   left-0 right-0 mx-auto">
         <div className="relative rounded-[30px] overflow-hidden">
           <Swiper
             modules={[Pagination, Navigation, Autoplay]}
@@ -234,14 +153,12 @@ export default function Home() {
                     backgroundImage: `url(${item.imageSrc})`,
                   }}
                 ></div>
-
-
+                {/* Theme-Based Overlay */}
+                <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <div className={`absolute inset-0 ${item.bgColor}`}></div>
 
-
-
                 <div className="absolute bottom-8 left-8 max-w-md bg-white/10 backdrop-blur-md p-4 rounded-xl shadow-lg flex items-center space-x-4">
-                  <div className="bg-orange-50 p-2 rounded-lg shadow-md">
+                  <div className="div-bg p-2 rounded-lg shadow-md">
                     <img src={item.iconSrc} alt="Icon" className="w-12 h-12" />
                   </div>
                   <div>
@@ -251,43 +168,29 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-
-
-
-                <button className="absolute bottom-1/3 left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-orange-500 hover:text-white">
+                <button className="absolute bottom-1/3 left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold  hover:bg-[var(--bg-card)] hover:text-white">
                   <span>Book Free Consultancy</span>
-                  <button className="relative w-12 h-12 rounded-full bg-white border-2 border-orange-500 flex items-center justify-center">
-                    <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center">
+                  <button className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-theme flex items-center justify-center">
                       <span className="text-white text-xl leading-none -mt-1">&gt;</span>
                     </div>
                   </button>
-
-
                 </button>
               </SwiperSlide>
             ))}
-
-            {/* Navigation */}
-            <div className="swiper-button-next !text-white !after:text-2xl"></div>
-            <div className="swiper-button-prev !text-white !after:text-2xl"></div>
-          </Swiper>
-
-
-        </div>
-      </div>
-
-      {/* Sidebar */}
-      {/* <div ref={sidebarRef} className="absolute left-0 top-10 bottom-40 w-1/4 h-auto bg-white p-5  flex flex-col items-start"> */}
-      <div ref={sidebarRef} className="absolute left-0 top-10  w-1/4 h-auto bg-white p-5 flex flex-col items-start opacity-0 translate-x-[-100%]">
-        <button className="relative px-6 py-2 text-black font-medium rounded-full 
-                       border border-orange-100
-                       bg-gradient-to-r from-orange-100 to-transparent
-                       hover:from-orange-100">
-
-          <span className="relative">Start Building Today</span>
-        </button>
-
-        {/* <p className="mt-4 font-semibold text-black text-left">Empowered Teams, Endless Possibilities</p> */}
+            <div className="swiper-button-next !w-6 !h-6 !text-[var(--p-text)] after:!text-xl after:!text-[var(--p-text)]"></div>
+            <div className="swiper-button-prev !w-6 !h-6 !text-[var(--p-text)] after:!text-xl after:!text-[var(--p-text)]"></div>
+ </Swiper>
+  </div>
+ </div>
+   {/* Sidebar */}
+   <div ref={sidebarRef} className="absolute left-0 top-10  w-1/4 h-auto bg-white p-5 flex flex-col items-start opacity-0 translate-x-[-100%]">
+  
+<button
+  className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]"
+>
+  <span className="relative">Start Building Today</span>
+</button>
         <div className="relative inline-block ">
           <p className="mt-4 font-semibold text-black text-left">
             Empowered Teams, Endless Possibilities
@@ -300,25 +203,25 @@ export default function Home() {
         </div>
 
 
-        <div className="relative mt-4 flex flex-col items-center space-y-6 my-10 ml-0 rounded-xl shadow-lg justify-start p-4   bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
+        <div className="relative mt-4 flex flex-col items-center space-y-6 my-10 ml-0 rounded-xl shadow-lg justify-start p-4  div-bg hover:scale-110 transition-transform duration-300 ease-in-out">
 
           {/* Right side half-visible big button */}
-          <div className="absolute  top-1/2 -translate-y-1/2 w-2 h-16 bg-orange-500 rounded-r-full shadow-md cursor-pointer -right-[10px]">
+          <div className="absolute  top-1/2 -translate-y-1/2 w-2 h-16 bg-theme rounded-r-full shadow-md cursor-pointer -right-[10px]">
             {/* Small circle on top of big button */}
             {/* <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-md"></div> */}
-            <div className="absolute right-[-12px] top-1/2  -translate-y-1/2 w-[4px] h-4 bg-orange-500 rounded-r-full left-2  shadow-md"></div>
+            <div className="absolute right-[-12px] top-1/2  -translate-y-1/2 w-[4px] h-4 bg-theme rounded-r-full left-2  shadow-md"></div>
           </div>
 
           {/* Circular Images */}
-          <img src="/person3.jpeg" alt="Person 1" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-          <img src="/person1.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-          <img src="/person2.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-orange-400" />
+          <img src="/person3.jpeg" alt="Person 1" className="w-16 h-16 rounded-full border-4 border-theme" />
+          <img src="/person1.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-theme" />
+          <img src="/person2.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-theme" />
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
-          <span className="px-3 py-1 border border-black rounded-full text-sm">Scalable</span>
-          <span className="px-3 py-1 bg-orange-500 text-white rounded-full text-sm">Reliable</span>
-          <span className="px-3 py-1 border border-black rounded-full text-sm">Future-Ready</span>
-          <span className="px-3 py-1 border border-black rounded-full text-sm">Secure</span>
+          <span className="px-3 py-1 border border-theme rounded-full text-sm">Scalable</span>
+          <span className="px-3 py-1 bg-theme text-white rounded-full text-sm">Reliable</span>
+          <span className="px-3 py-1 border border-theme rounded-full text-sm">Future-Ready</span>
+          <span className="px-3 py-1 border border-theme rounded-full text-sm">Secure</span>
         </div>
       </div>
     </div>
@@ -326,4 +229,3 @@ export default function Home() {
 
   );
 }
-

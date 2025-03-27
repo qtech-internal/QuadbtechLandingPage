@@ -1,7 +1,5 @@
 "use client";
-
-import Image from 'next/image';
-
+import Image from "next/image";
 interface JobCardProps {
   title: string;
   location: string;
@@ -9,7 +7,6 @@ interface JobCardProps {
   imageSrc: string;
   isOdd: boolean;
 }
-
 const JobCard: React.FC<JobCardProps> = ({
   title,
   location,
@@ -19,42 +16,12 @@ const JobCard: React.FC<JobCardProps> = ({
 }) => {
   return (
     <div
-      // className={`rounded-[20px] border font-roboto ${isOdd ? 'bg-orange-400 border-orange-400' : 'bg-white border-orange-400'
-      //   } w-[320px] h-[380px] flex flex-col justify-between p-4 relative`}
-      className={`rounded-[20px] border font-roboto  ${isOdd ? 'bg-orange-400 border-orange-400' : 'bg-white border-orange-400'
-        } w-[320px] h-[380px] flex flex-col justify-between p-4 relative shadow-md transition-all duration-300 
-      hover:shadow-gray-400 hover:shadow-lg hover:scale-102`}
-
+      className={`rounded-[20px] border border-theme font-roboto  
+        w-[320px] h-[380px] flex flex-col justify-between p-4 relative 
+        shadow-md transition-all duration-300 hover:shadow-gray-400 hover:shadow-lg hover:scale-102
+        ${isOdd ? "bg-white" : "bg-theme"}`}
     >
-      {/* rop Content */}
-      {/* <div className="space-y-4 z-10 ml-auto">
-        <h3
-          className={`${isOdd ? 'bg-white text-black' : 'bg-orange-400 text-white'
-            } inline-block px-3 py-1 rounded-full text-sm`}
-        >
-          {title}
-        </h3>
-        <div>
-          <p
-            className={`rounded-full text-sm px-2 py-1 mb-1 inline-block ${isOdd
-              ? 'bg-transparent text-white border-white'
-              : 'bg-transparent text-black border-black'
-              } border rounded-full`}
-          >
-            Location: {location}
-          </p>
-        </div>
-        <div>
-          <p
-            className={`rounded-full text-sm px-2 py-1 inline-block ${isOdd
-              ? 'bg-transparent text-white border-white'
-              : 'bg-transparent text-black border-black'
-              } border rounded-full`}
-          >
-            Experience: {experience}
-          </p>
-        </div>
-      </div> */}
+      {/* Top Content */}
       <div className="space-y-4 z-10 ml-auto relative">
         <div className="relative inline-block">
           <img
@@ -62,9 +29,10 @@ const JobCard: React.FC<JobCardProps> = ({
             alt=""
             className="absolute -top-2 -left-3 w-8 h-8 z-0"
           />
+
           <h3
-            className={`${isOdd ? 'bg-white text-black' : 'bg-orange-400 text-white'} 
-        inline-block px-3 py-1 rounded-full text-sm relative z-10`}
+            className={`inline-block px-3 py-1 rounded-full text-sm relative z-10 
+    ${isOdd ? "bg-theme text-white" : "bg-white text-black"}`}
           >
             {title}
           </h3>
@@ -72,9 +40,8 @@ const JobCard: React.FC<JobCardProps> = ({
 
         <div>
           <p
-            className={`rounded-full text-sm px-2 py-1 mb-1 inline-block ${isOdd
-              ? 'bg-transparent text-white border-white'
-              : 'bg-transparent text-black border-black'} border rounded-full`}
+            className={`rounded-full text-sm px-2 py-1 mb-1 inline-block border 
+              ${isOdd ? "border-gray-300 text-black" : "border-theme text-theme"}`}
           >
             Location: {location}
           </p>
@@ -82,19 +49,17 @@ const JobCard: React.FC<JobCardProps> = ({
 
         <div>
           <p
-            className={`rounded-full text-sm px-2 py-1 inline-block ${isOdd
-              ? 'bg-transparent text-white border-white'
-              : 'bg-transparent text-black border-black'} border rounded-full`}
+            className={`rounded-full text-sm px-2 py-1 inline-block border 
+              ${isOdd ? "border-gray-300 text-black" : "border-theme text-theme"}`}
           >
             Experience: {experience}
           </p>
         </div>
       </div>
 
-
+      {/* Image Section */}
       <div className="relative w-full h-72 flex flex-col justify-end overflow-visible">
-
-        <div className="absolute left-[-30px] bottom-[-40px] w-56 h-80 z-10 overflow-visible ">
+        <div className="absolute left-[-30px] bottom-[-40px] w-56 h-80 z-10 overflow-visible">
           <Image
             src={imageSrc}
             alt="3D Illustration"
@@ -104,13 +69,11 @@ const JobCard: React.FC<JobCardProps> = ({
           />
         </div>
 
-
+        {/* Button */}
         <div className="z-20 flex justify-end pb-4">
           <button
-            className={`text-sm font-medium py-2 px-6 rounded-full border ${isOdd
-              ? 'bg-white text-black border-white hover:bg-gray-200'
-              : 'bg-orange-400 text-white hover:bg-gray-400'
-              }`}
+            className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 
+              ${isOdd ? "bg-gray-200 text-black border border-gray-400" : "button-theme"}`}
           >
             Apply Now
           </button>
@@ -121,3 +84,4 @@ const JobCard: React.FC<JobCardProps> = ({
 };
 
 export default JobCard;
+

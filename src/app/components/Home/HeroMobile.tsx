@@ -62,8 +62,11 @@ export default function Home() {
 
   return (
     <div className="w-full max-w-[1500px] overflow-x-hidden bg-white text-black flex flex-col items-center justify-center p-4">
-      <button className="relative px-6 py-2 text-black font-medium rounded-full border border-orange-500 
-                       bg-gradient-to-r from-transparent to-white hover:from-orange-100">
+      <button
+        // className="relative px-6 py-2 text-black font-medium rounded-full border border-orange-500
+        //                bg-gradient-to-r from-transparent to-white hover:from-orange-100">
+        className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]"
+>
         Start Building Today
       </button>
       <div className="text-center text-lg md:text-4xl font-medium mt-10 mb-8">
@@ -71,7 +74,7 @@ export default function Home() {
           <img src="/starting comma.png" alt="Quote" className="inline w-6 h-6 md:w-8 md:h-8" /> Your vision, your expertise:
         </span>
         <span className="block mt-2">
-          Crafting the <span className="inline-block px-3 border-2 border-orange-500 rounded-lg">Future of Technology</span>
+          Crafting the <span className="inline-block px-3 border-2 border-theme rounded-lg">Future of Technology</span>
           <img src="/ending comma.png" alt="Quote" className="inline w-6 h-6 md:w-8 md:h-8" />
         </span>
       </div>
@@ -79,17 +82,18 @@ export default function Home() {
       {/* Carousel */}
       <div className="w-full max-w-3xl mx-auto rounded-[30px] overflow-hidden">
         <Swiper
-          modules={[Pagination, Navigation, Autoplay]}
+          modules={[Pagination, Autoplay]}
           slidesPerView={1}
           loop={true}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          navigation
+          // navigation
           //   pagination={{ clickable: true }}
           className="h-[300px] md:h-[400px]"
         >
           {carouselItems.map((item, index) => (
             <SwiperSlide key={index} className="relative ">
               <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${item.imageSrc})` }}></div>
+              <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
               <div className={`absolute inset-0 ${item.bgColor}`}></div>
               <div className="absolute bottom-8 left-6 bg-white/10 backdrop-blur-md p-4 rounded-xl flex items-center space-x-4">
                 <div className="bg-orange-50 p-2 rounded-lg shadow-md">
@@ -104,18 +108,13 @@ export default function Home() {
           ))}
         </Swiper>
 
-        <style jsx>{`
-  :global(.swiper-button-prev::after),
-  :global(.swiper-button-next::after) {
-    color: white !important;
-  }
-`}</style>
+
 
       </div>
-      <button className=" mt-10   bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-orange-500 hover:text-white">
+      <button className=" mt-10   bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
         <span>Book Free Consultancy</span>
-        <button className="relative w-12 h-12 rounded-full bg-white border-2 border-orange-500 flex items-center justify-center">
-          <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center">
+        <button className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-theme  flex items-center justify-center">
             <span className="text-white text-xl leading-none -mt-1">&gt;</span>
           </div>
         </button>
@@ -129,22 +128,22 @@ export default function Home() {
       <div className="relative mt-10 flex flex-row items-center space-x-8 my-10 ml-0 rounded-xl shadow-lg justify-start p-4 bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
 
 
-        <div className="absolute top-[-6px] left-1/2 -translate-x-1/2 w-16 h-2 bg-orange-500 rounded-t-full shadow-md cursor-pointer">
+        <div className="absolute top-[-6px] left-1/2 -translate-x-1/2 w-16 h-2 bg-theme rounded-t-full shadow-md cursor-pointer">
 
-          <div className="absolute left-1/2 -translate-x-1/2 -top-[4px] w-4 h-2 bg-orange-500 rounded-t-full shadow-md"></div>
+          <div className="absolute left-1/2 -translate-x-1/2 -top-[4px] w-4 h-2 bg-theme rounded-t-full shadow-md"></div>
         </div>
 
 
-        <img src="/person3.jpeg" alt="Person 1" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-        <img src="/person1.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-orange-400" />
-        <img src="/person2.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-orange-400" />
+        <img src="/person3.jpeg" alt="Person 1" className="w-16 h-16 rounded-full border-4 border-theme" />
+        <img src="/person1.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-theme" />
+        <img src="/person2.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-theme" />
 
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
-        <span className="px-3 py-1 border border-black rounded-full text-sm">Scalable</span>
-        <span className="px-3 py-1 bg-orange-500 text-white rounded-full text-sm">Reliable</span>
-        <span className="px-3 py-1 border border-black rounded-full text-sm">Future-Ready</span>
-        <span className="px-3 py-1 border border-black rounded-full text-sm">Secure</span>
+        <span className="px-3 py-1 border border-theme rounded-full text-sm">Scalable</span>
+        <span className="px-3 py-1  bg-theme text-white rounded-full text-sm">Reliable</span>
+        <span className="px-3 py-1 border border-theme rounded-full text-sm">Future-Ready</span>
+        <span className="px-3 py-1 border border-theme rounded-full text-sm">Secure</span>
       </div>
 
 
