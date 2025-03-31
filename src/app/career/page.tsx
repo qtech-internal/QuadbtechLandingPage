@@ -283,13 +283,13 @@ export default function CareerPage() {
   ];
 
   return (
-    <main className="flex flex-col text-gray-900 bg-white w-full   ">
+    <main className="flex flex-col text-secondary bg-white w-full   ">
       <div className=" px-4 sm:px-6 lg:px-8 mt-20">
         {/* Section 1 - Hero - Improved spacing and alignment */}
         <section className="flex flex-col items-center justify-center bg-white py-12 sm:py-16 lg:py-20">
           {/* Heading - Refined spacing */}
           <img
-    src="/Frame 22.png"  
+    src="/career/career3.png"  
     alt="QuadB Logo"
     className="absolute top-20 right-0 w-1/2 h-1/2 object-contain"  
   />
@@ -317,7 +317,7 @@ export default function CareerPage() {
             {/* Grid Layout - Better responsive alignment */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-3">
               {/* Card 1 - Refined padding and height */}
-              <div className="bg-[#f97f07] p-5 sm:p-6 shadow-xl rounded-lg h-auto lg:h-[300px] text-white transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
+              <div className="bg-theme p-5 sm:p-6 shadow-xl rounded-lg h-auto lg:h-[300px] text-white transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
                 <p className="text-sm sm:text-base">
                   At QuadB Tech, we're more than just a tech company—we're a
                   community of innovators, problem-solvers, and visionaries
@@ -329,7 +329,7 @@ export default function CareerPage() {
               </div>
 
               {/* Card 2 - Consistent height across breakpoints */}
-              <div className="h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
+              {/* <div className="h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
                 <Image
                   className="h-full w-full object-cover rounded-lg"
                   src="/blog5.jpeg"
@@ -338,40 +338,91 @@ export default function CareerPage() {
                   height={300}
                   priority
                 />
-              </div>
+              </div> */}
+              <div className="relative h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
+
+  {/* Image */}
+  <Image
+    className="h-full w-full object-cover rounded-lg"
+    src="/career/career1.png"
+    alt="Abstract Technology Image"
+    width={410}
+    height={300}
+    priority
+  />
+</div>
+
 
               {/* Card 3 (Tall Card) - Better sizing */}
-              <div className="bg-white shadow-xl rounded-lg flex items-center justify-center h-[250px] sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
+              {/* <div className="bg-white shadow-xl rounded-lg flex items-center justify-center h-[250px] sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
                 <img
                   className="h-full w-full object-cover rounded-lg"
                   src="/blog2.jpeg"
                   alt="VR Technology Image"
                 />
-              </div>
+              </div> */}
+              <div className="relative bg-white shadow-xl rounded-lg flex items-center justify-center h-[250px] sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
+ 
+  <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
+
+
+  <img
+    className="h-full w-full object-cover rounded-lg"
+    src="/career/career2.jpeg"
+    alt="VR Technology Image"
+  />
+</div>
+
 
               {/* Card 4 - Improved list alignment */}
-              <div className="bg-[#fff6ed] p-5 sm:p-6 shadow-xl rounded-lg w-[420px] h-auto lg:h-[200px] sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
+              <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-[420px] h-auto lg:h-[200px] sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
                 <ul className="flex flex-col gap-3">
-                  <li className="border border-amber-600 rounded-3xl p-2 sm:p-3 flex items-center justify-center bg-white w-fit text-xs sm:text-sm">
+                  <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center justify-center bg-white w-fit text-xs sm:text-sm">
                     Develop groundbreaking blockchain solutions
                   </li>
-                  <li className="border border-amber-600 rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
+                  <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
                     Accelerate your career with continuous learning
                   </li>
-                  <li className="border border-amber-600 rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
+                  <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
                     Work from anywhere with our flexible culture
                   </li>
                 </ul>
               </div>
 
               {/* Card 5 - Centered properly */}
-              <div className="border-2 border-amber-400 shadow-xl  rounded-lg h-[180px] sm:h-[200px] overflow-hidden mx-auto ml-12 w-3.5/4 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
+              {/* <div className="border-2 border-theme shadow-xl  rounded-lg h-[180px] sm:h-[200px] overflow-hidden mx-auto ml-12 w-3.5/4 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
                 <img
                   src="/blog1.jpeg"
                   className="w-full h-full rounded-lg object-cover"
                   alt="Company logo"
                 />
-              </div>
+
+              </div> */}
+              <div className="relative border-2 border-theme shadow-xl rounded-lg h-[180px] sm:h-[200px] overflow-hidden mx-auto ml-12 w-4/5 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom flex items-center justify-center ">
+  {/* SVG */}
+  <svg
+    className="w-2/3 h-2/3 sm:w-3/4 sm:h-3/4 lg:w-full lg:h-full"
+    viewBox="0 0 30 41"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z"
+      fill="var(--bg-card)"
+      stroke="var(--bg-card)"
+      strokeWidth="0.868933"
+    />
+    <path
+      d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z"
+      fill="var(--bg-card)"
+      stroke="var(--bg-card)"
+      strokeWidth="0.868933"
+    />
+  </svg>
+</div>
+
             </div>
           </div>
         </section>
@@ -407,7 +458,7 @@ export default function CareerPage() {
               {sampleData.map((data, index) => (
                 <div
                   key={index}
-                  className="benefit-card border-2 border-amber-500 w-full sm:max-w-md lg:max-w-lg mx-auto lg:ml-auto h-auto p-5 sm:p-6 bg-[#fff2e4] rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-2xl"
+                  className="benefit-card border-2 border-theme w-full sm:max-w-md lg:max-w-lg mx-auto lg:ml-auto h-auto p-5 sm:p-6 div-bg rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-2xl"
                 >
                   <h3 className="text-lg sm:text-xl font-semibold mb-3">
                     {data.heading}
@@ -423,7 +474,7 @@ export default function CareerPage() {
             ref={bottomCardsRef}
             className="bottom-cards-container w-full flex flex-col sm:flex-row gap-6 lg:gap-8 mt-6 lg:mt-10"
           >
-            <div className="bottom-card border-2 border-amber-500 w-full sm:w-3/5 h-auto p-5 sm:p-6 rounded-xl bg-[#fff2e4] shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+            <div className="bottom-card border-2 border-theme w-full sm:w-3/5 h-auto p-5 sm:p-6 rounded-xl div-bg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
               <h3 className="text-lg sm:text-xl font-semibold mb-3">
                 Perks & Benefits
               </h3>
@@ -434,7 +485,7 @@ export default function CareerPage() {
               </p>
             </div>
 
-            <div className="bottom-card border-2 border-amber-500 w-full sm:w-2/5 h-auto p-5 sm:p-6 rounded-xl bg-[#fff2e4] shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+            <div className="bottom-card border-2 border-theme w-full sm:w-2/5 h-auto p-5 sm:p-6 rounded-xl div-bg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
               <h3 className="text-lg sm:text-xl font-semibold mb-3">
                 Growth & Learning
               </h3>

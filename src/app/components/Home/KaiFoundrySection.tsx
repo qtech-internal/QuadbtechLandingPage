@@ -1,6 +1,4 @@
-
 'use client';
-
 import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -83,106 +81,22 @@ export default function KaiFoundrySection() {
   }, [inView, imageControls, headingControls, paraControls, tagsControls]);
 
   return (
-    // <section
-    //   ref={ref}
-    //   className="relative px-6 md:px-10 py-20 md:py-20 my-20  flex mx-auto overflow-hidden mb-20  justify-center  "
-    // >
-    //   {/* Image Full Page Animation */}
-    //   <motion.div
-    //     initial={{ y: -200, opacity: 0 }}
-    //     animate={imageControls}
-    //     className="absolute z-30"
-    //     style={{ top: '50%', left: '40%', transform: 'translate(-50%, -40%)' }}
-    //   >
-    //     <Image src="/k.png" alt="Animation Image" width={350} height={350} className='object-cover' />
-    //   </motion.div>
-
-    //   {/* Overlay to hide background till image is done */}
-    //   {!imageAnimationDone && (
-    //     <div className="absolute inset-0 bg-white z-20"></div>
-    //   )}
-
-    //   {/* Main Content */}
-    //   <div className={`flex flex-col md:flex-row justify-between items-start md:items-center gap-10 relative z-10 transition-opacity duration-1000 ${imageAnimationDone ? 'opacity-100' : 'opacity-0'}`}>
-
-    //     {/* Left Side */}
-    //     <div className="flex-1 ">
-
-    //       {/* Heading */}
-    //       <motion.p
-    //         initial={{ x: -100, opacity: 0 }}
-    //         animate={headingControls}
-    //         className="text-gray-600 text-xl"
-    //       >
-    //         Our Web3 Innovation Lab
-    //         <div className="mt-2 flex">
-    //           <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={200} height={50} />
-    //         </div>
-    //       </motion.p>
-
-    //       {/* Paragraph */}
-    //       <motion.p
-    //         initial={{ x: 100, opacity: 0 }}
-    //         animate={paraControls}
-    //         className="mt-8 text-gray-700 text-lg md:text-xl font-medium"
-    //       >
-    //         Pushing the Boundaries of Decentralization
-    //         <br className="hidden sm:block" />
-    //         At KaiFoundry, we specialize in building next-generation Web3 products, designed for scalability,
-    //         security, and seamless user experiences. From smart contract development to NFT ecosystems, we
-    //         bring decentralized innovation to life.
-    //       </motion.p>
-
-    //       <div className="flex justify-start mt-4">
-    //         <button className="border border-orange-500 text-orange-500 px-6 py-2 rounded-full hover:bg-orange-100">
-    //           Explore More
-    //         </button>
-    //       </div>
-    //     </div>
-
-    //     {/* Right Side */}
-    //     <div className="flex-1 relative ">
-
-    //       {/* Tags */}
-    //       <motion.div
-    //         initial={{ opacity: 0 }}
-    //         animate={tagsControls}
-    //         className="flex flex-wrap gap-2 sm:gap-4 justify-center mt-10"
-    //       >
-    //         <span className="border border-orange-500 text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-    //           Smart Contracts & DeFi Solutions
-    //         </span>
-    //         <span className="border border-orange-500 text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-    //           Metaverse & Blockchain Gaming
-    //         </span>
-    //         <span className="border border-orange-500 text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-    //           NFT Marketplaces & Tokenization
-    //         </span>
-    //         <span className="border border-orange-500 text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-    //           dApps & Web3 Infrastructure
-    //         </span>
-    //         <span className="bg-orange-500 text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-    //           And Many More
-    //         </span>
-    //       </motion.div>
-
-    //     </div>
-    //   </div>
-    // </section>
-    <section
+   <section
     ref={ref}
-    className="relative px-6 md:px-10 py-20 md:py-20 my-20 flex mx-auto overflow-hidden mb-20 justify-center bg-white text-black"
+    className="relative px-6  md:px-10 py-20 md:py-20 my-20 flex mx-auto overflow-hidden mb-20 justify-center bg-white text-black"
   >
     {/* Image Full Page Animation */}
     <motion.div
       initial={{ y: -200, opacity: 0 }}
       animate={imageControls}
       className="absolute z-30"
-      style={{ top: "50%", left: "40%", transform: "translate(-50%, -40%)" }}
+      style={{ top: "40%", left: "40%", transform: "translate(-50%, -40%)" }}
     >
-      <Image src="/k.png" alt="Animation Image" width={350} height={350} className="object-cover " />
+        <Image src="/image3.svg" alt="Animation Image" width={350} height={350} className="object-cover " />
+     
     </motion.div>
-  
+ 
+
     {/* Overlay to hide background till image is done */}
     {!imageAnimationDone && <div className="absolute inset-0 bg-white z-20"></div>}
   
@@ -195,12 +109,12 @@ export default function KaiFoundrySection() {
       {/* Left Side */}
       <div className="flex-1">
         {/* Heading */}
-        <motion.p initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-gray-800 text-xl">
+        <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-gray-800 text-xl">
           Our Web3 Innovation Lab
           <div className="mt-2 flex">
             <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={200} height={50} />
           </div>
-        </motion.p>
+        </motion.div>
   
         {/* Paragraph */}
         <motion.p

@@ -4,16 +4,16 @@ import JobCard from '../JobCard';
 
 export default function Career() {
   const jobs = [
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg3.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/hand1 (1).png' },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/robot.png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/cardbg.png" },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg3.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/hand1 (1).png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg3.png' },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg3.png' },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/robot.png" },
-    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/bg22.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home7.png' },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home9.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home8.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home9.png" },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home7.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home9.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home9.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home9.png' },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home8.png" },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home8.png' },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,7 +45,7 @@ export default function Career() {
           <input
             type="text"
             placeholder="Search"
-            className="border border-orange-400 rounded-full px-4 py-2 w-full sm:w-72 focus:outline-none"
+            className="border border-theme rounded-full px-4 py-2 w-full sm:w-72 focus:outline-none"
           />
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function Career() {
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
-          className={`px-4 py-2 border rounded-lg ${currentPage === 1 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-orange-400 text-white'}`}
+          className={`px-4 py-2 border rounded-lg ${currentPage === 1 ? 'div-bg text-gray-500 cursor-not-allowed' : 'div-bg text-theme'}`}
         >
           Previous
         </button>
@@ -92,7 +92,7 @@ export default function Career() {
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 border rounded-lg ${currentPage === totalPages ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-orange-400 text-white'}`}
+          className={`px-4 py-2 border rounded-lg ${currentPage === totalPages ? 'div-bg text-gray-500 cursor-not-allowed' : 'div-bg text-theme'}`}
         >
           Next
         </button>

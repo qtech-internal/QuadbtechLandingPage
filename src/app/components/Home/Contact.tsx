@@ -75,7 +75,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div
+    <div id="contact"
       ref={ref}
 
       className={`relative max-w-[1500px] mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
@@ -83,11 +83,11 @@ export default function ContactUs() {
       }`}
 
     >
-      <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-black text-black text-center leading-none relative z-0 select-none">
-        CONTACT <span className="ml-2 text-orange-500">US</span>
+      <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-black text-secondary text-center leading-none relative z-0 select-none">
+        CONTACT <span className="ml-2 text-p">US</span>
       </h1>
 
-      <div className="absolute top-[90px] sm:top-[100px] md:top-[140px] left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-3 rounded-md w-[260px] sm:w-[280px] text-xs leading-5 shadow-lg z-10 text-center">
+      <div className="absolute top-[90px] sm:top-[100px] md:top-[140px] left-1/2 transform -translate-x-1/2 bg-theme text-theme px-4 py-3 rounded-md w-[260px] sm:w-[280px] text-xs leading-5 shadow-lg z-10 text-center">
         <p className="font-bold">QB TOWER</p>
         <p>15313 O&apos;Connell Park,</p>
         <p>Belleville 48990</p>
@@ -134,7 +134,7 @@ export default function ContactUs() {
                 value={formData[field.name as keyof typeof formData]}
                 onChange={handleChange}
                 placeholder={field.placeholder}
-                className="p-3 pl-10 rounded-md bg-orange-50 placeholder-black text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none transition"
+                className="p-3 pl-10 rounded-md div-bg placeholder-black text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none transition"
                 required
               />
             </div>
@@ -150,7 +150,7 @@ export default function ContactUs() {
               onChange={handleChange}
               placeholder="Your Message"
               rows={4}
-              className="p-3 pl-10 rounded-md bg-orange-50 placeholder-black text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none resize-none transition"
+              className="p-3 pl-10 rounded-md div-bg placeholder-black text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none resize-none transition"
               required
             ></textarea>
           </div>
@@ -159,8 +159,8 @@ export default function ContactUs() {
             type="submit"
             className={`flex flex-col justify-center items-center text-white rounded-md w-full py-6 ${
               loading || isRateLimited
-                ? "bg-orange-300 cursor-not-allowed"
-                : "bg-orange-500 hover:bg-orange-600 transition"
+                ? "bg-theme cursor-not-allowed"
+                : "bg-theme hover:div-bg transition"
             }`}
             disabled={loading || isRateLimited}
           >

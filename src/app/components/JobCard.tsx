@@ -22,7 +22,7 @@ const JobCard: React.FC<JobCardProps> = ({
         ${isOdd ? "bg-white" : "bg-theme"}`}
     >
       {/* Top Content */}
-      <div className="space-y-4 z-10 ml-auto relative">
+      <div className="space-y-4 z-10 ml-auto relative ">
         <div className="relative inline-block">
           <img
             src="Group 6.png"

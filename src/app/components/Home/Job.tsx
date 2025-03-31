@@ -12,12 +12,12 @@ interface Job {
 
 export default function Home() {
   const jobs: Job[] = [
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/bg3.png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/hand1 (1).png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/robot.png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/bg3.png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/bg3.png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/bg3.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home7.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home9.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home8.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home7.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home7.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home7.png" },
   ];
 
   const sliderRef = useRef<HTMLDivElement | null>(null);

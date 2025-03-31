@@ -109,17 +109,21 @@ const GetToKnow = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== 'undefined' && window.innerWidth < 768
-  );
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(0); 
   useEffect(() => {
-    const handleResize = () => {
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
       setIsMobile(window.innerWidth < 768);
-    };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+      const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+        setIsMobile(window.innerWidth < 768);
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
   const xValue = screenWidth >= 768 ? -400 : -50;
   const kValue = screenWidth >= 768 ? 150 : 80;

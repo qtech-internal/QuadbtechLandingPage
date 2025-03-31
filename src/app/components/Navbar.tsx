@@ -36,7 +36,7 @@ const Navbar = () => {
 
         {/*  Hidden on Mobile */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link href="">
+          <Link href="#contact">
             <button
               className={`px-4 py-2 rounded-full font-semibold button-theme ${
                 pathname === "" ? "border-theme text-theme" : "hover:bg-theme hover:text-secondary"
@@ -73,7 +73,7 @@ const Navbar = () => {
             { path: "/", label: "Home" },
             { path: "/career", label: "Career" },
             { path: "/blogs", label: "Blogs" },
-            { path: "/contact", label: "CONTACT US" },
+            { path: "/#contact", label: "CONTACT US" },
           ].map(({ path, label }) => (
             <Link
               key={path}

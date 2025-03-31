@@ -57,6 +57,9 @@ body {
   --button-border: #F97F07;
   --p-text:#d15019;
   --div-bg:#FFEDD5;
+  /* --k-bg:#C866D7; */
+  --k-bg:#F97316;
+
 }
 
 
@@ -70,7 +73,9 @@ body {
   --button-text: #1b1a1a;
   --button-border: #556b2f;
   --p-text:#115640;
-  --div-bg:#9bb077;
+  --div-bg:#c0cda9;
+  --k-bg: #8A9A5B;
+ 
   
 }
 
@@ -86,6 +91,8 @@ body {
   --button-border: #4b0082;
   --p-text:rgb(8, 50, 79);
   --div-bg:#f1eaf7;
+  --k-bg: #9370DB;
+  
 }
 
 .pink {
@@ -98,6 +105,8 @@ body {
   --button-border: #d1478f;
   --p-text: #8c1f4d;
   --div-bg: #ffd1dc;
+  --k-bg: #FF85C1;
+ 
 }
 
 
@@ -112,6 +121,8 @@ body {
   --button-border: #4682b4;
   --p-text: #205f96;
   --div-bg: #b3e0ff;
+  --k-bg: #7EC8E3;
+ 
 }
 
 
@@ -136,7 +147,7 @@ body {
   --button-text: #1b1a1a;
   --button-border: #8B5A2B;
   --p-text: #A67B5B;
-  --div-bg: #d3af88;
+  --div-bg: #f3dec7;
 }
 .cyan {
   --bg-card: #00A7A7;
@@ -147,7 +158,7 @@ body {
   --button-text: #1b1a1a;
   --button-border: #008B8B;
   --p-text: #20B2AA;
-  --div-bg: #83b4b4;
+  --div-bg: #d6f7f7;
 }
 /* Utility classes */
 .bg-theme {
@@ -180,3 +191,21 @@ body {
 .div-bg {
   background-color: var(--div-bg);
 }
+
+/* .k-bg {
+
+color:var(--k-bg);
+ 
+background-color: var(--k-bg);
+  
+} */
+/* .k-bg {
+  color: #C866D7;
+}
+rect {
+  fill: red !important; 
+} */
+.custom-svg rect {
+  fill: var(--k-bg);
+}
+

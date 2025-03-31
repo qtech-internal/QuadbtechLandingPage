@@ -67,21 +67,21 @@ export default function Home() {
       description: "Learn More",
       iconSrc: "/first.gif",
       bgColor: "/bg.webp",
-      imageSrc: "/1st.png",
+      imageSrc: "/home/home1.png",
     },
     {
       title: "Innovate Your Business",
       description: "Discover How",
       iconSrc: "/first.gif",
       bgColor: "/bg.webp",
-      imageSrc: "/2nd.jpeg",
+      imageSrc: "/home/home2.jpeg",
     },
     {
       title: "Engineering Future",
       description: "Get Started",
       iconSrc: "/first.gif",
       bgColor: "/bg.webp",
-      imageSrc: "/3rd.jpeg",
+      imageSrc: "/home/home3.jpeg",
     },
   ];
 
@@ -101,7 +101,7 @@ export default function Home() {
 
 
             <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8.51976 8.34108C8.51912 10.1024 8.86702 11.7138 9.58089 13.4069C9.61535 13.4887 9.65071 13.5707 9.68698 13.6531C9.91403 12.204 10.3733 10.8427 11.0584 9.52226L8.51976 8.34108Z" stroke="var(--bg-card)" stroke-width="6" />
+              <path d="M8.51976 8.34108C8.51912 10.1024 8.86702 11.7138 9.58089 13.4069C9.61535 13.4887 9.65071 13.5707 9.68698 13.6531C9.91403 12.204 10.3733 10.8427 11.0584 9.52226L8.51976 8.34108Z" stroke="var(--bg-card)" strokeWidth="6" />
               <mask id="path-2-inside-1_65020_1056" fill="white">
                 <path d="M25.1824 16.1133C20.9081 19.2458 20.4842 22.6811 21.402 30.2362C16.7495 20.9543 15.8924 16.5748 18.828 10.8571L25.1824 16.1133Z" />
               </mask>
@@ -115,8 +115,8 @@ export default function Home() {
           <span className="relative inline-block align-super mr-4">
             {/* <img src="/ending comma.png" alt="Ending Quote" className="w-6 h-6 md:w-8 md:h-8" /> */}
             <svg width="22" height="32" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.4517 5.43384C15.328 7.37721 15.6896 9.2738 15.6257 11.4503C15.6065 12.1034 15.549 12.787 15.4521 13.5098C14.5914 11.4475 13.3302 9.79201 11.6162 8.38357L14.4517 5.43384Z" stroke="var(--bg-card)" stroke-width="5" />
-              <path d="M4.5216 17.2351C5.2324 18.2581 5.70588 19.339 6.01549 20.5953C5.29124 19.919 4.48682 19.3596 3.59205 18.8967L4.5216 17.2351Z" stroke="var(--bg-card)" stroke-width="5" />
+              <path d="M14.4517 5.43384C15.328 7.37721 15.6896 9.2738 15.6257 11.4503C15.6065 12.1034 15.549 12.787 15.4521 13.5098C14.5914 11.4475 13.3302 9.79201 11.6162 8.38357L14.4517 5.43384Z" stroke="var(--bg-card)" strokeWidth="5" />
+              <path d="M4.5216 17.2351C5.2324 18.2581 5.70588 19.339 6.01549 20.5953C5.29124 19.919 4.48682 19.3596 3.59205 18.8967L4.5216 17.2351Z" stroke="var(--bg-card)" strokeWidth="5" />
             </svg>
 
 
@@ -168,14 +168,14 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-                <button className="absolute bottom-1/3 left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold  hover:bg-[var(--bg-card)] hover:text-white">
-                  <span>Book Free Consultancy</span>
-                  <button className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
-                    <div className="w-10 h-10 rounded-full bg-theme flex items-center justify-center">
-                      <span className="text-white text-xl leading-none -mt-1">&gt;</span>
-                    </div>
-                  </button>
-                </button>
+                <button className="absolute bottom-1/3 left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
+  <span>Book Free Consultancy</span>
+  <div className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
+    <div className="w-10 h-10 rounded-full bg-theme flex items-center justify-center">
+      <span className="text-white text-xl leading-none -mt-1">&gt;</span>
+    </div>
+  </div>
+</button>
               </SwiperSlide>
             ))}
             <div className="swiper-button-next !w-6 !h-6 !text-[var(--p-text)] after:!text-xl after:!text-[var(--p-text)]"></div>
@@ -213,9 +213,9 @@ export default function Home() {
           </div>
 
           {/* Circular Images */}
-          <img src="/person3.jpeg" alt="Person 1" className="w-16 h-16 rounded-full border-4 border-theme" />
-          <img src="/person1.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-theme" />
-          <img src="/person2.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-theme" />
+          <img src="/home/home4.jpeg" alt="Person 1" className="w-16 h-16 rounded-full border-4 border-theme" />
+          <img src="/home/home5.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-theme" />
+          <img src="/home/home6.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-theme" />
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           <span className="px-3 py-1 border border-theme rounded-full text-sm">Scalable</span>

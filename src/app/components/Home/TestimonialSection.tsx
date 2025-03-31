@@ -8,14 +8,14 @@ const TestimonialSection = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [outerRotation, setOuterRotation] = useState(0);
   const [hoveredId, setHoveredId] = useState(null);
-  const delay = 3000;
+  const delay = 1000;
 
 
   const innerImages = [
     {
       id: 5,
       angle: 0,
-      src: "/design.jpeg",
+      src: "/home/home14.jpeg",
       text: "Cutting-edge innovation meets reliability. Our NFT marketplace is thriving thanks to their team!",
       name: "James K., CTO, YieldSync Finance",
       comment: "High-performance .",
@@ -23,7 +23,7 @@ const TestimonialSection = () => {
     {
       id: 6,
       angle: 45,
-      src: "/test3.jpeg",
+      src: "/home/home15.jpeg",
       text: "Secure, optimized, and future-proof—our SaaS platform runs like a dream!",
       name: "Elena W., Product Lead, TrustLedger",
       comment: "High-performance .",
@@ -31,7 +31,7 @@ const TestimonialSection = () => {
     {
       id: 7,
       angle: 90,
-      src: "/test6.jpeg",
+      src: "/home/home16.jpeg",
       text: "Secure, optimized, and future-proof—our SaaS platform runs like a dream!",
       name: "Elena W., Product Lead, TrustLedger",
       comment: "Fast and Reliable.",
@@ -39,18 +39,18 @@ const TestimonialSection = () => {
     {
       id: 8,
       angle: 135,
-      src: "/test5.jpeg",
-      text: "Their team took our vision and turned it into a seamless, high-performance dApp. The UI/UX was flawless, and the smart contracts were secure and gas-efficient. Highly recommend!",
+      src: "/home/home11.jpeg",
+      text: "Their team took our vision and turned it into a seamless, high-performance dApp. Highly recommend!",
       name: " Alex R., CEO of BlockFi Ventures.",
       comment: "High-performance .",
     },
   ];
 
   const outerImages = [
-    { id: 1, angle: 0, src: "/test1.jpeg" },
-    { id: 2, angle: 45, src: "/test2.jpeg" },
-    { id: 3, angle: 90, src: "/test4.jpeg" },
-    { id: 4, angle: 135, src: "/test6.jpeg" },
+    { id: 1, angle: 0, src: "/home/home10.jpeg" },
+    { id: 2, angle: 45, src: "/home/home11.jpeg" },
+    { id: 3, angle: 90, src: "/home/home12.jpeg" },
+    { id: 4, angle: 135, src: "/home/home13.jpeg" },
   ];
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const TestimonialSection = () => {
 
   return (
 
-    <div className="relative flex items-center justify-center py-20 bg-white
+    <div className="relative flex items-center justify-center py-20 bg-white mx-2
     before:absolute before:top-0 before:left-0 before:w-40 before:h-40
     before:bg-[url('/vector2.png')] before:bg-contain before:bg-no-repeat before:opacity-30
     after:absolute after:bottom-0 after:right-0 after:w-40 after:h-40
@@ -104,7 +104,7 @@ const TestimonialSection = () => {
         })}
 
         {/* inner circle */}
-        <div className="absolute w-[430px] h-[430px] border-2 border-theme rounded-full"></div>
+        <div className="absolute w-[430px] h-[430px]  border-2 border-theme rounded-full"></div>
         {innerImages.map(({ id, angle, src, comment }, index) => {
           const newIndex = (index - currentIndex + innerImages.length) % innerImages.length;
           const newAngle = newIndex * 45;
@@ -130,7 +130,7 @@ const TestimonialSection = () => {
                 <div className="relative">
 
 
-                  <div className="absolute left-full -top-20 -translate-y-1/2 ml-2 w-48 p-2 text-[20px] text-white bg-theme rounded-lg shadow-lg opacity-100 transition-opacity duration-300 z-50">
+                  <div className="absolute left-full -top-20 -translate-y-1/2 ml-2 w-48 p-2 text:[20px] lg:text-[20px] sm:text-[14px] text-white bg-theme rounded-lg shadow-lg opacity-100 transition-opacity duration-300 z-50 whitespace-nowrap">
                     {comment}
 
                     <div className="absolute left-0 bottom-0 translate-x-[-6px] translate-y-[6px] rotate-[-20deg] 
@@ -159,8 +159,8 @@ const TestimonialSection = () => {
           <div className="w-14 h-14 div-bg rounded-full flex items-center justify-center">
             {/* <img src="/vector.png" alt="Ant" className="w-10 h-10 object-contain" /> */}
             <svg width="30" height="41" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" stroke-width="0.868933"/>
-<path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" stroke-width="0.868933"/>
+<path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933"/>
+<path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933"/>
 </svg>
 
           </div>
