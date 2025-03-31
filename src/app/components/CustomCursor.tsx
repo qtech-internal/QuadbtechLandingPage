@@ -63,18 +63,17 @@ export default function CustomCursor() {
         className="absolute w-16 h-16"
         style={{ transform: "translate(-50%, -50%)" }}
       >
-        <img
-          src="/logo.png"
-          alt="Custom Cursor"
-          className="w-full h-full object-contain"
-        />
+       <svg width="30" height="41" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
+              <path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
+            </svg>
       </div>
 
       {/* Floating Particles */}
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-amber-500 rounded-full"
+          className="absolute w-2 h-2 bg-theme rounded-full"
           animate={{
             x: [0, Math.random() * 40 - 20, 0],
             y: [0, Math.random() * 40 - 20, 0],
