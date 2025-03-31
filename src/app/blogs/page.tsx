@@ -219,7 +219,7 @@ export default function Home() {
 
           <h1
             ref={headerRef}
-            className="border-[4px] border-amber-500 w-[364px] md:w-[364px] md:h-[68px] p-2 rounded-[80px] text-center mb-20 mt-10 text-[1.5rem] font-bold mx-auto"
+            className="border-[4px] border-theme w-[364px] md:w-[364px] md:h-[68px] p-2 rounded-[80px]  text-center mb-20 mt-10 text-[1.5rem] font-bold mx-auto"
           >
             BLOGS
           </h1>
@@ -238,7 +238,7 @@ export default function Home() {
                     "path('M118 19C118 8.5 109.5 0 99 0H19C8.5 0 0 8.5 0 19V158C0 168.5 8.5 177 19 177H324C334.5 177 343 168.5 343 158V126C343 115.5 334.5 107 324 107H302C291.5 107 283 98.5 283 88V68C283 57.5 274.5 49 264 49H137C126.5 49 118 40.5 118 30V19Z')",
                 }}
               >
-                <span className="font-normal border border-amber-400 w-22 text-center rounded-3xl text-sm sm:text-base bg-white">
+                <span className="font-normal border border-theme w-22 text-center rounded-3xl text-sm sm:text-base bg-white">
                   Next-Gen
                 </span>
                 <span className="text-4xl bottom-0 text-black">
@@ -268,6 +268,7 @@ export default function Home() {
                 height={514}
                 className="w-full h-[250px] sm:h-[514px] rounded-2xl object-cover"
               />
+               <div className="absolute inset-0 bg-[var(--div-bg)] opacity-40 "></div>
             </div>
 
             {/* Content Divs */}
@@ -279,8 +280,8 @@ export default function Home() {
                 }}
                 className={`relative w-full h-auto flex flex-col justify-between sm:col-span-4 rounded-2xl px-8 text-center ${
                   index == 0
-                    ? "bg-[#ffe6cc] text-[#222]"
-                    : "bg-amber-500 text-[#fff]"
+                    ? "div-bg text-[#222]"
+                    : "bg-theme text-[#fff]"
                 }`}
               >
                 <p className="py-10">
@@ -294,16 +295,14 @@ export default function Home() {
                 <div
                   className={`absolute border-white border-8 bottom-[-5] right-[-5] h-[65px] w-[65px] rounded-4xl flex items-center justify-center ${
                     index == 0
-                      ? "bg-[#ffe6cc] text-[#222]"
-                      : "bg-amber-500 text-[#fff]"
+                      ? "div-bg text-[#222]"
+                      : "bg-theme text-[#fff]"
                   }`}
                 >
-                  <Image
-                    src="/vector.png"
-                    width={25}
-                    height={25}
-                    alt="vector"
-                  />
+                    <svg width="30" height="41" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
+              <path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
+            </svg>
                 </div>
               </div>
             ))}
@@ -341,7 +340,7 @@ export default function Home() {
 
           <button
             ref={sect_Two_Read_More}
-            className=" absolute bottom-6 font-semibold sm:left-52 left-50 border text-sm  border-amber-400 px-3 rounded-3xl bg-white"
+            className=" absolute bottom-6 font-semibold sm:left-52 left-50 border text-sm  border-theme px-3 rounded-3xl bg-white"
           >
             Read More
           </button>

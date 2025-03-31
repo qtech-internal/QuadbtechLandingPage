@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 interface JobCardProps {
   title: string;
   location: string;
@@ -72,12 +73,20 @@ const JobCard: React.FC<JobCardProps> = ({
 
         {/* Button */}
         <div className="z-20 flex justify-end pb-4">
-          <button
+          {/* <button
             className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 
               ${isOdd ? "bg-gray-200 text-black border border-gray-400" : "button-theme"}`}
           >
             Apply Now
-          </button>
+          </button> */}
+           <Link href="/form">
+        <button
+          className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 
+            ${isOdd ? "bg-gray-200 text-black border border-gray-400" : "button-theme"}`}
+        >
+          Apply Now
+        </button>
+      </Link>
         </div>
       </div>
     </div>

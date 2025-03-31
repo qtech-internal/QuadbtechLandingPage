@@ -30,18 +30,6 @@ export default function Home() {
 
   return (
     <>
-      <section className="mt-20 container mx-auto">
-        {/* <HeroSection /> */}
-        
-        {isMobile ? <HeroMobile /> : <HeroSection />}
-        <GetToKnow />
-        <ServiceSection />
-        <KaiFoundrySection />
-        <Job />
-        <TestimonialSection />
-        <Contact />
-      </section>
-
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
