@@ -1,8 +1,10 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 import Script from "next/script";
 import CustomCursor from "./components/CustomCursor";
 
@@ -41,14 +43,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Script
-          strategy="beforeInteractive"
-          src="https://www.google.com/recaptcha/api.js?render=6LcerfkqAAAAAIvyEjoxZj_RRG3EBK2NTsqXpIeC"
-        />
         <div className="container overflow-x-hidden mx-auto">
           <Navbar />
           <CustomCursor />
           {children}
+          <Toaster position="top-right" />
 
           <Footer />
         </div>

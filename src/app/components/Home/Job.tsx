@@ -12,12 +12,12 @@ interface Job {
 
 export default function Home() {
   const jobs: Job[] = [
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/bg3.png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/hand1 (1).png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/robot.png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/bg3.png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/bg3.png" },
-    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/bg3.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home7.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home9.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home8.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home7.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home7.png" },
+    { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home7.png" },
   ];
 
   const sliderRef = useRef<HTMLDivElement | null>(null);
@@ -62,7 +62,7 @@ export default function Home() {
   <h1 className="text-2xl md:text-2xl lg:text-3xl font-bold">
     Join Our Mission to Build the Future.
   </h1>
-  <button className="border border-orange-500 text-orange-500 px-6 py-2 rounded-full hover:bg-orange-100">
+  <button className=" px-6 py-2 rounded-full button-theme ">
     Explore More
   </button>
       </div>
@@ -88,7 +88,7 @@ export default function Home() {
 </div>
  {/*Scroll  */}
       <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        <div className="w-24 h-24 bg-white rounded-full border-1 border-orange-600 flex items-center justify-center text-[#B73B06] cursor-pointer z-30">
+        <div className="w-24 h-24 bg-theme rounded-full text-theme flex items-center justify-center  cursor-pointer z-30">
           <div className="flex items-center gap-2 z-30">
             <ChevronLeft className="w-6 h-6 cursor-pointer" onClick={handleScrollLeft} />
             <span className="font-bold">DRAG</span>
