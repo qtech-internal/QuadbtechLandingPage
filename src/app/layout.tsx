@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Script from "next/script";
+import CustomCursor from "./components/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,9 +17,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QuadB TECH",
+  title: {
+    default: "QuadB Tech",
+    template: "%s - QuadB Tech",
+  },
   description:
-    "QuadB TECH is a software development company that specializes in web development, mobile app development, and digital marketing.",
+    "QuadB Tech excels in web & mobile app development, delivering innovative digital solutions. Elevate your business with our expert tech services.",
+  twitter: {
+    card: "summary_large_image",
+  },
+  other: {
+    "google-site-verification": "35vI2M2ABkSBwhuLZbfmDBU9xgYnTc5Z068TjFjgUsM",
+  },
 };
 
 export default function RootLayout({
@@ -28,8 +38,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <title>QuadB Technology</title>
-      <link rel="icon" href="/Logo Black.png" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -39,7 +47,9 @@ export default function RootLayout({
         />
         <div className="container overflow-x-hidden mx-auto">
           <Navbar />
+          <CustomCursor />
           {children}
+
           <Footer />
         </div>
       </body>
