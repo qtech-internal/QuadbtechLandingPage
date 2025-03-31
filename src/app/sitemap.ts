@@ -7,7 +7,6 @@ export default async function siteMap() : Promise<MetadataRoute.Sitemap> {
             url: `${process.env.NEXT_PUBLIC_BASE_URL}/career`,
             lastModified: new Date(),
             priority:0.8,
-            images:
         },
         {
             url: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs`,
