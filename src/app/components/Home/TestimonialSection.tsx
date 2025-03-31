@@ -99,6 +99,7 @@ const TestimonialSection = () => {
               }}
             >
               <img src={src} className="w-full h-full object-cover" alt={`Outer ${id}`} />
+              <div className="absolute inset-0 bg-[var(--div-bg)] opacity-50"></div>
             </div>
           );
         })}
@@ -125,6 +126,7 @@ const TestimonialSection = () => {
               onMouseLeave={() => setHoveredId(null)}
             >
               <img src={src} className="w-full h-full object-cover rounded-full" alt={`Inner ${id}`} />
+              <div className="absolute inset-0 bg-[var(--div-bg)] opacity-50 rounded-full"></div>
               {hoveredId === id && (
 
                 <div className="relative">
@@ -142,13 +144,14 @@ const TestimonialSection = () => {
                   </div>
                 </div>
               )}
+
             </div>
 
           );
         })}
       </div>
       <div className="absolute text-center max-w-lg top-[40%]">
-        <h2 className="text-3xl font-semibold">
+        <h2 className="text-2xl  font-semibold">
           Over <span className="font-bold">10K+ Clients</span> Trust{" "}
           <span className="font-bold text-p">Quadb</span>
         </h2>
@@ -159,9 +162,9 @@ const TestimonialSection = () => {
           <div className="w-14 h-14 div-bg rounded-full flex items-center justify-center">
             {/* <img src="/vector.png" alt="Ant" className="w-10 h-10 object-contain" /> */}
             <svg width="30" height="41" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933"/>
-<path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933"/>
-</svg>
+              <path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
+              <path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
+            </svg>
 
           </div>
         </div>
@@ -170,7 +173,7 @@ const TestimonialSection = () => {
           <p className="text-secondary italic text-center">
             "{currentTestimonial.text}"
           </p>
-          <p className="mt-4 font-bold text-secondary opacity-[0.8]">— {currentTestimonial.name}</p>
+          <p className="mt-4 font-bold text-secondary opacity-[0.8] whitespace-nowrap">— {currentTestimonial.name}</p>
         </div>
       </div>
     </div>

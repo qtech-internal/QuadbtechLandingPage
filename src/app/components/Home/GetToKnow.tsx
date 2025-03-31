@@ -194,7 +194,7 @@ const GetToKnow = () => {
           }
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
         >
-          <h2 className="text-2xl md:text-2xl lg:text-3xl font-semibold leading-snug">
+          <h2 className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-semibold leading-snug">
             At QuadB, we specialize in cutting-edge software development,
             <br />
             from robust Web2 applications to blockchain-powered Web3 ecosystems.

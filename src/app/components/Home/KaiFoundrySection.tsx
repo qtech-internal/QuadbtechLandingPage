@@ -3,14 +3,14 @@ import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
+import SvgImage from '../SvgImage';
 
 export default function KaiFoundrySection() {
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: false });
-
-  const imageControls = useAnimation();
-  const headingControls = useAnimation();
-  const paraControls = useAnimation();
-  const tagsControls = useAnimation();
+const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: false });
+const imageControls = useAnimation();
+ const headingControls = useAnimation();
+ const paraControls = useAnimation();
+ const tagsControls = useAnimation();
 
   const [imageAnimationDone, setImageAnimationDone] = useState(false);
 
@@ -92,7 +92,9 @@ export default function KaiFoundrySection() {
       className="absolute z-30"
       style={{ top: "40%", left: "40%", transform: "translate(-50%, -40%)" }}
     >
-        <Image src="/image3.svg" alt="Animation Image" width={350} height={350} className="object-cover " />
+        {/* <Image src="/image3.svg" alt="Animation Image" width={350} height={350} className="object-cover " /> */}
+        <SvgImage  />
+        
      
     </motion.div>
  
@@ -112,7 +114,8 @@ export default function KaiFoundrySection() {
         <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-gray-800 text-xl">
           Our Web3 Innovation Lab
           <div className="mt-2 flex">
-            <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={200} height={50} />
+              <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={200} height={50} />
+            
           </div>
         </motion.div>
   
@@ -135,8 +138,7 @@ export default function KaiFoundrySection() {
   
       {/* Right Side */}
       <div className="flex-1 relative">
-        {/* Tags */}
-        <motion.div initial={{ opacity: 0 }} animate={tagsControls} className="flex flex-wrap gap-2 sm:gap-4 justify-center mt-10">
+       <motion.div initial={{ opacity: 0 }} animate={tagsControls} className="flex flex-wrap gap-2 sm:gap-4 justify-center mt-10">
           <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
             Smart Contracts & DeFi Solutions
           </span>
