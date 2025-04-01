@@ -17,7 +17,7 @@ const imageControls = useAnimation();
   useEffect(() => {
     const sequence = async () => {
       if (inView) {
-        // 1. Image enter from top to center
+      //  image enter from top to center
         await imageControls.start({
           y: 0,
           opacity: 1,
@@ -36,45 +36,29 @@ const imageControls = useAnimation();
           transition: { duration: 1, ease: 'easeInOut' }
         });
 
-        // 4. Mark image animation as done
+        //  image animation as done
         setImageAnimationDone(true);
 
-        // 5. Start heading
+        // Start heading
         await headingControls.start({
           x: 0,
           opacity: 1,
           transition: { duration: 0.8 }
         });
 
-        // 6. Start paragraph
+        //  paragraph
         await paraControls.start({
           x: 0,
           opacity: 1,
           transition: { duration: 0.8, delay: 0.1 }
         });
 
-        // 7. Start tags
+        // tags
         await tagsControls.start({
           opacity: 1,
           transition: { duration: 0.8, delay: 0.2 }
         });
       }
-      // else {
-      //   // Reverse animations when out of view
-      //   tagsControls.start({ opacity: 0, transition: { duration: 0.5 } });
-      //   paraControls.start({ x: 100, opacity: 0, transition: { duration: 0.5 } });
-      //   headingControls.start({ x: -100, opacity: 0, transition: { duration: 0.5 } });
-      //   imageControls.start({
-      //     x: 0,
-      //     y: -200,
-      //     opacity: 0,
-      //     scale: 1,
-      //     rotate: 0,
-      //     transition: { duration: 0.5, ease: 'easeInOut' }
-      //   });
-      //   setImageAnimationDone(false); // reset overlay
-      // }
-
     };
 
     sequence();
@@ -85,7 +69,7 @@ const imageControls = useAnimation();
     ref={ref}
     className="relative px-6  md:px-10 py-20 md:py-20 my-20 flex mx-auto overflow-hidden mb-20 justify-center bg-white text-black"
   >
-    {/* Image Full Page Animation */}
+    {/* image  Page Animation */}
     <motion.div
       initial={{ y: -200, opacity: 0 }}
       animate={imageControls}
@@ -94,15 +78,11 @@ const imageControls = useAnimation();
     >
         {/* <Image src="/image3.svg" alt="Animation Image" width={350} height={350} className="object-cover " /> */}
         <SvgImage  />
-        
-     
-    </motion.div>
- 
-
-    {/* Overlay to hide background till image is done */}
+        </motion.div>
+  {/* overlay to hide background till image is done */}
     {!imageAnimationDone && <div className="absolute inset-0 bg-white z-20"></div>}
   
-    {/* Main Content */}
+    {/* main  */}
     <div
       className={`flex flex-col md:flex-row justify-between items-start md:items-center gap-10 relative z-10 transition-opacity duration-1000 ${
         imageAnimationDone ? "opacity-100" : "opacity-0"

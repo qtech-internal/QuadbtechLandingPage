@@ -27,7 +27,7 @@ const BlockchainDeveloper = ({ onBack }) => {
       <div className="max-w-[1500px] mx-auto  p-8  relative">
         {/* Back Button */}
         <button
-          onClick={() => router.back()} // Navigate to previous page
+          onClick={() => router.back()} 
           className="absolute top-4 left-4 text-secondary hover:text-black"
         >
           &larr; Back

@@ -90,7 +90,7 @@ body {
   --div-bg:#FFEDD5;
   /* --k-bg:#C866D7; */
   --k-bg:#F97316;
-
+  --bg-cards: #f9924d;
 }
 
 
@@ -102,11 +102,11 @@ body {
   --button-bg: #808000;
   /* --button-text: #ffffff; */
   --button-text: #1b1a1a;
-  --button-border: #1a1e12;
+  --button-border: #3b442a;
   --p-text:#115640;
   --div-bg:#c0cda9;
   --k-bg: #8A9A5B;
- 
+  --bg-cards:#dada65;
   
 }
 
@@ -123,6 +123,7 @@ body {
   --p-text:rgb(8, 50, 79);
   --div-bg:#f1eaf7;
   --k-bg: #C866D7;
+  --bg-cards: #d6c4e0;
   
 }
 
@@ -137,26 +138,9 @@ body {
   --p-text: #8c1f4d;
   --div-bg: #ffd1dc;
   --k-bg: #FF85C1;
+  --bg-cards: #f7c6d7;
  
 }
-
-
-
-.sky {
-  --bg-card: #87ceeb;
-  --border-card: #4682b4;
-  --text-primary: #ffffff;
-  --text-secondary: #000000;
-  --button-bg: #87ceeb;
-  --button-text: #1b1a1a;
-  --button-border: #4682b4;
-  --p-text: #205f96;
-  --div-bg: #b3e0ff;
-  --k-bg: #7EC8E3;
- 
-}
-
-
 
 .red {
   --bg-card: #bc4f5a;
@@ -169,6 +153,7 @@ body {
   --p-text: #A52A2A;
   --div-bg: #c59198;
   --k-bg: #D96C75;
+  --bg-cards: #f7d1d3;
 }
 .brown {
   --bg-card: #846353;
@@ -177,10 +162,11 @@ body {
   --text-secondary: #000000;
   --button-bg: #7D4E36;
   --button-text: #1b1a1a;
-  --button-border: #8B5A2B;
+  --button-border: #c3b3a5;
   --p-text: #A67B5B;
   --div-bg: #f3dec7;
   --k-bg: #B68C72;
+  --bg-cards: #d6c4b5;
 }
 .cyan {
   --bg-card: #00A7A7;
@@ -193,6 +179,7 @@ body {
   --p-text: #20B2AA;
   --div-bg: #d6f7f7;
   --k-bg: #52D1C5;
+  --bg-cards: #a4d8e1;
 }
 /* Utility classes */
 .bg-theme {
@@ -230,7 +217,9 @@ body {
   fill: var(--k-bg);
 }
 
-
+.bg-blog {
+  background-color: var(--bg-cards);
+}
 
 .blog-1-image {
     clip-path: path("M18 0C8.05887 0 0 8.05887 0 18V316C0 326.493 8.50659 335 19 335H99C109.493 335 118 343.507 118 354V365C118 375.493 126.507 384 137 384H264C274.493 384 283 392.507 283 403V423C283 433.493 291.507 442 302 442H324C334.493 442 343 450.507 343 461V493C343 503.493 351.507 512 362 512H906C915.941 512 924 503.941 924 494V18C924 8.05887 915.941 0 906 0H18Z");
