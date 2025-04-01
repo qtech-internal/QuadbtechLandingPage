@@ -1,7 +1,5 @@
-
 "use client";
 import { useEffect, useState } from "react";
-
 const TestimonialSection = () => {
   const [rotation, setRotation] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(3); // Start from last image

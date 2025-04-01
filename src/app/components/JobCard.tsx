@@ -67,19 +67,14 @@ const JobCard: React.FC<JobCardProps> = ({
             alt="3D Illustration"
             width={500}
             height={500}
-            className="object-contain w-full h-full "
+            className="object-contain w-full h-full mix-blend-multiply  opacity-90"
+            style={{ mixBlendMode: "multiply" }} 
           />
         </div>
 
         {/* Button */}
         <div className="z-20 flex justify-end pb-4">
-          {/* <button
-            className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 
-              ${isOdd ? "bg-gray-200 text-black border border-gray-400" : "button-theme"}`}
-          >
-            Apply Now
-          </button> */}
-           <Link href="/form">
+      <Link href="/form">
         <button
           className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 
             ${isOdd ? "bg-gray-200 text-black border border-gray-400" : "button-theme"}`}

@@ -218,11 +218,14 @@ export default function Home() {
           {/* Header */}
 
           <h1
-            ref={headerRef}
-            className="border-[4px] border-theme w-[364px] md:w-[364px] md:h-[68px] p-2 rounded-[80px]  text-center mb-20 mt-10 text-[1.5rem] font-bold mx-auto"
-          >
-            BLOGS
-          </h1>
+  ref={headerRef}
+  className="border-[4px] border-theme w-[364px] md:w-[364px] md:h-[68px] 
+  p-2 rounded-[80px] text-center mb-20 mt-10 text-[1.5rem] font-bold 
+  mx-auto flex items-center justify-center"
+>
+  BLOGS
+</h1>
+
 
           {/* Grid Container */}
           <div className="grid sm:grid-cols-12 grid-cols-1 gap-4 px-10">
@@ -268,7 +271,7 @@ export default function Home() {
                 height={514}
                 className="w-full h-[250px] sm:h-[514px] rounded-2xl object-cover"
               />
-               <div className="absolute inset-0 bg-[var(--div-bg)] opacity-40 "></div>
+               <div className="absolute inset-0 bg-[var(--div-bg)] opacity-40 rounded-2xl "></div>
             </div>
 
             {/* Content Divs */}
@@ -281,7 +284,7 @@ export default function Home() {
                 className={`relative w-full h-auto flex flex-col justify-between sm:col-span-4 rounded-2xl px-8 text-center ${
                   index == 0
                     ? "div-bg text-[#222]"
-                    : "bg-theme text-[#fff]"
+                    : "bg-blog text-[#fff]"
                 }`}
               >
                 <p className="py-10">
@@ -296,7 +299,7 @@ export default function Home() {
                   className={`absolute border-white border-8 bottom-[-5] right-[-5] h-[65px] w-[65px] rounded-4xl flex items-center justify-center ${
                     index == 0
                       ? "div-bg text-[#222]"
-                      : "bg-theme text-[#fff]"
+                      : "bg-blog text-[#fff]"
                   }`}
                 >
                     <svg width="30" height="41" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">

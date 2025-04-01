@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -87,13 +86,17 @@ export default function Home() {
 
 
   return (
-    <div className="relative w-full max-w-[1500px] h-auto min-h-[700px] overflow-visible bg-white text-black flex flex-col items-center justify-center mb-10 ">
+    <div className="relative w-full max-w-[1500px] h-auto min-h-[700px]  overflow-visible bg-white text-black flex flex-col items-center justify-center  ">
       <div ref={logoRef} className="absolute text-5xl font-bold">
-        <img src="/logo.png" alt="Logo" className="w-54 h-54" />
+        {/* <img src="/logo.png" alt="Logo" className="w-54 h-54" /> */}
+        <svg width="200" height="200" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
+          <path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
+        </svg>
       </div>
 
 
-      <div ref={textRef} className="absolute   lg:mt-0 xl:mt-10 text-2xl z-30 md:text-3xl lg:text-3xl xl-text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
+      <div ref={textRef} className="absolute   lg:mt-0 xl:mt-10  text-2xl z-30 md:text-3xl lg:text-3xl xl-text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
 
         <span ref={firstLineRef} className="block top-[-10px] left-[-10px] 2xl:left-[-20px] whitespace-nowrap">
           <span className="relative inline-block align-super mr-2">
@@ -124,7 +127,7 @@ export default function Home() {
           </span>
         </span>
       </div>
-      <div ref={carouselRef} className="absolute w-3/4 opacity-0   left-0 right-0 mx-auto">
+      <div ref={carouselRef} className="absolute w-3/4 opacity-0  left-0 right-0 mx-auto">
         <div className="relative rounded-[30px] overflow-hidden">
           <Swiper
             modules={[Pagination, Navigation, Autoplay]}
@@ -169,28 +172,28 @@ export default function Home() {
                   </div>
                 </div>
                 <button className="absolute bottom-1/3 left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
-  <span>Book Free Consultancy</span>
-  <div className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
-    <div className="w-10 h-10 rounded-full bg-theme flex items-center justify-center">
-      <span className="text-white text-xl leading-none -mt-1">&gt;</span>
-    </div>
-  </div>
-</button>
+                  <span>Book Free Consultancy</span>
+                  <div className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-theme flex items-center justify-center">
+                      <span className="text-white text-xl leading-none -mt-1">&gt;</span>
+                    </div>
+                  </div>
+                </button>
               </SwiperSlide>
             ))}
             <div className="swiper-button-next !w-6 !h-6 !text-[var(--p-text)] after:!text-xl after:!text-[var(--p-text)]"></div>
             <div className="swiper-button-prev !w-6 !h-6 !text-[var(--p-text)] after:!text-xl after:!text-[var(--p-text)]"></div>
- </Swiper>
-  </div>
- </div>
-   {/* Sidebar */}
-   <div ref={sidebarRef} className="absolute left-0 top-10  w-1/4 h-auto bg-white p-5 flex flex-col items-start opacity-0 translate-x-[-100%]">
-  
-<button
-  className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]"
->
-  <span className="relative">Start Building Today</span>
-</button>
+          </Swiper>
+        </div>
+      </div>
+      {/* Sidebar */}
+      <div ref={sidebarRef} className="absolute left-0 top-10  w-1/4 h-auto bg-white p-5 flex flex-col items-start opacity-0 translate-x-[-100%]">
+
+        <button
+          className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]"
+        >
+          <span className="relative">Start Building Today</span>
+        </button>
         <div className="relative inline-block ">
           <p className="mt-4 font-semibold text-black text-left">
             Empowered Teams, Endless Possibilities
@@ -208,7 +211,6 @@ export default function Home() {
           {/* Right side half-visible big button */}
           <div className="absolute  top-1/2 -translate-y-1/2 w-2 h-16 bg-theme rounded-r-full shadow-md cursor-pointer -right-[10px]">
             {/* Small circle on top of big button */}
-            {/* <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-md"></div> */}
             <div className="absolute right-[-12px] top-1/2  -translate-y-1/2 w-[4px] h-4 bg-theme rounded-r-full left-2  shadow-md"></div>
           </div>
 

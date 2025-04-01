@@ -30,23 +30,17 @@ export default function Home() {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-      >
-        <section className="mt-20 container mx-auto">
-          {/* <HeroSection /> */}
-          {isMobile ? <HeroMobile /> : <HeroSection />}
-          <GetToKnow />
-          <ServiceSection />
-          <KaiFoundrySection />
-          <Job />
-          <TestimonialSection />
-          <Contact />
-        </section>
-      </motion.div>
+
+      <section className="mt-20 container mx-auto">
+        {isMobile ? <HeroMobile /> : <HeroSection />}
+        <GetToKnow />
+        <ServiceSection />
+        <KaiFoundrySection />
+        <Job />
+        <TestimonialSection />
+        <Contact />
+      </section>
+
     </>
   );
 }
