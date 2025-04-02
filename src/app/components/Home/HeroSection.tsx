@@ -96,7 +96,7 @@ export default function Home() {
       </div>
 
 
-      <div ref={textRef} className="absolute   lg:mt-0 xl:mt-10  text-2xl z-30 md:text-3xl lg:text-3xl xl-text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
+      <div ref={textRef} className="absolute  lg:mt-0 xl:mt-10 2xl:mt-30 text-2xl z-30 md:text-3xl lg:text-3xl xl-text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
 
         <span ref={firstLineRef} className="block top-[-10px] left-[-10px] 2xl:left-[-20px] whitespace-nowrap">
           <span className="relative inline-block align-super mr-2">
