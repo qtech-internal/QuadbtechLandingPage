@@ -9,15 +9,6 @@ import { motion } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 100 }, // Starts lower with 0 opacity
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
-
   // section one animation elements declarations
   const headerRef = useRef(null);
   const imageref = useRef(null);
@@ -134,7 +125,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center flex-col-1">
       {/* Section one  */}
-      <section className=" border-2 relative mx-auto w-screen mt-20 px-4 sm:px-8 container">
+      <section className="relative mx-auto w-screen mt-20 px-4 sm:px-8 container">
         {/* Header */}
 
         <h1
@@ -231,7 +222,7 @@ export default function Home() {
       </section>
 
       {/* Section two  */}
-      <section className="border-2 relative flex items-center justify-center w-full py-50 px-12 container">
+      <section className="relative flex items-center justify-center w-full py-50 px-12 container">
         <div className="relative w-full mx-auto min-h-[60vh]">
           {/* Image */}
           <img
@@ -292,7 +283,7 @@ export default function Home() {
 
       {/* section 3 */}
 
-      <section className="border-2 sm:min-h-[50vh] w-full mx-auto flex flex-col md:flex-row gap-8 px-10 sm:px-10 md:px-14 py-10 2xl:px-16 xl:px-16 container">
+      <section className="sm:min-h-[50vh] w-full mx-auto flex flex-col md:flex-row gap-8 px-10 sm:px-10 md:px-14 py-10 2xl:px-16 xl:px-16 container">
         {/* Left Side - 40% Width on Large Screens */}
         <div className="relative w-full md:w-[40%] aspect-[16/16] md:aspect-[4/3] overflow-hidden">
           {/* Overlay Text Block */}
