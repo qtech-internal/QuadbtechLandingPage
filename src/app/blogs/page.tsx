@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,23 +13,14 @@ export default function Home() {
   const headerRef = useRef(null);
   const imageref = useRef(null);
   const textRef = useRef(null);
-  const imageTwoRef = useRef(null);
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // section two animation elements declarations
 
   const sect_Two = useRef<HTMLDivElement[]>([]);
   const sect_Two_Read_More = useRef(null);
-  const image2Ref = useRef(null);
 
   // section three animation elements declarations
-
-  const Section_3_imgRef = useRef<HTMLImageElement | null>(null);
-  const Section_3_textRef = useRef<HTMLDivElement | null>(null);
-  const sec_3_textRef2 = useRef<HTMLDivElement | null>(null);
-  const read_more = useRef<HTMLDivElement | null>(null);
-  const clipPathRef = useRef<SVGPathElement | null>(null);
-  const sect_imageRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     // Section 1 animation code
@@ -99,15 +90,6 @@ export default function Home() {
 
     // section 2 animation code
 
-    gsap.to(clipPathRef.current, {
-      attr: {
-        d: "M18 0C8.05887 0 0 8.05887 0 18V583C0 592.941 8.05891 601 18 601H1405C1414.94 601 1423 592.941 1423 583V184C1423 173.507 1414.49 165 1404 165H1023C1012.51 165 1004 156.493 1004 146V98C1004 87.5066 1012.51 79 1023 79H1043C1053.49 79 1062 70.4934 1062 60V19C1062 8.50659 1053.49 0 1043 0H18Z",
-      },
-      duration: 2,
-      ease: "power2.inOut",
-      delay: 3, // 3 sec delay before animation
-    });
-
     sect_Two.current.forEach((el) => {
       if (el) {
         gsap.from(el, {
@@ -138,187 +120,123 @@ export default function Home() {
     });
 
     // section 3 animation code
-    if (clipPathRef.current) {
-      gsap.to(clipPathRef.current, {
-        duration: 1.5,
-        ease: "power2.inOut",
-        attr: {
-          d: "M18 0C8.05887 0 0 8.05887 0 18V95C0 105.493 8.50659 114 19 114H72C82.4934 114 91 122.507 91 133V165C91 175.493 99.5066 184 110 184H298C308.493 184 317 192.507 317 203V247C317 257.493 308.493 266 298 266H273C262.507 266 254 274.507 254 285V330C254 340.493 245.493 349 235 349H84C73.5066 349 65 357.507 65 368V404C65 414.493 56.4934 423 46 423H19C8.50659 423 0 431.507 0 442V583C0 592.941 8.05889 601 18 601H737C746.941 601 755 592.941 755 583V18C755 8.05887 746.941 0 737 0H18Z",
-        },
-        delay: 0.5,
-      });
-    }
-
-    // ✅ Image Animation (No ScrollTrigger, Runs Immediately)
-    if (Section_3_imgRef.current) {
-      gsap.fromTo(
-        Section_3_imgRef.current,
-        { width: "100%" }, // Initially full width
-        {
-          width: "80%", // Shrinks to 80%
-          duration: 2,
-          ease: "power2.out",
-        }
-      );
-    }
-
-    // ✅ Text Animation - Font Size
-    if (Section_3_textRef.current) {
-      gsap.fromTo(
-        Section_3_textRef.current,
-        { fontSize: "40px", opacity: 0 },
-        {
-          fontSize: "30px",
-          opacity: 1,
-          duration: 2,
-          ease: "power2.out",
-        }
-      );
-    }
-
-    // ✅ Text Animation - Move Left
-    if (sec_3_textRef2.current) {
-      gsap.fromTo(
-        sec_3_textRef2.current,
-        { x: "50px", opacity: 0 },
-        {
-          x: "0px",
-          opacity: 1,
-          duration: 2,
-          ease: "power2.out",
-        }
-      );
-    }
-
-    // ✅ Read More Button Animation - Move Right
-    if (read_more.current) {
-      gsap.fromTo(
-        read_more.current,
-        { x: "-50px", opacity: 0 },
-        {
-          x: "0px",
-          opacity: 1,
-          duration: 2,
-          ease: "power2.out",
-        }
-      );
-    }
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-    >
-      <main className="flex flex-col items-center justify-center flex-col-1">
-        {/* Section one  */}
-        <div className="relative mx-auto w-full mt-20 px-4 sm:px-8 container">
-          {/* Header */}
+    <main className="flex flex-col items-center justify-center flex-col-1">
+      {/* Section one  */}
+      <section className="relative mx-auto w-screen mt-20 px-4 sm:px-8 container">
+        {/* Header */}
 
-          <h1
-  ref={headerRef}
-  className="border-[4px] border-theme w-[364px] md:w-[364px] md:h-[68px] 
+        <h1
+          ref={headerRef}
+          className="border-[4px] border-theme lg:w-[364px] w-1/2
   p-2 rounded-[80px] text-center mb-20 mt-10 text-[1.5rem] font-bold 
   mx-auto flex items-center justify-center"
->
-  BLOGS
-</h1>
+        >
+          BLOGS
+        </h1>
 
-
-          {/* Grid Container */}
-          <div className="grid sm:grid-cols-12 grid-cols-1 gap-4 px-10">
+        {/* Grid Container */}
+        <div className="grid 2xl:grid-cols-12 md:grid-cols-12 xl:grid-cols-12 grid-cols-1 gap-4 2xl:px-10 my-10 sm:min-h-[60vh] ">
+          <div
+            ref={imageref}
+            className="relative  2xl:col-span-8 2xl:row-span-2 lg:col-span-8 sm:col-span-12 md:col-span-12 md:row-span-1 lg:row-span-2 sm:row-span-1"
+          >
             <div
-              ref={imageref}
-              className="relative sm:col-span-8 sm:row-span-2 h-auto"
+              ref={textRef}
+              className="absolute bottom-0 left-0 z-10 sm:bottom-[-75] sm:left-0 font-bold sm:w-full sm:h-60 bg-white  flex flex-col gap-6  p-4 w-full h-[20vh] "
+              style={{
+                clipPath:
+                  "path('M118 19C118 8.5 109.5 0 99 0H19C8.5 0 0 8.5 0 19V158C0 168.5 8.5 177 19 177H324C334.5 177 343 168.5 343 158V126C343 115.5 334.5 107 324 107H302C291.5 107 283 98.5 283 88V68C283 57.5 274.5 49 264 49H137C126.5 49 118 40.5 118 30V19Z')",
+              }}
             >
-              <div
-                ref={textRef}
-                className="absolute bottom-0 left-0 z-10 sm:bottom-[-75] sm:left-0 font-bold sm:w-full sm:h-60 bg-white  flex flex-col gap-6  p-4 w-full h-[20vh] "
-                style={{
-                  clipPath:
-                    "path('M118 19C118 8.5 109.5 0 99 0H19C8.5 0 0 8.5 0 19V158C0 168.5 8.5 177 19 177H324C334.5 177 343 168.5 343 158V126C343 115.5 334.5 107 324 107H302C291.5 107 283 98.5 283 88V68C283 57.5 274.5 49 264 49H137C126.5 49 118 40.5 118 30V19Z')",
-                }}
-              >
-                <span className="font-normal border border-theme w-22 text-center rounded-3xl text-sm sm:text-base bg-white">
-                  Next-Gen
-                </span>
-                <span className="text-4xl bottom-0 text-black">
-                  Transforming
-                </span>
-                <span className="text-4xl bottom-0 text-black">
-                  Ideas into Reality
-                </span>
-              </div>
-              {/* <svg width="0" height="0">
-              <defs>
-                <clipPath id="myClip">
-                  <path d="M18 0C8.05887 0 0 8.05887 0 18V316C0 326.493 8.50659 335 19 335H99C109.493 335 118 343.507 118 354V365C118 375.493 126.507 384 137 384H264C274.493 384 283 392.507 283 403V423C283 433.493 291.507 442 302 442H324C334.493 442 343 450.507 343 461V493C343 503.493 351.507 512 362 512H906C915.941 512 924 503.941 924 494V18C924 8.05887 915.941 0 906 0H18Z" />
-                </clipPath>
-              </defs>
-            </svg> */}
-              {/* <img
-              src="./blog4.jpeg"
-              alt="blogImage"
-              className="w-full h-[250px] sm:h-[514px] rounded-2xl object-cover"
-              // style={{ clipPath: "url(#myClip)" }}
-            /> */}
-              <Image
-                src="/blog4.jpeg"
-                alt="blogImage"
-                width={924}
-                height={514}
-                className="w-full h-[250px] sm:h-[514px] rounded-2xl object-cover"
-              />
-               <div className="absolute inset-0 bg-[var(--div-bg)] opacity-40 rounded-2xl "></div>
+              <span className="font-normal border border-theme w-22 text-center rounded-3xl text-sm sm:text-base bg-white">
+                Next-Gen
+              </span>
+              <span className="text-4xl bottom-0 text-black">Transforming</span>
+              <span className="text-4xl bottom-0 text-black">
+                Ideas into Reality
+              </span>
             </div>
 
-            {/* Content Divs */}
-            {[0, 1].map((_, index) => (
+            <Image
+              src="/blog4.jpeg"
+              alt="blogImage"
+              width={924}
+              height={514}
+              className="w-full h-[340px] md:h-full rounded-2xl object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-[var(--div-bg)] opacity-40 rounded-2xl "></div>
+          </div>
+
+          {/* Content Divs */}
+          {[0, 1].map((_, index) => (
+            <div
+              key={index}
+              ref={(el) => {
+                contentRefs.current[index] = el;
+              }}
+              className={`relative w-auto h-auto flex flex-col justify-between lg:col-span-4 sm:col-span-12 rounded-2xl px-8 text-center ${
+                index == 0 ? "div-bg text-[#222]" : "bg-blog text-[#fff]"
+              }`}
+            >
+              <p className="py-10">
+                "Their team took our vision and turned it into a seamless,
+                high-performance dApp. The UI/UX was flawless, and the smart
+                contracts were secure and gas-efficient. Highly recommend!"
+                <br />
+                <br />— Alex R., CEO of BlockFi Ventures
+              </p>
+
               <div
-                key={index}
-                ref={(el) => {
-                  contentRefs.current[index] = el;
-                }}
-                className={`relative w-full h-auto flex flex-col justify-between sm:col-span-4 rounded-2xl px-8 text-center ${
-                  index == 0
-                    ? "div-bg text-[#222]"
-                    : "bg-blog text-[#fff]"
+                className={`absolute border-white border-8 bottom-[-5] right-[-5] h-[65px] w-[65px] rounded-4xl flex items-center justify-center ${
+                  index == 0 ? "div-bg text-[#222]" : "bg-blog text-[#fff]"
                 }`}
               >
-                <p className="py-10">
-                  "Their team took our vision and turned it into a seamless,
-                  high-performance dApp. The UI/UX was flawless, and the smart
-                  contracts were secure and gas-efficient. Highly recommend!"
-                  <br />
-                  <br />— Alex R., CEO of BlockFi Ventures
-                </p>
-
-                <div
-                  className={`absolute border-white border-8 bottom-[-5] right-[-5] h-[65px] w-[65px] rounded-4xl flex items-center justify-center ${
-                    index == 0
-                      ? "div-bg text-[#222]"
-                      : "bg-blog text-[#fff]"
-                  }`}
+                <svg
+                  width="30"
+                  height="41"
+                  viewBox="0 0 30 41"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                    <svg width="30" height="41" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
-              <path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
-            </svg>
-                </div>
+                  <path
+                    d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z"
+                    fill="var(--bg-card)"
+                    stroke="var(--bg-card)"
+                    strokeWidth="0.868933"
+                  />
+                  <path
+                    d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z"
+                    fill="var(--bg-card)"
+                    stroke="var(--bg-card)"
+                    strokeWidth="0.868933"
+                  />
+                </svg>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+      </section>
 
-        {/* Section two  */}
-        <div className="relative w-full h-auto sm:mt-20 px-12 container mt-50">
+      {/* Section two  */}
+      <section className="relative flex items-center justify-center w-full py-50 px-12 container">
+        <div className="relative w-full mx-auto min-h-[60vh]">
+          {/* Image */}
           <img
-            ref={image2Ref}
-            src="./section2Image.png"
+            src="./fish.png"
             alt="section2Image"
-            className="sm:w-full sm:h-auto h-[250px]  object-cover rounded-3xl custom-clip"
+            className="w-full sm:h-full h-[300px] object-cover rounded-3xl hidden md:block transition-all"
+            loading="lazy"
+          />
+
+          {/* Mobile image */}
+          <img
+            src="./blogsection2.jpg" // Image for mobile screens
+            alt="section2Image Mobile"
+            className="absolute w-full h-[300px] sm:h-full object-cover rounded-3xl md:hidden transition-all ease-in-out bottom-20" // Hide on larger screens
           />
 
           <div
@@ -326,9 +244,11 @@ export default function Home() {
               if (el && !sect_Two.current.includes(el))
                 sect_Two.current.push(el);
             }}
-            className="absolute top-[-50%] sm:top-[0%] sm:left-[68%] flex flex-col items-end sm:w-[373px] sm:h-[82px] w-auto"
+            className="absolute top-[0%] left-[50%] md:top-[5%] md:left-[87%] transform -translate-x-1/2 -translate-y-1/2 sm:w-[373px] w-auto text-center "
           >
-            <h1 className="text-[42px] font-bold">Transforming</h1>
+            <h1 className="md:text-[2.5vw] text-3xl font-bold gradient-text">
+              Transforming
+            </h1>
           </div>
 
           <div
@@ -336,55 +256,97 @@ export default function Home() {
               if (el && !sect_Two.current.includes(el))
                 sect_Two.current.push(el);
             }}
-            className="absolute top-[-28%] sm:top-[15%] sm:left-[71%] flex flex-col sm:w-[427px] sm:h-[86px] w-auto"
+            className="absolute top-[7%] left-[50%] md:top-[12%] md:left-[85%] lg:top-[10vh] xl:top-[12vh] 2xl:lg:top-[14vh] transform -translate-x-1/2 -translate-y-1/2 sm:w-[427px] w-full text-center"
           >
-            <h1 className="text-[42px] font-bold">Ideas into Reality</h1>
+            <h1 className="md:text-[2.5vw] text-3xl font-bold gradient-text">
+              Ideas into Reality
+            </h1>
           </div>
-
+          {/* Read More Button */}
           <button
             ref={sect_Two_Read_More}
-            className=" absolute bottom-6 font-semibold sm:left-52 left-50 border text-sm  border-theme px-3 rounded-3xl bg-white"
+            className="
+      absolute 
+      bottom-[-0vh] left-[50%] transform -translate-x-1/2 
+      border-theme bg-white font-semibold rounded-2xl 
+      
+      text-[3.75vw] sm:px-6 px-4 sm:py-2 py-1 md:text-[0.75vw] md:bottom-[24vh] md:left-[14.5%] 
+      
+      lg:bottom-[11vh]
+      transition-all duration-10 ease-in-out md:px-3 md:py-1 gradient-text border-amber-500 border 2xl:text-[1vw] 2xl:left-[14%] 2xl:bottom-[2%] xl:left-[14.5%] xl:bottom-[2%]
+    "
           >
             Read More
           </button>
         </div>
+      </section>
 
-        {/* section 3 */}
-        <div className="w-full h-full mx-auto flex flex-col mt-20 md:flex-row gap-5 px-14 md:p-10">
-          {/* Left Side */}
-          <div className="relative  aspect-[16/9] md:aspect-[4/3] overflow-hidden w-full md:w-[603px] h-[50vh] md:h-[601px]">
-            <div className="w-full max-w-[360px] text-[22px] md:text-[36px] font-semibold leading-[35px] md:leading-[52px] text-black bg-opacity-50 p-3 rounded-lg">
-              The Future of Work:
-              <br /> Why Tech Talent <br />
-              Prefers Flexible <br />
-              Workspaces
-            </div>
-            <Image
-              src="/blogSec_3.png"
-              alt="section_3_Image"
-              layout="fill"
-              objectFit="contain"
-              className="rounded-2xl"
-            />
+      {/* section 3 */}
+
+      <section className="sm:min-h-[50vh] w-full mx-auto flex flex-col md:flex-row gap-8 px-10 sm:px-10 md:px-14 py-10 2xl:px-16 xl:px-16 container">
+        {/* Left Side - 40% Width on Large Screens */}
+        <div className="relative w-full md:w-[40%] aspect-[16/16] md:aspect-[4/3] overflow-hidden">
+          {/* Overlay Text Block */}
+          <div
+            className="
+          absolute sm:top-[-4%] sm:left-[-4%] 
+              md:top-[-6%] md:left-[-8%]
+              lg:top-[-6%] lg:left-[-4%]
+          text-[4.5vw] sm:text-[4.7vw] md:text-[1.50vw]  font-semibold
+          md:leading-6.5 lg:leading-9 lg:text-[1.60vw]
+          xl:text-[1.80vw] xl:leading-12
+          2xl:text-[2.2vw] 2xl:leading-15
+          sm:leading-12 text-black bg-white bg-opacity-60 
+          px-4 sm:p-6 rounded-lg transition-all duration-300 
+          
+        "
+          >
+            The Future of Work:
+            <br /> Why Tech Talent <br />
+            Prefers Flexible <br />
+            Workspaces
           </div>
-          {/* Right Side */}
-          <div className="relative  aspect-[16/9] md:aspect-[4/3] overflow-hidden w-full md:w-[755px] h-[50vh] md:h-[601px] ">
-            <div className="absolute inset-0 top-30 font-bold text-[22px] md:text-[42px] md:leading-[72px] leading-[35px] flex flex-col">
-              <span>Full-Stack</span>
-              <span>Development in 2024:</span>
-              <span> What Skills Do You</span>
-              <span>Need?</span>
-            </div>
-            <Image
-              src="/section_3_image2_other.png"
-              alt="section_2_image2"
-              layout="fill"
-              objectFit="contain"
-              className="rounded-2xl"
-            />
-          </div>
+
+          {/* Image */}
+          <Image
+            src="/blogSec_3.png"
+            alt="section_3_Image"
+            layout="fill"
+            objectFit="cover"
+            className="rounded-2xl transition-all duration-300 "
+          />
         </div>
-      </main>
-    </motion.div>
+
+        {/* Right Side - 60% Width on Large Screens */}
+        <div className="relative w-full md:w-[60%] aspect-[16/16] md:aspect-[4/3] overflow-hidden">
+          {/* Overlay Text Block */}
+          <div
+            className="
+          absolute top-[20%] 
+          font-bold text-[4vw] sm:text-[3.5vw] md:text-[2vw]  md:leading-10 lg:text-[2vw] 2xl:text-[3vw] lg:leading-12 2xl:leading-20 xl:text-[2.5vw] xl:leading-16
+          leading-14
+          transition-all duration-300
+        "
+          >
+            <span>Full-Stack</span>
+            <br />
+            <span>Development in 2024:</span>
+            <br />
+            <span>What Skills Do You</span>
+            <br />
+            <span>Need?</span>
+          </div>
+
+          {/* Image */}
+          <Image
+            src="/section_3_image2_other.png"
+            alt="section_2_image2"
+            layout="fill"
+            objectFit="cover"
+            className="rounded-2xl transition-all duration-300"
+          />
+        </div>
+      </section>
+    </main>
   );
 }
