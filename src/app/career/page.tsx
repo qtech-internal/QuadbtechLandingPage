@@ -4,18 +4,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Career from "../components/career/CarrerCard";
-
+import CareerSection from "../components/career/CareerSection";
 export default function CareerPage() {
-  const headingRef = useRef(null);
-  const subheadingRef = useRef(null);
-  const cardWrapperRef = useRef(null);
-
-  // Section 2 refs
-  const jobSectionRef = useRef(null);
-
-
-  // Section 3 refs
-  const whyWorkWithUsRef = useRef(null);
+ const whyWorkWithUsRef = useRef(null);
   const benefitCardsRef = useRef(null);
   const bottomCardsRef = useRef(null);
 
@@ -114,20 +105,6 @@ export default function CareerPage() {
     // Auto-starting animations for initial load and navigation from other pages
     const ctx = gsap.context(() => {
       // Section 1 - Hero Animations - Start automatically
-      gsap.from(".heading", {
-        y: 60,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-      });
-
-      gsap.from(".subheading", {
-        y: 40,
-        opacity: 0,
-        duration: 1.2,
-        delay: 0.2,
-        ease: "power3.out",
-      });
 
       // Enhanced staggered animations for grid cards with better timing
       gsap.from(".content .grid > div", {
@@ -145,32 +122,10 @@ export default function CareerPage() {
         },
       });
 
-      // Section 2 - Job Listings Animations - Improved fluidity
-      if (jobSectionRef.current) {
-        // Animate the section heading and search input
-        animateFromLeft(".job-section-header h2", 0, 1);
-        animateFromRight(".job-section-header input", 0.2, 1);
-
-        // Improved job cards stagger animation - animate from bottom
-        gsap.from(".job-card", {
-          y: 100,  // Coming from bottom
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".job-cards-container",
-            start: "top 80%",
-            end: "top 40%",
-            // toggleActions: "play none none reset",
-          },
-        });
-      }
-
+   
       // Section 3 - Why Work With Us Animations - Enhanced transitions
       if (whyWorkWithUsRef.current) {
-        // Animate the section heading and paragraph from bottom
-        gsap.from(".why-work-section-title", {
+       gsap.from(".why-work-section-title", {
           y: 100,  // Coming from bottom
           opacity: 0,
           duration: 1,
@@ -254,7 +209,7 @@ export default function CareerPage() {
       }, 200);
     };
 
-    window.addEventListener("resize", handleResize);
+
 
     // Clean up
     return () => {
@@ -284,136 +239,13 @@ export default function CareerPage() {
 
   return (
     <main className="flex flex-col text-secondary bg-white w-full   ">
-      <div className=" px-4 sm:px-6 lg:px-8 mt-20">
-        {/* Section 1 - Hero - Improved spacing and alignment */}
-        <section className="flex flex-col items-center justify-center bg-white py-12 sm:py-16 lg:py-20">
-          {/* Heading - Refined spacing */}
-          <img
-            src="/career/career3.png"
-            alt="QuadB Logo"
-            className="absolute top-20 right-0 w-1/2 h-1/2 object-contain"
-          />
-          <h1
-            ref={headingRef}
-            className="heading text-3xl sm:text-4xl lg:text-5xl font-bold text-center"
-          >
-            Join QuadBians
-          </h1>
-
-          {/* Sub-text - Consistent spacing */}
-          <p
-            ref={subheadingRef}
-            className="subheading text-base sm:text-lg font-light text-center px-4 max-w-2xl mt-4 sm:mt-5"
-          >
-            We're building the next wave of Web3 & Web2 innovation—be part of
-            it!
-          </p>
-
-          {/* Card Grid - Improved container alignment */}
-          <div
-            ref={cardWrapperRef}
-            className="content w-full max-w-6xl mt-10 sm:mt-12 lg:mt-16"
-          >
-            {/* Grid Layout - Better responsive alignment */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-3">
-              {/* Card 1 - Refined padding and height */}
-              <div className="bg-theme p-5 sm:p-6 shadow-xl rounded-lg h-auto lg:h-[300px] text-white transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
-                <p className="text-sm sm:text-base">
-                  At QuadB Tech, we're more than just a tech company—we're a
-                  community of innovators, problem-solvers, and visionaries
-                  shaping the future of Web3 & Web2. Whether you're a blockchain
-                  enthusiast, a software engineer, a designer, or a marketing
-                  expert, this is the place to build groundbreaking solutions
-                  and grow your career.
-                </p>
-              </div>
-
-              {/* Card 2 - Consistent height across breakpoints */}
-
-              <div className="relative h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
-
-                {/* Image */}
-                <Image
-                  className="h-full w-full object-cover rounded-lg"
-                  src="/career/career1.png"
-                  alt="Abstract Technology Image"
-                  width={410}
-                  height={300}
-                  priority
-                />
-              </div>
-
-
-              {/* Card 3 (Tall Card) - Better sizing */}
-
-              <div className="relative bg-white shadow-xl rounded-lg flex items-center justify-center h-[250px] sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
-
-                <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
-
-
-                <img
-                  className="h-full w-full object-cover rounded-lg"
-                  src="/career/career2.jpeg"
-                  alt="VR Technology Image"
-                />
-              </div>
-
-
-              {/* Card 4 - Improved list alignment */}
-              <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-[420px] h-auto lg:h-[200px] sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom">
-                <ul className="flex flex-col gap-3">
-                  <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center justify-center bg-white w-fit text-xs sm:text-sm">
-                    Develop groundbreaking blockchain solutions
-                  </li>
-                  <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
-                    Accelerate your career with continuous learning
-                  </li>
-                  <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
-                    Work from anywhere with our flexible culture
-                  </li>
-                </ul>
-              </div>
-
-              {/* Card 5 - Centered properly */}
-              <div className="relative border-2 border-theme shadow-xl rounded-lg h-[180px] sm:h-[200px] overflow-hidden mx-auto ml-12 w-4/5 transition-shadow duration-300 hover:shadow-2xl animate-from-bottom flex items-center justify-center ">
-                {/* SVG */}
-                <svg
-                  className="w-2/3 h-2/3 sm:w-3/4 sm:h-3/4 lg:w-full lg:h-full"
-                  viewBox="0 0 30 41"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z"
-                    fill="var(--bg-card)"
-                    stroke="var(--bg-card)"
-                    strokeWidth="0.868933"
-                  />
-                  <path
-                    d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z"
-                    fill="var(--bg-card)"
-                    stroke="var(--bg-card)"
-                    strokeWidth="0.868933"
-                  />
-                </svg>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* second section */}
-
+      <div className=" px-4 sm:px-6 lg:px-8 mt-10">
+        < CareerSection />
         <Career />
-
-
-
-        {/* Section 3 - Why Work With Us - Improved layout structure */}
+  {/* Section 3 - Why Work With Us - Improved layout structure */}
         <section
           ref={whyWorkWithUsRef}
-          className="min-h-screen flex flex-col py-16 sm:py-20 lg:py-24 relative"
+          className=" flex flex-col py-16 sm:py-20 lg:py-24 relative"
         >
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-10 lg:mb-16">
             {/* Top left content - Better spacing */}

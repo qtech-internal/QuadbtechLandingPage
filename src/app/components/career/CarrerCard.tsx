@@ -45,25 +45,11 @@ export default function Career() {
           <input
             type="text"
             placeholder="Search"
-            className="border border-theme rounded-full px-4 py-2 w-full sm:w-72 focus:outline-none"
+            className="border border-theme rounded-lg px-4 py-2 w-full sm:w-72 focus:outline-none"
           />
         </div>
       </div>
-
-      {/* Jobs Grid */}
-      {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[1500px] m-auto justify-items-center">
-        {currentJobs.map((job, index) => (
-          <JobCard
-            key={index}
-            title={job.title}
-            location={job.location}
-            experience={job.experience}
-            imageSrc={job.imageSrc}
-            isOdd={index % 2 === 0}
-          />
-        ))}
-      </div> */}
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8  m-auto justify-items-center">
+ <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8  m-auto justify-items-center">
         {currentJobs.map((job, index) => (
           <JobCard
             key={index}
@@ -82,7 +68,7 @@ export default function Career() {
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
-          className={`px-4 py-2 border rounded-lg ${currentPage === 1 ? 'div-bg text-gray-500 cursor-not-allowed' : 'div-bg text-theme'}`}
+          className={`px-4 py-2 border rounded-lg ${currentPage === 1 ? 'div-bg text-gray-500 cursor-not-allowed' : 'div-bg text-secondary'}`}
         >
           Previous
         </button>
@@ -92,7 +78,7 @@ export default function Career() {
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 border rounded-lg ${currentPage === totalPages ? 'div-bg text-gray-500 cursor-not-allowed' : 'div-bg text-theme'}`}
+          className={`px-4 py-2 border rounded-lg ${currentPage === totalPages ? 'div-bg text-gray-500 cursor-not-allowed' : 'div-bg text-secondary'}`}
         >
           Next
         </button>
