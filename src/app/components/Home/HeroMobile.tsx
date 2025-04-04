@@ -1,40 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import { useRef} from 'react';
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
-  const textRef = useRef(null);
-  const firstLineRef = useRef(null);
-  const secondLineRef = useRef(null);
-  const carouselRef = useRef(null);
-  const sidebarRef = useRef(null);
+ 
 
-  useEffect(() => {
-    const tl = gsap.timeline();
-
-    // Step 1: Instantly show text in the center
-    tl.set(textRef.current, { opacity: 1, scaleX: 0, transformOrigin: "center center", fontSize: "3rem", width: "100vw" })
-      // Step 2: Expand text from center
-      .to(textRef.current, { x: "-20%", scaleX: 1, duration: 1, ease: "power2.out" })
-      // Step 3: Hold text in full width for 1 second
-      .to(textRef.current, { duration: 0.3 })
-      // Step 4: Move text to the top
-      .to(textRef.current, { y: '-45vh', duration: 1 })
-      // Step 5: Reveal full-screen carousel BELOW second line of text
-      .fromTo(carouselRef.current, { opacity: 0, height: '0vh', y: '10vh' }, { opacity: 1, height: '70vh', duration: 1.5 })
-      // Step 6: Shrink carousel from left and move it to the right
-      .to(carouselRef.current, { width: '70%', x: '20%', duration: 2, ease: "power2.out" }, "-=1")
-      // Step 7: Move first line slightly right
-      .to(firstLineRef.current, { x: '22vw', duration: 1 }, "-=2")
-      // Step 8: Sidebar appears from the left
-      .fromTo(sidebarRef.current, { x: '-100%', opacity: 0 }, { x: '0%', opacity: 1, duration: 1 }, "-=1");
-  }, []);
 
   const carouselItems = [
     {
@@ -59,14 +33,24 @@ export default function Home() {
       imageSrc: "/home/home3.jpeg",
     },
   ];
+  const settings = {
+    // dots: true,
+    infinite: true,
+    speed: 400,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    vertical: true,         
+    verticalSwiping: true,      
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,         
+  };
 
 
   return (
     <div className="w-full max-w-[1500px] overflow-x-hidden bg-white text-black flex flex-col items-center justify-center p-4">
       <button
-        // className="relative px-6 py-2 text-black font-medium rounded-full border border-orange-500
-        //                bg-gradient-to-r from-transparent to-white hover:from-orange-100">
-        className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]"
+       className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]"
 >
         Start Building Today
       </button>
@@ -81,7 +65,7 @@ export default function Home() {
             </svg> Your vision, your expertise:
         </span>
         <span className=" mt-2 flex">
-          Crafting the  <span className="inline-block px-3 ml-2 border-2 border-theme rounded-lg"> Future of Technology</span>
+          Crafting the <span className="inline-block px-3 ml-2 border-2 border-theme rounded-full"> Future of Technology</span>
           <svg width="22" height="20" viewBox="0 0 22 40" fill="none" xmlns="http://www.w3.org/2000/svg ">
               <path d="M14.4517 5.43384C15.328 7.37721 15.6896 9.2738 15.6257 11.4503C15.6065 12.1034 15.549 12.787 15.4521 13.5098C14.5914 11.4475 13.3302 9.79201 11.6162 8.38357L14.4517 5.43384Z" stroke="var(--bg-card)" strokeWidth="5" />
               <path d="M4.5216 17.2351C5.2324 18.2581 5.70588 19.339 6.01549 20.5953C5.29124 19.919 4.48682 19.3596 3.59205 18.8967L4.5216 17.2351Z" stroke="var(--bg-card)" strokeWidth="5" />
@@ -91,36 +75,35 @@ export default function Home() {
 
       {/* Carousel */}
       <div className="w-full max-w-3xl mx-auto rounded-[30px] overflow-hidden">
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          // navigation
-          //   pagination={{ clickable: true }}
-          className="h-[300px] md:h-[400px]"
-        >
-          {carouselItems.map((item, index) => (
-            <SwiperSlide key={index} className="relative ">
-              <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${item.imageSrc})` }}></div>
-              <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
-              <div className={`absolute inset-0 ${item.bgColor}`}></div>
-              <div className="absolute bottom-8 left-4 bg-white/10 backdrop-blur-md p-4 rounded-xl flex items-center space-x-4">
-                <div className="div-bg p-2 rounded-lg shadow-md">
-                  <img src={item.iconSrc} alt="Icon" className="w-12 h-12" />
-                </div>
-                <div>
-                  <h2 className="text-[14px] font-semibold text-white">{item.title}</h2>
-                  <a href="#" className="text-white underline text-sm">{item.description}</a>
-                </div>
+      <Slider {...settings} className="h-[300px] md:h-[400px]">
+        {carouselItems.map((item, index) => (
+          <div key={index} className="relative h-[300px] md:h-[400px]">
+            {/* Background Image */}
+            <div
+              className="w-full h-full bg-cover bg-center"
+              style={{ backgroundImage: `url(${item.imageSrc})` }}
+            ></div>
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
+            <div className={`absolute inset-0 ${item.bgColor}`}></div>
+
+            {/* Text & Icon */}
+            <div className="absolute bottom-8 left-4 bg-white/10 backdrop-blur-md p-4 rounded-xl flex items-center space-x-4">
+              <div className="div-bg p-2 rounded-lg shadow-md">
+                <img src={item.iconSrc} alt="Icon" className="w-12 h-12" />
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-
-
-      </div>
+              <div>
+                <h2 className="text-[14px] font-semibold text-white">{item.title}</h2>
+                <a href="#" className="text-white underline text-sm">
+                  {item.description}
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
       <button className=" mt-10   bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
         <span>Book Free Consultancy</span>
         <div className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">

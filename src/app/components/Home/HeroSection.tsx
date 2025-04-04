@@ -1,15 +1,12 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef} from 'react';
 import gsap from 'gsap';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
-  const [activeSlide, setActiveSlide] = useState(1);
-  const logoRef = useRef(null);
+const logoRef = useRef(null);
   const textRef = useRef(null);
   const firstLineRef = useRef(null);
   const secondLineRef = useRef(null);
@@ -83,11 +80,22 @@ export default function Home() {
       imageSrc: "/home/home3.jpeg",
     },
   ];
-
+  const settings = {
+    // dots: true,
+    infinite: true,
+    speed: 400,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    vertical: true,         
+    verticalSwiping: true,      
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,         
+  };
 
   return (
-    <div className="relative w-full max-w-[1500px] h-auto min-h-[700px]  overflow-visible bg-white text-black flex flex-col items-center justify-center  ">
-      <div ref={logoRef} className="absolute text-5xl font-bold">
+    <div className="relative w-full min-h-screen  overflow-visible bg-white text-black flex flex-col items-center justify-center mt-20  ">
+      <div ref={logoRef} className="absolute text-5xl font-bold ">
         {/* <img src="/logo.png" alt="Logo" className="w-54 h-54" /> */}
         <svg width="200" height="200" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
@@ -96,7 +104,7 @@ export default function Home() {
       </div>
 
 
-      <div ref={textRef} className="absolute  lg:mt-0 xl:mt-10 2xl:mt-30 text-2xl z-30 md:text-3xl lg:text-3xl xl-text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
+      <div ref={textRef} className="absolute  lg:mt-0 xl:mt-10  2xl:mt-20 text-2xl z-30 md:text-3xl lg:text-3xl xl-text-5xl  font-medium  opacity-0 text-center w-full mb-4 font-poppins">
 
         <span ref={firstLineRef} className="block top-[-10px] left-[-10px] 2xl:left-[-20px] whitespace-nowrap">
           <span className="relative inline-block align-super mr-2">
@@ -113,7 +121,7 @@ export default function Home() {
           </span>
           Your vision, your expertise:
         </span>
-        <span ref={secondLineRef} className=" absolute left-[43rem] xl:left-[43rem] lg:left-[28rem] md:left-[20rem] 2xl:left-[65rem]  whitespace-nowrap">
+        <span ref={secondLineRef} className=" absolute left-[43rem] xl:left-[43rem] lg:left-[28rem] md:left-[20rem] 2xl:left-[70rem]  whitespace-nowrap">
           Crafting the <span className="relative  px-3 border-2 border-theme rounded-full">Future of Technology</span>
           <span className="relative inline-block align-super mr-4">
             {/* <img src="/ending comma.png" alt="Ending Quote" className="w-6 h-6 md:w-8 md:h-8" /> */}
@@ -129,7 +137,7 @@ export default function Home() {
       </div>
       <div ref={carouselRef} className="absolute w-3/4 opacity-0  left-0 right-0 mx-auto">
         <div className="relative rounded-[30px] overflow-hidden">
-          <Swiper
+          {/* <Swiper
             modules={[Pagination, Navigation, Autoplay]}
             slidesPerView={1}
             loop={true}
@@ -156,7 +164,7 @@ export default function Home() {
                     backgroundImage: `url(${item.imageSrc})`,
                   }}
                 ></div>
-                {/* Theme-Based Overlay */}
+                
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <div className={`absolute inset-0 ${item.bgColor}`}></div>
 
@@ -183,7 +191,47 @@ export default function Home() {
             ))}
             <div className="swiper-button-next !w-6 !h-6 !text-[var(--p-text)] after:!text-xl after:!text-[var(--p-text)]"></div>
             <div className="swiper-button-prev !w-6 !h-6 !text-[var(--p-text)] after:!text-xl after:!text-[var(--p-text)]"></div>
-          </Swiper>
+          </Swiper> */}
+              <div className="relative h-[400px]">
+                <Slider {...settings}>
+        {carouselItems.map((item, index) => (
+          <div key={index} className="relative h-[400px] w-full">
+            {/* Background Image */}
+            <div
+              className="w-full h-full bg-cover bg-center"
+              style={{ backgroundImage: `url(${item.imageSrc})` }}
+            ></div>
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
+            <div className={`absolute inset-0 ${item.bgColor}`}></div>
+
+            {/* Text Box */}
+            <div className="absolute bottom-8 left-8 max-w-md bg-white/10 backdrop-blur-md p-4 rounded-xl shadow-lg flex items-center space-x-4">
+              <div className="div-bg p-2 rounded-lg shadow-md">
+                <img src={item.iconSrc} alt="Icon" className="w-12 h-12" />
+              </div>
+              <div>
+                <h2 className="text-lg font-bold text-white">{item.title}</h2>
+                <a href="#" className="text-white underline text-sm">
+                  {item.description}
+                </a>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <button className="absolute bottom-1/3 left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
+              <span>Book Free Consultancy</span>
+              <div className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-theme flex items-center justify-center">
+                  <span className="text-white text-xl leading-none -mt-1">&gt;</span>
+                </div>
+              </div>
+            </button>
+          </div>
+        ))}
+      </Slider>
+      </div>
         </div>
       </div>
       {/* Sidebar */}
