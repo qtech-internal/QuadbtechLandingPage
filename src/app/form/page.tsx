@@ -69,54 +69,50 @@ const BlockchainDeveloper = () => {
   // --- Form Submission Logic ---
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+  
     // Validation
     if (!name || !email || !phone || !whyJoin || !resumeFile) {
       toast.error("Please fill in all required fields and upload your resume.");
       return;
     }
-
+  
     setLoading(true);
     const loadingToastId = toast.loading("Submitting application...");
-
+  
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
     formData.append("phone", phone);
-    formData.append(
-      "subject",
-      `Job Application: Blockchain Developer - ${name}`
-    );
+    formData.append("subject", `Job Application: Blockchain Developer - ${name}`);
     formData.append("message", whyJoin);
-    if (resumeFile) {
-      formData.append("resume", resumeFile, resumeFile.name);
-    }
-
+    formData.append("resume", resumeFile, resumeFile.name);
+  
     try {
-      // *** Replace '/api/ApplyNow' with your actual API endpoint ***
       const response = await axios.post("/api/ApplyNow", formData);
-
+  
       toast.dismiss(loadingToastId);
-
+  
       if (response.data.success) {
         toast.success("Application submitted successfully!");
-        // Clear the form
         setName("");
         setEmail("");
         setPhone("");
         setWhyJoin("");
         handleRemoveFile(); // Clears file state and input ref
       } else {
-        const errorMsg =
-          response.data.error || "Submission failed. Please try again.";
+        const errorMsg = response.data.error || "Submission failed. Please try again.";
         toast.error(errorMsg);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.dismiss(loadingToastId);
+  
+      let errorMsg = "An unexpected error occurred. Please try again later.";
+  
+      if (axios.isAxiosError(error)) {
+        errorMsg = error.response?.data?.error || errorMsg;
+      }
+  
       console.error("Form submission error:", error);
-      const errorMsg =
-        error.response?.data?.error ||
-        "An unexpected error occurred. Please try again later.";
       toast.error(errorMsg);
     } finally {
       setLoading(false);

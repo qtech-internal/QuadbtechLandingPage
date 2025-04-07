@@ -267,8 +267,9 @@ export default function CareerPage() {
           </h1>
 
           <p ref={subheadingRef} className="text-base sm:text-lg font-light text-center px-4 max-w-2xl mt-4 sm:mt-5">
-            We're building the next wave of Web3 & Web2 innovation—be part of it!
-          </p>
+  We&apos;re building the next wave of Web3 &amp; Web2 innovation—be part of it!
+</p>
+
 
           <div ref={cardWrapperRef} className="w-full max-w-6xl mt-10 sm:mt-12 lg:mt-16">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-3">
@@ -299,19 +300,7 @@ export default function CareerPage() {
               </div>
 
               {/* Card 4 */}
-              {/* <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-[420px] h-auto lg:h-[200px] sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
-                <ul className="flex flex-col gap-3">
-                  <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center justify-center bg-white w-fit text-xs sm:text-sm">
-                    Develop groundbreaking blockchain solutions
-                  </li>
-                  <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
-                    Accelerate your career with continuous learning
-                  </li>
-                  <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
-                    Work from anywhere with our flexible culture
-                  </li>
-                </ul>
-              </div> */}
+            
               <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-auto md:max-w-[420px] lg:w-[420px] h-auto lg:h-[200px] sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center mx-auto">
   <ul className="flex flex-col gap-3">
     <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center justify-center bg-white w-fit text-xs sm:text-sm">

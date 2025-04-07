@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
+
 import Career from "../components/career/CarrerCard";
 import CareerSection from "../components/career/CareerSection";
 export default function CareerPage() {
@@ -12,97 +12,7 @@ export default function CareerPage() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
-    // Fixed type definition for GSAP target
-    const animateFromBottom = (
-      target: gsap.DOMTarget,
-      delay: number = 0,
-      start: string = "top 70%",
-      duration: number = 1.2
-    ) => {
-      gsap.from(target, {
-        y: 100,
-        opacity: 0,
-        duration: duration,
-        delay: delay,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: target,
-          start: start,
-          end: "top 40%",
-          // toggleActions: "play none none reset",
-          markers: false,
-        },
-      });
-    };
-
-    // Fixed type definition for GSAP target
-    const animateFromLeft = (
-      target: gsap.DOMTarget,
-      delay: number = 0,
-      duration: number = 1.2
-    ) => {
-      gsap.from(target, {
-        x: -100,
-        opacity: 0,
-        duration: duration,
-        delay: delay,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: target,
-          start: "top 75%",
-          end: "top 40%",
-          // toggleActions: "play none none reset",
-          markers: false,
-        },
-      });
-    };
-
-    // Fixed type definition for GSAP target
-    const animateFromRight = (
-      target: gsap.DOMTarget,
-      delay: number = 0,
-      duration: number = 1.2
-    ) => {
-      gsap.from(target, {
-        x: 100,
-        opacity: 0,
-        duration: duration,
-        delay: delay,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: target,
-          start: "top 75%",
-          end: "top 40%",
-          // toggleActions: "play none none reset",
-          markers: false,
-        },
-      });
-    };
-
-    // Fixed type definition for GSAP target
-    const animateScale = (
-      target: gsap.DOMTarget,
-      delay: number = 0,
-      duration: number = 1
-    ) => {
-      gsap.from(target, {
-        scale: 0.85,
-        opacity: 0,
-        duration: duration,
-        delay: delay,
-        ease: "back.out(1.4)",
-        scrollTrigger: {
-          trigger: target,
-          start: "top 80%",
-          end: "top 50%",
-          // toggleActions: "play none none reset",
-          markers: false,
-        },
-      });
-    };
-
-    // Auto-starting animations for initial load and navigation from other pages
+ // Auto-starting animations for initial load and navigation from other pages
     const ctx = gsap.context(() => {
       // Section 1 - Hero Animations - Start automatically
 

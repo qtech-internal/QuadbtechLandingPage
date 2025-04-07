@@ -12,7 +12,10 @@ export default function ContactUs() {
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -20,7 +23,7 @@ export default function ContactUs() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form Data:", formData);
   };
@@ -41,7 +44,8 @@ export default function ContactUs() {
         {/* FLOATING ADDRESS CARD */}
         <div className="absolute top-[90px] sm:top-[100px] md:top-[140px] left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-3 rounded-md w-[260px] sm:w-[280px] text-xs leading-5 shadow-lg z-10 text-center">
           <p className="font-bold">QB TOWER</p>
-          <p>15313 O'Connell Park,</p>
+          <p>15313 O&rsquo;Connell Park,</p>
+
           <p>Belleville 48990</p>
           <p>sales@quadbtech.com</p>
           <p>+91 8360543857</p>
@@ -98,7 +102,8 @@ export default function ContactUs() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Message"
-              rows="4"
+              rows={4}
+
               className="p-3 rounded-md bg-orange-50 placeholder-black text-sm w-full resize-none sm:col-span-2"
               required
             ></textarea>

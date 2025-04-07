@@ -21,9 +21,7 @@ export default function Home() {
   ];
 
   const sliderRef = useRef<HTMLDivElement | null>(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
+
 
   
   const handleScrollRight = () => {

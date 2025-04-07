@@ -1,10 +1,9 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,13 +181,14 @@ export default function Home() {
                 index == 0 ? "div-bg text-[#222]" : "bg-blog text-[#fff]"
               }`}
             >
-              <p className="py-10">
-                "Their team took our vision and turned it into a seamless,
-                high-performance dApp. The UI/UX was flawless, and the smart
-                contracts were secure and gas-efficient. Highly recommend!"
-                <br />
-                <br />— Alex R., CEO of BlockFi Ventures
-              </p>
+             <p className="py-10">
+  &ldquo;Their team took our vision and turned it into a seamless,
+  high-performance dApp. The UI/UX was flawless, and the smart
+  contracts were secure and gas-efficient. Highly recommend.&rdquo;
+  <br />
+  <br />— Alex R., CEO of BlockFi Ventures
+</p>
+
 
               <div
                 className={`absolute border-white border-8 bottom-[-5] right-[-5] h-[65px] w-[65px] rounded-4xl flex items-center justify-center ${

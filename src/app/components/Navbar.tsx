@@ -13,7 +13,8 @@ const Navbar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    let tl = gsap.timeline();
+    const tl = gsap.timeline();
+
     tl.from("#logo", {
       y: -30,
       opacity: 0,

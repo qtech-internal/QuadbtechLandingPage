@@ -5,7 +5,8 @@ const TestimonialSection = () => {
   const [currentIndex, setCurrentIndex] = useState(3); // Start from last image
   const [isPaused, setIsPaused] = useState(false);
   const [outerRotation, setOuterRotation] = useState(0);
-  const [hoveredId, setHoveredId] = useState(null);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
+
   const delay = 1000;
 
 
@@ -86,7 +87,7 @@ const TestimonialSection = () => {
         <div className="absolute w-[600px] h-[600px] border-2 border-theme rounded-full"></div>
 
         {/* outer  img */}
-        {outerImages.map(({ id, angle, src }, index) => {
+        {outerImages.map(({ id, src }, index) => {
           const newAngle = (index * 45 + outerRotation) % 180;
           return (
             <div
@@ -104,7 +105,7 @@ const TestimonialSection = () => {
 
         {/* inner circle */}
         <div className="absolute w-[430px] h-[430px]  border-2 border-theme rounded-full"></div>
-        {innerImages.map(({ id, angle, src, comment }, index) => {
+        {innerImages.map(({ id, src, comment }, index) => {
           const newIndex = (index - currentIndex + innerImages.length) % innerImages.length;
           const newAngle = newIndex * 45;
           const isCenter = newIndex === 0;
@@ -168,11 +169,14 @@ const TestimonialSection = () => {
         </div>
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-30 h-16 bg-white rounded-b-full z-10"></div>
         <div className="mt-10 p-4 rounded-lg flex flex-col items-center mx-auto justify-center">
-          <p className="text-secondary italic text-center">
-            "{currentTestimonial.text}"
-          </p>
-          <p className="mt-4 font-bold text-secondary opacity-[0.8] whitespace-nowrap">— {currentTestimonial.name}</p>
-        </div>
+  <p className="text-secondary italic text-center">
+    &ldquo;{currentTestimonial.text}&rdquo;
+  </p>
+  <p className="mt-4 font-bold text-secondary opacity-[0.8] whitespace-nowrap">
+    — {currentTestimonial.name}
+  </p>
+</div>
+
       </div>
     </div>
   );

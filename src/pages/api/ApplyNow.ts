@@ -113,9 +113,11 @@ export default async function handler(
 
   // Apply Rate Limiting
   const ip =
-    (req.headers["x-forwarded-for"] as string) || req.socket.remoteAddress;
+  ((req.headers["x-forwarded-for"] as string) || req.socket.remoteAddress || "unknown") as string;
+
   try {
     await rateLimiter.consume(ip);
+
   } catch {
     return res.status(429).json({
       success: false,

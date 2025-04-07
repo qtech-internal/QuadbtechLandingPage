@@ -90,13 +90,13 @@ const GetToKnow = () => {
           }
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
         >
-          <h2 className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-semibold leading-snug pr-[2px]">
-            At QuadB, we specialize in cutting-edge software development,
-          
-            from robust Web2 applications to blockchain-powered Web3 ecosystems.
-            Whether you're a startup or an enterprise, we bring your vision to life
-            with secure, scalable, and future-ready technology.
-          </h2>
+        <h2 className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-semibold leading-snug pr-[2px]">
+  At QuadB, we specialize in cutting-edge software development,
+  from robust Web2 applications to blockchain-powered Web3 ecosystems.
+  Whether you&apos;re a startup or an enterprise, we bring your vision to life
+  with secure, scalable, and future-ready technology.
+</h2>
+
 
           <motion.div
             className="mt-6 flex flex-col sm:flex-row justify-center md:justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"

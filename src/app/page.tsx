@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import ServiceSection from "./components/Home/ServiceSection";
 import GetToKnow from "./components/Home/GetToKnow";
@@ -10,8 +9,6 @@ import Job from "./components/Home/Job";
 import Contact from "./components/Home/Contact";
 import HeroMobile from "./components/Home/HeroMobile";
 
-import { openAsBlob } from "fs";
-import { motion } from "framer-motion";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);

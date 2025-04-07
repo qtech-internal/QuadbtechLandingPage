@@ -228,9 +228,10 @@ const ServiceSection: React.FC = () => {
         Our Services – Future-Ready Tech Solutions
       </h2>
       <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-base lg:w-3/4 mx-auto">
-        "From Traditional to Decentralized – We Build the Future of Digital Innovation." <br />
-        We offer custom-tailored Web2 & Web3 solutions designed for scalability, security, and seamless user experience. Whether you're launching a blockchain-powered platform or optimizing your digital presence, our expertise ensures success.
-      </p>
+  &ldquo;From Traditional to Decentralized – We Build the Future of Digital Innovation.&rdquo; <br />
+  We offer custom-tailored Web2 &amp; Web3 solutions designed for scalability, security, and seamless user experience. Whether you&apos;re launching a blockchain-powered platform or optimizing your digital presence, our expertise ensures success.
+</p>
+
 
       {/* First Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 items-start relative">
