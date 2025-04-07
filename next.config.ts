@@ -4,7 +4,10 @@ const nextConfig: NextConfig = {
   /* config options here */
   eslint: {
     ignoreDuringBuilds: true,
-}
+  },
+  webpack(config) {
+    return config;
+  },
 };
 
 export default nextConfig;
