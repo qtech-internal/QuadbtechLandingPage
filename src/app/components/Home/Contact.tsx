@@ -83,8 +83,8 @@ export default function ContactUs() {
       }`}
 
     >
-      <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-black text-secondary text-center leading-none relative z-0 select-none">
-        CONTACT <span className="ml-2 text-p">US</span>
+      <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-semibold text-secondary text-center leading-none relative z-0 select-none">
+        CONTACT <span className="ml-2 ">US</span>
       </h1>
 
       <div className="absolute top-[90px] sm:top-[100px] md:top-[140px] left-1/2 transform -translate-x-1/2 bg-theme text-theme px-4 py-3 rounded-md w-[260px] sm:w-[280px] text-xs leading-5 shadow-lg z-10 text-center">

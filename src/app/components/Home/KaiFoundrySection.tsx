@@ -91,9 +91,9 @@ const imageControls = useAnimation();
       {/* Left Side */}
       <div className="flex-1">
         {/* Heading */}
-        <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-gray-800 text-xl">
+        <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-[#000000] text-xl font-semibold font-roboto">
           Our Web3 Innovation Lab
-          <div className="mt-2 flex">
+          <div className="mt-4 flex">
               <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={200} height={50} />
             
           </div>
@@ -103,14 +103,14 @@ const imageControls = useAnimation();
         <motion.p
           initial={{ x: 100, opacity: 0 }}
           animate={paraControls}
-          className="mt-8 text-gray-700 text-lg md:text-xl font-medium"
+          className="mt-8 text-black text-lg md:text-xl font-medium"
         >
           Pushing the Boundaries of Decentralization
           <br className="hidden sm:block" />
           At KaiFoundry, we specialize in building next-generation Web3 products, designed for scalability, security, and seamless user experiences. From smart contract development to NFT ecosystems, we bring decentralized innovation to life.
         </motion.p>
   
-        <button className=" px-6 py-2 rounded-full  button-theme mt-2 ">
+        <button className=" px-6 py-2 rounded-full  button-theme mt-14 ">
   Explore More
 </button>
 

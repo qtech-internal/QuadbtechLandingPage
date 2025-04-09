@@ -102,7 +102,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div id="mobile-menu" className="flex flex-col items-end p-10 space-y-6 text-theme text-lg mt-10">
+        <div id="mobile-menu" className="flex flex-col items-end p-10 space-y-6 text-theme text-lg mt-10 whitespace-nowrap">
           {[
             { path: "/", label: "Home" },
             { path: "/career", label: "Career" },

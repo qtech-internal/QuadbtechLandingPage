@@ -9,6 +9,7 @@ type ServiceCardProps = {
   hoverBg?: string;
   textColor?: string;
   isHovered: boolean;
+  border?: boolean;
   isAnyHovered: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
@@ -21,6 +22,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   hoverBg = "bg-theme",
   textColor = "text-white",
   isHovered,
+  border,
   isAnyHovered,
   onMouseEnter,
   onMouseLeave,
@@ -35,6 +37,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     transition-all duration-600 ease-in-out overflow-visible rounded-md
     flex items-center justify-center text-xs sm:text-sm md:text-base font-medium cursor-pointer px-3
     ${bg} ${textColor}
+     ${border ? "border border-theme" : ""}
     ${isHovered ? "z-20" : "z-10"}
     ${isAnyHovered && !isHovered ? "blur-[3px]" : ""}
       `}
@@ -196,24 +199,53 @@ const ServiceSection: React.FC = () => {
   ];
 
   // Render Function for Rows
+  // const renderRow = (
+  //   row: ServiceItem[],
+  //   customStyle?: { bg?: string; hoverBg?: string; textColor?: string },
+  //   bgForIndex?: number
+  // ) =>
+  //   row.map((service, idx) => (
+      
+  //     <ServiceCard
+  //       key={idx}
+  //       title={service.title}
+  //       points={service.points}
+  //       bg={isBgIndex ? (customStyle?.bg || "bg-theme") : "bg-white"}
+  //       // bg={customStyle?.bg || "bg-theme"}
+  //       hoverBg={customStyle?.hoverBg || "bg-theme"}
+  //       textColor={customStyle?.textColor || "text-white"}
+  //       border={!isBgIndex} 
+  //       isHovered={hoveredIndex === service.title}
+  //       isAnyHovered={hoveredIndex !== null}
+  //       onMouseEnter={() => setHoveredIndex(service.title)}
+  //       onMouseLeave={() => setHoveredIndex(null)}
+  //     />
+  //   ));
   const renderRow = (
     row: ServiceItem[],
-    customStyle?: { bg?: string; hoverBg?: string; textColor?: string }
+    customStyle?: { bg?: string; hoverBg?: string; textColor?: string; border?: boolean },
+    bgForIndex?: number // only this index gets full bg
   ) =>
-    row.map((service, idx) => (
-      <ServiceCard
-        key={idx}
-        title={service.title}
-        points={service.points}
-        bg={customStyle?.bg || "bg-theme"}
-        hoverBg={customStyle?.hoverBg || "bg-theme"}
-        textColor={customStyle?.textColor || "text-white"}
-        isHovered={hoveredIndex === service.title}
-        isAnyHovered={hoveredIndex !== null}
-        onMouseEnter={() => setHoveredIndex(service.title)}
-        onMouseLeave={() => setHoveredIndex(null)}
-      />
-    ));
+    row.map((service, idx) => {
+      const isBgIndex = idx === bgForIndex;
+  
+      return (
+        <ServiceCard
+          key={idx}
+          title={service.title}
+          points={service.points}
+          bg={isBgIndex ? (customStyle?.bg || "bg-theme") : "bg-white"}
+          hoverBg={customStyle?.hoverBg || "bg-theme"}
+          textColor={isBgIndex ? (customStyle?.textColor || "text-white") : "text-black"}
+          border={!isBgIndex} // show border if not bg index
+          isHovered={hoveredIndex === service.title}
+          isAnyHovered={hoveredIndex !== null}
+          onMouseEnter={() => setHoveredIndex(service.title)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        />
+      );
+    });
+  
 
   return (
    <motion.section
@@ -236,25 +268,33 @@ const ServiceSection: React.FC = () => {
       {/* First Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 items-start relative">
         <div className="div-bg h-16 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
-        {renderRow(firstRow)}
+        {/* {renderRow(firstRow)} */}
+        {renderRow(firstRow, { bg: "bg-theme", hoverBg: "bg-theme", textColor: "text-white" }, 0)}
         <div className="div-bg h-16 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
       </div>
 
       {/* Second Row */}
       <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-4 mt-10 w-full relative">
         <div className="div-bg h-16 w-40 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
-        {renderRow(secondRow, {
+        {/* {renderRow(secondRow, {
           bg: "bg-white border-1 border-theme",
           hoverBg: "bg-theme  ",
           textColor: "text-primary",
-        })}
+        })} */}
+        {renderRow(secondRow, {
+  bg: "bg-white",
+  hoverBg: "bg-theme",
+  textColor: "text-black",
+  border: true,
+})}
         <div className="div-bg h-16 w-40 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
       </div>
 
       {/* Third Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 items-end relative">
         <div className="div-bg h-16 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
-        {renderRow(thirdRow)}
+        {/* {renderRow(thirdRow)} */}
+        {renderRow(thirdRow, { bg: "bg-theme", hoverBg: "bg-theme", textColor: "text-white" }, 1)}
         <div className="div-bg h-16 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
       </div>
      
@@ -263,6 +303,11 @@ const ServiceSection: React.FC = () => {
 };
 
 export default ServiceSection;
+
+
+
+
+
 
 
 
