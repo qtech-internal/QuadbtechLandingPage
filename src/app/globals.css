@@ -30,7 +30,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 } */
  
-@font-face {
+/* @font-face {
   font-family: "Manrope";
   src: url("/font/regular.otf") format("opentype");
   font-weight: normal;
@@ -54,7 +54,42 @@ body {
   src: url("/font/Roboto-Regular.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
+} */
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
@@ -112,14 +147,14 @@ body {
 
 
 .purple {
-  --bg-card: #6a0dad;
-  --border-card: #4b0082;
+  --bg-card: #C866D7;
+  --border-card: #8e66ab;
   --text-primary: #ffffff;
   --text-secondary: #000000;
   --button-bg: #6a0dad;
   /* --button-text: #ffffff; */
   --button-text: #1b1a1a;
-  --button-border: #4b0082;
+  --button-border: #C866D7;
   --p-text:rgb(8, 50, 79);
   --div-bg:#f1eaf7;
   --k-bg: #C866D7;
@@ -301,4 +336,7 @@ body {
   -webkit-text-fill-color: transparent;
   animation: gradientMove 3s infinite linear ;
   transition: all;
+}
+.left-clamp {
+  left: clamp(10rem, 30vw, 45rem);
 }

@@ -33,8 +33,8 @@ export default function Home() {
         <GetToKnow />
         <ServiceSection />
         <KaiFoundrySection />
-        <Job />
         <TestimonialSection />
+        <Job />
         <Contact />
       </section>
 

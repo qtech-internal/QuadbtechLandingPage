@@ -22,7 +22,7 @@ export default function ThemeSwitcher() {
   const colors = [
     { name: "orange", color: "text-orange-500" },
     { name: "olive", color: "text-green-600" },
-    { name: "purple", color: "text-purple-600" },
+    { name: "purple", color: "text-purple-500" },
     { name: "pink", color: "text-pink-500" },
     { name: "cyan", color: "text-cyan-500" },
     { name: "brown", color: "text-brown-500" },
