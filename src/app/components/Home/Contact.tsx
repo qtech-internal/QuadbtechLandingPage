@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Send, User, Mail, Phone, FileText, MessageCircle } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast from "react-hot-toast";
+import { Send } from "lucide-react";
 
 export default function ContactUs() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: false });
@@ -26,7 +26,16 @@ export default function ContactUs() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    let processedValue = value;
+    if (name.toLowerCase() === "email") {
+      processedValue = value.replace(/\s+/g, "").toLowerCase();
+    } else if (name === "phone") {
+      processedValue = value.replace(/[^0-9+\-]/g, "").substring(0, 15);
+    } else {
+      processedValue = value.trimStart().replace(/\s+/g, " ");
+    }
+    setFormData((prev) => ({ ...prev, [name]: processedValue }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -75,13 +84,12 @@ export default function ContactUs() {
   };
 
   return (
-    <div id="contact"
+    <div
+      id="contact"
       ref={ref}
-
       className={`relative max-w-[1500px] mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       }`}
-
     >
       <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-semibold text-secondary text-center leading-none relative z-0 select-none">
         CONTACT <span className="ml-2 ">US</span>
@@ -103,38 +111,38 @@ export default function ContactUs() {
           {[
             {
               name: "name",
-              icon: User,
-              placeholder: "Your Name",
+              placeholder: "Name",
               type: "text",
             },
             {
               name: "email",
-              icon: Mail,
-              placeholder: "Your Email",
+              placeholder: "Email",
               type: "email",
             },
             {
               name: "phone",
-              icon: Phone,
-              placeholder: "Your Phone",
+              placeholder: "Phone No.",
               type: "tel",
             },
             {
               name: "subject",
-              icon: FileText,
               placeholder: "Subject",
               type: "text",
             },
           ].map((field, index) => (
             <div className="relative" key={index}>
-              <field.icon className="absolute left-3 top-3 text-gray-500" />
               <input
                 type={field.type}
                 name={field.name}
                 value={formData[field.name as keyof typeof formData]}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (field.type === "email" && e.key === " ") {
+                    e.preventDefault();
+                  }
+                }}
                 placeholder={field.placeholder}
-                className="p-3 pl-10 rounded-md div-bg placeholder-black text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none transition"
+                className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none transition focus:placeholder-transparent"
                 required
               />
             </div>
@@ -143,21 +151,20 @@ export default function ContactUs() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="relative sm:col-span-2">
-            <MessageCircle className="absolute left-3 top-3 text-gray-500" />
             <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Your Message"
+              placeholder="Message"
               rows={4}
-              className="p-3 pl-10 rounded-md div-bg placeholder-black text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none resize-none transition"
+              className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none resize-none transition focus:placeholder-transparent"
               required
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className={`flex flex-col justify-center items-center text-white rounded-md w-full py-6 ${
+            className={`flex flex-col justify-center items-center text-white rounded-2xl w-full py-6 ${
               loading || isRateLimited
                 ? "bg-theme cursor-not-allowed"
                 : "bg-theme hover:div-bg transition"
