@@ -19,6 +19,39 @@ const BlockchainDeveloper = () => {
   const [fileName, setFileName] = useState("");
   const [loading, setLoading] = useState(false); // Loading state
 
+  // Handle input changes with validation
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value, type } = e.target;
+    let processedValue = value;
+
+    if (type === "email") {
+      processedValue = value.replace(/\s+/g, "").toLowerCase();
+    } else if (type === "tel") {
+      processedValue = value.replace(/[^0-9+\-]/g, "").substring(0, 15);
+    } else {
+      processedValue = value.trimStart().replace(/\s+/g, " ");
+    }
+
+    switch (name) {
+      case "name":
+        setName(processedValue);
+        break;
+      case "email":
+        setEmail(processedValue);
+        break;
+      case "phone":
+        setPhone(processedValue);
+        break;
+      case "whyJoin":
+        setWhyJoin(processedValue);
+        break;
+      default:
+        break;
+    }
+  };
+
   const fileInputRef = useRef<HTMLInputElement>(null); // Typed the ref
 
   // --- File Handling Logic (With Validation) ---
@@ -69,29 +102,32 @@ const BlockchainDeveloper = () => {
   // --- Form Submission Logic ---
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     // Validation
     if (!name || !email || !phone || !whyJoin || !resumeFile) {
       toast.error("Please fill in all required fields and upload your resume.");
       return;
     }
-  
+
     setLoading(true);
     const loadingToastId = toast.loading("Submitting application...");
-  
+
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
     formData.append("phone", phone);
-    formData.append("subject", `Job Application: Blockchain Developer - ${name}`);
+    formData.append(
+      "subject",
+      `Job Application: Blockchain Developer - ${name}`
+    );
     formData.append("message", whyJoin);
     formData.append("resume", resumeFile, resumeFile.name);
-  
+
     try {
       const response = await axios.post("/api/ApplyNow", formData);
-  
+
       toast.dismiss(loadingToastId);
-  
+
       if (response.data.success) {
         toast.success("Application submitted successfully!");
         setName("");
@@ -100,18 +136,19 @@ const BlockchainDeveloper = () => {
         setWhyJoin("");
         handleRemoveFile(); // Clears file state and input ref
       } else {
-        const errorMsg = response.data.error || "Submission failed. Please try again.";
+        const errorMsg =
+          response.data.error || "Submission failed. Please try again.";
         toast.error(errorMsg);
       }
     } catch (error: unknown) {
       toast.dismiss(loadingToastId);
-  
+
       let errorMsg = "An unexpected error occurred. Please try again later.";
-  
+
       if (axios.isAxiosError(error)) {
         errorMsg = error.response?.data?.error || errorMsg;
       }
-  
+
       console.error("Form submission error:", error);
       toast.error(errorMsg);
     } finally {
@@ -223,9 +260,10 @@ const BlockchainDeveloper = () => {
                   id="blockchain-dev-name" // Added id
                   type="text"
                   placeholder="Enter your Name"
-                  className="w-full p-3 border border-theme rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100" // Added disabled style
+                  className="w-full p-3 border border-theme rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={handleInputChange}
+                  name="name"
                   required
                   disabled={loading} // Added disabled state
                   aria-required="true"
@@ -241,14 +279,16 @@ const BlockchainDeveloper = () => {
                   Email<span className="text-p ml-1">*</span>
                 </label>
                 <input
-                  id="blockchain-dev-email" // Added id
+                  id="blockchain-dev-email"
                   type="email"
-                  placeholder="Enter your Email"
-                  className="w-full p-3 border border-theme rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100" // Added disabled style
+                  placeholder="Enter your E-mail"
+                  className="w-full p-3 border border-theme rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleInputChange}
+                  onKeyDown={(e) => e.key === " " && e.preventDefault()}
+                  name="email"
                   required
-                  disabled={loading} // Added disabled state
+                  disabled={loading}
                   aria-required="true"
                 />
               </div>
@@ -265,9 +305,10 @@ const BlockchainDeveloper = () => {
                   id="blockchain-dev-phone" // Added id
                   type="tel"
                   placeholder="Enter your Contact Number"
-                  className="w-full p-3 border border-theme rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100" // Added disabled style
+                  className="w-full p-3 border border-theme rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent" // Added disabled style
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={handleInputChange}
+                  name="phone"
                   required
                   disabled={loading} // Added disabled state
                   aria-required="true"
@@ -283,7 +324,11 @@ const BlockchainDeveloper = () => {
                     fileName
                       ? "border-green-400 bg-green-50" // Added bg hint
                       : "border-gray-300 hover:border-orange-400" // Used orange-400 like inputs
-                  } ${loading ? "opacity-60 cursor-not-allowed bg-gray-100" : "cursor-pointer"}`} // Added disabled styles
+                  } ${
+                    loading
+                      ? "opacity-60 cursor-not-allowed bg-gray-100"
+                      : "cursor-pointer"
+                  }`} // Added disabled styles
                   onClick={() => {
                     // Only allow click if not loading
                     if (!loading && !fileName) fileInputRef.current?.click();
@@ -335,10 +380,7 @@ const BlockchainDeveloper = () => {
                       <Upload className="h-8 w-8 text-gray-400" />
                       {/* Added more descriptive text */}
                       <p className="text-gray-400 text-sm">
-                        Click to Upload Resume
-                      </p>
-                      <p className="text-gray-400 text-xs">
-                        (PDF, DOC, DOCX | Max 5MB)
+                        Upload Your Resume Here
                       </p>
                     </div>
                   )}
@@ -356,11 +398,12 @@ const BlockchainDeveloper = () => {
                 </label>
                 <textarea
                   id="blockchain-dev-whyjoin" // Added id
-                  placeholder="Write your answer"
+                  placeholder="Write your answer here."
                   rows={4}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100" // Added disabled style and border consistency
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent" // Added disabled style and border consistency
                   value={whyJoin}
-                  onChange={(e) => setWhyJoin(e.target.value)}
+                  onChange={handleInputChange}
+                  name="whyJoin"
                   required
                   disabled={loading} // Added disabled state
                   aria-required="true"
