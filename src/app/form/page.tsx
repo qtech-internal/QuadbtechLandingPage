@@ -172,7 +172,7 @@ const BlockchainDeveloper = () => {
         </button>
 
         <div className="w-full flex justify-center mb-16">
-          <h1 className="text-3xl font-semibold text-secondary border-2 border-theme px-8 py-3 rounded-full">
+          <h1 className="text-3xl font-extrabold text-secondary border-4 border-theme px-8 py-3 rounded-full">
             Blockchain Developer
           </h1>
         </div>
@@ -180,7 +180,7 @@ const BlockchainDeveloper = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Left */}
           <div className="lg:col-span-2 lg:pr-8 lg:border-r border-theme">
-            <h2 className="text-xl font-semibold mb-4">About The Job</h2>
+            <h2 className="text-xl font-extrabold mb-4">About The Job</h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
               Aliquet nunc. Aliquam vel scelerisque massa. Suspendisse faucibus
               interdum posuere. Mauris quis orci nec magna aliquet imperdiet.
@@ -194,7 +194,7 @@ const BlockchainDeveloper = () => {
             </p>
 
             {/* Eligibility */}
-            <h2 className="text-xl font-semibold mb-8">Eligibility Criteria</h2>
+            <h2 className="text-xl font-extrabold mb-8">Eligibility Criteria</h2>
             <ul className="space-y-8 mb-8">
               {[
                 "Eger tincidunt dictum. Morbi faucibus venenatis egestas imperdiet elit.",
@@ -214,7 +214,7 @@ const BlockchainDeveloper = () => {
             </ul>
 
             {/* Perk / Conditions */}
-            <h2 className="text-xl font-semibold mb-8">Perk & Conditions</h2>
+            <h2 className="text-xl font-extrabold mb-8">Perk & Conditions</h2>
             <ul className="space-y-8">
               {[
                 "Eger tincidunt dictum. Morbi faucibus venenatis egestas imperdiet elit.",
@@ -245,12 +245,12 @@ const BlockchainDeveloper = () => {
             />
 
             {/*Form - Added onSubmit */}
-            <h2 className="text-xl font-semibold">Application Form</h2>
+            <h2 className="text-xl font-extrabold">Application Form</h2>
             <form className="space-y-4" onSubmit={handleSubmit} noValidate>
               <div>
                 <label
                   htmlFor="blockchain-dev-name"
-                  className="block text-gray-700 mb-1"
+                  className="block text-gray-700 mb-1 font-semibold"
                 >
                   {" "}
                   {/* Added htmlFor */}
@@ -260,7 +260,7 @@ const BlockchainDeveloper = () => {
                   id="blockchain-dev-name" // Added id
                   type="text"
                   placeholder="Enter your Name"
-                  className="w-full p-3 border border-theme rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent"
+                  className="w-full p-3 border border-gray-300  rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent"
                   value={name}
                   onChange={handleInputChange}
                   name="name"
@@ -272,7 +272,7 @@ const BlockchainDeveloper = () => {
               <div>
                 <label
                   htmlFor="blockchain-dev-email"
-                  className="block text-gray-700 mb-1"
+                  className="block text-gray-700 mb-1 font-semibold"
                 >
                   {" "}
                   {/* Added htmlFor */}
@@ -282,7 +282,7 @@ const BlockchainDeveloper = () => {
                   id="blockchain-dev-email"
                   type="email"
                   placeholder="Enter your E-mail"
-                  className="w-full p-3 border border-theme rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent"
                   value={email}
                   onChange={handleInputChange}
                   onKeyDown={(e) => e.key === " " && e.preventDefault()}
@@ -295,7 +295,7 @@ const BlockchainDeveloper = () => {
               <div>
                 <label
                   htmlFor="blockchain-dev-phone"
-                  className="block text-gray-700 mb-1"
+                  className="block text-gray-700 mb-1 font-semibold"
                 >
                   {" "}
                   {/* Added htmlFor */}
@@ -305,7 +305,7 @@ const BlockchainDeveloper = () => {
                   id="blockchain-dev-phone" // Added id
                   type="tel"
                   placeholder="Enter your Contact Number"
-                  className="w-full p-3 border border-theme rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent" // Added disabled style
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent" // Added disabled style
                   value={phone}
                   onChange={handleInputChange}
                   name="phone"
@@ -323,7 +323,7 @@ const BlockchainDeveloper = () => {
                   className={`relative w-full border rounded-md p-6 flex items-center justify-center transition ${
                     fileName
                       ? "border-green-400 bg-green-50" // Added bg hint
-                      : "border-gray-300 hover:border-orange-400" // Used orange-400 like inputs
+                      : "border-gray-300 " // Used orange-400 like inputs
                   } ${
                     loading
                       ? "opacity-60 cursor-not-allowed bg-gray-100"
@@ -389,7 +389,7 @@ const BlockchainDeveloper = () => {
               <div>
                 <label
                   htmlFor="blockchain-dev-whyjoin"
-                  className="block text-gray-700 mb-1"
+                  className="block text-gray-700 mb-1 font-semibold"
                 >
                   {" "}
                   {/* Added htmlFor */}

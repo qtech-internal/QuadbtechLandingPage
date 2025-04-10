@@ -96,8 +96,8 @@ export default function Career() {
         >
           Previous
         </button>
-        <span className="text-lg font-medium">
-          {currentPage} of {totalPages}
+        <span className="text-lg font-medium whitespace-nowrap">
+        Page {currentPage} of {totalPages}
         </span>
         <button
           onClick={handleNext}
