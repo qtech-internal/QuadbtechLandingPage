@@ -201,7 +201,7 @@ export default function ContactUs() {
                   }
                 }}
                 placeholder={field.placeholder}
-                className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none transition focus:placeholder-transparent"
+                className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none transition focus:placeholder-transparent"
                 required
                 maxLength={field.name === "phone" ? 10 : undefined}
               />
@@ -227,7 +227,7 @@ export default function ContactUs() {
               }
               placeholder="Message"
               rows={4}
-              className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus:ring-2 focus:ring-orange-500 outline-none resize-none transition focus:placeholder-transparent"
+              className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition focus:placeholder-transparent"
               required
             ></textarea>
           </div>
@@ -237,8 +237,8 @@ export default function ContactUs() {
             type="submit"
             className={`flex flex-col justify-center items-center text-white rounded-2xl w-full py-6 transition ${
               loading || isRateLimited
-                ? "bg-orange-500 cursor-not-allowed" // Use a clearer disabled style
-                : "bg-theme hover:bg-orange-600" // Example hover effect
+                ? "bg-theme cursor-not-allowed" // Use a clearer disabled style
+                : "bg-theme" // Example hover effect
             }`}
             disabled={loading || isRateLimited}
           >

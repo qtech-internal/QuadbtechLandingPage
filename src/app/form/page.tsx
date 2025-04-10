@@ -348,7 +348,7 @@ const BlockchainDeveloper = () => {
                   id="blockchain-dev-name"
                   type="text"
                   placeholder="Enter your Name"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
+                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
                   value={name}
                   onChange={handleInputChange}
                   name="name"
@@ -370,7 +370,7 @@ const BlockchainDeveloper = () => {
                   id="blockchain-dev-email"
                   type="email"
                   placeholder="Enter your E-mail"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
+                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
                   value={email}
                   onChange={handleInputChange}
                   onBlur={handleEmailBlur} // *** ADDED ONBLUR HANDLER ***
@@ -396,7 +396,7 @@ const BlockchainDeveloper = () => {
                   id="blockchain-dev-phone"
                   type="tel" // Use "tel" for semantic meaning and mobile keyboards
                   placeholder="Enter your Contact Number"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
+                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
                   value={phone}
                   onChange={handleInputChange}
                   name="phone"
@@ -433,7 +433,7 @@ const BlockchainDeveloper = () => {
                   className={`relative w-full border rounded-md p-6 flex items-center justify-center text-center transition duration-150 ease-in-out ${
                     fileName
                       ? "border-green-400 bg-green-50"
-                      : "border-gray-300 hover:border-orange-400"
+                      : "border-gray-300 brd-theme"
                   } ${
                     loading
                       ? "opacity-60 cursor-not-allowed bg-gray-100"
@@ -511,7 +511,7 @@ const BlockchainDeveloper = () => {
                   id="blockchain-dev-whyjoin"
                   placeholder="Write your answer here."
                   rows={5} // Increased rows slightly
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition resize-none" // Disabled resize
+                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition resize-none" // Disabled resize
                   value={whyJoin}
                   onChange={handleInputChange}
                   name="whyJoin"
@@ -524,7 +524,7 @@ const BlockchainDeveloper = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full sm:w-1/2 mx-auto flex justify-center items-center bg-theme text-white font-semibold py-3 px-6 rounded-full hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full sm:w-1/2 mx-auto flex justify-center items-center bg-theme text-white font-semibold py-3 px-6 rounded-full hover:bg-theme focus-ring-bg transition duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed"
                 disabled={loading}
               >
                 {loading ? (
