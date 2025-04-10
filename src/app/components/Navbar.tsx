@@ -46,7 +46,7 @@ const Navbar = () => {
   }, [menuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full px-6 py-4 backdrop-blur-lg bg-white/30  shadow-md z-50 font-poppins">
+    <header className="fixed top-0 left-0 w-full px-6 py-4 backdrop-blur-lg bg-white  shadow-md z-50 font-poppins">
       <nav className="max-w-[1600px] mx-auto flex justify-between items-center">
         <div id="logo">
           <Image src="/Logo Black.png" alt="QuadB Tech" width={120} height={40} />
@@ -71,7 +71,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Link href="#contact">
+          <Link href="/contact">
             <button
               id="contact-button"
               className={`px-4 py-2 rounded-full font-semibold button-theme ${
@@ -102,12 +102,12 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div id="mobile-menu" className="flex flex-col items-end p-10 space-y-6 text-theme text-lg mt-10 whitespace-nowrap">
+        <div id="mobile-menu" className="flex flex-col items-end p-10 space-y-6 text-secondary text-lg mt-10 whitespace-nowrap">
           {[
             { path: "/", label: "Home" },
             { path: "/career", label: "Career" },
             { path: "/blogs", label: "Blogs" },
-            { path: "/#contact", label: "CONTACT US" },
+            { path: "/contact", label: "CONTACT US" },
           ].map(({ path, label }) => (
             <Link
               key={path}

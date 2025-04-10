@@ -256,7 +256,7 @@ const BlockchainDeveloper = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Left Column: Job Description */}
           <div className="lg:col-span-2 lg:pr-8 lg:border-r border-theme">
-            <h2 className="text-xl font-semibold mb-4">About The Job</h2>
+            <h2 className="text-xl font-extrabold mb-4">About The Job</h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
               Join our innovative team as a Blockchain Developer. You will be
               responsible for designing, implementing, and supporting
@@ -270,7 +270,6 @@ const BlockchainDeveloper = () => {
               Solidity, Go, or Rust, and familiarity with frameworks like
               Hyperledger Fabric or Ethereum platforms are highly desirable.
             </p>
-
             <h2 className="text-xl font-semibold mb-8">Eligibility Criteria</h2>
             <ul className="space-y-4 mb-8 list-none pl-0">
               {[
@@ -290,7 +289,6 @@ const BlockchainDeveloper = () => {
                 </li>
               ))}
             </ul>
-
             <h2 className="text-xl font-semibold mb-8">Perks & Conditions</h2>
             <ul className="space-y-4 list-none pl-0">
               {[
@@ -320,7 +318,6 @@ const BlockchainDeveloper = () => {
               alt="Blockchain Visual"
               className="w-full h-auto rounded-lg object-cover shadow-md"
             />
-
             {/* Application Form */}
             <h2 className="text-xl font-semibold">Application Form</h2>
             <form className="space-y-4" onSubmit={handleSubmit} noValidate>
