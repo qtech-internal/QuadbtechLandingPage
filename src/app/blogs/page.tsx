@@ -4,7 +4,6 @@ import gsap from "gsap";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -150,7 +149,7 @@ export default function Home() {
                   "path('M118 19C118 8.5 109.5 0 99 0H19C8.5 0 0 8.5 0 19V158C0 168.5 8.5 177 19 177H324C334.5 177 343 168.5 343 158V126C343 115.5 334.5 107 324 107H302C291.5 107 283 98.5 283 88V68C283 57.5 274.5 49 264 49H137C126.5 49 118 40.5 118 30V19Z')",
               }}
             >
-              <span className="font-normal border border-theme w-22 text-center rounded-3xl text-sm sm:text-base bg-white">
+              <span className="font-normal border border-theme w-22 text-center rounded-3xl text-sm sm:text-base bg-white text-orange-900">
                 Next-Gen
               </span>
               <span className="text-4xl bottom-0 text-black">Transforming</span>
@@ -181,14 +180,17 @@ export default function Home() {
                 index == 0 ? "div-bg text-[#222]" : "bg-blog text-[#fff]"
               }`}
             >
-             <p className="py-10">
-  &ldquo;Their team took our vision and turned it into a seamless,
-  high-performance dApp. The UI/UX was flawless, and the smart
-  contracts were secure and gas-efficient. Highly recommend.&rdquo;
-  <br />
-  <br />— Alex R., CEO of BlockFi Ventures
-</p>
-
+              <p className="py-10">
+                &ldquo;Their team took our vision and turned it into a seamless,
+                high-performance dApp. The UI/UX was flawless, and the smart
+                contracts were secure and gas-efficient. Highly
+                recommend.&rdquo;
+                <br />
+                <br />
+                <span className="font-extrabold text-shadow-amber-900 text-shadow-lg/10">
+                  — Alex R., CEO of BlockFi Ventures
+                </span>
+              </p>
 
               <div
                 className={`absolute border-white border-8 bottom-[-5] right-[-5] h-[65px] w-[65px] rounded-4xl flex items-center justify-center ${
@@ -246,7 +248,7 @@ export default function Home() {
             }}
             className="absolute top-[0%] left-[50%] md:top-[5%] md:left-[87%] transform -translate-x-1/2 -translate-y-1/2 sm:w-[373px] w-auto text-center "
           >
-            <h1 className="md:text-[2.5vw] text-3xl font-bold gradient-text">
+            <h1 className="md:text-[2.5vw] text-3xl font-bold text-black">
               Transforming
             </h1>
           </div>
@@ -258,7 +260,7 @@ export default function Home() {
             }}
             className="absolute top-[7%] left-[50%] md:top-[12%] md:left-[85%] lg:top-[10vh] xl:top-[12vh] 2xl:lg:top-[14vh] transform -translate-x-1/2 -translate-y-1/2 sm:w-[427px] w-full text-center"
           >
-            <h1 className="md:text-[2.5vw] text-3xl font-bold gradient-text">
+            <h1 className="md:text-[2.5vw] text-3xl font-bold">
               Ideas into Reality
             </h1>
           </div>
@@ -269,11 +271,10 @@ export default function Home() {
       absolute 
       bottom-[-0vh] left-[50%] transform -translate-x-1/2 
       border-theme bg-white font-semibold rounded-2xl 
-      
       text-[3.75vw] sm:px-6 px-4 sm:py-2 py-1 md:text-[0.75vw] md:bottom-[24vh] md:left-[14.5%] 
-      
+      text-black
       lg:bottom-[11vh]
-      transition-all duration-10 ease-in-out md:px-3 md:py-1 gradient-text border-amber-500 border 2xl:text-[1vw] 2xl:left-[14%] 2xl:bottom-[2%] xl:left-[14.5%] xl:bottom-[2%]
+      transition-all duration-10 ease-in-out md:px-3 md:py-1 lg:my-[-28px] xl:my-0 md:my-[-18px] border-amber-500 border 2xl:text-[1vw] 2xl:left-[14%] 2xl:bottom-[2%] xl:left-[14.5%] xl:bottom-[2%]
     "
           >
             Read More
@@ -296,7 +297,7 @@ export default function Home() {
           md:leading-6.5 lg:leading-9 lg:text-[1.60vw]
           xl:text-[1.80vw] xl:leading-12
           2xl:text-[2.2vw] 2xl:leading-15
-          sm:leading-12 text-black bg-white bg-opacity-60 
+          sm:leading-12 text-orange-950 bg-white bg-opacity-60 
           px-4 sm:p-6 rounded-lg transition-all duration-300 
           
         "
