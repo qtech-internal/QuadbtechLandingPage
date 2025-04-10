@@ -40,7 +40,7 @@ export default function Career() {
     <div className=" bg-white p-10 flex flex-col items-center space-y-10  ">
 
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-4 w-full justify-between px-6 m">
-        <h1 className="text-3xl font-extrabold">Current Openings</h1>
+        <h1 className="text-3xl font-extrabold whitespace-nowrap sm:font-bold ">Current Openings</h1>
         {/* <div className="w-full sm:w-auto">
           <input
             type="text"

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react"; // Added useRef for potential ReCAPTCHA reset
+import { useState, useRef } from "react"; 
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -213,17 +213,17 @@ export default function ContactUs() {
       <form
         onSubmit={handleSubmit}
         noValidate // Disable browser's native validation to rely on custom logic
-        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6"
+        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6 "
       >
         {/* Input Fields Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4  ">
           {[
             { name: "name", placeholder: "Name", type: "text" },
             { name: "email", placeholder: "Email", type: "email" },
             { name: "phone", placeholder: "Phone No.", type: "tel" }, // Use tel type
             { name: "subject", placeholder: "Subject", type: "text" },
           ].map((field) => (
-            <div className="relative" key={field.name}>
+            <div className="relative  " key={field.name}>
               <input
                 type={field.type}
                 name={field.name}
@@ -263,7 +263,8 @@ export default function ContactUs() {
                   }
                 }}
                 placeholder={field.placeholder}
-                className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none transition focus:placeholder-transparent"
+                className="p-3 pl-5 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none transition focus:placeholder-transparent"
+
                 required // Indicates field is mandatory (useful for accessibility)
                 // Set maxLength only for phone (already handled by substring, but good defense)
                 maxLength={field.name === "phone" ? 10 : undefined}
@@ -281,54 +282,94 @@ export default function ContactUs() {
         </div>
 
         {/* Message Textarea and Submit Button Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {/* Message Textarea */}
-          <div className="relative sm:col-span-2">
-            <textarea
-              name="message"
-              id="message"
-              value={formData.message}
-              onChange={handleChange}
-              // Trim message on blur to remove accidental leading/trailing spaces
-              onBlur={(e) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  message: e.target.value.trim(),
-                }))
-              }
-              placeholder="Message"
-              rows={4}
-              className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition focus:placeholder-transparent"
-              required
-            ></textarea>
-          </div>
+      {/* ✅ ReCAPTCHA - Visible only on SMALL SCREENS */}
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className={`flex flex-col justify-center items-center text-white rounded-2xl w-full py-6 transition ${
-              loading || isRateLimited
-                ? "bg-theme cursor-not-allowed" // Clearer disabled style
-                : "bg-theme hover:bg-theme/90" // Active style with hover effect
-            }`}
-            disabled={loading || isRateLimited} // Disable button when loading or rate-limited
-          >
-            {loading ? (
-              <span className="text-base font-medium">Sending...</span>
-            ) : isRateLimited ? (
-              <span className="text-base font-medium">Wait...</span> // Indicate rate limit
-            ) : (
-              <>
-                <Send className="w-6 h-6 mb-1" />
-                <span className="text-base font-medium">Send</span>
-              </>
-            )}
-          </button>
-        </div>
+
+{/* ✅ Message Textarea + Submit Button (Visible on all screens) */}
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
+  {/* Message Textarea */}
+  <div className="relative lg:col-span-2">
+    <textarea
+      name="message"
+      id="message"
+      value={formData.message}
+      onChange={handleChange}
+      onBlur={(e) =>
+        setFormData((prev) => ({
+          ...prev,
+          message: e.target.value.trim(),
+        }))
+      }
+      placeholder="Message"
+      rows={4}
+      className="p-3 pl-5 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition focus:placeholder-transparent"
+      required
+    ></textarea>
+  </div>
+  <div className="flex justify-center  block md:hidden">
+  <ReCAPTCHA
+    ref={recaptchaRef}
+    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+    onChange={(token) => setRecaptchaToken(token)}
+    onErrored={() => {
+      toast.error("reCAPTCHA failed. Please refresh and try again.");
+      setRecaptchaToken(null);
+    }}
+    onExpired={() => {
+      toast.error("reCAPTCHA expired. Please verify again.");
+      setRecaptchaToken(null);
+    }}
+  />
+</div>
+
+
+
+  {/* Submit Button */}
+  <button
+    type="submit"
+    className={`flex flex-col justify-center items-center text-white rounded-2xl w-full py-6 transition ${
+      loading || isRateLimited
+        ? "bg-theme cursor-not-allowed"
+        : "bg-theme hover:bg-theme/90"
+    }`}
+    disabled={loading || isRateLimited}
+  >
+    {loading ? (
+      <span className="text-base font-medium">Sending...</span>
+    ) : isRateLimited ? (
+      <span className="text-base font-medium">Wait...</span>
+    ) : (
+      <>
+        <Send className="w-6 h-6 mb-1" />
+        <span className="text-base font-medium">Send</span>
+      </>
+    )}
+  </button>
+</div>
+
+{/* ✅ ReCAPTCHA - Visible only on MEDIUM+ SCREENS */}
+<div className="flex justify-center mt-8 hidden md:flex">
+  <ReCAPTCHA
+    ref={recaptchaRef}
+    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+    onChange={(token) => setRecaptchaToken(token)}
+    onErrored={() => {
+      toast.error("reCAPTCHA failed. Please refresh and try again.");
+      setRecaptchaToken(null);
+    }}
+    onExpired={() => {
+      toast.error("reCAPTCHA expired. Please verify again.");
+      setRecaptchaToken(null);
+    }}
+  />
+</div>
+
+
+
       </form>
 
       {/* ReCAPTCHA */}
-      <div className="flex justify-center mt-8">
+      {/* <div className="flex justify-center mt-8">
         <ReCAPTCHA
           ref={recaptchaRef} // Assign the ref
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!} // Ensure this env variable is set
@@ -344,7 +385,7 @@ export default function ContactUs() {
             setRecaptchaToken(null);
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

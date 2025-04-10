@@ -86,7 +86,7 @@ export default function Home() {
 </div>
  {/*Scroll  */}
       <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        <div className="w-24 h-24 bg-theme rounded-full text-theme flex items-center justify-center  cursor-pointer z-30">
+        <div className="w-24 h-24 job-card rounded-full text-theme flex items-center justify-center  cursor-pointer z-30">
           <div className="flex items-center gap-2 z-30">
             <ChevronLeft className="w-6 h-6 cursor-pointer" onClick={handleScrollLeft} />
             <span className="font-bold">DRAG</span>

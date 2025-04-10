@@ -47,7 +47,7 @@ export default function Footer() {
           />
         ))}
       </div>
-      <button className="mt-6 md:mt-0 border-2 button-theme px-6 py-2 rounded-full hover: hover:text-secondary transition">
+      <button className="mt-6 md:mt-0 border-2 font-semibold button-theme px-6 py-2 rounded-full hover: hover:text-secondary transition">
         CONTACT US
       </button>
     </footer>

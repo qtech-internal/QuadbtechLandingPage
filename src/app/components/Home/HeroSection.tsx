@@ -105,7 +105,7 @@ const logoRef = useRef(null);
       </div>
 
 
-      <div ref={textRef} className="absolute  lg:mt-0 xl:mt-10  2xl:mt-20 text-2xl z-30 md:text-3xl lg:text-3xl xl-text-5xl  font-medium opacity-0 text-center w-full mb-4 font-poppins text-[52px] leading-[60px] ">
+      <div ref={textRef} className="absolute lg:mt-0 xl:mt-10  2xl:mt-20 text-2xl z-30 md:text-3xl lg:text-3xl xl-text-5xl  font-medium opacity-0 text-center w-full mb-4 font-poppins text-[52px] leading-[60px] ">
 
         <span ref={firstLineRef} className="block top-[-10px] left-[-10px] 2xl:left-[-20px] whitespace-nowrap">
           <span className="relative inline-block align-super mr-2">
