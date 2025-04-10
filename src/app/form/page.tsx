@@ -1,50 +1,50 @@
 "use client";
 
-import React, { useState, useRef, FormEvent } from "react"; // Import FormEvent
+import React, { useState, useRef, FormEvent, FocusEvent } from "react"; // Import FormEvent, FocusEvent
 import { Upload, X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import axios from "axios"; // Import axios
-import { toast, Toaster } from "react-hot-toast"; // Import toast and Toaster
+import axios from "axios";
+import { toast, Toaster } from "react-hot-toast";
 
-// Removed onBack prop as router.back() is used directly
 const BlockchainDeveloper = () => {
   const router = useRouter();
 
-  // --- State Management (Combined from both versions) ---
+  // --- State Management ---
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState(""); // Stores processed phone number (digits only, max 10)
   const [whyJoin, setWhyJoin] = useState("");
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState("");
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
 
-  // Handle input changes with validation
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // --- Input Handling ---
+
+  // General handler for non-email fields or during typing for email/phone
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value, type } = e.target;
+    const { name: fieldName, value } = e.target;
     let processedValue = value;
 
-    if (type === "email") {
-      processedValue = value.replace(/\s+/g, "").toLowerCase();
-    } else if (type === "tel") {
-      processedValue = value.replace(/[^0-9+\-]/g, "").substring(0, 15);
-    } else {
-      processedValue = value.trimStart().replace(/\s+/g, " ");
-    }
-
-    switch (name) {
+    switch (fieldName) {
       case "name":
+        processedValue = value.replace(/^\s+/, "").replace(/\s+/g, " "); // Trim start, collapse multiple spaces
         setName(processedValue);
         break;
       case "email":
-        setEmail(processedValue);
+        // Store raw value during typing, processing happens on blur
+        setEmail(value);
         break;
       case "phone":
+        // ** PHONE LOGIC: Keep only digits, limit to 10 **
+        processedValue = value.replace(/[^0-9]/g, "").substring(0, 10);
         setPhone(processedValue);
         break;
       case "whyJoin":
+        processedValue = value.replace(/^\s+/, ""); // Trim start only
         setWhyJoin(processedValue);
         break;
       default:
@@ -52,22 +52,56 @@ const BlockchainDeveloper = () => {
     }
   };
 
-  const fileInputRef = useRef<HTMLInputElement>(null); // Typed the ref
+  // Specific handler for email validation when the field loses focus (onBlur)
+  const handleEmailBlur = (e: FocusEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    const trimmedValue = value.trim();
+    const finalEmailValue = trimmedValue.toLowerCase(); // Process for state
+
+    console.log(`Validating email input on blur: '${trimmedValue}'`);
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const isRegexValid = emailRegex.test(trimmedValue);
+    const isEmpty = trimmedValue === "";
+    console.log(`Regex Test Result for '${trimmedValue}': ${isRegexValid}`);
+    console.log(`Is Empty: ${isEmpty}`);
+
+    setEmail(finalEmailValue); // Update state with processed value
+    console.log(
+      `Email field blurred. Processed value set in state: '${finalEmailValue}'`
+    );
+
+    if (!isEmpty && !isRegexValid) {
+      console.error(`Email regex test failed for: '${trimmedValue}'`);
+      toast.error(
+        "Please enter a valid email address (e.g. example@domain.com)"
+      );
+    }
+  };
+
+  // ** Handler for phone blur validation feedback **
+  const handlePhoneBlur = (e: FocusEvent<HTMLInputElement>) => {
+    // phone state already holds processed digits (max 10)
+    console.log(`Validating phone input on blur: '${phone}'`);
+
+    // Show error only if the field is not empty AND has the wrong length (not exactly 10)
+    if (phone.length > 0 && phone.length !== 10) {
+      console.error(`Phone number length is not 10: ${phone.length}`);
+      toast.error("Phone number must be exactly 10 digits.");
+    }
+  };
 
   // --- File Handling Logic (With Validation) ---
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Typed event
     const file = e.target.files?.[0];
     if (file) {
-      // Validate file size (e.g., 5MB limit)
-      if (file.size > 5 * 1024 * 1024) {
-        toast.error("File size exceeds the 5MB limit.");
-        setFileName("");
-        setResumeFile(null);
-        if (fileInputRef.current) fileInputRef.current.value = "";
+      const maxSize = 5 * 1024 * 1024; // 5MB
+      if (file.size > maxSize) {
+        toast.error(
+          `File size exceeds the ${maxSize / (1024 * 1024)}MB limit.`
+        );
+        handleRemoveFile(); // Reset file state
         return;
       }
-      // Validate file type (allow PDF, DOC, DOCX)
       const allowedTypes = [
         "application/pdf",
         "application/msword",
@@ -77,23 +111,18 @@ const BlockchainDeveloper = () => {
         toast.error(
           "Invalid file type. Please upload a PDF, DOC, or DOCX file."
         );
-        setFileName("");
-        setResumeFile(null);
-        if (fileInputRef.current) fileInputRef.current.value = "";
+        handleRemoveFile(); // Reset file state
         return;
       }
-      // If validation passes
       setFileName(file.name);
-      setResumeFile(file); // Store the file object
+      setResumeFile(file);
     }
   };
 
-  // Handle file remove (Unchanged, but added type to event)
   const handleRemoveFile = (e?: React.MouseEvent<HTMLButtonElement>) => {
-    // Optional event
     e?.stopPropagation();
     setFileName("");
-    setResumeFile(null); // Clear file object state
+    setResumeFile(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -103,33 +132,71 @@ const BlockchainDeveloper = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validation
-    if (!name || !email || !phone || !whyJoin || !resumeFile) {
-      toast.error("Please fill in all required fields and upload your resume.");
+    // --- Final Validation before Submit ---
+    if (!name.trim()) {
+      toast.error("Please enter your name.");
+      document.getElementById("blockchain-dev-name")?.focus();
+      return;
+    }
+    if (!email.trim()) {
+      // Check processed email from state
+      toast.error("Please enter your email address.");
+      document.getElementById("blockchain-dev-email")?.focus();
+      return;
+    }
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+      // Final check on processed email
+      toast.error("Please enter a valid email address format.");
+      document.getElementById("blockchain-dev-email")?.focus();
       return;
     }
 
+    if (!phone) {
+      // Check if phone state is empty (already processed)
+      toast.error("Please enter your phone number.");
+      document.getElementById("blockchain-dev-phone")?.focus();
+      return;
+    }
+    // ** PHONE LOGIC: Check for exactly 10 digits **
+    if (phone.length !== 10) {
+      toast.error("Phone number must be exactly 10 digits.");
+      document.getElementById("blockchain-dev-phone")?.focus();
+      return; // Stop submission
+    }
+
+    if (!whyJoin.trim()) {
+      toast.error("Please explain why you want to join.");
+      document.getElementById("blockchain-dev-whyjoin")?.focus();
+      return;
+    }
+    if (!resumeFile) {
+      toast.error("Please upload your resume.");
+      // Note: Can't easily focus the file input area, but the error is shown.
+      return;
+    }
+    // --- End Final Validation ---
+
     setLoading(true);
-    const loadingToastId = toast.loading("Submitting application...");
 
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("phone", phone);
+    formData.append("name", name.trim());
+    formData.append("email", email); // Send processed email
+    formData.append("phone", phone); // Send processed phone
     formData.append(
       "subject",
-      `Job Application: Blockchain Developer - ${name}`
+      `Job Application: Blockchain Developer - ${name.trim()}`
     );
-    formData.append("message", whyJoin);
+    formData.append("message", whyJoin.trim());
     formData.append("resume", resumeFile, resumeFile.name);
 
     try {
+      // Replace '/api/ApplyNow' with your actual API endpoint if different
       const response = await axios.post("/api/ApplyNow", formData);
-
-      toast.dismiss(loadingToastId);
 
       if (response.data.success) {
         toast.success("Application submitted successfully!");
+        // Reset form state completely
         setName("");
         setEmail("");
         setPhone("");
@@ -137,97 +204,105 @@ const BlockchainDeveloper = () => {
         handleRemoveFile(); // Clears file state and input ref
       } else {
         const errorMsg =
-          response.data.error || "Submission failed. Please try again.";
+          response.data.message ||
+          response.data.error ||
+          "Submission failed. Please try again.";
         toast.error(errorMsg);
       }
     } catch (error: unknown) {
-      toast.dismiss(loadingToastId);
-
       let errorMsg = "An unexpected error occurred. Please try again later.";
-
       if (axios.isAxiosError(error)) {
-        errorMsg = error.response?.data?.error || errorMsg;
+        console.error(
+          "Axios error details:",
+          error.response?.data || error.message
+        );
+        errorMsg =
+          error.response?.data?.message ||
+          error.response?.data?.error ||
+          error.message ||
+          errorMsg;
+      } else {
+        console.error("Non-Axios error:", error);
       }
-
-      console.error("Form submission error:", error);
       toast.error(errorMsg);
     } finally {
       setLoading(false);
     }
   };
 
+  // --- JSX ---
   return (
     <div className="w-full min-h-screen py-10 px-4 mt-20">
-      {/* Toaster added here, positioned top-right */}
+      {/* Toaster positioned top-right */}
       <Toaster position="top-right" reverseOrder={false} />
 
       <div className="max-w-[1500px] mx-auto p-8 relative">
-        {/* Back Button - Added disabled state */}
+        {/* Back Button */}
         <button
           onClick={() => router.back()}
-          className="absolute top-4 left-4 text-secondary hover:text-black disabled:opacity-50"
-          disabled={loading} // Disable when loading
+          className="absolute top-4 left-4 text-secondary hover:text-black disabled:opacity-50 transition-opacity"
+          disabled={loading} // Disable when submitting
         >
           ← Back
         </button>
 
+        {/* Job Title */}
         <div className="w-full flex justify-center mb-16">
-          <h1 className="text-3xl font-extrabold text-secondary border-4 border-theme px-8 py-3 rounded-full">
+          <h1 className="text-3xl font-semibold text-secondary border-2 border-theme px-8 py-3 rounded-full text-center">
             Blockchain Developer
           </h1>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Left */}
+          {/* Left Column: Job Description */}
           <div className="lg:col-span-2 lg:pr-8 lg:border-r border-theme">
             <h2 className="text-xl font-extrabold mb-4">About The Job</h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Aliquet nunc. Aliquam vel scelerisque massa. Suspendisse faucibus
-              interdum posuere. Mauris quis orci nec magna aliquet imperdiet.
-              Maecenas euismod, odio a accumsan sollicitudin, lacus turpis
-              vestibulum nisi, et <br />
-              porttitor odio metus nec ex. Sed suscipit malesuada faucibus.
-              Pellentesque eget bibendum arcu. Quisque posuere eu erat quis
-              ultricies. Mauris luctus arcu eu malesuada feugiat. Nullam vel
-              ultrices neque. Nulla in lectus metus. Pellentesque facilisis
-              libero vel odio efficitur, sit amet rhoncus lacus tincidunt.
+              Join our innovative team as a Blockchain Developer. You will be
+              responsible for designing, implementing, and supporting
+              blockchain-based networks. Develop smart contracts, work with
+              various consensus protocols, and contribute to the architecture of
+              decentralized applications. We are looking for passionate
+              individuals eager to shape the future of technology.
+              <br /> <br />
+              Strong understanding of blockchain principles, cryptography, and
+              data structures is essential. Experience with languages like
+              Solidity, Go, or Rust, and familiarity with frameworks like
+              Hyperledger Fabric or Ethereum platforms are highly desirable.
             </p>
-
-            {/* Eligibility */}
-            <h2 className="text-xl font-extrabold mb-8">Eligibility Criteria</h2>
-            <ul className="space-y-8 mb-8">
+            <h2 className="text-xl font-semibold mb-8">Eligibility Criteria</h2>
+            <ul className="space-y-4 mb-8 list-none pl-0">
               {[
-                "Eger tincidunt dictum. Morbi faucibus venenatis egestas imperdiet elit.",
-                "Nuga a dictum varius elit.",
-                "Vivamus faucibus nulla id mi lacinia, vitae scelerisque massa scelerisque.",
-                "Aliquam ornare felis vel libero aliquet, id tincidunt nisi tincidunt.",
-                "Mauris feugiat orci nec fermentum vulputate. Maecenas aliquam cursus arcu in varius.",
-                "Pellentesque tincidunt metus in fringilla imperdiet. Vivamus vehicula nisl sed nisi. Suspendisse sit amet ligula ornare.",
+                "Bachelor's degree in Computer Science, Engineering, or related field.",
+                "Proven experience as a Blockchain Developer.",
+                "Experience with smart contract development and deployment (e.g., Solidity).",
+                "Familiarity with peer-to-peer networking.",
+                "Understanding of cryptography and cryptographic protocols.",
+                "Experience with version control systems like Git.",
+                "Ability to work independently and collaboratively in a fast-paced environment.",
               ].map((item, index) => (
-                <li key={index} className="flex gap-2">
-                  <span className="bg-theme h-5 w-5 flex items-center justify-center text-xs text-white rounded-sm">
+                <li key={index} className="flex items-start gap-3">
+                  <span className="mt-1 flex-shrink-0 bg-theme h-5 w-5 flex items-center justify-center text-xs text-white rounded-sm">
                     ✓
                   </span>
                   <span className="text-gray-700">{item}</span>
                 </li>
               ))}
             </ul>
-
-            {/* Perk / Conditions */}
-            <h2 className="text-xl font-extrabold mb-8">Perk & Conditions</h2>
-            <ul className="space-y-8">
+            <h2 className="text-xl font-semibold mb-8">Perks & Conditions</h2>
+            <ul className="space-y-4 list-none pl-0">
               {[
-                "Eger tincidunt dictum. Morbi faucibus venenatis egestas imperdiet elit.",
-                "Nuga a dictum varius elit.",
-                "Vivamus faucibus nulla id mi lacinia, vitae scelerisque massa scelerisque.",
-                "Aliquam ornare felis vel libero aliquet, id tincidunt nisi tincidunt.",
-                "Mauris feugiat orci nec fermentum vulputate. Maecenas aliquam cursus arcu in varius.",
-                "Pellentesque tincidunt metus in fringilla imperdiet. Vivamus vehicula nisl sed nisi. Suspendisse sit amet ligula ornare.",
+                "Competitive salary and performance bonuses.",
+                "Comprehensive health, dental, and vision insurance.",
+                "Opportunity to work on cutting-edge blockchain projects.",
+                "Flexible working hours and remote work options.",
+                "Generous paid time off and holidays.",
+                "Professional development and learning opportunities.",
+                "Collaborative and supportive team culture.",
               ].map((item, index) => (
-                <li key={index} className="flex gap-2">
-                  <span className="bg-theme h-5 w-5 flex items-center justify-center text-xs text-theme rounded-sm">
-                    {" "}
-                    {/* Kept text-theme as per original */}✓
+                <li key={index} className="flex items-start gap-3">
+                  <span className="mt-1 flex-shrink-0 bg-theme h-5 w-5 flex items-center justify-center text-xs text-white rounded-sm">
+                    ✓
                   </span>
                   <span className="text-gray-700">{item}</span>
                 </li>
@@ -235,102 +310,125 @@ const BlockchainDeveloper = () => {
             </ul>
           </div>
 
-          {/* Right Section */}
+          {/* Right Column: Image and Form */}
           <div className="lg:col-span-1 space-y-6">
-            {/* Img */}
+            {/* Image */}
             <img
-              src="bg22.png"
+              src="/bg22.png" // Ensure this path is correct
               alt="Blockchain Visual"
-              className="w-full h-auto rounded-lg object-cover"
+              className="w-full h-auto rounded-lg object-cover shadow-md"
             />
-
-            {/*Form - Added onSubmit */}
-            <h2 className="text-xl font-extrabold">Application Form</h2>
+            {/* Application Form */}
+            <h2 className="text-xl font-semibold">Application Form</h2>
             <form className="space-y-4" onSubmit={handleSubmit} noValidate>
+              {/* Name Input */}
               <div>
                 <label
                   htmlFor="blockchain-dev-name"
-                  className="block text-gray-700 mb-1 font-semibold"
+                  className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  {" "}
-                  {/* Added htmlFor */}
-                  Name<span className="text-p ml-1">*</span>
+                  Name<span className="text-red-500 ml-1">*</span>
                 </label>
                 <input
-                  id="blockchain-dev-name" // Added id
+                  id="blockchain-dev-name"
                   type="text"
                   placeholder="Enter your Name"
-                  className="w-full p-3 border border-gray-300  rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
                   value={name}
                   onChange={handleInputChange}
                   name="name"
-                  required
-                  disabled={loading} // Added disabled state
-                  aria-required="true"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="blockchain-dev-email"
-                  className="block text-gray-700 mb-1 font-semibold"
-                >
-                  {" "}
-                  {/* Added htmlFor */}
-                  Email<span className="text-p ml-1">*</span>
-                </label>
-                <input
-                  id="blockchain-dev-email"
-                  type="email"
-                  placeholder="Enter your E-mail"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent"
-                  value={email}
-                  onChange={handleInputChange}
-                  onKeyDown={(e) => e.key === " " && e.preventDefault()}
-                  name="email"
                   required
                   disabled={loading}
                   aria-required="true"
                 />
               </div>
+
+              {/* Email Input */}
               <div>
                 <label
-                  htmlFor="blockchain-dev-phone"
-                  className="block text-gray-700 mb-1 font-semibold"
+                  htmlFor="blockchain-dev-email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  {" "}
-                  {/* Added htmlFor */}
-                  Phone Number<span className="text-p ml-1">*</span>
+                  Email<span className="text-red-500 ml-1">*</span>
                 </label>
                 <input
-                  id="blockchain-dev-phone" // Added id
-                  type="tel"
-                  placeholder="Enter your Contact Number"
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent" // Added disabled style
-                  value={phone}
+                  id="blockchain-dev-email"
+                  type="email"
+                  placeholder="Enter your E-mail"
+                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
+                  value={email}
                   onChange={handleInputChange}
-                  name="phone"
+                  onBlur={handleEmailBlur} // Validate email format on blur
+                  onKeyDown={(e) => e.key === " " && e.preventDefault()}
+                  name="email"
                   required
-                  disabled={loading} // Added disabled state
+                  disabled={loading}
                   aria-required="true"
+                  inputMode="email" // Hint for mobile keyboard
                 />
               </div>
 
+              {/* Phone Input */}
+              <div>
+                <label
+                  htmlFor="blockchain-dev-phone"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Phone Number<span className="text-red-500 ml-1">*</span>
+                </label>
+                <input
+                  id="blockchain-dev-phone"
+                  type="tel" // Correct type for phone numbers
+                  placeholder="Enter your Contact Number" // Added hint
+                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
+                  value={phone} // Controlled component using processed state
+                  onChange={handleInputChange} // Handles digit filtering and length limit
+                  onBlur={handlePhoneBlur} // ** Validate length on blur **
+                  name="phone"
+                  required
+                  disabled={loading}
+                  aria-required="true"
+                  maxLength={10} // Visual max length, state handles actual limit
+                  inputMode="numeric" // Hint for mobile numeric keyboard
+                  onKeyDown={(e) => {
+                    // Prevent non-numeric keys effectively
+                    if (
+                      !/^[0-9]$/.test(e.key) && // Allow digits 0-9
+                      ![
+                        // Allow specific control keys
+                        "Backspace",
+                        "Delete",
+                        "ArrowLeft",
+                        "ArrowRight",
+                        "Tab",
+                        "Enter",
+                        "Home",
+                        "End",
+                      ].includes(e.key) &&
+                      !(e.metaKey || e.ctrlKey) // Allow Ctrl/Cmd combinations (like copy/paste)
+                    ) {
+                      e.preventDefault(); // Block other keys
+                    }
+                  }}
+                />
+              </div>
+
+              {/* Resume Upload */}
               <div className="w-full">
-                <label className="block text-gray-700 mb-1 font-semibold">
-                  Resume upload<span className="text-p ml-1">*</span>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Upload Resume<span className="text-red-500 ml-1">*</span>
                 </label>
                 <div
-                  className={`relative w-full border rounded-md p-6 flex items-center justify-center transition ${
+                  className={`relative w-full border rounded-md p-6 flex items-center justify-center text-center transition duration-150 ease-in-out ${
                     fileName
-                      ? "border-green-400 bg-green-50" // Added bg hint
-                      : "border-gray-300 " // Used orange-400 like inputs
+                      ? "border-green-400 bg-green-50"
+                      : "border-gray-300 brd-theme"
                   } ${
                     loading
                       ? "opacity-60 cursor-not-allowed bg-gray-100"
                       : "cursor-pointer"
-                  }`} // Added disabled styles
+                  }`}
                   onClick={() => {
-                    // Only allow click if not loading
                     if (!loading && !fileName) fileInputRef.current?.click();
                   }}
                   role="button"
@@ -343,21 +441,25 @@ const BlockchainDeveloper = () => {
                     )
                       fileInputRef.current?.click();
                   }}
-                  aria-label="Resume upload area"
+                  aria-label={
+                    fileName
+                      ? `File uploaded: ${fileName}. Click button to remove.`
+                      : "Resume upload area. Click or press enter to upload."
+                  }
                 >
                   <input
                     type="file"
                     ref={fileInputRef}
                     className="hidden"
-                    accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" // More specific accepts
+                    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                     onChange={handleFileChange}
-                    disabled={loading} // Added disabled state
+                    disabled={loading}
                     aria-required="true"
                   />
                   {fileName ? (
-                    <div className="flex items-center space-x-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-between w-full px-2 space-y-2 sm:space-y-0 sm:space-x-4">
                       <p
-                        className="text-gray-700 truncate max-w-[200px]"
+                        className="text-sm text-gray-700 truncate flex-grow"
                         title={fileName}
                       >
                         {fileName}
@@ -365,58 +467,56 @@ const BlockchainDeveloper = () => {
                       <button
                         type="button"
                         onClick={handleRemoveFile}
-                        disabled={loading} // Added disabled state
-                        className="p-1 rounded-full bg-red-100 hover:bg-red-200 disabled:opacity-50" // Added disabled style
+                        disabled={loading}
+                        className="flex-shrink-0 p-1.5 rounded-full bg-red-100 text-red-600 hover:bg-red-200 disabled:opacity-50 disabled:cursor-not-allowed transition"
                         aria-label={`Remove ${fileName}`}
                       >
-                        <X className="h-4 w-4 text-p" /> {/* Kept text-p */}
+                        <X className="h-4 w-4" />
                       </button>
                     </div>
                   ) : (
                     <div
-                      className="flex flex-col items-center space-y-2 text-center"
+                      className="flex flex-col items-center space-y-1 text-gray-500"
                       aria-hidden="true"
                     >
                       <Upload className="h-8 w-8 text-gray-400" />
-                      {/* Added more descriptive text */}
-                      <p className="text-gray-400 text-sm">
-                        Upload Your Resume Here
-                      </p>
+                      <p className="text-sm">Upload your Resume here</p>
                     </div>
                   )}
                 </div>
               </div>
+
+              {/* Why Join Textarea */}
               <div>
                 <label
                   htmlFor="blockchain-dev-whyjoin"
-                  className="block text-gray-700 mb-1 font-semibold"
+                  className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  {" "}
-                  {/* Added htmlFor */}
                   Why do you want to join?
-                  <span className="text-p ml-1">*</span>
+                  <span className="text-red-500 ml-1">*</span>
                 </label>
                 <textarea
-                  id="blockchain-dev-whyjoin" // Added id
+                  id="blockchain-dev-whyjoin"
                   placeholder="Write your answer here."
-                  rows={4}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-400 disabled:opacity-60 disabled:bg-gray-100 focus:placeholder-transparent" // Added disabled style and border consistency
+                  rows={5}
+                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition resize-none"
                   value={whyJoin}
                   onChange={handleInputChange}
                   name="whyJoin"
                   required
-                  disabled={loading} // Added disabled state
+                  disabled={loading}
                   aria-required="true"
                 ></textarea>
               </div>
+
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="w-1/2 mx-auto flex justify-center items-center bg-theme text-theme font-semibold py-2 rounded-full hover:bg-orange-600 transition-all disabled:opacity-60 disabled:cursor-not-allowed" // Added disabled styles
-                disabled={loading} // Added disabled state
+                className="w-full sm:w-1/2 mx-auto flex justify-center items-center bg-theme text-white font-semibold py-3 px-6 rounded-full hover:bg-theme/90 focus-ring-bg transition duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed" // Added hover
+                disabled={loading}
               >
                 {loading ? (
                   <>
-                    {/* Simple loading text or add spinner SVG */}
                     <svg
                       className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
                       xmlns="http://www.w3.org/2000/svg"

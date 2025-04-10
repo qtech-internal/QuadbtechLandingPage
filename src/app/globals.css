@@ -230,9 +230,17 @@ body {
 .border-theme {
   border-color: var(--button-border);
 }
-
 .text-theme {
   color: var(--text-primary);
+}
+
+.focus-ring-bg:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg-card);
+}
+
+.brd-theme:hover{
+  border-color: var(--button-border);
 }
 
 .text-secondary {
