@@ -154,15 +154,15 @@ const TestimonialSection = () => {
           Over <span className="font-bold">10K+ Clients</span> Trust{" "}
           <span className="font-extrabold text-p tracking-tight">Quadb</span>
         </h2> */}
-<h2 className="text-2xl font-semibold font-poppins">
+<h2 className="text-2xl lg:text-2xl md:text-xl sm:text-sm font-semibold font-poppins">
   Over <span className="font-semibold">10K+ Clients</span> Trust{" "}
-  <span className="text-p tracking-tight font-black">Quadb</span>
+  <span className="text-p tracking-tight font-black ">Quadb</span>
 </h2>
 
 
 
       </div>
-      <div className="absolute bottom-48 h-60 w-full div-bg shadow-lg p-6 rounded-lg max-w-xl flex flex-col items-center">
+      <div className="absolute bottom-48 h-60 w-full div-bg shadow-lg px-6   rounded-lg max-w-xl flex flex-col items-center">
 
         <div className="absolute -top-5 -right-5 w-20 h-20 bg-white rounded-full flex items-center justify-center overflow-hidden">
           <div className="w-14 h-14 div-bg rounded-full flex items-center justify-center">

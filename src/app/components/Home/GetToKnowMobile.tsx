@@ -90,7 +90,7 @@ const GetToKnow = () => {
           }
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
         >
-<h2 className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-semibold lg:font-semibold sm:font-medium md:font-medium leading-snug pr-[2px]">
+<h2 className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-bold lg:font-semibold sm:font-medium md:font-medium leading-snug pr-[2px]">
   At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.&rdquo;
 </h2>
 
@@ -118,24 +118,3 @@ const GetToKnow = () => {
 };
 
 export default GetToKnow;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

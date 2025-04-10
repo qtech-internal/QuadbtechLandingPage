@@ -248,7 +248,7 @@ const BlockchainDeveloper = () => {
 
         {/* Job Title */}
         <div className="w-full flex justify-center mb-16">
-          <h1 className="text-3xl font-semibold text-secondary border-2 border-theme px-8 py-3 rounded-full text-center">
+          <h1 className="text-3xl font-extrabold  text-secondary border-2 border-theme px-8 py-3 rounded-full text-center">
             Blockchain Developer
           </h1>
         </div>
@@ -270,7 +270,7 @@ const BlockchainDeveloper = () => {
               Solidity, Go, or Rust, and familiarity with frameworks like
               Hyperledger Fabric or Ethereum platforms are highly desirable.
             </p>
-            <h2 className="text-xl font-semibold mb-8">Eligibility Criteria</h2>
+            <h2 className="text-xl font-extrabold  mb-8">Eligibility Criteria</h2>
             <ul className="space-y-4 mb-8 list-none pl-0">
               {[
                 "Bachelor's degree in Computer Science, Engineering, or related field.",
@@ -289,7 +289,7 @@ const BlockchainDeveloper = () => {
                 </li>
               ))}
             </ul>
-            <h2 className="text-xl font-semibold mb-8">Perks & Conditions</h2>
+            <h2 className="text-xl font-extrabold  mb-8">Perks & Conditions</h2>
             <ul className="space-y-4 list-none pl-0">
               {[
                 "Competitive salary and performance bonuses.",
@@ -319,7 +319,7 @@ const BlockchainDeveloper = () => {
               className="w-full h-auto rounded-lg object-cover shadow-md"
             />
             {/* Application Form */}
-            <h2 className="text-xl font-semibold">Application Form</h2>
+            <h2 className="text-xl font-extrabold ">Application Form</h2>
             <form className="space-y-4" onSubmit={handleSubmit} noValidate>
               {/* Name Input */}
               <div>

@@ -61,13 +61,14 @@ const JobCard: React.FC<JobCardProps> = ({
       {/* Image Section */}
       <div className="relative w-full h-72 flex flex-col justify-end overflow-visible">
       
-        <div className="absolute left-[-30px] bottom-[-40px] w-56 h-80 z-10 overflow-visible">
+        <div className="absolute left-[-30px] bottom-[-40px] w-56 h-80 z-10 overflow-visible ">
           <Image
             src={imageSrc}
             alt="3D Illustration"
             width={500}
             height={500}
             className="object-contain w-full h-full mix-blend-multiply  opacity-90"
+             draggable="false"
             style={{ mixBlendMode: "multiply" }} 
           />
         </div>
@@ -76,10 +77,10 @@ const JobCard: React.FC<JobCardProps> = ({
         <div className="z-20 flex justify-end pb-4">
       <Link href="/form">
         <button
-          className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 
+          className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 underline 
             ${isOdd ?"button-theme": "bg-white text-black border border-gray-400" }`}
         >
-          Apply Now
+         Know More
         </button>
       </Link>
         </div>

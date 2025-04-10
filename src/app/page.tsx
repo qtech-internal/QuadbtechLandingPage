@@ -8,6 +8,7 @@ import HeroSection from "./components/Home/HeroSection";
 import Job from "./components/Home/Job";
 import Contact from "./components/Home/Contact";
 import HeroMobile from "./components/Home/HeroMobile";
+import KaiMobile from "./components/Home/KaiMobile";
 
 
 export default function Home() {
@@ -32,7 +33,9 @@ export default function Home() {
         {isMobile ? <HeroMobile /> : <HeroSection />}
         <GetToKnow />
         <ServiceSection />
-        <KaiFoundrySection />
+        {/* <KaiFoundrySection /> */}
+        {/* <KaiMobile /> */}
+        {isMobile ? <KaiMobile /> : <KaiFoundrySection/>}
         <TestimonialSection />
         <Job />
         <Contact />
