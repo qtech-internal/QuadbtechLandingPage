@@ -11,8 +11,8 @@ const BlockchainDeveloper = () => {
 
   // --- State Management ---
   const [name, setName] = useState("");
-  const [email, setEmail] = useState(""); // Will store potentially raw email during typing
-  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState(""); // Stores processed phone number (digits only, max 10)
   const [whyJoin, setWhyJoin] = useState("");
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState("");
@@ -22,28 +22,29 @@ const BlockchainDeveloper = () => {
 
   // --- Input Handling ---
 
-  // General handler for non-email fields or during typing for email
+  // General handler for non-email fields or during typing for email/phone
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name: fieldName, value } = e.target; // Renamed to avoid conflict
+    const { name: fieldName, value } = e.target;
     let processedValue = value;
 
     switch (fieldName) {
       case "name":
-        processedValue = value.trimStart().replace(/\s+/g, " ");
+        processedValue = value.replace(/^\s+/, "").replace(/\s+/g, " "); // Trim start, collapse multiple spaces
         setName(processedValue);
         break;
       case "email":
-        // Just update state with raw value during typing, no processing here
+        // Store raw value during typing, processing happens on blur
         setEmail(value);
         break;
       case "phone":
-        processedValue = value.replace(/[^0-9]/g, "").substring(0, 10); // Limit length
+        // ** PHONE LOGIC: Keep only digits, limit to 10 **
+        processedValue = value.replace(/[^0-9]/g, "").substring(0, 10);
         setPhone(processedValue);
         break;
       case "whyJoin":
-        processedValue = value.trimStart(); // Allow multiple spaces here potentially
+        processedValue = value.replace(/^\s+/, ""); // Trim start only
         setWhyJoin(processedValue);
         break;
       default:
@@ -58,28 +59,34 @@ const BlockchainDeveloper = () => {
     const finalEmailValue = trimmedValue.toLowerCase(); // Process for state
 
     console.log(`Validating email input on blur: '${trimmedValue}'`);
-
-    // Standard email regex
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const isRegexValid = emailRegex.test(trimmedValue);
     const isEmpty = trimmedValue === "";
-
     console.log(`Regex Test Result for '${trimmedValue}': ${isRegexValid}`);
     console.log(`Is Empty: ${isEmpty}`);
 
-    // Update state with the processed (trimmed, lowercased) value
-    setEmail(finalEmailValue);
+    setEmail(finalEmailValue); // Update state with processed value
     console.log(
       `Email field blurred. Processed value set in state: '${finalEmailValue}'`
     );
 
-    // Show toast error only if the field is NOT empty but IS invalid
     if (!isEmpty && !isRegexValid) {
       console.error(`Email regex test failed for: '${trimmedValue}'`);
       toast.error(
         "Please enter a valid email address (e.g. example@domain.com)"
       );
-      // Optional: e.target.focus(); // Re-focus if invalid
+    }
+  };
+
+  // ** Handler for phone blur validation feedback **
+  const handlePhoneBlur = (e: FocusEvent<HTMLInputElement>) => {
+    // phone state already holds processed digits (max 10)
+    console.log(`Validating phone input on blur: '${phone}'`);
+
+    // Show error only if the field is not empty AND has the wrong length (not exactly 10)
+    if (phone.length > 0 && phone.length !== 10) {
+      console.error(`Phone number length is not 10: ${phone.length}`);
+      toast.error("Phone number must be exactly 10 digits.");
     }
   };
 
@@ -87,18 +94,14 @@ const BlockchainDeveloper = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      // Validate file size (e.g., 5MB limit)
       const maxSize = 5 * 1024 * 1024; // 5MB
       if (file.size > maxSize) {
         toast.error(
           `File size exceeds the ${maxSize / (1024 * 1024)}MB limit.`
         );
-        setFileName("");
-        setResumeFile(null);
-        if (fileInputRef.current) fileInputRef.current.value = "";
+        handleRemoveFile(); // Reset file state
         return;
       }
-      // Validate file type (allow PDF, DOC, DOCX)
       const allowedTypes = [
         "application/pdf",
         "application/msword",
@@ -108,24 +111,20 @@ const BlockchainDeveloper = () => {
         toast.error(
           "Invalid file type. Please upload a PDF, DOC, or DOCX file."
         );
-        setFileName("");
-        setResumeFile(null);
-        if (fileInputRef.current) fileInputRef.current.value = "";
+        handleRemoveFile(); // Reset file state
         return;
       }
-      // If validation passes
       setFileName(file.name);
       setResumeFile(file);
     }
   };
 
-  // Handle file remove
   const handleRemoveFile = (e?: React.MouseEvent<HTMLButtonElement>) => {
-    e?.stopPropagation(); // Prevent triggering the upload click again
+    e?.stopPropagation();
     setFileName("");
     setResumeFile(null);
     if (fileInputRef.current) {
-      fileInputRef.current.value = ""; // Reset file input
+      fileInputRef.current.value = "";
     }
   };
 
@@ -136,37 +135,44 @@ const BlockchainDeveloper = () => {
     // --- Final Validation before Submit ---
     if (!name.trim()) {
       toast.error("Please enter your name.");
+      document.getElementById("blockchain-dev-name")?.focus();
       return;
     }
     if (!email.trim()) {
-      // Use the state value which should be processed by blur
+      // Check processed email from state
       toast.error("Please enter your email address.");
+      document.getElementById("blockchain-dev-email")?.focus();
       return;
     }
-    // **Final Email Format Check**
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
-      // Check the processed email state
+      // Final check on processed email
       toast.error("Please enter a valid email address format.");
-      // Optional: Focus the email field
       document.getElementById("blockchain-dev-email")?.focus();
       return;
     }
 
-    if (!phone.trim()) {
+    if (!phone) {
+      // Check if phone state is empty (already processed)
       toast.error("Please enter your phone number.");
+      document.getElementById("blockchain-dev-phone")?.focus();
       return;
     }
-    // Optional: Add length check for phone if desired (e.g., >= 10 digits)
-    // if (phone.trim().length < 10) {
-    //     toast.error("Please enter a valid phone number (at least 10 digits)."); return;
-    // }
+    // ** PHONE LOGIC: Check for exactly 10 digits **
+    if (phone.length !== 10) {
+      toast.error("Phone number must be exactly 10 digits.");
+      document.getElementById("blockchain-dev-phone")?.focus();
+      return; // Stop submission
+    }
+
     if (!whyJoin.trim()) {
       toast.error("Please explain why you want to join.");
+      document.getElementById("blockchain-dev-whyjoin")?.focus();
       return;
     }
     if (!resumeFile) {
       toast.error("Please upload your resume.");
+      // Note: Can't easily focus the file input area, but the error is shown.
       return;
     }
     // --- End Final Validation ---
@@ -174,23 +180,19 @@ const BlockchainDeveloper = () => {
     setLoading(true);
 
     const formData = new FormData();
-    formData.append("name", name.trim()); // Send trimmed name
-    formData.append("email", email); // Send processed email from state
-    formData.append("phone", phone); // Phone already sanitized
+    formData.append("name", name.trim());
+    formData.append("email", email); // Send processed email
+    formData.append("phone", phone); // Send processed phone
     formData.append(
       "subject",
-      `Job Application: Blockchain Developer - ${name.trim()}` // Use trimmed name
+      `Job Application: Blockchain Developer - ${name.trim()}`
     );
-    formData.append("message", whyJoin.trim()); // Send trimmed message
-    formData.append("resume", resumeFile, resumeFile.name); // Append file with its name
+    formData.append("message", whyJoin.trim());
+    formData.append("resume", resumeFile, resumeFile.name);
 
     try {
-      // Replace with your actual API endpoint
-      const response = await axios.post("/api/ApplyNow", formData, {
-        headers: {
-          // FormData sets Content-Type automatically
-        },
-      });
+      // Replace '/api/ApplyNow' with your actual API endpoint if different
+      const response = await axios.post("/api/ApplyNow", formData);
 
       if (response.data.success) {
         toast.success("Application submitted successfully!");
@@ -201,7 +203,6 @@ const BlockchainDeveloper = () => {
         setWhyJoin("");
         handleRemoveFile(); // Clears file state and input ref
       } else {
-        // Use error message from backend if provided
         const errorMsg =
           response.data.message ||
           response.data.error ||
@@ -210,8 +211,6 @@ const BlockchainDeveloper = () => {
       }
     } catch (error: unknown) {
       let errorMsg = "An unexpected error occurred. Please try again later.";
-
-      // Enhance Axios error handling
       if (axios.isAxiosError(error)) {
         console.error(
           "Axios error details:",
@@ -225,7 +224,6 @@ const BlockchainDeveloper = () => {
       } else {
         console.error("Non-Axios error:", error);
       }
-
       toast.error(errorMsg);
     } finally {
       setLoading(false);
@@ -260,7 +258,6 @@ const BlockchainDeveloper = () => {
           <div className="lg:col-span-2 lg:pr-8 lg:border-r border-theme">
             <h2 className="text-xl font-semibold mb-4">About The Job</h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              {/* Placeholder text */}
               Join our innovative team as a Blockchain Developer. You will be
               responsible for designing, implementing, and supporting
               blockchain-based networks. Develop smart contracts, work with
@@ -276,8 +273,6 @@ const BlockchainDeveloper = () => {
 
             <h2 className="text-xl font-semibold mb-8">Eligibility Criteria</h2>
             <ul className="space-y-4 mb-8 list-none pl-0">
-              {" "}
-              {/* Adjusted spacing and list style */}
               {[
                 "Bachelor's degree in Computer Science, Engineering, or related field.",
                 "Proven experience as a Blockchain Developer.",
@@ -288,8 +283,6 @@ const BlockchainDeveloper = () => {
                 "Ability to work independently and collaboratively in a fast-paced environment.",
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  {" "}
-                  {/* Adjusted alignment and gap */}
                   <span className="mt-1 flex-shrink-0 bg-theme h-5 w-5 flex items-center justify-center text-xs text-white rounded-sm">
                     ✓
                   </span>
@@ -300,8 +293,6 @@ const BlockchainDeveloper = () => {
 
             <h2 className="text-xl font-semibold mb-8">Perks & Conditions</h2>
             <ul className="space-y-4 list-none pl-0">
-              {" "}
-              {/* Adjusted spacing and list style */}
               {[
                 "Competitive salary and performance bonuses.",
                 "Comprehensive health, dental, and vision insurance.",
@@ -312,11 +303,8 @@ const BlockchainDeveloper = () => {
                 "Collaborative and supportive team culture.",
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  {" "}
-                  {/* Adjusted alignment and gap */}
                   <span className="mt-1 flex-shrink-0 bg-theme h-5 w-5 flex items-center justify-center text-xs text-white rounded-sm">
-                    {" "}
-                    {/* Changed to white text */}✓
+                    ✓
                   </span>
                   <span className="text-gray-700">{item}</span>
                 </li>
@@ -328,7 +316,7 @@ const BlockchainDeveloper = () => {
           <div className="lg:col-span-1 space-y-6">
             {/* Image */}
             <img
-              src="/bg22.png" // Make sure this path is correct relative to your public folder
+              src="/bg22.png" // Ensure this path is correct
               alt="Blockchain Visual"
               className="w-full h-auto rounded-lg object-cover shadow-md"
             />
@@ -373,14 +361,13 @@ const BlockchainDeveloper = () => {
                   className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
                   value={email}
                   onChange={handleInputChange}
-                  onBlur={handleEmailBlur} // *** ADDED ONBLUR HANDLER ***
-                  onKeyDown={(e) => e.key === " " && e.preventDefault()} // Prevent spaces
+                  onBlur={handleEmailBlur} // Validate email format on blur
+                  onKeyDown={(e) => e.key === " " && e.preventDefault()}
                   name="email"
                   required
                   disabled={loading}
                   aria-required="true"
-                  // Consider adding aria-invalid based on validation state
-                  // aria-invalid={!emailRegex.test(email) && email.length > 0 ? 'true' : 'false'}
+                  inputMode="email" // Hint for mobile keyboard
                 />
               </div>
 
@@ -394,31 +381,36 @@ const BlockchainDeveloper = () => {
                 </label>
                 <input
                   id="blockchain-dev-phone"
-                  type="tel" // Use "tel" for semantic meaning and mobile keyboards
-                  placeholder="Enter your Contact Number"
+                  type="tel" // Correct type for phone numbers
+                  placeholder="Enter your Contact Number" // Added hint
                   className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
-                  value={phone}
-                  onChange={handleInputChange}
+                  value={phone} // Controlled component using processed state
+                  onChange={handleInputChange} // Handles digit filtering and length limit
+                  onBlur={handlePhoneBlur} // ** Validate length on blur **
                   name="phone"
                   required
                   disabled={loading}
                   aria-required="true"
-                  maxLength={15} // Set max length
+                  maxLength={10} // Visual max length, state handles actual limit
+                  inputMode="numeric" // Hint for mobile numeric keyboard
                   onKeyDown={(e) => {
-                    // Prevent non-numeric input better
+                    // Prevent non-numeric keys effectively
                     if (
-                      !/^[0-9]$/.test(e.key) &&
+                      !/^[0-9]$/.test(e.key) && // Allow digits 0-9
                       ![
+                        // Allow specific control keys
                         "Backspace",
                         "Delete",
                         "ArrowLeft",
                         "ArrowRight",
                         "Tab",
                         "Enter",
+                        "Home",
+                        "End",
                       ].includes(e.key) &&
-                      !(e.metaKey || e.ctrlKey)
+                      !(e.metaKey || e.ctrlKey) // Allow Ctrl/Cmd combinations (like copy/paste)
                     ) {
-                      e.preventDefault();
+                      e.preventDefault(); // Block other keys
                     }
                   }}
                 />
@@ -443,7 +435,7 @@ const BlockchainDeveloper = () => {
                     if (!loading && !fileName) fileInputRef.current?.click();
                   }}
                   role="button"
-                  tabIndex={loading || fileName ? -1 : 0} // Remove from tab order if disabled or file present
+                  tabIndex={loading || fileName ? -1 : 0}
                   onKeyDown={(e) => {
                     if (
                       !loading &&
@@ -462,11 +454,10 @@ const BlockchainDeveloper = () => {
                     type="file"
                     ref={fileInputRef}
                     className="hidden"
-                    // More robust accept attribute
                     accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                     onChange={handleFileChange}
                     disabled={loading}
-                    aria-required="true" // Required is handled by form logic, but good for SR
+                    aria-required="true"
                   />
                   {fileName ? (
                     <div className="flex flex-col sm:flex-row items-center justify-between w-full px-2 space-y-2 sm:space-y-0 sm:space-x-4">
@@ -510,8 +501,8 @@ const BlockchainDeveloper = () => {
                 <textarea
                   id="blockchain-dev-whyjoin"
                   placeholder="Write your answer here."
-                  rows={5} // Increased rows slightly
-                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition resize-none" // Disabled resize
+                  rows={5}
+                  className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition resize-none"
                   value={whyJoin}
                   onChange={handleInputChange}
                   name="whyJoin"
@@ -524,7 +515,7 @@ const BlockchainDeveloper = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full sm:w-1/2 mx-auto flex justify-center items-center bg-theme text-white font-semibold py-3 px-6 rounded-full hover:bg-theme focus-ring-bg transition duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full sm:w-1/2 mx-auto flex justify-center items-center bg-theme text-white font-semibold py-3 px-6 rounded-full hover:bg-theme/90 focus-ring-bg transition duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed" // Added hover
                 disabled={loading}
               >
                 {loading ? (
