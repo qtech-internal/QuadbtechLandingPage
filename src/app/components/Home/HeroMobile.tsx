@@ -1,4 +1,5 @@
 'use client';
+import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -100,7 +101,8 @@ export default function Home() {
           </div>
         ))}
       </Slider>
-    </div>
+      </div>
+      <Link href="#contact">
       <button className=" mt-10   bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
         <span>Book Free Consultancy</span>
         <div className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
@@ -110,7 +112,8 @@ export default function Home() {
         </div>
 
 
-      </button>
+        </button>
+        </Link>
 
       {/* Sidebar */}
 

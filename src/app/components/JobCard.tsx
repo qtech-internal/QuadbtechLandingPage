@@ -20,7 +20,7 @@ const JobCard: React.FC<JobCardProps> = ({
       className={`rounded-[20px] border border-theme font-roboto  
         w-[320px] h-[380px] flex flex-col justify-between p-4 relative 
         shadow-md transition-all duration-300 hover:shadow-gray-400 hover:shadow-lg hover:scale-102
-        ${isOdd ? "bg-white" : "bg-theme"}`}
+        ${isOdd ? "bg-white" : "job-card"}`}
     >
       {/* Top Content */}
       <div className="space-y-4 z-10 ml-auto relative ">
@@ -33,7 +33,7 @@ const JobCard: React.FC<JobCardProps> = ({
 
           <h3
             className={`inline-block px-3 py-1 rounded-full text-sm relative z-10 
-    ${isOdd ? "bg-theme text-white" : "bg-white text-black"}`}
+    ${isOdd ? "job-card text-white" : "bg-white text-black"}`}
           >
             {title}
           </h3>

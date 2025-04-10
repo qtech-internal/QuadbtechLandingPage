@@ -92,17 +92,17 @@ export default function Career() {
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
-          className={`px-4 py-2 border rounded-lg ${currentPage === 1 ? 'div-bg text-gray-500 cursor-not-allowed' : 'div-bg text-secondary'}`}
+          className={`px-4 py-2 border rounded-lg ${currentPage === 1 ? ' text-gray-500 cursor-not-allowed' : ' text-secondary'}`}
         >
           Previous
         </button>
-        <span className="text-lg font-medium">
-          {currentPage} of {totalPages}
+        <span className="text-lg font-medium whitespace-nowrap">
+        Page {currentPage} of {totalPages}
         </span>
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 border rounded-lg ${currentPage === totalPages ? 'div-bg text-gray-500 cursor-not-allowed' : 'div-bg text-secondary'}`}
+          className={`px-4 py-2 border rounded-lg ${currentPage === totalPages ? ' text-gray-500 cursor-not-allowed' : ' text-secondary'}`}
         >
           Next
         </button>

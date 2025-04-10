@@ -121,11 +121,12 @@ body {
   --button-bg: #ff9800;
   --button-text: #1b1a1a;
   --button-border: #F97F07;
-  --p-text:#d15019;
-  --div-bg:#FFF9F2;
+  --p-text:#B73B06;
+  --div-bg:#FFF2E4;
   /* --k-bg:#C866D7; */
   --k-bg:#F97316;
   --bg-cards: #f9924d;
+  --job-card-bg: #E98800;
 }
 
 
@@ -142,7 +143,7 @@ body {
   --div-bg:#c0cda9;
   --k-bg: #8A9A5B;
   --bg-cards:#dada65;
-  
+  --job-card-bg: #b5b567;
 }
 
 
@@ -159,6 +160,7 @@ body {
   --div-bg:#f1eaf7;
   --k-bg: #C866D7;
   --bg-cards: #d6c4e0;
+  --job-card-bg: #9a58a4;
   
 }
 
@@ -174,6 +176,7 @@ body {
   --div-bg: #ffd1dc;
   --k-bg: #FF85C1;
   --bg-cards: #f7c6d7;
+  --job-card-bg: #d886af;
  
 }
 
@@ -189,6 +192,7 @@ body {
   --div-bg: #c59198;
   --k-bg: #D96C75;
   --bg-cards: #f7d1d3;
+  --job-card-bg: #b85c65;
 }
 .brown {
   --bg-card: #846353;
@@ -202,6 +206,7 @@ body {
   --div-bg: #f3dec7;
   --k-bg: #B68C72;
   --bg-cards: #d6c4b5;
+  --job-card-bg: #958076;
 }
 .cyan {
   --bg-card: #00A7A7;
@@ -215,6 +220,7 @@ body {
   --div-bg: #d6f7f7;
   --k-bg: #52D1C5;
   --bg-cards: #a4d8e1;
+  --job-card-bg: #50a6a6;
 }
 /* Utility classes */
 .bg-theme {
@@ -339,4 +345,8 @@ body {
 }
 .left-clamp {
   left: clamp(10rem, 30vw, 45rem);
+}
+.job-card{
+  background-color: var(--job-card-bg);
+
 }
