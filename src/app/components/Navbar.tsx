@@ -71,7 +71,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Link href="#contact">
+          <Link href="/contact">
             <button
               id="contact-button"
               className={`px-4 py-2 rounded-full font-semibold button-theme ${
@@ -107,7 +107,7 @@ const Navbar = () => {
             { path: "/", label: "Home" },
             { path: "/career", label: "Career" },
             { path: "/blogs", label: "Blogs" },
-            { path: "/#contact", label: "CONTACT US" },
+            { path: "/contact", label: "CONTACT US" },
           ].map(({ path, label }) => (
             <Link
               key={path}
