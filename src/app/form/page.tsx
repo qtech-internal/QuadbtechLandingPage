@@ -44,7 +44,7 @@ const BlockchainDeveloper = () => {
         setPhone(processedValue);
         break;
       case "whyJoin":
-        processedValue = value.replace(/^\s+/, ""); // Trim start only
+        processedValue = value.replace(/^\s+/, "").replace(/\s+/g, " "); // Trim start only
         setWhyJoin(processedValue);
         break;
       default:
