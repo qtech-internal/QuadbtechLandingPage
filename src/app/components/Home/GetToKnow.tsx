@@ -44,7 +44,9 @@ const GetToKnow = () => {
   return (
     <section ref={ref} className="relative bg-white py-12 px-6  overflow-hidden ">
       <motion.div
-        className="max-w-[1500px] mx-auto flex flex-col items-center gap-10 "
+        // className="max-w-[1500px] mx-auto flex flex-col items-center gap-10 "
+        className="max-w-[1500px] mx-auto flex flex-col items-start md:items-center gap-10"
+
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 1 }}
         transition={{ duration: 2 }}
@@ -76,7 +78,9 @@ const GetToKnow = () => {
 
 
         <motion.div
-          className="w-full md:w-3/4 text-center md:text-left "
+          // className="w-full md:w-3/4 text-center md:text-left z-30 "
+          className="w-full md:w-3/4 text-left z-30"
+
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={
             isInView && !isMobile
@@ -90,14 +94,16 @@ const GetToKnow = () => {
           }
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
         >
-<h2 className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-semibold lg:font-semibold sm:font-medium md:font-medium leading-snug pr-[2px]">
+<h2 className="text-2xl md:text-2xl  lg:text-3xl sm:text-xl font-semibold lg:font-semibold sm:font-medium md:font-medium leading-snug pr-[2px]">
   At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.&rdquo;
 </h2>
 
 
 
           <motion.div
-            className="mt-6 flex flex-col sm:flex-row justify-center md:justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
+            // className="mt-6 flex flex-col sm:flex-row justify-center md:justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
+            className="mt-6 flex flex-col sm:flex-row justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
+
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "visible"}
@@ -110,9 +116,24 @@ const GetToKnow = () => {
       </motion.div>
 
       {/* Bg Shape */}
-      <div className="absolute top-0 right-0 h-full w-full flex items-center justify-end pointer-events-none">
-        <img src="Frame 37 (1).png" alt="" />
-      </div>
+      {/* <div className="absolute top-0 right-0 h-full w-full flex items-center justify-end pointer-events-none ">
+        <img src="back.png" alt="" />
+      </div> */}
+      {/* <div className="relative w-full mt-10 md:mt-0 md:absolute md:top-0 md:right-0 md:h-full md:w-full flex justify-center md:justify-end pointer-events-none">
+  <img src="back.png" alt="" className="w-[80%] md:w-auto" />
+</div> */}
+<div className="absolute top-100 lg:top-0 md:top-0 sm:top-80 right-0 h-full w-full flex justify-end pointer-events-none">
+  <img 
+    src="back.png" 
+    alt="" 
+          className="w-[60%] md:w-auto h-auto max-h-[200px] md:max-h-none"
+          draggable="false"
+  />
+</div>
+
+
+
+
     </section>
   );
 };
