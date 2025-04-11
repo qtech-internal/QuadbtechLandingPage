@@ -158,7 +158,7 @@ const ServiceSection: React.FC = () => {
       ],
     },
     {
-      title: "E-Commerce & Marketplace",
+      title: "E-Commerce & Marketplace Development",
       points: [
         "Scalable online stores",
         "Payment gateway integration",
@@ -167,7 +167,7 @@ const ServiceSection: React.FC = () => {
       ],
     },
     {
-      title: "Security & Performance",
+      title: "Security & Performance Optimization",
       points: [
         "End-to-end encryption",
         "Load balancing",
@@ -179,7 +179,7 @@ const ServiceSection: React.FC = () => {
 
   const thirdRow: ServiceItem[] = [
     {
-      title: "API Development & Integrations",
+      title: "API Development & Third-Party Integrations",
       points: [
         "Custom REST & GraphQL APIs",
         "Third-party integrations",
@@ -188,7 +188,7 @@ const ServiceSection: React.FC = () => {
       ],
     },
     {
-      title: "And Many More",
+      title: "And Many More.",
       points: [
         "Blockchain & Web3",
         "AI & ML Solutions",
@@ -275,7 +275,7 @@ const ServiceSection: React.FC = () => {
 
       {/* Second Row */}
       <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-4 mt-10 w-full relative">
-        <div className="div-bg h-16 w-40 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
+        <div className="div-bg h-16 w-80 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
         {/* {renderRow(secondRow, {
           bg: "bg-white border-1 border-theme",
           hoverBg: "bg-theme  ",
@@ -287,7 +287,7 @@ const ServiceSection: React.FC = () => {
   textColor: "text-black",
   border: true,
 })}
-        <div className="div-bg h-16 w-40 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
+        <div className="div-bg h-16 w-80 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
       </div>
 
       {/* Third Row */}

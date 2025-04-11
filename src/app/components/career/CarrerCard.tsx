@@ -3,6 +3,7 @@ import { useState } from 'react';
 import JobCard from '../JobCard';
 
 export default function Career() {
+  const [inputValue, setInputValue] = useState('');
   const jobs = [
     { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home7.png' },
     { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home9.png" },
@@ -35,6 +36,11 @@ export default function Career() {
       setCurrentPage(currentPage - 1);
     }
   };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // prevent spaces
+    const noSpaces = e.target.value.replace(/\s/g, '');
+    setInputValue(noSpaces);
+  };
 
   return (
     <div className=" bg-white p-10 flex flex-col items-center space-y-10  ">
@@ -65,15 +71,23 @@ export default function Career() {
       />
     </svg>
   </span>
-  <input
+  {/* <input
     type="text"
     placeholder="Search"
     className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 focus:outline-none text-secondary placeholder-black"
-  />
+  /> */}
+          <input
+      type="text"
+      placeholder="Search"
+      value={inputValue}
+      onChange={handleChange}
+      className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 focus:outline-none text-secondary placeholder-black"
+    />
 </div>
 
       </div>
- <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8  m-auto justify-items-center">
+      {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8   m-auto justify-items-center"> */}
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mt-8 m-auto justify-items-center">
         {currentJobs.map((job, index) => (
           <JobCard
             key={index}
@@ -87,12 +101,12 @@ export default function Career() {
       </div>
 
       {/* <div className="flex items-center justify-between gap-4 mt-8"> */}
-      <div className="flex items-center m-auto justify-evenly gap-4 mt-20 w-full ">
+      <div className="flex items-center mx-auto justify-evenly gap-4 mt-20 w-full  ">
 
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
-          className={`px-4 py-2 border rounded-lg ${currentPage === 1 ? ' text-gray-500 cursor-not-allowed' : ' text-secondary'}`}
+          className={`px-2 py-2 border rounded-lg ${currentPage === 1 ? ' text-gray-500 cursor-not-allowed' : ' text-secondary'}`}
         >
           Previous
         </button>
@@ -102,7 +116,7 @@ export default function Career() {
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 border rounded-lg ${currentPage === totalPages ? ' text-gray-500 cursor-not-allowed' : ' text-secondary'}`}
+          className={`px-2 py-2 border rounded-lg ${currentPage === totalPages ? ' text-gray-500 cursor-not-allowed' : ' text-secondary'}`}
         >
           Next
         </button>

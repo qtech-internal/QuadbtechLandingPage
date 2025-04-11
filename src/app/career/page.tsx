@@ -1,14 +1,30 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef,useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Career from "../components/career/CarrerCard";
 import CareerSection from "../components/career/CareerSection";
+import CareerMobile from "../components/career/CareerMobile";
 export default function CareerPage() {
  const whyWorkWithUsRef = useRef(null);
   const benefitCardsRef = useRef(null);
   const bottomCardsRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
+   
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+      
+      };
+  
+      handleResize();
+      window.addEventListener("resize", handleResize);
+  
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -150,7 +166,8 @@ export default function CareerPage() {
   return (
     <main className="flex flex-col text-secondary bg-white w-full   ">
       <div className=" px-4 sm:px-6 lg:px-8 mt-10">
-        < CareerSection />
+        {/* < CareerSection /> */}
+                {isMobile ? <CareerMobile /> : <CareerSection/>}
         <Career />
   {/* Section 3 - Why Work With Us - Improved layout structure */}
         <section

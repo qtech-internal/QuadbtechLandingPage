@@ -276,8 +276,8 @@ const Navbar = () => {
   }, [menuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full px-6 py-4 backdrop-blur-lg bg-white shadow-md z-50 font-poppins">
-      <nav className="max-w-[1600px] mx-auto flex justify-between items-center">
+    <header className="fixed top-0 left-0 w-full px-6 py-4 backdrop-blur-lg bg-white shadow-md font-poppins z-50">
+      <nav className="max-w-[1600px] mx-auto flex justify-between items-center  ">
         
         {/* LOGO + Mobile CONTACT US Button */}
         <div id="logo" className="flex flex-1 items-center md:justify-start md:flex-none hidden lg:block">
@@ -323,7 +323,7 @@ const Navbar = () => {
       </nav>
 
       {/* MOBILE MENU */}
-<div className="flex items-center justify-between w-full md:hidden">
+<div className="flex items-center justify-between w-full md:hidden ">
   {/* Menu Button */}
   <button
     onClick={() => setMenuOpen(true)}
@@ -341,7 +341,7 @@ const Navbar = () => {
   <Link href="/contact">
     <button
       id="contact-button"
-      className={`px-3 py-2 rounded-full font-semibold text-sm button-theme ${
+      className={`px-3 py-2 rounded-full font-semibold text-sm button-theme  ${
         pathname === "/contact"
           ? "border-theme text-theme"
           : "hover:bg-theme hover:text-secondary"
