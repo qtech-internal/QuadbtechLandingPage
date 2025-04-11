@@ -60,7 +60,7 @@ export default function Home() {
   <h1 className="text-2xl md:text-2xl lg:text-3xl font-bold">
     Join Our Mission to Build the Future.
   </h1>
-  <button className=" px-6 py-2 rounded-full button-theme ">
+  <button className=" px-6 py-2 rounded-full button-theme hidden lg:block md:block">
     Explore More
   </button>
       </div>
@@ -85,15 +85,21 @@ export default function Home() {
   ))}
 </div>
  {/*Scroll  */}
-      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        <div className="w-24 h-24 job-card rounded-full text-theme flex items-center justify-center  cursor-pointer z-30">
-          <div className="flex items-center gap-2 z-30">
+      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full  lg:block">
+        <div className="w-24 h-24 bg-white  rounded-full text-theme flex items-center justify-center  cursor-pointer z-30">
+          <div className="flex items-center gap-2 z-30 text-p">
             <ChevronLeft className="w-6 h-6 cursor-pointer" onClick={handleScrollLeft} />
             <span className="font-bold">DRAG</span>
             <ChevronRight className="w-6 h-6 cursor-pointer" onClick={handleScrollRight} />
           </div>
         </div>
       </div>
+      <button className="block sm:hidden px-6 py-2 rounded-full button-theme">
+  Explore More
+</button>
+
+
     </div>
+    
   );
 }
