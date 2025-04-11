@@ -103,7 +103,7 @@ const imageControls = useAnimation();
         <motion.p
           initial={{ x: 100, opacity: 0 }}
           animate={paraControls}
-          className="mt-8 text-black text-lg md:text-xl font-medium"
+          className="mt-8 text-black text-lg md:text-xl font-semibold"
         >
           Pushing the Boundaries of Decentralization
           <br className="hidden sm:block" />

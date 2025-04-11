@@ -21,7 +21,7 @@ const GetToKnow = () => {
       return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
-  const xValue = screenWidth >= 768 ? -400 : -50;
+  const xValue = screenWidth >= 768 ? -450 : -50;
   const kValue = screenWidth >= 768 ? 150 : 80;
 
 
@@ -53,7 +53,7 @@ const GetToKnow = () => {
       >
 
         <motion.div
-          className="w-full md:w-1/4 flex justify-center xl:justify-start "
+          className="w-full md:w-1/4 flex justify-center xl:justify-start  "
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={
             isInView && !isMobile
@@ -70,7 +70,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300"
+            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 "
           >
             Get to Know Us!
           </motion.button>

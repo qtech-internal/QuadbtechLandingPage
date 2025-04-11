@@ -78,7 +78,7 @@ const JobCard: React.FC<JobCardProps> = ({
       <Link href="/form">
         <button
           className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 underline 
-            ${isOdd ?"button-theme": "bg-white text-black border border-gray-400" }`}
+            ${isOdd ?"button-theme bg-white": "bg-white text-black border border-gray-400" }`}
         >
          Know More
         </button>
