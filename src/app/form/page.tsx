@@ -240,18 +240,19 @@ const BlockchainDeveloper = () => {
         {/* Back Button */}
         <button
           onClick={() => router.back()}
-          className="absolute top-4 left-4 text-secondary hover:text-black disabled:opacity-50 transition-opacity"
+          className="top-4 mb-4   left-4 text-secondary hover:text-black disabled:opacity-50 transition-opacity"
           disabled={loading} // Disable when submitting
         >
           ← Back
         </button>
 
         {/* Job Title */}
-        <div className="w-full flex justify-center mb-16">
-          <h1 className="text-3xl font-extrabold  text-secondary border-2 border-theme px-8 py-3 rounded-full text-center">
-            Blockchain Developer
-          </h1>
-        </div>
+        <div className="w-full flex justify-center mb-16 ">
+  <h1 className="text-3xl md:text-2xl sm:text-xl font-extrabold text-black border-2 border-theme px-8 py-3 rounded-full text-center">
+    Blockchain Developer
+  </h1>
+</div>
+
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Left Column: Job Description */}

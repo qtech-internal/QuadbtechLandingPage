@@ -294,40 +294,40 @@ export default function CareerPage() {
               </div>
 
               {/* Card 3 */}
-              <div className="relative bg-white shadow-xl rounded-lg flex items-center justify-center h-[250px] sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+              <div className="relative bg-white shadow-xl rounded-lg flex items-center justify-center  sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <img className="h-full w-full object-cover rounded-lg" src="/career/career2.jpeg" alt="VR Technology Image" />
               </div>
 
               {/* Card 4 */}
             
-              <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-auto md:max-w-[420px] lg:w-[420px] h-auto lg:h-[200px] sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center mx-auto">
+              <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-auto md:max-w-[500px] lg:w-[420px] h-auto  sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center mx-auto">
   <ul className="flex flex-col gap-3">
     <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center justify-center bg-white w-fit text-xs sm:text-sm">
-      Develop groundbreaking blockchain solutions
+    Develop groundbreaking solutions in blockchain, AI, and cloud computing
     </li>
     <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
-      Accelerate your career with continuous learning
+    Accelerate your career with continuous learning & growth opportunities.
     </li>
     <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
-      Work from anywhere with our flexible culture
+    Work from anywhere with our flexible, remote-friendly culture.
     </li>
   </ul>
 </div>
 
 
               {/* Card 5 */}
-              <div className="relative border-2 border-theme shadow-xl rounded-lg h-[180px] sm:h-[200px] overflow-hidden mx-auto ml-12 w-4/5 transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
-                <svg
-                  className="w-2/3 h-2/3 sm:w-3/4 sm:h-3/4 lg:w-full lg:h-full"
-                  viewBox="0 0 30 41"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M28.3778 16.5167C20.195 14.9109 17.5489 11.0729 15.3438 0.441406C13.5265 13.6018 14.1587 20.0801 22.2953 27.8128L28.3778 16.5167Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
-                  <path d="M1.46984 24.7714C9.6527 26.3771 12.2988 30.2152 14.5038 40.8467C16.3212 27.6863 15.689 21.208 7.55237 13.4753L1.46984 24.7714Z" fill="var(--bg-card)" stroke="var(--bg-card)" strokeWidth="0.868933" />
-                </svg>
-              </div>
+              <div className="relative border-2 border-theme shadow-xl rounded-lg overflow-hidden mx-auto ml-12 w-full max-w-[300px] aspect-[300/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+  <Image
+    className="h-full w-full object-cover rounded-lg"
+    src="/blog1.jpeg"
+    alt="logo"
+    width={300}
+    height={300}
+    priority
+  />
+</div>
+
             </div>
           </div>
         </section>
