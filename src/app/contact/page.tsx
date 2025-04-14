@@ -262,8 +262,11 @@ export default function ContactUs() {
                     e.preventDefault(); // Prevent the key press if it's not allowed
                   }
                 }}
-                placeholder={field.placeholder}
-                className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none transition focus:placeholder-transparent"
+                // placeholder={field.placeholder}
+                placeholder={
+                  formData[field.name as keyof typeof formData] ? "" : field.placeholder
+                }
+                className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none transition "
                 required // Indicates field is mandatory (useful for accessibility)
                 // Set maxLength only for phone (already handled by substring, but good defense)
                 maxLength={field.name === "phone" ? 10 : undefined}
@@ -301,7 +304,7 @@ export default function ContactUs() {
       }
       placeholder="Message"
       rows={4}
-      className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition focus:placeholder-transparent"
+      className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition "
       required
     ></textarea>
   </div>

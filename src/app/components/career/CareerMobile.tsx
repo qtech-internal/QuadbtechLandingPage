@@ -26,7 +26,7 @@ const QuadBIntro = () => {
                     {/* Rotated QuadB text – OUTSIDE orange box but touching right side */}
 
                     <div
-                        className="absolute top-1/2 left-[180px]  transform -translate-y-1/2 rotate-90 text-6xl font-bold ">
+                        className="absolute top-1/2 left-[190px]  transform -translate-y-1/2 rotate-90 text-6xl font-bold ">
                         <h1
                             className="text-6xl font-extrabold z-10"
                             style={{
