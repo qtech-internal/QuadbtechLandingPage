@@ -43,9 +43,9 @@ export default function Career() {
   };
 
   return (
-    <div className=" bg-white p-10 flex flex-col items-center space-y-10  ">
+    <div className=" bg-white  flex flex-col items-center mx-auto  max-w-6xl ">
 
-      <div className="flex flex-col sm:flex-row items-center gap-4 mb-4 w-full justify-between px-6 m">
+      <div className="flex flex-col sm:flex-row items-center gap-4 mb-4  w-full justify-between px-2 gap-x-12 ">
         <h1 className="text-3xl font-extrabold whitespace-nowrap sm:font-bold ">Current Openings</h1>
         {/* <div className="w-full sm:w-auto">
           <input
@@ -87,7 +87,7 @@ export default function Career() {
 
       </div>
       {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8   m-auto justify-items-center"> */}
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mt-8 m-auto justify-items-center">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12 mt-8 m-auto justify-items-center">
         {currentJobs.map((job, index) => (
           <JobCard
             key={index}
@@ -96,6 +96,7 @@ export default function Career() {
             experience={job.experience}
             imageSrc={job.imageSrc}
             isOdd={index % 2 === 0}
+             buttonText="Apply Now"
           />
         ))}
       </div>
