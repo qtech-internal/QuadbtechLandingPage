@@ -7,6 +7,7 @@ interface JobCardProps {
   experience: string;
   imageSrc: string;
   isOdd: boolean;
+  buttonText?: string; 
 }
 const JobCard: React.FC<JobCardProps> = ({
   title,
@@ -14,6 +15,7 @@ const JobCard: React.FC<JobCardProps> = ({
   experience,
   imageSrc,
   isOdd,
+  buttonText = "Know More",
 }) => {
   return (
     <div
@@ -80,7 +82,7 @@ const JobCard: React.FC<JobCardProps> = ({
           className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 underline 
             ${isOdd ?"button-theme bg-white": "bg-white text-black border border-gray-400" }`}
         >
-         Know More
+        {buttonText}
         </button>
       </Link>
         </div>

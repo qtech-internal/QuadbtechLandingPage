@@ -253,8 +253,8 @@ export default function CareerPage() {
   }, []);
 
   return (
-    <main className="flex flex-col text-secondary bg-white w-full">
-      <div className="px-4 sm:px-6 lg:px-8 mt-10">
+    <main className="flex flex-col text-secondary bg-white w-full ">
+      <div className=" mt-10">
         {/* Section 1 - Hero */}
         <section className="flex flex-col items-center justify-center bg-white py-12 sm:py-16 lg:py-20">
           <img
