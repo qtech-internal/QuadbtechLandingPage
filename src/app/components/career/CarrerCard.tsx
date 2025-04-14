@@ -4,6 +4,8 @@ import JobCard from '../JobCard';
 
 export default function Career() {
   const [inputValue, setInputValue] = useState('');
+  const [placeholderText, setPlaceholderText] = useState('Search');
+
   const jobs = [
     { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home7.png' },
     { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home9.png" },
@@ -36,8 +38,8 @@ export default function Career() {
       setCurrentPage(currentPage - 1);
     }
   };
+ 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // prevent spaces
     const noSpaces = e.target.value.replace(/\s/g, '');
     setInputValue(noSpaces);
   };
@@ -46,7 +48,7 @@ export default function Career() {
     <div className=" bg-white  flex flex-col items-center mx-auto  max-w-6xl ">
 
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-4  w-full justify-between px-2 gap-x-12 ">
-        <h1 className="text-3xl font-extrabold whitespace-nowrap sm:font-bold ">Current Openings</h1>
+        <h1 className="text-[48px] font-extrabold whitespace-nowrap sm:font-bold ">Current Openings</h1>
         {/* <div className="w-full sm:w-auto">
           <input
             type="text"
@@ -76,11 +78,13 @@ export default function Career() {
     placeholder="Search"
     className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 focus:outline-none text-secondary placeholder-black"
   /> */}
-          <input
+ <input
       type="text"
-      placeholder="Search"
+      placeholder={placeholderText}
       value={inputValue}
       onChange={handleChange}
+      onFocus={() => setPlaceholderText('')}
+      onBlur={() => setPlaceholderText('Search')}
       className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 focus:outline-none text-secondary placeholder-black"
     />
 </div>

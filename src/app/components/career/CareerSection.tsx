@@ -262,11 +262,11 @@ export default function CareerPage() {
             alt="QuadB Logo"
             className="absolute top-20 right-0 w-1/2 h-1/2 object-contain"
           />
-          <h1 ref={headingRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center">
+          <h1 ref={headingRef} className="text-3xl sm:text-4xl lg:text-[52px] font-bold text-center">
             Join QuadBians
           </h1>
 
-          <p ref={subheadingRef} className="text-base sm:text-lg font-light text-center px-4 max-w-2xl mt-4 sm:mt-5">
+          <p ref={subheadingRef} className="text-[24px] sm:text-lg font-light text-center px-4 max-w-2xl mt-4 sm:mt-5">
   We&apos;re building the next wave of Web3 &amp; Web2 innovation—be part of it!
 </p>
 
@@ -324,7 +324,7 @@ export default function CareerPage() {
     alt="logo"
     width={300}
     height={300}
-    priority
+     draggable="false"
   />
 </div>
 

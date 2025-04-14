@@ -169,7 +169,7 @@ const logoRef = useRef(null);
   };
 
   return (
-    <div className="relative w-full min-h-[800px] lg:min-h-[600px] xl:min-h-[720px] 2xl:min-h-[750px] overflow-visible bg-white text-black flex flex-col items-center justify-center   ">
+    <div className="relative w-full max-w-[1600px]  min-h-[900px] lg:min-h-[650px] xl:min-h-[720px]  overflow-visible bg-white text-black flex flex-col items-center justify-center  2xl:mt-40  ">
       <div ref={logoRef} className="absolute text-5xl font-bold  ">
         {/* <img src="/logo.png" alt="Logo" className="w-54 h-54" /> */}
         <svg width="200" height="200" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -179,9 +179,9 @@ const logoRef = useRef(null);
       </div>
 
 
-      <div ref={textRef} className="absolute lg:mt-0 xl:mt-16  2xl:mt-20 text-2xl z-30 md:text-3xl lg:text-2xl xl-text-5xl  font-medium opacity-0 text-center w-full mb-4 font-poppins text-[40px] leading-[50px]  ">
+      <div ref={textRef} className="absolute lg:mt-0 xl:mt-16  2xl:mt-40 text-2xl z-30 md:text-3xl lg:text-2xl xl-text-5xl  font-medium opacity-0 text-center w-full mb-4 font-poppins text-[40px] leading-[50px]  ">
 
-        <span ref={firstLineRef} className="block top-[-10px] left-[-10px] 2xl:left-[-20px] whitespace-nowrap">
+        <span ref={firstLineRef} className="block top-[-10px] left-[-10px] 2xl:left-[0] whitespace-nowrap">
           <span className="relative inline-block align-super mr-2">
 
 
@@ -210,8 +210,8 @@ const logoRef = useRef(null);
           </span>
         </span>
       </div>
-{/* 
-<div
+
+{/* <div
   ref={textRef}
   className="relative z-30 opacity-100 w-full mb-4 font-poppins left-1/5
     text-[18px] leading-[32px]
@@ -239,7 +239,7 @@ const logoRef = useRef(null);
 
 
 
-      <div ref={carouselRef} className="absolute w-3/4 opacity-0  left-0 right-0 mx-auto">
+      <div ref={carouselRef} className="absolute w-3/4 opacity-0  left-0 right-0 mx-auto ">
         <div className="relative rounded-[30px] overflow-hidden ">
    <div className="relative h-[400px]">
                 <Slider {...settings}>
