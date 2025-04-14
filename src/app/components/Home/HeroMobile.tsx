@@ -3,12 +3,11 @@ import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { MdArrowForwardIos } from "react-icons/md";
 
 export default function Home() {
  
-
-
-  const carouselItems = [
+ const carouselItems = [
     {
       title: "Transforming Ideas into Reality",
       description: "Learn More",
@@ -52,7 +51,7 @@ export default function Home() {
 >
         Start Building Today
       </button>
-      <div className="text-center text-xl  font-semibold mt-10 mb-8 font-poppins ">
+      <div className="text-center text-2xl  font-semibold mt-10 mb-8 font-poppins  ">
         <span className=" flex">
         <svg width="30" height="20" viewBox="0 0 20 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.51976 8.34108C8.51912 10.1024 8.86702 11.7138 9.58089 13.4069C9.61535 13.4887 9.65071 13.5707 9.68698 13.6531C9.91403 12.204 10.3733 10.8427 11.0584 9.52226L8.51976 8.34108Z" stroke="var(--bg-card)" strokeWidth="6" />
@@ -109,7 +108,7 @@ export default function Home() {
         <span>Book Free Consultancy</span>
         <div className="relative w-12 h-12 rounded-full   border-theme flex items-center justify-center">
           <div className="w-10 h-10 rounded-full bg-theme  flex items-center justify-center">
-            <span className="text-white text-xl leading-none -mt-1">&gt;</span>
+            <span className="text-white text-xl leading-none -mt-1"><MdArrowForwardIos /></span>
           </div>
         </div>
 

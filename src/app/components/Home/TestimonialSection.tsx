@@ -17,7 +17,7 @@ const TestimonialSection = () => {
       src: "/home/home14.jpeg",
       text: "Cutting-edge innovation meets reliability. Our NFT marketplace is thriving thanks to their team!",
       name: "James K., CTO, YieldSync Finance",
-      comment: "High-performance .",
+      comment: "High-performance!",
     },
     {
       id: 6,
@@ -25,7 +25,7 @@ const TestimonialSection = () => {
       src: "/home/home15.jpeg",
       text: "Secure, optimized, and future-proof—our SaaS platform runs like a dream!",
       name: "Elena W., Product Lead, TrustLedger",
-      comment: "High-performance .",
+      comment: "High-performance!",
     },
     {
       id: 7,
@@ -33,7 +33,7 @@ const TestimonialSection = () => {
       src: "/home/home16.jpeg",
       text: "Secure, optimized, and future-proof—our SaaS platform runs like a dream!",
       name: "Elena W., Product Lead, TrustLedger",
-      comment: "Fast and Reliable.",
+      comment: "Fast and Reliable!",
     },
     {
       id: 8,
@@ -41,7 +41,7 @@ const TestimonialSection = () => {
       src: "/home/home11.jpeg",
       text: "Their team took our vision and turned it into a seamless, high-performance dApp. Highly recommend!",
       name: " Alex R., CEO of BlockFi Ventures.",
-      comment: "High-performance .",
+      comment: "High-performance!",
     },
   ];
 

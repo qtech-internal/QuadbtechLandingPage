@@ -47,17 +47,13 @@ export default function Career() {
   return (
     <div className=" bg-white  flex flex-col items-center mx-auto  max-w-6xl ">
 
-      <div className="flex flex-col sm:flex-row items-center gap-4 mb-4  w-full justify-between px-2 gap-x-12 ">
-        <h1 className="text-[48px] font-extrabold whitespace-nowrap sm:font-bold ">Current Openings</h1>
-        {/* <div className="w-full sm:w-auto">
-          <input
-            type="text"
-            placeholder="Search"
-            className="border border-theme rounded-lg px-4 py-2 w-full sm:w-72 focus:outline-none"
-          />
-        </div> */}
-        <div className="w-full sm:w-auto relative">
-  <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+      <div className="flex flex-col sm:flex-row items-center gap-4 mb-4  w-full justify-between px-2 gap-x-12 mt-16  ">
+        <h1 className="text-[36px] lg:text-[48px] md:text-[30px]  whitespace-nowrap font-bold ">Current Openings</h1>
+   
+        {/* <div className="w-full lg:w-auto  sm:w-[75%] relative"> */}
+        <div className="w-full sm:w-[50%] md:w-[75%] lg:w-auto relative hidden lg:block md:block">
+
+  <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
  
     <svg
       className="w-5 h-5 text-secondary"
@@ -73,11 +69,7 @@ export default function Career() {
       />
     </svg>
   </span>
-  {/* <input
-    type="text"
-    placeholder="Search"
-    className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 focus:outline-none text-secondary placeholder-black"
-  /> */}
+
  <input
       type="text"
       placeholder={placeholderText}
@@ -85,11 +77,41 @@ export default function Career() {
       onChange={handleChange}
       onFocus={() => setPlaceholderText('')}
       onBlur={() => setPlaceholderText('Search')}
-      className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 focus:outline-none text-secondary placeholder-black"
+      className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full  sm:w-72 focus:outline-none text-secondary placeholder-black "
     />
 </div>
+        {/* 2nd  small*/}
+        <div className="w-full sm:hidden relative block">
+  <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+    <svg
+      className="w-5 h-5 text-secondary"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+      />
+    </svg>
+  </span>
+
+  <input
+    type="text"
+    placeholder={placeholderText}
+    value={inputValue}
+    onChange={handleChange}
+    onFocus={() => setPlaceholderText('')}
+    onBlur={() => setPlaceholderText('Search')}
+    className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full mx-auto block focus:outline-none text-secondary placeholder-black"
+  />
+</div>
+
 
       </div>
+   
       {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8   m-auto justify-items-center"> */}
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12 mt-8 m-auto justify-items-center">
         {currentJobs.map((job, index) => (

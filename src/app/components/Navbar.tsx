@@ -237,6 +237,7 @@ import Image from "next/image";
 import { RiMenu2Fill } from "react-icons/ri";
 import { FaXmark } from "react-icons/fa6";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { FaBars } from "react-icons/fa";
 import gsap from "gsap";
 
 const Navbar = () => {
@@ -329,7 +330,8 @@ const Navbar = () => {
     onClick={() => setMenuOpen(true)}
     className="text-secondary"
   >
-    <RiMenu2Fill size={28} />
+          {/* <RiMenu2Fill size={28} /> */}
+          <FaBars size={28} />
   </button>
 
   {/* Logo */}
