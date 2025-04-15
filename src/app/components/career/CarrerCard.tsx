@@ -82,7 +82,7 @@ export default function Career() {
 </div>
         {/* 2nd  small*/}
         <div className="w-full sm:hidden relative block">
-  <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+  <span className="absolute inset-y-0 left-0 flex items-center pl-8 pointer-events-none">
     <svg
       className="w-5 h-5 text-secondary"
       fill="none"
@@ -105,7 +105,7 @@ export default function Career() {
     onChange={handleChange}
     onFocus={() => setPlaceholderText('')}
     onBlur={() => setPlaceholderText('Search')}
-    className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full mx-auto block focus:outline-none text-secondary placeholder-black"
+    className="border border-theme rounded-lg pl-10 pr-4 py-2 w-[85%] mx-auto block focus:outline-none text-secondary placeholder-black"
   />
 </div>
 

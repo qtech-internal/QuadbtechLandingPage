@@ -367,7 +367,7 @@ const Navbar = () => {
 
         <div
           id="mobile-menu"
-          className="flex flex-col items-end p-10 space-y-6 text-secondary text-lg mt-10 whitespace-nowrap"
+          className="flex flex-col items-center p-10 space-y-6 text-secondary text-lg mt-10 whitespace-nowrap"
         >
           {[
             { path: "/", label: "Home" },
