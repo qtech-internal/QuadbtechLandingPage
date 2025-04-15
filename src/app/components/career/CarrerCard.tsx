@@ -17,6 +17,8 @@ export default function Career() {
     { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home9.png' },
     { title: "Blockchain Developer", location: "Remote", experience: "2+ years", imageSrc: "/home/home8.png" },
     { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home8.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home7.png' },
+    { title: 'Blockchain Developer', location: 'Remote', experience: '2+ years', imageSrc: '/home/home9.png' },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);

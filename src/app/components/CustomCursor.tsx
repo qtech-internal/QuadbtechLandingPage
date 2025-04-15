@@ -51,7 +51,7 @@ export default function CustomCursor() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50">
+    <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50 hidden lg:block md:block">
       {/* Cursor */}
       <div
         ref={cursorRef}
