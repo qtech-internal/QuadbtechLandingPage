@@ -4,6 +4,7 @@ import ServiceSection from "./components/Home/ServiceSection";
 import GetToKnow from "./components/Home/GetToKnow";
 import KaiFoundrySection from "./components/Home/KaiFoundrySection";
 import TestimonialSection from "./components/Home/TestimonialSection";
+import TestimonialMobile from "./components/Home/TestimonialMobile";
 import HeroSection from "./components/Home/HeroSection";
 import Job from "./components/Home/Job";
 import Contact from "./components/Home/Contact";
@@ -40,7 +41,7 @@ export default function Home() {
         {/* <KaiFoundrySection /> */}
         {/* <KaiMobile /> */}
         {isMobile ? <KaiMobile /> : <KaiFoundrySection/>}
-        <TestimonialSection />
+        {isMobile ?<TestimonialMobile/> :<TestimonialSection />}
         <Job />
         <Contact />
       </section>
