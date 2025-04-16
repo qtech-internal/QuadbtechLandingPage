@@ -16,14 +16,15 @@ export default function SectionThree() {
                         className="
               absolute sm:top-[-4%] sm:left-[-4%]
               md:top-[-6%] md:left-[-8%]
-              lg:top-[-6%] lg:left-[-4%]
-              text-[5vw] sm:text-[4.7vw] md:text-[1.50vw] font-semibold
-              md:leading-6.5 lg:leading-9 lg:text-[1.60vw]
-              xl:text-[1.80vw] xl:leading-12
+              lg:top-[-6%] lg:left-[-5%]
+              2xl:left-[-4%] 2xl:top-[-5%]
+              text-[5vw] sm:text-[4.7vw] md:text-[14px] font-semibold
+              md:leading-6.5 lg:leading-9.5 lg:text-[20px]
+              xl:text-[26px] xl:leading-13
               2xl:text-[32px] 2xl:leading-16
               sm:leading-12 !text-yellow-950
               leading-10
-              px-4 sm:p-6 rounded-lg transition-all duration-300"
+              px-4 sm:p-6 rounded-lg transition-all duration-300 [word-spacing:0.2rem]"
                     >
                         The Future of Work:
                         <br /> Why Tech Talent <br />
@@ -46,14 +47,14 @@ export default function SectionThree() {
                 </div>
 
                 <div className="relative w-full md:w-[60%] aspect-[16/16] md:aspect-[4/3] overflow-hidden ">
-                    <div className="absolute top-[20%]  font-bold text-[4vw] sm:text-[3.5vw] md:text-[2vw] md:leading-10 lg:text-[2vw] 2xl:text-[45px] lg:leading-12 2xl:leading-20 xl:text-[2.5vw] xl:leading-16 leading-14 transition-all duration-300">
+                    <div className="absolute top-[20%]  font-bold text-[4vw] sm:text-[3.5vw] md:text-[20px] md:leading-10 lg:text-[26px] 2xl:text-[45px] lg:leading-14 2xl:leading-20 xl:text-[2.5vw] xl:leading-18 leading-14 transition-all duration-300 [word-spacing:0.2rem]">
                         <span>Full-Stack</span>
                         <br />
                         <span>Development in 2024:</span>
                         <br />
                         <span>What Skills Do You</span>
                         <br />
-                        <span>Need?</span>
+                        <span>Need ? </span>
 
                     </div>
 
@@ -61,7 +62,7 @@ export default function SectionThree() {
                         Next Gen
                     </button>
 
-                    <button className="absolute left-2 bottom-20 md:text-[1vw] border-2 font-bold border-orange-500 rounded-2xl z-10 text-white bg-orange-400  md:left-5 md:bottom-13 px-2 py-1 2xl:text-[18px]">
+                    <button className="absolute left-2 bottom-20 md:text-[1vw] border-2 font-bold border-orange-500 rounded-2xl z-10 text-white bg-orange-400  md:left-5 md:bottom-13 lg:bottom-18 xl:bottom-22 2xl:bottom-28 px-2 py-1 2xl:text-[18px]">
                         READ MORE
                     </button>
 

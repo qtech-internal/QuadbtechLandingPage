@@ -509,7 +509,7 @@ const logoRef = useRef(null);
           </span>
           Your Vision,Our Expertise:
         </span> */}
-        <span ref={secondLineRef} className=" absolute left-[43rem] xl:left-[48rem] lg:left-[28rem] md:left-[20rem] 2xl:left-[70rem]  whitespace-nowrap">
+        <span ref={secondLineRef} className=" absolute left-[43rem] xl:left-[48rem] lg:left-[28rem] md:left-[20rem] 2xl:left-[67rem]  whitespace-nowrap">
           Crafting the <span className="relative  px-3 border-2 border-theme rounded-full">Future of Technology</span>
           <span className="relative inline-block align-super mr-4">
           

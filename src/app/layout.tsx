@@ -46,7 +46,6 @@ export default function RootLayout({
       >
         <div className="container overflow-x-hidden mx-auto">
           <Navbar />
-          <CustomCursor />
           {children}
           <Toaster position="top-right" />
 

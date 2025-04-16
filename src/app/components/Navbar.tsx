@@ -298,7 +298,7 @@ const Navbar = () => {
         <Link href="/contact">
           <button
             id="contact-button"
-            className={`px-3 py-2 rounded-full font-semibold text-sm button-theme ${
+            className={`px-1 py-1 rounded-full font-semibold text-[10px] button-theme ${
               pathname === "/contact"
                 ? "border-theme text-theme"
                 : "hover:bg-theme hover:text-secondary"

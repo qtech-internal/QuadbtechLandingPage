@@ -66,9 +66,9 @@ export default function SectionTwo() {
 
                 <div
 
-                    className="absolute top-[0%] left-[50%] md:top-[5%] md:left-[87%] transform -translate-x-1/2 -translate-y-1/2 sm:w-[373px] w-auto text-center container "
+                    className="absolute top-[0%] left-[50%] md:top-[5%] md:left-[88%] transform -translate-x-1/2 -translate-y-1/2 sm:w-[373px] w-auto text-center container "
                 >
-                    <h1 className="2xl:text-4xl md:text-[2.2vw] text-3xl font-bold ">
+                    <h1 className="2xl:text-5xl md:text-[2.2vw] text-3xl font-bold ">
                         Transforming
                     </h1>
                 </div>
@@ -77,7 +77,7 @@ export default function SectionTwo() {
 
                     className="absolute top-[10%] left-[50%] md:top-[18%] md:left-[85%] lg:top-[20%] xl:top-[20%] 2xl:top-[20%] transform -translate-x-1/2 -translate-y-1/2  w-full text-center"
                 >
-                    <h1 className="2xl:text-4xl md:text-[2.2vw] text-3xl font-bold ">
+                    <h1 className="2xl:text-5xl md:text-[2.2vw] text-3xl font-bold ">
                         Ideas into Reality
                     </h1>
                 </div>
