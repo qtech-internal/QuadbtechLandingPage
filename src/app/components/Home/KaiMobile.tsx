@@ -67,7 +67,7 @@ const imageControls = useAnimation();
   return (
    <section
     ref={ref}
-    className="relative px-6  md:px-10 py-20 md:py-20 mt-20 mb-30 flex mx-auto overflow-hidden  justify-center bg-white text-black"
+    className="relative px-6  md:px-10 pb-20 md:py-20 mt-10 mb-0 flex mx-auto overflow-hidden  justify-center bg-white text-black"
   >
     {/* image  Page Animation */}
     <motion.div
