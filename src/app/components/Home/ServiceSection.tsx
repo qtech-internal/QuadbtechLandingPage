@@ -70,47 +70,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
   );
 };
-// const ServiceCard: React.FC<ServiceCardProps> = ({
-//   title,
-//   points,
-//   bg = "bg-orange-500",
-//   hoverBg = "bg-orange-600",
-//   textColor = "text-white",
-//   isHovered,
-//   isAnyHovered,
-//   onMouseEnter,
-//   onMouseLeave,
-// }) => {
-//   return (
-//     <div
-//       onMouseEnter={onMouseEnter}
-//       onMouseLeave={onMouseLeave}
-//       className={`relative group h-16 hover:h-44 transition-all duration-600 ease-in-out overflow-hidden rounded-md flex items-center justify-center text-xs sm:text-sm md:text-base font-medium cursor-pointer px-3
-//         ${bg} ${textColor}
-//         ${isHovered ? "z-20 absolute h-auto min-h-44" : "z-10"}
-//         ${isAnyHovered && !isHovered ? "blur-[3px]" : ""}
-//       `}
-//     >
-//       {/* Main Title */}
-//       <div className="flex items-center justify-center h-full w-full text-center">
-//         {title}
-//       </div>
-
-//       {/* Hover Content */}
-//       <div
-//         className={`absolute top-0 left-0 w-full inset-0 ${hoverBg} px-4 py-3 text-left ${textColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-//         style={{ minHeight: "180px" }}
-//       >
-//         <h3 className="font-semibold text-sm mb-2">{title}</h3>
-//         <ul className="list-disc list-inside text-xs space-y-1">
-//           {points.map((point, idx) => (
-//             <li key={idx}>{point}</li>
-//           ))}
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// };
 
 type ServiceItem = {
   title: string;

@@ -88,53 +88,7 @@ const imageControls = useAnimation();
         imageAnimationDone ? "opacity-100" : "opacity-0"
       }`}
     >
-    
-      {/* <div className="flex-1">
-   
-        <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-[#000000] text-xl font-semibold font-roboto">
-          Our Web3 Innovation Lab
-          <div className="mt-4 flex">
-              <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={200} height={50} />
-            
-          </div>
-        </motion.div>
-  
-     
-        <motion.p
-          initial={{ x: 100, opacity: 0 }}
-          animate={paraControls}
-          className="mt-8 text-black text-lg md:text-xl font-medium"
-        >
-          Pushing the Boundaries of Decentralization
-          <br className="hidden sm:block" />
-          At KaiFoundry, we specialize in building next-generation Web3 products, designed for scalability, security, and seamless user experiences. From smart contract development to NFT ecosystems, we bring decentralized innovation to life.
-        </motion.p>
-        <div className="flex-1 relative">
-       <motion.div initial={{ opacity: 0 }} animate={tagsControls} className="flex flex-wrap gap-2 sm:gap-2 justify-center mt-10">
-          <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            Smart Contracts & DeFi Solutions
-          </span>
-          <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            Metaverse & Blockchain Gaming
-          </span>
-          <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            NFT Marketplaces & Tokenization
-          </span>
-          <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            dApps & Web3 Infrastructure
-          </span>
-          <span className="bg-theme text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            And Many More
-          </span>
-        </motion.div>
-      </div>
-      <button className="px-6 py-2 rounded-full block mx-auto button-theme mt-14">
-  Explore More
-</button>
-
-
-      </div> */}
-              <div className="flex-1 text-center">
+        <div className="flex-1 text-center">
   {/* Heading */}
   <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-[#000000] text-xl font-semibold font-roboto">
     Our Web3 Innovation Lab
@@ -153,27 +107,7 @@ const imageControls = useAnimation();
     <br className="hidden sm:block" />
     At KaiFoundry, we specialize in building next-generation Web3 products, designed for scalability, security, and seamless user experiences. From smart contract development to NFT ecosystems, we bring decentralized innovation to life.
   </motion.p>
-
-  {/* <div className="flex-1 relative">
-    <motion.div initial={{ opacity: 0 }} animate={tagsControls} className="flex flex-wrap gap-2 sm:gap-2 justify-center mt-10">
-      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-        Smart Contracts & DeFi Solutions
-      </span>
-      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-        Metaverse & Blockchain Gaming
-      </span>
-      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-        NFT Marketplaces & Tokenization
-      </span>
-      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-        dApps & Web3 Infrastructure
-      </span>
-      <span className="bg-theme text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-        And Many More
-      </span>
-    </motion.div>
-  </div> */}
-                  <div className="flex-1 relative">
+ <div className="flex-1 relative">
   <motion.div
     initial={{ opacity: 0 }}
     animate={tagsControls}

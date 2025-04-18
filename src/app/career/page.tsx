@@ -1,7 +1,5 @@
 "use client";
 import { useEffect, useRef,useState } from "react";
-
-
 import Career from "../components/career/CarrerCard";
 import CareerSection from "../components/career/CareerSection";
 import CareerMobile from "../components/career/CareerMobile";
@@ -24,12 +22,7 @@ export default function CareerPage() {
         window.removeEventListener("resize", handleResize);
       };
     }, []);
-
-
-
-
-
-  return (
+return (
     <main className="flex flex-col text-secondary bg-white w-full   ">
       <div className=" px-4 sm:px-6 lg:px-8 mt-10">
         {/* < CareerSection /> */}
