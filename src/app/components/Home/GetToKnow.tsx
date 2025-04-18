@@ -21,7 +21,7 @@ const GetToKnow = () => {
       return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
-  const xValue = screenWidth >= 768 ? -450 : -50;
+  const xValue = screenWidth >= 768 ? -420 : -50;
   const kValue = screenWidth >= 768 ? 150 : 80;
 
 
@@ -116,12 +116,6 @@ const GetToKnow = () => {
       </motion.div>
 
       {/* Bg Shape */}
-      {/* <div className="absolute top-0 right-0 h-full w-full flex items-center justify-end pointer-events-none ">
-        <img src="back.png" alt="" />
-      </div> */}
-      {/* <div className="relative w-full mt-10 md:mt-0 md:absolute md:top-0 md:right-0 md:h-full md:w-full flex justify-center md:justify-end pointer-events-none">
-  <img src="back.png" alt="" className="w-[80%] md:w-auto" />
-</div> */}
 <div className="absolute top-100 lg:top-0 md:top-0 sm:top-80 right-0 h-full w-full flex justify-end pointer-events-none">
   <img 
     src="back.png" 

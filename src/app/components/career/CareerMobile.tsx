@@ -44,12 +44,6 @@ const QuadBIntro = () => {
                 {/* Row: Image , Text */}
                 <div className="flex w-full gap-4">
                     {/* VR Image */}
-                    {/* <img
-      src="/career/bot.png"
-      alt="VR Vision"
-      className="w-1/3 rounded-xl object-cover"
-      
-    /> */}
                     <div className="relative w-1/3 rounded-xl overflow-hidden">
                         {/* Image */}
                         <img
@@ -90,11 +84,6 @@ const QuadBIntro = () => {
                     </div>
 
                     {/* Second image takes remaining space */}
-                    {/* <img
-    src="/career/bot2.png"
-    alt="Liquid Visual"
-    className="w-2/3 rounded-xl object-cover"
-  /> */}
                     <div className="relative w-2/3 rounded-xl overflow-hidden">
                         {/* Image */}
                         <img

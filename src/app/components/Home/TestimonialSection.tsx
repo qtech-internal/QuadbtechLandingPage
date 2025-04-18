@@ -150,10 +150,6 @@ const TestimonialSection = () => {
         })}
       </div>
       <div className="absolute text-center max-w-lg top-[40%]">
-        {/* <h2 className="text-2xl  font-bold">
-          Over <span className="font-bold">10K+ Clients</span> Trust{" "}
-          <span className="font-extrabold text-p tracking-tight">Quadb</span>
-        </h2> */}
 <h2 className="text-2xl lg:text-2xl md:text-xl sm:text-sm font-semibold font-poppins">
   Over <span className="font-semibold">10K+ Clients</span> Trust{" "}
   <span className=" tracking-tight font-black ">Quadb</span>
