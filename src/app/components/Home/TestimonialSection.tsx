@@ -158,7 +158,7 @@ const TestimonialSection = () => {
 
 
       </div>
-      <div className="absolute bottom-48 h-60 w-full div-bg shadow-lg px-6   rounded-lg max-w-xl flex flex-col items-center">
+      <div className="absolute bottom-48 h-60 w-full div-bg shadow-lg px-6 font-roboto  rounded-lg max-w-xl flex flex-col items-center">
 
         <div className="absolute -top-5 -right-5 w-20 h-20 bg-white rounded-full flex items-center justify-center overflow-hidden">
           <div className="w-14 h-14 div-bg rounded-full flex items-center justify-center">
@@ -172,7 +172,7 @@ const TestimonialSection = () => {
         </div>
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-30 h-16 bg-white rounded-b-full z-10"></div>
         <div className="mt-10 p-4 rounded-lg flex flex-col items-center mx-auto justify-center">
-  <p className="text-secondary italic text-center">
+  <p className="text-secondary  text-center font-roboto">
     &ldquo;{currentTestimonial.text}&rdquo;
   </p>
   <p className="mt-4 font-bold text-secondary opacity-[0.8] whitespace-nowrap">

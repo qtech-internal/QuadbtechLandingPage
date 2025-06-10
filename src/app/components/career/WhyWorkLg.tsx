@@ -156,8 +156,8 @@ export default function CareerPage() {
   ];
 
   return (
-    <main className="flex flex-col text-secondary bg-white w-full mx-auto    ">
-      <div className=" px-4 sm:px-6 lg:px-8 mt-10">
+    <main className="flex flex-col text-secondary bg-white w-full mx-auto   ">
+      <div className=" px-4 sm:px-6 lg:px-8 2xl:px-34 mt-10">
        
         
   

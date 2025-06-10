@@ -40,7 +40,7 @@ const QuadBIntro = () => {
                 </div>
             </div>
             {/* 2nd */}
-            <div className="flex flex-col gap-2 p-2 bg-white ">
+            <div className="flex flex-col gap-2 px-4 bg-white ">
                 {/* Row: Image , Text */}
                 <div className="flex w-full gap-4">
                     {/* VR Image */}

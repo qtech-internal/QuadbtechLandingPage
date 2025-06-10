@@ -76,10 +76,10 @@ const JobCard: React.FC<JobCardProps> = ({
         </div>
 
         {/* Button */}
-        <div className="z-20 flex justify-end pb-4">
+        <div className="z-20 flex justify-end pb-4 ">
       <Link href="/form">
         <button
-          className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 underline 
+          className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 underline cursor-pointer 
             ${isOdd ?"button-theme bg-white": "bg-white text-black border border-gray-400" }`}
         >
         {buttonText}

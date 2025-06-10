@@ -21,7 +21,7 @@ const ServiceSection = () => {
   <div className="w-[20px] h-16 div-bg rounded-r-md"></div>
 
   {/* Main button */}
-  <button className="bg-theme text-white font-medium px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
+  <button className="bg-theme text-white font-semibold px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
     Custom Web & Mobile Apps
   </button>
 
@@ -36,7 +36,7 @@ const ServiceSection = () => {
 
 
   {/* Main button */}
-  <button className="border-1 border-theme text-secondary font-medium px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
+  <button className="border-1 border-theme text-secondary font-semibold px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
   Enterprise Software Solutions
   </button>
 
@@ -50,7 +50,7 @@ const ServiceSection = () => {
   <div className="w-[30px] h-16 div-bg rounded-r-md"></div>
 
   {/* Main button */}
-  <button className="border-1 border-theme  font-medium px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
+  <button className="border-1 border-theme  font-semibold px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
   UI/UX Design & Optimization
   </button>
 
@@ -64,7 +64,7 @@ const ServiceSection = () => {
 <div className="flex-1 h-16 div-bg rounded-r-md"></div>
 
   {/* Main button */}
-  <button className="border-1 border-theme  font-medium px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
+  <button className="border-1 border-theme  font-semibold px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
   E-Commerce & Marketplace <br /> Development
   </button>
 
@@ -79,7 +79,7 @@ const ServiceSection = () => {
   <div className="w-[30px] h-16 div-bg rounded-r-md"></div>
 
   {/* Main button */}
-  <button className="border-1 border-theme  font-medium px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
+  <button className="border-1 border-theme  font-semibold px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
   Security & Performance <br /> Optimization
   </button>
 
@@ -93,7 +93,7 @@ const ServiceSection = () => {
 
 
   {/* Main button */}
-  <button className="border-1 border-theme text-secondary font-medium px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
+  <button className="border-1 border-theme text-secondary font-semibold px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
   API Development & Third-Party <br /> Integrations
   </button>
 
@@ -107,7 +107,7 @@ const ServiceSection = () => {
   <div className="flex-1 h-16 div-bg rounded-r-md"></div>
 
   
-  <button className="bg-theme text-white font-medium px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
+  <button className="bg-theme text-white font-semibold px-6 py-3 rounded-md h-16 text-sm md:text-base mx-[-10px] z-10">
   And Many More.
   </button>
 

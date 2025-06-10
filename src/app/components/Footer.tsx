@@ -32,7 +32,7 @@ export default function Footer() {
       className="relative z-10"
     />
   </div>
-  <button className="border-2 font-semibold button-theme px-6 py-2 mb-4 rounded-full hover:text-secondary transition block sm:hidden">
+  <button className="border-2 cursor-pointer font-semibold button-theme px-6 py-2 mb-4 rounded-full hover:text-secondary transition block sm:hidden">
     CONTACT US
   </button>
   <div className="flex space-x-4 text-[var(--bg-card)] text-xl md:text-2xl mb-6 md:mb-0">
@@ -46,7 +46,7 @@ export default function Footer() {
     )}
   </div>
   <Link href="/contact">
-  <button className="border-2 font-semibold button-theme px-6 py-2 rounded-full hover:text-secondary transition hidden lg:block">
+  <button className="border-2 cursor-pointer font-semibold button-theme px-6 py-2 rounded-full hover:text-secondary transition hidden lg:block">
     CONTACT US
         </button>
         </Link>

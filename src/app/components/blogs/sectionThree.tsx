@@ -32,7 +32,7 @@ export default function SectionThree() {
                         Workspaces
                     </div>
 
-                    <button className="absolute md:text-[1vw] 2xl:text-[18px] border-2 border-orange-500 rounded-2xl bottom-1 z-10 text-black bg-white left-45 md:left-25 lg:left-35 xl:left-45 2xl:left-55 px-4 py-1 ">
+                    <button className="absolute cursor-pointer md:text-[1vw] 2xl:text-[18px] border-2 border-orange-500 rounded-2xl bottom-1 z-10 text-black bg-white left-45 md:left-25 lg:left-35 xl:left-45 2xl:left-55 px-4 py-1 ">
                         Read more
                     </button>
 
@@ -58,14 +58,14 @@ export default function SectionThree() {
 
                     </div>
 
-                    <button className="absolute  md:text-[1vw] border-2 border-orange-500 rounded-2xl top-10 z-10 left-2 bg-white md:top-5 lg:top-8 xl:top-12 md:left-5  px-4 py-1 2xl:text-[18px] ">
+                    <button className="absolute cursor-pointer md:text-[1vw] border-2 border-orange-500 rounded-2xl top-10 z-10 left-2 bg-white md:top-5 lg:top-8 xl:top-12 md:left-5  px-4 py-1 2xl:text-[18px] ">
                         Next Gen
                     </button>
 
-                    <button className="absolute left-2 bottom-20 md:text-[1vw] border-2 font-bold border-orange-500 rounded-2xl z-10 text-white bg-orange-400  md:left-5 md:bottom-13 lg:bottom-18 xl:bottom-22 2xl:bottom-28 px-2 py-1 2xl:text-[18px]">
+                    <button className="absolute cursor-pointer left-2 bottom-20 md:text-[1vw] border-2 font-bold border-orange-500 rounded-2xl z-10 text-white bg-orange-400  md:left-5 md:bottom-13 lg:bottom-18 xl:bottom-22 2xl:bottom-28 px-2 py-1 2xl:text-[18px]">
                         READ MORE
                     </button>
-
+   <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                     <Image
                         draggable={false}
                         src="/section_3_image2_other.png"
@@ -73,7 +73,9 @@ export default function SectionThree() {
                         layout="fill"
                         objectFit="cover"
                         className="rounded-2xl transition-all duration-300"
+                        
                     />
+                    
                 </div>
             </div>
         </section>

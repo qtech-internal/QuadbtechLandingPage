@@ -47,11 +47,12 @@ export default function Home() {
   return (
     <div className="w-full max-w-[1500px] overflow-x-hidden bg-white text-black flex flex-col items-center justify-center p-4">
       <button
-       className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]"
+       className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)] cursor-pointer"
 >
         Start Building Today
       </button>
-      <div className="text-center text-2xl  font-semibold mt-10 mb-8 font-poppins  ">
+      {/* <div className="text-center text-2xl border-2 border-black font-semibold mt-10 mb-8 font-poppins  "> */}
+   <div className="text-center text-2xl  font-semibold mt-10 mb-8 font-poppins leading-[1.2]" style={{ letterSpacing: '-0.02em' }}>
         <span className=" flex">
         <svg width="30" height="20" viewBox="0 0 20 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.51976 8.34108C8.51912 10.1024 8.86702 11.7138 9.58089 13.4069C9.61535 13.4887 9.65071 13.5707 9.68698 13.6531C9.91403 12.204 10.3733 10.8427 11.0584 9.52226L8.51976 8.34108Z" stroke="var(--bg-card)" strokeWidth="6" />
@@ -64,7 +65,7 @@ export default function Home() {
         Crafting the  <br />
         <span className=" flex text-center  ">
         
-          <span className="inline-block px-3 ml-2 border-2 border-theme rounded-full"> Future of Technology</span>
+          <span className="inline-block px-3 ml-6 border-2 border-theme rounded-full"> Future of Technology</span>
           <svg width="22" height="20" viewBox="0 0 22 40" fill="none" xmlns="http://www.w3.org/2000/svg ">
               <path d="M14.4517 5.43384C15.328 7.37721 15.6896 9.2738 15.6257 11.4503C15.6065 12.1034 15.549 12.787 15.4521 13.5098C14.5914 11.4475 13.3302 9.79201 11.6162 8.38357L14.4517 5.43384Z" stroke="var(--bg-card)" strokeWidth="5" />
               <path d="M4.5216 17.2351C5.2324 18.2581 5.70588 19.339 6.01549 20.5953C5.29124 19.919 4.48682 19.3596 3.59205 18.8967L4.5216 17.2351Z" stroke="var(--bg-card)" strokeWidth="5" />
@@ -104,7 +105,7 @@ export default function Home() {
       </Slider>
       </div>
       <Link href="#contact">
-      <button className=" mt-10  button-theme px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
+      <button className=" mt-10 font-semibold button-theme px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black  hover:bg-[var(--bg-card)] hover:text-white">
         <span>Book Free Consultancy</span>
         <div className="relative w-12 h-12 rounded-full   border-theme flex items-center justify-center">
           <div className="w-10 h-10 rounded-full bg-theme  flex items-center justify-center">
@@ -118,7 +119,7 @@ export default function Home() {
 
       {/* Sidebar */}
 
-      <p className="mt-4 font-semibold text-black text-left">Empowered Teams, Endless Possibilities</p>
+      <p className="mt-4 font-semibold text-black text-left">Empowered Teams, <br /> Endless Possibilities</p>
       <div className="relative mt-10 div-bg flex flex-row items-center space-x-8 my-10 ml-0 rounded-xl shadow-lg justify-start p-4 bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
 
 

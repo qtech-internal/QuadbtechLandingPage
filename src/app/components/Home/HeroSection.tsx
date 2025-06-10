@@ -120,11 +120,11 @@ const logoRef = useRef(null);
     speed: 400,
     slidesToShow: 1,
     slidesToScroll: 1,
-    vertical: true,         
-    verticalSwiping: true,      
+    vertical: true,
+    verticalSwiping: true,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: false,         
+    arrows: false,
   };
 
   return (
@@ -222,7 +222,7 @@ const logoRef = useRef(null);
 
             {/* CTA Button */}
             <Link href="#contact">
-  <button className="absolute bottom-1/3 left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
+  <button className="absolute bottom-1/3 cursor-pointer left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
     <span>Book Free Consultancy</span>
     <div className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
       <div className="w-12 h-12 rounded-full bg-theme flex items-center justify-center">
@@ -282,3 +282,237 @@ const logoRef = useRef(null);
 
   );
 }
+
+// 'use client';
+
+// import Image from 'next/image';
+// import { useState } from 'react';
+
+// import { useEffect, useRef } from 'react';
+// import Link from "next/link";
+// import gsap from 'gsap';
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import { MdArrowForwardIos } from "react-icons/md";
+
+// export default function HeroSection() {
+//   const [activeSlide, setActiveSlide] = useState(1);
+//   const logoRef = useRef(null);
+//   const textRef = useRef(null);
+//   const firstLineRef = useRef(null);
+//   const secondLineRef = useRef(null);
+//   const carouselRef = useRef(null);
+//   const sidebarRef = useRef(null);
+
+//   useEffect(() => {
+//     const tl = gsap.timeline();
+  
+//     tl.to(logoRef.current, { scaleX: -1, duration: 0.3, ease: "power1.inOut" })
+//       .to(logoRef.current, { autoAlpha: 0, duration: 0.2, ease: "power1.out" })
+ 
+//       .set(textRef.current, {
+//         autoAlpha: 1,
+//         scaleX: 0,
+//         transformOrigin: "center center",
+//         fontSize: "3rem",
+//         width: "100vw"
+//       })
+  
+//       .to(textRef.current, {
+//         x: "-20%",
+//         scaleX: 1,
+//         duration: 1.2,
+//         ease: "power2.out"
+//       })
+  
+//   .to(textRef.current, { duration: 0.4 })
+
+//       .to(textRef.current, {
+//         y: "-45vh",
+//         duration: 1.2,
+//         ease: "power2.inOut"
+//       })
+  
+
+//       .fromTo(
+//         carouselRef.current,
+//         { autoAlpha: 0, height: "0vh", y: "10vh" },
+//         {
+//           autoAlpha: 1,
+//           height: "70vh",
+//           duration: 1.5,
+//           ease: "power2.out"
+//         }
+//       )
+  
+//       .to(
+//         carouselRef.current,
+//         {
+//           width: "70%",
+//           x: "20%",
+//           duration: 2,
+//           ease: "power2.inOut"
+//         },
+//         "-=1.2"
+//       )
+  
+//       .to(
+//         firstLineRef.current,
+//         {
+//           x: "22vw",
+//           duration: 1,
+//           ease: "power1.inOut"
+//         },
+//         "-=1.8"
+//       )
+  
+//       .fromTo(
+//         sidebarRef.current,
+//         { x: "-100%", autoAlpha: 0 },
+//         {
+//           x: "0%",
+//           autoAlpha: 1,
+//           duration: 1,
+//           ease: "power2.out"
+//         },
+//         "-=0.8"
+//       );
+//   }, []);
+  
+
+//   const carouselItems = [
+//     {
+//       title: "Transforming Ideas into Reality",
+//       description: "Learn More",
+//       iconSrc: "/first.gif",
+//       bgColor: "/bg.webp",
+//       imageSrc: "/home/home1.png",
+//     },
+//     {
+//       title: "Innovate Your Business",
+//       description: "Discover How",
+//       iconSrc: "/first.gif",
+//       bgColor: "/bg.webp",
+//       imageSrc: "/home/home2.jpeg",
+//     },
+//     {
+//       title: "Engineering Future",
+//       description: "Get Started",
+//       iconSrc: "/first.gif",
+//       bgColor: "/bg.webp",
+//       imageSrc: "/home/home3.jpeg",
+//     },
+//   ];
+//   const settings = {
+//     // dots: true,
+//     infinite: true,
+//     speed: 400,
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     vertical: true,
+//     verticalSwiping: true,
+//     autoplay: true,
+//     autoplaySpeed: 3000,
+//     arrows: false,
+//   };
+
+//   return (
+//     <section className="relative w-full  max-w-[1500px]  bg-white flex flex-col items-center px-8 py-10">
+     
+//       <div className="w-full max-w-[1500px] flex items-start gap-10">
+//         {/* Left Section */}
+//         <div className="flex flex-col items-start gap-6 w-1/3">
+//           <button className="px-4 py-2 bg-orange-500 text-white rounded-full shadow-md ">
+//             Start Building Today
+//           </button>
+//           <p className="text-lg font-semibold">
+//             Empowered Teams<br />Endless Possibilities
+//           </p>
+        
+//                       <div className="flex flex-col items-center gap-2 relative">
+//           {[1, 2, 3].map((id) => (
+//             <div key={id} className="w-14 h-14 rounded-full border-2 border-orange-500 overflow-hidden">
+//               <Image src="/profile-placeholder.jpg" alt="Profile" width={56} height={56} />
+//             </div>
+//           ))}
+//         </div>
+//           <div className="grid grid-cols-2 gap-2">
+//             {['Scalable', 'Reliable', 'Future-Ready', 'Secure'].map((tag) => (
+//               <span key={tag} className={`px-3 py-1 text-sm font-medium rounded-full border-2 ${tag === 'Reliable' ? 'bg-orange-500 text-white' : 'border-orange-500'}`}>{tag}</span>
+//             ))}
+//           </div>
+//         </div>
+
+//         {/* Main Banner */}
+//         <div className="relative w-full ">
+       
+                 
+         
+//          <h1 className="text-4xl font-bold leading-tight text-left py-6 ">
+//            <span className="relative inline-block">
+//              <span className="absolute top-[-10px] left-[-10px] text-orange-500">"</span>
+//              Your Vision, Our Expertise:
+//            </span>
+//            <br />
+//            Crafting the <span className="relative inline-block px-3 border-2 border-orange-500 rounded-lg">Future of Technology</span>
+//            <span className="text-orange-500">"</span>
+//          </h1>
+       
+       
+    
+          
+
+        
+    
+//         </div>
+//           <div ref={carouselRef} className="absolute w-full h-[400px] opacity-0  left-0 right-0 mx-auto ">
+//         <div className="relative rounded-[30px] overflow-hidden ">
+//    <div className="relative h-[400px]">
+//                 <Slider {...settings}>
+//         {carouselItems.map((item, index) => (
+//           <div key={index} className="relative h-[400px] w-full">
+//             {/* Background Image */}
+//             <div
+//               className="w-full h-full bg-cover bg-center"
+//               style={{ backgroundImage: `url(${item.imageSrc})` }}
+//             ></div>
+
+//             {/* Overlay */}
+//             <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
+//             <div className={`absolute inset-0 ${item.bgColor}`}></div>
+
+//             {/* Text Box */}
+//             <div className="absolute bottom-8 left-8 max-w-md bg-white/10 backdrop-blur-md p-4 rounded-xl shadow-lg flex items-center space-x-4">
+//               <div className="div-bg p-2 rounded-lg shadow-md">
+//                 <img src={item.iconSrc} alt="Icon" className="w-12 h-12" />
+//               </div>
+//               <div>
+//                 <h2 className="text-lg font-bold text-white">{item.title}</h2>
+//                 <a href="#" className="text-white underline text-sm">
+//                   {item.description}
+//                 </a>
+//               </div>
+//             </div>
+
+//             {/* CTA Button */}
+//             <Link href="#contact">
+//   <button className="absolute bottom-1/3 cursor-pointer left-8 bg-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black font-semibold hover:bg-[var(--bg-card)] hover:text-white">
+//     <span>Book Free Consultancy</span>
+//     <div className="relative w-12 h-12 rounded-full bg-white border-2 border-theme flex items-center justify-center">
+//       <div className="w-12 h-12 rounded-full bg-theme flex items-center justify-center">
+//                     <span className="text-white text-xl leading-none -mt-1"><MdArrowForwardIos size={28} /></span>
+//       </div>
+//     </div>
+//   </button>
+// </Link>
+//           </div>
+//         ))}
+//       </Slider>
+//       </div>
+//         </div>
+//             </div>
+//       </div>
+//     </section>
+//   );
+// }
