@@ -128,7 +128,7 @@ const logoRef = useRef(null);
   };
 
   return (
-    <div className="relative w-full max-w-[1600px]  min-h-[900px] lg:min-h-[650px] xl:min-h-[720px]  overflow-visible bg-white text-black flex flex-col items-center justify-center  2xl:mt-40  ">
+    <div className="relative w-full max-w-[1600px]  min-h-[900px] lg:min-h-[650px] xl:min-h-[720px]  overflow-visible bg-white text-black flex flex-col items-center justify-center  2xl:mt-30  ">
       <div ref={logoRef} className="absolute text-5xl font-bold  ">
         {/* <img src="/logo.png" alt="Logo" className="w-54 h-54" /> */}
         <svg width="200" height="200" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -142,7 +142,7 @@ const logoRef = useRef(null);
 
       <div ref={firstLineRef} className="flex flex-col  ">
           <span>
-          <span className="relative inline-block align-super mr-[10]">
+          <span className="relative inline-block align-super md:-ml-38  mr-[10]">
 
 
 
@@ -172,7 +172,7 @@ const logoRef = useRef(null);
           </span>
           Your Vision,Our Expertise:
         </span> */}
-        <span ref={secondLineRef} className=" absolute left-[43rem] xl:left-[48rem] lg:left-[28rem] md:left-[20rem] 2xl:left-[67rem]  whitespace-nowrap">
+        <span ref={secondLineRef} className=" absolute left-[43rem] xl:left-[48rem] -ml-18 lg:left-[28rem] md:left-[20rem] 2xl:left-[67rem]  whitespace-nowrap">
           Crafting the <span className="relative  px-3 border-2 border-theme rounded-full">Future of Technology</span>
           <span className="relative inline-block align-super mr-4">
           
@@ -192,7 +192,7 @@ const logoRef = useRef(null);
 
 
       <div ref={carouselRef} className="absolute w-3/4 opacity-0  left-0 right-0 mx-auto ">
-        <div className="relative rounded-[30px] overflow-hidden ">
+        <div className="relative rounded-[30px] w-248 overflow-hidden ">
    <div className="relative h-[400px]">
                 <Slider {...settings}>
         {carouselItems.map((item, index) => (
