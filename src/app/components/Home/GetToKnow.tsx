@@ -78,7 +78,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 cursor-pointer "
+            className="button-theme px-4 py-2  -ml-6 rounded-full text-smtransition-all duration-300 cursor-pointer "
           >
             Get to Know Us!
           </motion.button>

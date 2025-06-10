@@ -65,14 +65,14 @@ export default function SectionThree() {
                     <button className="absolute cursor-pointer left-2 bottom-20 md:text-[1vw] border-2 font-bold border-orange-500 rounded-2xl z-10 text-white bg-orange-400  md:left-5 md:bottom-13 lg:bottom-18 xl:bottom-22 2xl:bottom-28 px-2 py-1 2xl:text-[18px]">
                         READ MORE
                     </button>
-   <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
+   {/* <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div> */}
                     <Image
                         draggable={false}
-                        src="/section_3_image2_other.png"
+                        src="/Subtract.png"
                         alt="section_3_image2"
                         layout="fill"
                         objectFit="cover"
-                        className="rounded-2xl transition-all duration-300"
+                        className="rounded-2xl transition-all duration-300 ml-36"
                         
                     />
                     
