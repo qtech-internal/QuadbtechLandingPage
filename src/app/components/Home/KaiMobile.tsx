@@ -143,7 +143,7 @@ const imageControls = useAnimation();
 </div>
 
 
-  <button className="px-6 py-2 rounded-full block mx-auto button-theme mt-14">
+  <button className="px-6 py-2 rounded-full block mx-auto button-theme mt-14 cursor-pointer">
     Explore More
   </button>
 </div>

@@ -84,7 +84,7 @@ export default function SectionTwo() {
                 {/* Read More Button */}
                 <button
 
-                    className="
+                    className=" cursor-pointer
               absolute
               bottom-[-0vh] left-[50%] transform -translate-x-1/2
               border-theme bg-white font-semibold rounded-2xl

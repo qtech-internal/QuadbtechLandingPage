@@ -43,6 +43,7 @@ export default function CareerPage() {
             src="/career/career3.png"
             alt="QuadB Logo"
             className="absolute top-20 right-0 w-1/2 h-1/2 object-contain"
+            draggable= "false"
           />
           <h1 ref={headingRef} className="text-3xl sm:text-4xl lg:text-[52px] font-bold text-center">
             Join QuadBians

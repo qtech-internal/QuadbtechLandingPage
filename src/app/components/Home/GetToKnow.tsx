@@ -21,8 +21,16 @@ const GetToKnow = () => {
       return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
-  const xValue = screenWidth >= 768 ? -420 : -50;
+  // const xValue = screenWidth >= 768 ? -420 : -50;
   const kValue = screenWidth >= 768 ? 150 : 80;
+  const xValue =
+  screenWidth >= 1280 ? -500 :
+  screenWidth >= 768 ? -420 :
+        -50;
+  // const kValue =
+  // screenWidth >= 1280 ? 180 :
+  // screenWidth >= 768 ? 150 :
+  // 80;
 
 
   const containerVariants = {
@@ -60,7 +68,7 @@ const GetToKnow = () => {
               ? {
                 // x: [0, -400, -400],
                 x: [0, xValue, xValue],
-                y: [0, 0, 50],
+                y: [0, 0, 40],
                 opacity: [0, 1, 1],
               }
               : { x: 0, y: 0, opacity: 1 }
@@ -70,7 +78,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 "
+            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 cursor-pointer "
           >
             Get to Know Us!
           </motion.button>
