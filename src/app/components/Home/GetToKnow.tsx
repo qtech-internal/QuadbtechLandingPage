@@ -10,11 +10,11 @@ const GetToKnow = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       setScreenWidth(window.innerWidth);
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1400);
 
       const handleResize = () => {
         setScreenWidth(window.innerWidth);
-        setIsMobile(window.innerWidth < 768);
+        setIsMobile(window.innerWidth < 1400);
       };
 
       window.addEventListener("resize", handleResize);
@@ -22,9 +22,9 @@ const GetToKnow = () => {
     }
   }, []);
   // const xValue = screenWidth >= 768 ? -420 : -50;
-  const kValue = screenWidth >= 768 ? 150 : 80;
+  const kValue = screenWidth >= 1400 ? 150 : 80;
   const xValue =
-  screenWidth >= 1280 ? -500 :
+  screenWidth >= 1560 ? -500 :
   screenWidth >= 768 ? -420 :
         -50;
   // const kValue =
@@ -78,7 +78,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 cursor-pointer "
+            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 cursor-pointer   "
           >
             Get to Know Us!
           </motion.button>
@@ -102,8 +102,11 @@ const GetToKnow = () => {
           }
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
         >
-<h2 className="text-2xl md:text-2xl  lg:text-3xl sm:text-xl font-semibold lg:font-semibold sm:font-medium md:font-medium leading-snug pr-[2px]">
-  At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.&rdquo;
+<h2 className="text-2xl md:text-2xl style={{ color: #000000' }} lg:text-3xl sm:text-xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug pr-[2px]">
+At QuadB, we specialize in cutting-edge software development, from robust Web2 
+<span className='text-gray-400 font-Poppins' style={{ color: '#808080' }}>
+     applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.&rdquo;
+</span>
 </h2>
 
 

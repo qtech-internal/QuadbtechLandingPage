@@ -149,9 +149,9 @@ const TestimonialSection = () => {
           );
         })}
       </div>
-      <div className="absolute text-center max-w-lg top-[40%]">
-<h2 className="text-2xl lg:text-2xl md:text-xl sm:text-sm font-semibold font-poppins">
-  Over <span className="font-semibold">10K+ Clients</span> Trust{" "}
+      <div className="absolute text-center max-w-lg top-[35%]">
+<h2 className="text-2xl lg:text-3xl md:text-xl sm:text-sm  font-poppins">
+  Over <span className="font-Poppins">10K+ Clients</span> <br/> Trust{" "}
   <span className=" tracking-tight font-black ">Quadb</span>
 </h2>
 

@@ -65,7 +65,7 @@ export default function Home() {
         Crafting the  <br />
         <span className=" flex text-center  ">
         
-          <span className="inline-block px-3 ml-6 border-2 border-theme rounded-full"> Future of Technology</span>
+          <span className="inline-block px-3 ml-10 border-2 border-theme rounded-full"> Future of Technology</span>
           <svg width="22" height="20" viewBox="0 0 22 40" fill="none" xmlns="http://www.w3.org/2000/svg ">
               <path d="M14.4517 5.43384C15.328 7.37721 15.6896 9.2738 15.6257 11.4503C15.6065 12.1034 15.549 12.787 15.4521 13.5098C14.5914 11.4475 13.3302 9.79201 11.6162 8.38357L14.4517 5.43384Z" stroke="var(--bg-card)" strokeWidth="5" />
               <path d="M4.5216 17.2351C5.2324 18.2581 5.70588 19.339 6.01549 20.5953C5.29124 19.919 4.48682 19.3596 3.59205 18.8967L4.5216 17.2351Z" stroke="var(--bg-card)" strokeWidth="5" />

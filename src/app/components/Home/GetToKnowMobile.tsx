@@ -9,20 +9,20 @@ const GetToKnow = () => {
   const [screenWidth, setScreenWidth] = useState(0); 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setScreenWidth(window.innerWidth);
-      setIsMobile(window.innerWidth < 768);
+      setScreenWidth(window.innerWidth );
+      setIsMobile(window.innerWidth < 1400);
 
       const handleResize = () => {
         setScreenWidth(window.innerWidth);
-        setIsMobile(window.innerWidth < 768);
+        setIsMobile(window.innerWidth < 1400);
       };
 
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
-  const xValue = screenWidth >= 768 ? -400 : -50;
-  const kValue = screenWidth >= 768 ? 150 : 80;
+  const xValue = screenWidth >= 1400 ? -400 : -50;
+  const kValue = screenWidth >= 1400 ? 150 : 80;
 
 
   const containerVariants = {
@@ -68,7 +68,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 cursor-pointer"
+            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 cursor-pointer ml-8"
           >
             Get to Know Us!
           </motion.button>
