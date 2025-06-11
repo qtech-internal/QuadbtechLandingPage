@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsMobile(width < 1400); // Change to 1570 for mobile view
+      setIsMobile(width < 1500); // Change to 1570 for mobile view
       setIsService(width < 768); // Keep this for service section
     };
 

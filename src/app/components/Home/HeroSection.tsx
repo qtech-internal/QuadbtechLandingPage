@@ -193,7 +193,7 @@ const logoRef = useRef(null);
 
 
       <div ref={carouselRef} className="absolute w-3/4 opacity-0 top-0 mt-18  left-0 right-0 mx-auto ">
-        <div className="relative rounded-[30px]   overflow-hidden ">
+        <div className="relative rounded-[30px]    overflow-hidden ">
    <div className="relative h-[400px]">
                 <Slider {...settings}>
         {carouselItems.map((item, index) => (
