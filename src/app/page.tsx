@@ -12,14 +12,15 @@ import HeroMobile from "./components/Home/HeroMobile";
 import KaiMobile from "./components/Home/KaiMobile";
 import ServiceMobile from "./components/Home/ServiceMobile";
 
-
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [isService, setIsService] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 900);
-      setIsService(window.innerWidth < 768);
+      const width = window.innerWidth;
+      setIsMobile(width < 1400); // Change to 1570 for mobile view
+      setIsService(width < 768); // Keep this for service section
     };
 
     handleResize();
@@ -32,20 +33,15 @@ export default function Home() {
 
   return (
     <>
-
       <section className="mt-20 container mx-auto">
         {isMobile ? <HeroMobile /> : <HeroSection />}
         <GetToKnow />
-        {isService ? <ServiceMobile/> : <ServiceSection />}
-        {/* <ServiceSection /> */}
-        {/* <KaiFoundrySection /> */}
-        {/* <KaiMobile /> */}
-        {isMobile ? <KaiMobile /> : <KaiFoundrySection/>}
-        {isMobile ?<TestimonialMobile/> :<TestimonialSection />}
+        {isService ? <ServiceMobile /> : <ServiceSection />}
+        {isMobile ? <KaiMobile /> : <KaiFoundrySection />}
+        {isMobile ? <TestimonialMobile /> : <TestimonialSection />}
         <Job />
         <Contact />
       </section>
-
     </>
   );
 }

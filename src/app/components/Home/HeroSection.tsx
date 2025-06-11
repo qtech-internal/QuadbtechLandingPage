@@ -128,7 +128,7 @@ const logoRef = useRef(null);
   };
 
   return (
-    <div className="relative w-full max-w-[1600px]  min-h-[900px] lg:min-h-[650px] xl:min-h-[720px]  overflow-visible bg-white text-black flex flex-col items-center justify-center   ">
+    <div className="relative w-full max-w-[1600px]  min-h-[900px]  lg:min-h-[650px] xl:min-h-[720px]  overflow-visible bg-white text-black flex flex-col items-center justify-center    ">
       <div ref={logoRef} className="absolute text-5xl font-bold  ">
         {/* <img src="/logo.png" alt="Logo" className="w-54 h-54" /> */}
         <svg width="200" height="200" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,11 +138,11 @@ const logoRef = useRef(null);
       </div>
 
 
-      <div ref={textRef} className="absolute lg:mt-0 xl:mt-10  translate-y-[-20px] top-0 2xl:mt-14  text-2xl z-30 md:text-3xl lg:text-2xl xl-text-5xl  font-medium opacity-0 text-center w-full mb-4 font-poppins text-[40px] leading-[50px]   ">
+      <div ref={textRef} className="absolute lg:mt-14 xl:mt-14  2xl:mt-14 translate-y-[-40px] top-0 text-2xl z-30 md:text-3xl lg:text-2xl xl-text-5xl  font-medium opacity-0 text-center w-full mb-4 font-poppins text-[40px] leading-[50px]   ">
 
       <div ref={firstLineRef} className="flex flex-col top-0 ">
           <span>
-          <span className="relative inline-block align-super mr-[10]">
+          <span className="relative inline-block align-super -ml-32 mr-[10] top-0 left-0 text-fixed">
 
 
 
@@ -172,8 +172,9 @@ const logoRef = useRef(null);
           </span>
           Your Vision,Our Expertise:
         </span> */}
-        <span ref={secondLineRef} className=" fixed left-[70%]  whitespace-nowrap">
-          Crafting the <span className="relative  px-3 border-2 border-theme rounded-full">Future of Technology</span>
+      <span ref={secondLineRef} className="fixed left-[70%] transform -translate-x-1/2 whitespace-nowrap ml-95 top-[90%] ">
+  Crafting the <span className="relative px-3 border-2 border-theme rounded-full">Future of Technology</span>
+
           <span className="relative inline-block align-super mr-4">
           
             <svg width="22" height="32" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -191,8 +192,8 @@ const logoRef = useRef(null);
 
 
 
-      <div ref={carouselRef} className=" w-3/4 opacity-0 mt-18   left-0 right-0 mx-auto ">
-        <div className="relative rounded-[30px] overflow-hidden ">
+      <div ref={carouselRef} className="absolute w-3/4 opacity-0 top-0 mt-18  left-0 right-0 mx-auto ">
+        <div className="relative rounded-[30px]   overflow-hidden ">
    <div className="relative h-[400px]">
                 <Slider {...settings}>
         {carouselItems.map((item, index) => (
@@ -270,12 +271,19 @@ const logoRef = useRef(null);
           <img src="/home/home5.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-theme" />
           <img src="/home/home6.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-theme" />
         </div>
-        <div className="mt-4 flex flex-wrap gap-2">
-          <span className="px-3 py-1 border border-theme rounded-full text-sm">Scalable</span>
-          <span className="px-3 py-1 bg-theme text-white rounded-full text-sm">Reliable</span>
-          <span className="px-3 py-1 border border-theme rounded-full text-sm">Future-Ready</span>
-          <span className="px-3 py-1 border border-theme rounded-full text-sm">Secure</span>
-        </div>
+        <div className="mt-4 space-y-2">
+  <div className="flex gap-2">
+    <span className="px-3 py-1 border border-theme rounded-full text-sm">Scalable</span>
+    <span className="px-3 py-1 bg-theme text-white rounded-full text-sm">Reliable</span>
+  </div>
+  <div className="flex gap-2 pl-4">
+    <span className="px-3 py-1 border border-theme rounded-full text-sm">Future-Ready</span>
+  </div>
+  <div className="flex gap-2 pl-8 ml-18">
+    <span className="px-3 py-1 border border-theme rounded-full text-sm">Secure</span>
+  </div>
+</div>
+
       </div>
     </div>
 
