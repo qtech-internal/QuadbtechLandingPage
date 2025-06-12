@@ -6,8 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { MdArrowForwardIos } from "react-icons/md";
 
 export default function Home() {
- 
- const carouselItems = [
+  const carouselItems = [
     {
       title: "Transforming Ideas into Reality",
       description: "Learn More",
@@ -30,19 +29,18 @@ export default function Home() {
       imageSrc: "/home/home3.jpeg",
     },
   ];
+
   const settings = {
-    // dots: true,
     infinite: true,
     speed: 400,
     slidesToShow: 1,
     slidesToScroll: 1,
-    vertical: true,         
-    verticalSwiping: true,      
+    vertical: true,
+    verticalSwiping: true,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: false,         
+    arrows: false,
   };
-
 
   return (
     <div className="w-full max-w-[1500px] overflow-x-hidden bg-white text-black flex flex-col items-center justify-center p-4">
@@ -75,34 +73,29 @@ export default function Home() {
 
       {/* Carousel */}
       <div className="w-full max-w-3xl mx-auto rounded-[30px] overflow-hidden">
-      <Slider {...settings} className="h-[300px] md:h-[400px]">
-        {carouselItems.map((item, index) => (
-          <div key={index} className="relative h-[300px] md:h-[400px]">
-            {/* Background Image */}
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${item.imageSrc})` }}
-            ></div>
-
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
-            <div className={`absolute inset-0 ${item.bgColor}`}></div>
-
-            {/* Text & Icon */}
-            <div className="absolute bottom-8 left-4 bg-white/10 backdrop-blur-md p-4 rounded-xl flex items-center space-x-4">
-              <div className="div-bg p-2 rounded-lg shadow-md">
-                <img src={item.iconSrc} alt="Icon" className="w-12 h-12" />
-              </div>
-              <div>
-                <h2 className="text-[14px] font-semibold text-white">{item.title}</h2>
-                <a href="#" className="text-white underline text-sm">
-                  {item.description}
-                </a>
+        <Slider {...settings} className="h-[300px] md:h-[400px]">
+          {carouselItems.map((item, index) => (
+            <div key={index} className="relative h-[300px] md:h-[400px]">
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${item.imageSrc})` }}
+              ></div>
+              <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
+              <div className={`absolute inset-0 ${item.bgColor}`}></div>
+              <div className="absolute bottom-8 left-4 bg-white/10 backdrop-blur-md p-4 rounded-xl flex items-center space-x-4">
+                <div className="div-bg p-2 rounded-lg shadow-md">
+                  <img src={item.iconSrc} alt="Icon" className="w-12 h-12" />
+                </div>
+                <div>
+                  <h2 className="text-[14px] font-semibold text-white">{item.title}</h2>
+                  <a href="#" className="text-white underline text-sm">
+                    {item.description}
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
       </div>
       <Link href="#contact">
       <button className=" mt-10 font-semibold button-theme px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black  hover:bg-[var(--bg-card)] hover:text-white">
@@ -115,33 +108,25 @@ export default function Home() {
 
 
         </button>
-        </Link>
+      </Link>
 
       {/* Sidebar */}
 
       <p className="mt-4 font-semibold text-black text-left">Empowered Teams, <br /> Endless Possibilities</p>
       <div className="relative mt-10 div-bg flex flex-row items-center space-x-8 my-10 ml-0 rounded-xl shadow-lg justify-start p-4 bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
-
-
         <div className="absolute top-[-6px] left-1/2 -translate-x-1/2 w-16 h-2 bg-theme rounded-t-full shadow-md cursor-pointer">
-
           <div className="absolute left-1/2 -translate-x-1/2 -top-[4px] w-4 h-2 bg-theme rounded-t-full shadow-md"></div>
         </div>
-
-
         <img src="/home/home4.jpeg" alt="Person 1" className="w-16 h-16 rounded-full border-4 border-theme" />
         <img src="/home/home5.jpeg" alt="Person 2" className="w-16 h-16 rounded-full border-4 border-theme" />
         <img src="/home/home6.jpeg" alt="Person 3" className="w-16 h-16 rounded-full border-4 border-theme" />
-
       </div>
       <div className="mt-4 flex flex-wrap gap-2 items-center justify-center">
         <span className="px-3 py-1 border border-theme rounded-full text-sm">Scalable</span>
-        <span className="px-3 py-1  bg-theme text-white rounded-full text-sm">Reliable</span>
+        <span className="px-3 py-1 bg-theme text-white rounded-full text-sm">Reliable</span>
         <span className="px-3 py-1 border border-theme rounded-full text-sm">Future-Ready</span>
         <span className="px-3 py-1 border border-theme rounded-full text-sm">Secure</span>
       </div>
-
-
     </div>
   );
 }

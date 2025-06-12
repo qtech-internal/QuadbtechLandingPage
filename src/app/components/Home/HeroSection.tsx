@@ -292,7 +292,7 @@
 // }
 
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from "next/link";
 import { gsap } from 'gsap';
 import Slider from "react-slick";
@@ -471,13 +471,18 @@ export default function Home() {
             <img src="/home/home5.jpeg" alt="Team member" className="w-16 h-16 rounded-full border-4 border-theme" />
             <img src="/home/home4.jpeg" alt="Team member" className="w-16 h-16 rounded-full border-4 border-theme" />
           </div>
-          <div className="flex flex-wrap gap-2">
-            <span className="px-3 py-1 border border-theme rounded-full text-sm">Scalable</span>
-            <span className="px-3 py-1 bg-theme text-white rounded-full text-sm">Reliable</span>
-            <span className="px-3 py-1 border border-theme rounded-full text-sm">Future-Ready</span>
-            <span className="px-3 py-1 border border-theme rounded-full text-sm">Secure</span>
-          </div>
-        </div>
+         <div className="mt-4 space-y-1">
+  <div className="flex gap-2  p-2 rounded">
+    <span className="px-3 py-1 border border-theme rounded-full text-sm ">Scalable</span>
+    <span className="px-3 py-1 bg-theme text-white rounded-full text-sm ">Reliable</span>
+  </div>
+  <div className="flex gap-2 pl-4  p-2 rounded">
+    <span className="px-3 py-1 border border-theme rounded-full text-sm translate-y-[-10px]">Future-Ready</span>
+  </div>
+  <div className="flex gap-2 pl-8 ml-18 p-2 rounded">
+    <span className="px-3 py-1 border border-theme rounded-full text-sm translate-y-[-20px]">Secure</span>
+  </div>
+</div></div>
 
         <div className="w-9/12 flex flex-col gap-y-6">
           <h1 ref={headlineContainerRef} className="text-3xl lg:text-4xl xl:text-5xl font-medium flex flex-col gap-4">
