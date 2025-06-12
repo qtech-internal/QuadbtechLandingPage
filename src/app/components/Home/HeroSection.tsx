@@ -482,14 +482,14 @@ export default function Home() {
         <div className="w-9/12 flex flex-col gap-y-6">
           <h1 ref={headlineContainerRef} className="text-3xl lg:text-4xl xl:text-5xl font-medium flex flex-col gap-4">
             <span ref={headline1Ref} className="block whitespace-nowrap">
-              <span className="relative inline-block -top-1">
+              <span className="relative inline-block -top-8">
                  <svg width="25" height="26" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.51976 8.34108C8.51912 10.1024 8.86702 11.7138 9.58089 13.4069C9.61535 13.4887 9.65071 13.5707 9.68698 13.6531C9.91403 12.204 10.3733 10.8427 11.0584 9.52226L8.51976 8.34108Z" stroke="var(--bg-card)" strokeWidth="6"/><mask id="a" fill="#fff"><path d="M25.182 16.113c-4.275 3.133-4.7 6.568-3.782 14.123-4.653-9.282-5.51-13.661-2.574-19.379l6.356 5.256Z"/></mask><path d="M21.402 30.236 36.292 28.427 7.992 36.958l13.41-6.722Zm3.78-14.123 9.56-11.558 14.84 12.274-14.532 12.099-9.868-12.815ZM18.828 10.857 5.484 4.006l8.524-16.6 14.38 11.895-9.56 11.556Zm-12.317 21.19c-.46-3.784-.969-8.945.246-14.021C8.26 11.745 11.88 7.265 16.316 4.014l17.733 24.198c-.115.085.314-.208.833-.938.258-.363.49-.766.68-1.194.19-.423.304-.793.37-1.071.123-.512.06-1.425.07-1.416.01.652.086 1.686.29 3.368l-29.78 3.618ZM15.622 27.671l-6.355-5.256L28.389-.7l6.354 5.256-19.12 23.117ZM32.172 17.708c-.24.467-.168.449-.1.1.032-.168.05-.345.052-.51.003-.16-.01-.245-.008-.23.01.063.091.55.524 1.682.436 1.143 1.116 2.657 2.173 4.765L7.992 36.958c-2.396-4.781-4.767-10.055-5.568-15.604C1.482 14.836 2.826 9.183 5.484 4.006l26.688 13.702Z" fill="var(--bg-card)" mask="url(#a)"/></svg>
               </span>
               Your Vision, Our Expertise:
             </span>
-            <span ref={headline2Ref} className="block whitespace-nowrap ml-30">
+            <span ref={headline2Ref} className="block whitespace-nowrap ml-32">
               Crafting the <span className="relative px-4 py-1 border-2 border-theme rounded-full">Future of Technology</span>
-              <span className="relative inline-block ml-2 top-1">
+              <span className="relative inline-block ml-2 -top-6">
                  <svg width="18" height="26" viewBox="0 2 22 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.452 5.434c.876 1.943 1.237 3.84.173 6.016-.019.065-.077.55-.174 1.273-1.02-2.112-2.28-3.768-3.995-5.176l3.996-2.113Z" stroke="var(--bg-card)" strokeWidth="5"/><path d="M4.522 17.235c.71.1.415 1.223.725 2.358-.724-.676-1.529-1.236-2.423-1.699l1.698-.66Z" stroke="var(--bg-card)" strokeWidth="5"/></svg>
               </span>
             </span>
