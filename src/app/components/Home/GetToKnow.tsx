@@ -10,7 +10,7 @@ const GetToKnow = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       setScreenWidth(window.innerWidth);
-      setIsMobile(window.innerWidth < 1400);
+      setIsMobile(window.innerWidth < 768);
 
       const handleResize = () => {
         setScreenWidth(window.innerWidth);
@@ -22,9 +22,9 @@ const GetToKnow = () => {
     }
   }, []);
   // const xValue = screenWidth >= 768 ? -420 : -50;
-  const kValue = screenWidth >= 1400 ? 150 : 80;
+  const kValue = screenWidth >= 768 ? 150 : 80;
   const xValue =
-  screenWidth >= 1560 ? -500 :
+  screenWidth >= 768 ? -500 :
   screenWidth >= 768 ? -420 :
         -50;
   // const kValue =
