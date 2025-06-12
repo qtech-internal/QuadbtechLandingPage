@@ -1,14 +1,17 @@
 "use client";
-import { useState, useRef } from "react"; 
+import { useState, useRef } from "react"; // Added useRef for potential ReCAPTCHA reset
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast from "react-hot-toast";
 import { Send } from "lucide-react";
+import ThankYouPopup from "../ThankYouPopup";
+
 
 export default function ContactUs() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: false });
   const recaptchaRef = useRef<ReCAPTCHA>(null); // Ref for ReCAPTCHA
+   const [showSuccessPopup, setShowSuccessPopup] = useState(false); 
 
   const [formData, setFormData] = useState<{
     [key in "name" | "email" | "phone" | "subject" | "message"]: string;
@@ -151,7 +154,8 @@ export default function ContactUs() {
       });
 
       if (response.data.success) {
-        toast.success("Email Sent Successfully!");
+         setShowSuccessPopup(true);
+        // toast.success("Email Sent Successfully!");
         setFormData({
           // Reset form fields
           name: "",
@@ -182,7 +186,8 @@ export default function ContactUs() {
       recaptchaRef.current?.reset(); // Reset ReCAPTCHA on catch block error
       setRecaptchaToken(null);
     } finally {
-      setLoading(false); // Ensure loading state is turned off
+      setLoading(false);
+       setShowSuccessPopup(true);// Ensure loading state is turned off
     }
   };
 
@@ -213,17 +218,17 @@ export default function ContactUs() {
       <form
         onSubmit={handleSubmit}
         noValidate // Disable browser's native validation to rely on custom logic
-        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6 "
+        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6"
       >
         {/* Input Fields Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4  ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { name: "name", placeholder: "Name", type: "text" },
             { name: "email", placeholder: "Email", type: "email" },
             { name: "phone", placeholder: "Phone No.", type: "tel" }, // Use tel type
             { name: "subject", placeholder: "Subject", type: "text" },
           ].map((field) => (
-            <div className="relative  " key={field.name}>
+            <div className="relative" key={field.name}>
               <input
                 type={field.type}
                 name={field.name}
@@ -262,11 +267,11 @@ export default function ContactUs() {
                     e.preventDefault(); // Prevent the key press if it's not allowed
                   }
                 }}
+                // placeholder={field.placeholder}
                 placeholder={
                   formData[field.name as keyof typeof formData] ? "" : field.placeholder
                 }
-                className="p-3 pl-5 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none transition "
-
+                className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none transition "
                 required // Indicates field is mandatory (useful for accessibility)
                 // Set maxLength only for phone (already handled by substring, but good defense)
                 maxLength={field.name === "phone" ? 10 : undefined}
@@ -304,7 +309,7 @@ export default function ContactUs() {
       }
       placeholder="Message"
       rows={4}
-      className="p-3 pl-5 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition "
+      className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition "
       required
     ></textarea>
   </div>
@@ -369,7 +374,7 @@ export default function ContactUs() {
 
 
       </form>
-
+ {showSuccessPopup && <ThankYouPopup onClose={() => setShowSuccessPopup(false)} />}
       {/* ReCAPTCHA */}
       {/* <div className="flex justify-center mt-8">
         <ReCAPTCHA

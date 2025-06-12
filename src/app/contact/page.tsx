@@ -5,10 +5,12 @@ import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast from "react-hot-toast";
 import { Send } from "lucide-react";
+import ThankYouPopup  from "../components/ThankYouPopup"
 
 export default function ContactUs() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: false });
   const recaptchaRef = useRef<ReCAPTCHA>(null); // Ref for ReCAPTCHA
+   const [showSuccessPopup, setShowSuccessPopup] = useState(false); 
 
   const [formData, setFormData] = useState<{
     [key in "name" | "email" | "phone" | "subject" | "message"]: string;
@@ -151,6 +153,7 @@ export default function ContactUs() {
       });
 
       if (response.data.success) {
+         setShowSuccessPopup(true);
         toast.success("Email Sent Successfully!");
         setFormData({
           // Reset form fields
@@ -182,7 +185,8 @@ export default function ContactUs() {
       recaptchaRef.current?.reset(); // Reset ReCAPTCHA on catch block error
       setRecaptchaToken(null);
     } finally {
-      setLoading(false); // Ensure loading state is turned off
+      setLoading(false);
+       setShowSuccessPopup(true);// Ensure loading state is turned off
     }
   };
 
@@ -369,7 +373,7 @@ export default function ContactUs() {
 
 
       </form>
-
+ {showSuccessPopup && <ThankYouPopup onClose={() => setShowSuccessPopup(false)} />}
       {/* ReCAPTCHA */}
       {/* <div className="flex justify-center mt-8">
         <ReCAPTCHA

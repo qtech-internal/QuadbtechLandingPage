@@ -215,7 +215,7 @@ const ServiceSection: React.FC = () => {
       className="max-w-[1500px] mx-auto py-16 text-center px-4"
     >
 
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black font-poppins">
+      <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-black font-poppins">
         Our Services – Future-Ready Tech Solutions
       </h2>
       <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-base lg:w-3/4 mx-auto">

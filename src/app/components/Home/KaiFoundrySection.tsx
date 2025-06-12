@@ -110,7 +110,7 @@ const imageControls = useAnimation();
           At KaiFoundry, we specialize in building next-generation Web3 products, designed for scalability, security, and seamless user experiences. From smart contract development to NFT ecosystems, we bring decentralized innovation to life.
         </motion.p>
   
-        <button className=" px-6 py-2 rounded-full  button-theme mt-14 ">
+        <button className=" px-6 py-2 rounded-full  button-theme mt-14 cursor-pointer ">
   Explore More
 </button>
 

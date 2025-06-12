@@ -106,7 +106,7 @@ export default function SectionOne() {
                                     "path('M118 19C118 8.5 109.5 0 99 0H19C8.5 0 0 8.5 0 19V158C0 168.5 8.5 177 19 177H324C334.5 177 343 168.5 343 158V126C343 115.5 334.5 107 324 107H302C291.5 107 283 98.5 283 88V68C283 57.5 274.5 49 264 49H137C126.5 49 118 40.5 118 30V19Z')",
                             }}
                         >
-              <span className="font-normal border border-theme w-22 text-center rounded-3xl text-sm sm:text-base bg-white text-yellow-950">
+              <span className="font-normal cursor-pointer border border-theme w-22 text-center rounded-3xl text-sm sm:text-base bg-white text-yellow-950">
                 Next-Gen
               </span>
                             <span className="text-4xl bottom-0 text-black">Transforming</span>
@@ -134,7 +134,7 @@ export default function SectionOne() {
                                 contentRefs.current[index] = el;
                             }}
 
-                            className={`bg-amber-200 flex flex-col justify-between text-center  ${index == 0 ? "div-bg-text-[#222]" : "bg-blog text-[#fff]"} rounded-2xl  `}
+                            className={`div-bg flex flex-col justify-between text-center  ${index == 0 ? "div-bg text-black" : "bg-blog text-[#fff]"} rounded-2xl  `}
                             style={{
                                 clipPath:"path('M20 0C8.95431 0 0 8.9543 0 20V221C0 232.046 8.9543 241 20 241H399.592C407.787 241 414.471 225.131 413.326 217.017C413.111 215.496 413 213.942 413 212.362C413 194.136 427.775 179.362 446 179.362C453.976 179.362 477 168.731 477 160.755V20C477 8.95431 468.046 0 457 0H20ZM472.88 233.159C473.59 232.234 472.65 231.862 471.928 232.778C471.206 233.694 471.831 234.469 472.564 233.561C472.671 233.429 472.777 233.295 472.88 233.159Z)"
                             }}
@@ -150,7 +150,7 @@ export default function SectionOne() {
 
                             <div
                                 className={`absolute border-white border-8 bottom-[-5] right-[-5] h-[65px] w-[65px] rounded-4xl flex items-center justify-center  ${
-                                    index == 0 ? "div-bg text-[#222]" : "bg-blog text-[#fff] "
+                                    index == 0 ? "div-bg text-[#222]" : "bg-theme text-[#fff] "
                                 }`}
                             >
 
