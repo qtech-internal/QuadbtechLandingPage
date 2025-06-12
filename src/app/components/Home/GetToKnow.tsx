@@ -14,7 +14,7 @@ const GetToKnow = () => {
 
       const handleResize = () => {
         setScreenWidth(window.innerWidth);
-        setIsMobile(window.innerWidth < 1400);
+        setIsMobile(window.innerWidth < 786);
       };
 
       window.addEventListener("resize", handleResize);
