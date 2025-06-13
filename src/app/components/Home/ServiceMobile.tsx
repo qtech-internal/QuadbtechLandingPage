@@ -3,15 +3,15 @@ import React from "react";
 const ServiceSection = () => {
   return (
     <section className="max-w-[1500px] mx-auto py-16 text-center px-4">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
+      <h2 className="text-2xl  font-semibold text-black">
         Our Services <br />
 
-      <span className="whitespace-nowrap mt-2">Future-Ready Tech Solutions</span>  
+      <span className="whitespace-nowrap mt-2 text-[24px]">Future-Ready Tech Solutions</span>  
       </h2>
-      <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-base">
+      <p className="text-[#00000099] mt-2 text-[16px]">
         "From Traditional to Decentralized – We Build the Future of Digital Innovation."
       </p>
-      <p className="text-gray-600 text-xs sm:text-sm md:text-base">
+      <p className="text-[#00000099] text-[16px]">
       We offer custom-tailored Web2 & Web3 solutions designed for scalability, security, and seamless user experience. Whether you're launching a
           blockchain-powered platform or optimizing your digital presence, our expertise ensures success.
       </p>
