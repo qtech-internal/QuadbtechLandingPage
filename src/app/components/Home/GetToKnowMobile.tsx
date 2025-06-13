@@ -44,7 +44,7 @@ const GetToKnow = () => {
   return (
     <section ref={ref} className="relative bg-white py-12 px-6  overflow-hidden ">
       <motion.div
-        className="max-w-[1500px] mx-auto flex flex-col items-center gap-10 "
+        className="max-w-[1500px] mx-auto flex flex-col items-start gap-10 "
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 1 }}
         transition={{ duration: 2 }}
@@ -68,7 +68,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 cursor-pointer ml-8"
+            className="button-theme px-4 py-2 rounded-full text-sm transition-all duration-300 cursor-pointer "
           >
             Get to Know Us!
           </motion.button>
@@ -76,7 +76,7 @@ const GetToKnow = () => {
 
 
         <motion.div
-          className="w-full md:w-3/4 text-center md:text-left "
+          className="w-full md:w-3/4 text-start md:text-left "
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={
             isInView && !isMobile
@@ -90,14 +90,14 @@ const GetToKnow = () => {
           }
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
         >
-<h2 className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-bold lg:font-semibold sm:font-medium md:font-medium leading-snug pr-[2px]">
+<h2 className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-medium leading-snug pr-[2px] font-Poopins">
   At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.&rdquo;
 </h2>
 
 
 
           <motion.div
-            className="mt-6 flex flex-col sm:flex-row justify-center md:justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
+            className="mt-6 flex flex-col sm:flex-row justify-start md:justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "visible"}
