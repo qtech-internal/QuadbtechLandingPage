@@ -492,7 +492,7 @@ export default function Home() {
               </span>
               Your Vision, Our Expertise:
             </span>
-            <span ref={headline2Ref} className="block whitespace-nowrap ml-32">
+            <span ref={headline2Ref} className="block whitespace-nowrap md:ml-42 ml-32 tra">
               Crafting the <span className="relative px-4 py-1 border-2 border-theme rounded-full">Future of Technology</span>
               <span className="relative inline-block ml-2 -top-6">
                  <svg width="18" height="26" viewBox="0 2 22 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.452 5.434c.876 1.943 1.237 3.84.173 6.016-.019.065-.077.55-.174 1.273-1.02-2.112-2.28-3.768-3.995-5.176l3.996-2.113Z" stroke="var(--bg-card)" strokeWidth="5"/><path d="M4.522 17.235c.71.1.415 1.223.725 2.358-.724-.676-1.529-1.236-2.423-1.699l1.698-.66Z" stroke="var(--bg-card)" strokeWidth="5"/></svg>
