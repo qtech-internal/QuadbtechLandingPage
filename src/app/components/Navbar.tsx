@@ -86,6 +86,7 @@ const Navbar = () => {
             <Link
               key={path}
               href={path}
+                prefetch={true}
               className={`px-3 py-1 rounded-full ${
                 pathname === path
                   ? "border-2 border-theme font-semibold"
@@ -168,6 +169,7 @@ const Navbar = () => {
             <Link
               key={path}
               href={path}
+                prefetch={true}
               onClick={() => setMenuOpen(false)}
               className={`px-4 py-2 rounded-full ${
                 pathname === path

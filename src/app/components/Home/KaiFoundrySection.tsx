@@ -29,7 +29,7 @@ const imageControls = useAnimation();
 
 
         await imageControls.start({
-          x: '30vw',
+          x: '50vw',
           y: '8vh',
           scale: 0.6,
           rotate: 120,
@@ -76,10 +76,10 @@ const imageControls = useAnimation();
       className="absolute z-30"
       style={{ top: "40%", left: "40%", transform: "translate(-50%, -40%)" }}
     >
-        {/* <Image src="/image3.svg" alt="Animation Image" width={350} height={350} className="object-cover " /> */}
+      
         <SvgImage  />
         </motion.div>
-  {/* overlay to hide background till image is done */}
+
     {!imageAnimationDone && <div className="absolute inset-0 bg-white z-20"></div>}
   
     {/* main  */}
@@ -117,25 +117,30 @@ const imageControls = useAnimation();
       </div>
   
       {/* Right Side */}
-      <div className="flex-1 relative">
-       <motion.div initial={{ opacity: 0 }} animate={tagsControls} className="flex flex-wrap gap-2 sm:gap-4 justify-center mt-10">
-          <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            Smart Contracts & DeFi Solutions
-          </span>
-          <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            Metaverse & Blockchain Gaming
-          </span>
-          <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            NFT Marketplaces & Tokenization
-          </span>
-          <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            dApps & Web3 Infrastructure
-          </span>
-          <span className="bg-theme text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
-            And Many More
-          </span>
-        </motion.div>
-      </div>
+
+ <div className="flex-1 relative">
+    {/* Use CSS Grid to define the layout */}
+    <div className="grid grid-cols-2 justify-items-center gap-4 mt-10">
+      <span className="border border-orange-500 text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+        Smart Contracts & DeFi Solutions
+      </span>
+      <span className="border border-orange-500 text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+        Metaverse & Blockchain Gaming
+      </span>
+
+      {/* This item spans both columns to sit on its own row */}
+      <span className="col-span-2 border border-orange-500 text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+        NFT Marketplaces & Tokenization
+      </span>
+
+      <span className="border border-orange-500 text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+        dApps & Web3 Infrastructure
+      </span>
+      <span className="bg-orange-500 text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+        And Many More
+      </span>
+    </div>
+  </div>
     </div>
   </section>
   
