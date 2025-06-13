@@ -850,7 +850,8 @@ const BlockchainDeveloper = () => {
             <img
               src="/bg22.png"
               alt="Blockchain Visual"
-              className="w-full h-auto rounded-lg object-cover shadow-md"
+              className="w-full h-auto rounded-lg object-cover "
+              draggable="false"
             />
             <h2 className="text-xl font-extrabold ">Application Form</h2>
             <form className="space-y-4" onSubmit={handleSubmit} noValidate>

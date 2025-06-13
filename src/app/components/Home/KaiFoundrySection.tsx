@@ -29,10 +29,10 @@ const imageControls = useAnimation();
 
 
         await imageControls.start({
-          x: '50vw',
+          x: '40vw',
           y: '8vh',
           scale: 0.6,
-          rotate: 120,
+          rotate: 130,
           transition: { duration: 1, ease: 'easeInOut' }
         });
 
@@ -67,14 +67,14 @@ const imageControls = useAnimation();
   return (
    <section
     ref={ref}
-    className="relative px-6  md:px-10 py-20 md:py-20 my-20 flex mx-auto overflow-hidden mb-20 justify-center bg-white text-black"
+    className="relative px-6  md:px-10 py-20 md:py-20 my-20 flex mx-auto  mb-20 justify-center bg-white text-black"
   >
     {/* image  Page Animation */}
     <motion.div
       initial={{ y: -200, opacity: 0 }}
       animate={imageControls}
       className="absolute z-30"
-      style={{ top: "40%", left: "40%", transform: "translate(-50%, -40%)" }}
+      style={{ top: "40%", left: "30%", transform: "translate(-50%, -40%)" }}
     >
       
         <SvgImage  />
