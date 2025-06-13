@@ -77,10 +77,34 @@ export default function CareerPage() {
               </div>
 
               {/* Card 3 */}
-              <div className="relative bg-white shadow-xl rounded-lg flex items-center justify-center  sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+              {/* <div className="relative bg-white shadow-xl rounded-lg flex items-center justify-center  sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <img className="h-full w-full object-cover rounded-lg" src="/career/career2.jpeg" alt="VR Technology Image" />
-              </div>
+              </div> */}
+<div className="relative bg-white shadow-xl rounded-lg flex items-center justify-center sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+
+  <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50 z-10"></div>
+
+
+  <img
+    className="h-full w-full object-cover rounded-lg"
+    src="/robots.png"
+    alt="VR Technology Image"
+  />
+
+ 
+  <div className="absolute left-[190px] top-1/2 transform -translate-y-1/2 rotate-90 z-20">
+    <h1
+      className="text-6xl font-extrabold"
+      style={{
+        WebkitTextStroke: '1.5px var(--bg-card)',
+        color: 'white',
+      }}
+    >
+      QuadB
+    </h1>
+  </div>
+</div>
 
               {/* Card 4 */}
             

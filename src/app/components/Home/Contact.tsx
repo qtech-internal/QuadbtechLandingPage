@@ -206,7 +206,7 @@ export default function ContactUs() {
       </h1>
 
       {/* Address Box */}
-      <div className="absolute top-[90px] sm:top-[100px] md:top-[140px] left-1/2 transform -translate-x-1/2 bg-theme text-theme px-4 py-3 rounded-md w-[260px] sm:w-[280px] text-xs leading-5 shadow-lg z-10 text-center">
+      <div className="absolute top-[120px]  sm:top-[100px] md:top-[140px] left-1/2 transform -translate-x-1/2 bg-theme text-theme px-4 py-3 rounded-2xl w-[260px] sm:w-[280px] text-xs leading-5 shadow-lg z-10 text-center">
         <p className="font-bold">QB TOWER</p>
         <p>15313 O&apos;Connell Park,</p>
         <p>Belleville 48990</p>
