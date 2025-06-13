@@ -4,7 +4,7 @@ const QuadBIntro = () => {
         <>
             <div className="mt-20">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center">
-                    Join QuadBians
+                    Join Quadbians
                 </h1>
 
                 <p className="text-base sm:text-lg font-light text-center px-4 max-w-2xl mt-4 sm:mt-5">
