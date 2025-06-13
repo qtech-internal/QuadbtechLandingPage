@@ -153,8 +153,8 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 const GetToKnow = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
-
-
+  const [startWordAnimation, setStartWordAnimation] = useState(false);
+  const [currentWord, setCurrentWord] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [screenWidth, setScreenWidth] = useState(0); 
   useEffect(() => {
@@ -172,6 +172,7 @@ const GetToKnow = () => {
 
   const kValue = screenWidth >= 768 ? 150 : 80;
   const xValue = screenWidth >= 768 ? -500 : -50;
+  
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -197,6 +198,30 @@ const GetToKnow = () => {
     ["#808080", "#000000"]
   );
 
+  const words = "At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.".split(" ");
+
+  
+
+  useEffect(() => {
+    if (isInView) {
+      const timer = setTimeout(() => {
+        setStartWordAnimation(true);
+      }, 3500); 
+
+      return () => clearTimeout(timer);
+    }
+  }, [isInView]);
+
+  
+  useEffect(() => {
+    if (startWordAnimation) {
+      const interval = setInterval(() => {
+        setCurrentWord((prev) => (prev < words.length - 1 ? prev + 1 : prev));
+      }, 200); 
+
+      return () => clearInterval(interval);
+    }
+  }, [startWordAnimation, words.length]);
   return (
  
     <section ref={ref} className="relative bg-white py-12 px-6 overflow-hidden ">
@@ -250,7 +275,20 @@ const GetToKnow = () => {
             className="text-2xl max-w-4xl md:text-2xl lg:text-3xl sm:text-xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug pr-[2px]"
             style={{ color: textColor }} 
           >
-            At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.”
+           {words.map((word, index) => (
+        <motion.span
+          key={index}
+          style={{
+            color: index <= currentWord ? "#000000" : "#808080",
+            transition: "color 0.3s ease",
+            marginRight: "4px",
+            display: "inline-block",
+          }}
+          className='text-[36px] font-[500]'
+        >
+          {word}
+        </motion.span>
+      ))}
           </motion.h2>
 
           <motion.div
