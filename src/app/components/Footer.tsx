@@ -45,7 +45,9 @@ export default function Footer() {
       )
     )}
   </div>
-  <Link href="/contact">
+      <Link href="/contact"
+        prefetch={true}
+      >
   <button className="border-2 cursor-pointer font-semibold button-theme px-6 py-2 rounded-full hover:text-secondary transition hidden lg:block">
     CONTACT US
         </button>
