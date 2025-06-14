@@ -69,12 +69,17 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 w-full px-6 py-4 backdrop-blur-lg bg-white shadow-md font-poppins z-50">
       <nav className="max-w-[1600px] mx-auto flex justify-between items-center">
         {/* LOGO + Mobile CONTACT US Button */}
-        <div
-          id="logo"
-          className="flex flex-1 items-center md:justify-start md:flex-none hidden lg:block"
-        >
-          <Image src="/Logo Black.png" alt="QuadB Tech" width={120} height={40} />
-        </div>
+ 
+
+<div
+  id="logo"
+  className="flex flex-1 items-center md:justify-start md:flex-none hidden lg:block"
+>
+  <Link href="/">
+    <Image src="/Logo Black.png" alt="QuadB Tech" width={120} height={40} />
+  </Link>
+</div>
+
 
         {/* NAV LINKS (Desktop only) */}
         <div id="nav-links" className="hidden md:flex space-x-6 font-medium text-lg">
@@ -100,7 +105,8 @@ const Navbar = () => {
 
         {/* CONTACT US + THEME SWITCHER (Desktop only) */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link href="/contact">
+          <Link href="/contact"
+              prefetch={true}>
             <button
               id="contact-button"
               className={`px-4 py-2 rounded-full font-semibold button-theme cursor-pointer ${
@@ -124,12 +130,15 @@ const Navbar = () => {
         </button>
 
         {/* Logo */}
-        <div className="flex items-center justify-center">
-          <Image src="/Logo Black.png" alt="QuadB Tech" width={100} height={30} />
-        </div>
+    <div className="flex items-center justify-center">
+  <Link href="/">
+    <Image src="/Logo Black.png" alt="QuadB Tech" width={100} height={30} />
+  </Link>
+</div>
 
         {/* Contact Us Button */}
-        <Link href="/contact">
+        <Link href="/contact"
+            prefetch={true}>
           <button
             id="contact-button"
             className={`px-2 py-1 rounded-full font-semibold text-[10px] button-theme ${
