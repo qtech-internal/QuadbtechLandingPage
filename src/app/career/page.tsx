@@ -24,7 +24,7 @@ export default function CareerPage() {
     }, []);
 return (
     <main className="flex flex-col text-secondary bg-white w-full   ">
-      <div className=" px-4 sm:px-6 lg:px-8 mt-10">
+      <div className=" px-4  lg:px-8 mt-10 ">
         {/* < CareerSection /> */}
                 {isMobile ? <CareerMobile /> : <CareerSection/>}
         <Career />

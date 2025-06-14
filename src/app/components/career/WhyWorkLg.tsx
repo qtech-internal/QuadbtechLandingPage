@@ -156,22 +156,19 @@ export default function CareerPage() {
   ];
 
   return (
-    <main className="flex flex-col text-secondary bg-white w-full mx-auto   ">
-      <div className=" px-4 sm:px-6 lg:px-8 2xl:px-34 mt-10">
-       
-        
-  
+    <div className="flex flex-col text-secondary    ">
+      <div className="mt-10">
         <section
           ref={whyWorkWithUsRef}
-          className=" flex flex-col py-16 sm:py-20 lg:py-24 relative"
+          className=" flex flex-col py-16 sm:py-20 lg:py-24  relative"
         >
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start ">
+          <div className="flex flex-col lg:flex-row  lg:justify-between lg:items-start ">
             {/* Top left content - Better spacing */}
-            <div className="w-full lg:w-3/12 mb-10 lg:mb-0">
-              <h2 className="why-work-section-title text-2xl sm:text-3xl lg:text-4xl font-semibold">
+            <div className="w-full  mb-10 lg:mb-0 ">
+              <h2 className="why-work-section-title text-2xl sm:text-3xl lg:text-[32px] lg:font-[700] font-semibold">
                 Why Work With Us?
               </h2>
-              <p className="why-work-section-subtitle text-base sm:text-lg mt-4 max-w-xl">
+              <p className="why-work-section-subtitle text-base lg:text-[18px] font-[400] mt-10 ">
                 Leverage the power of our developer network to fuel your next
                 big breakthrough!
               </p>
@@ -248,6 +245,6 @@ export default function CareerPage() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }
