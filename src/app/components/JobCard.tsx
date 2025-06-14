@@ -20,7 +20,7 @@ const JobCard: React.FC<JobCardProps> = ({
   return (
     <div
       className={`rounded-[20px] border border-theme font-roboto  
-        w-[320px] h-[380px] flex flex-col justify-between p-4 relative 
+        w-[300px] h-[360px] lg:w-[320px] lg:h-[380px] flex flex-col justify-between p-4 relative 
         shadow-md transition-all duration-300 hover:shadow-gray-400 hover:shadow-lg hover:scale-102
         ${isOdd ? "bg-white" : "job-card"}`}
     >

@@ -224,7 +224,7 @@ const GetToKnow = () => {
   }, [startWordAnimation, words.length]);
   return (
  
-    <section ref={ref} className="relative bg-white py-12 px-6 overflow-hidden ">
+    <section ref={ref} className="relative bg-white pt-0 pb-4  px-6 overflow-hidden ">
       <motion.div
         className="max-w-[1500px] mx-auto flex flex-col items-start md:items-center gap-10"
         initial={{ opacity: 0 }}

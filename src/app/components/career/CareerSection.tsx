@@ -24,21 +24,21 @@ export default function CareerPage() {
       scrollTrigger: {
         trigger: cardWrapperRef.current,
         start: "top 80%",
-        toggleActions: "play none none none", // Play only once
-        once: true, // Ensures animation happens only once
+        toggleActions: "play none none none", 
+        once: true, 
       },
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Remove all ScrollTriggers on unmount
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); 
     };
   }, []);
 
   return (
-    <main className="flex flex-col text-secondary bg-white w-full ">
+    <main className="flex flex-col text-secondary  w-full ">
       <div className=" mt-10">
         {/* Section 1 - Hero */}
-        <section className="flex flex-col items-center justify-center bg-white py-12 sm:py-16 lg:py-20">
+        <section className="flex flex-col items-center justify-center py-12 sm:py-16 lg:py-20">
           <img
             src="/career/career3.png"
             alt="QuadB Logo"
@@ -54,7 +54,7 @@ export default function CareerPage() {
 </p>
 
 
-          <div ref={cardWrapperRef} className="w-full max-w-6xl mt-10 sm:mt-12 lg:mt-16">
+          <div ref={cardWrapperRef} className="container w-full max-w-7xl mt-10 sm:mt-12 lg:mt-16">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-3">
               {/* Card 1 */}
               <div className="bg-theme p-5 sm:p-6 shadow-xl rounded-lg text-white transition-shadow duration-300 hover:shadow-2xl">
@@ -77,41 +77,60 @@ export default function CareerPage() {
               </div>
 
               {/* Card 3 */}
-              <div className="relative bg-white shadow-xl rounded-lg flex items-center justify-center  sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
-                <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
-                <img className="h-full w-full object-cover rounded-lg" src="/career/career2.jpeg" alt="VR Technology Image" />
+              <div className="relative bg-theme shadow-xl rounded-lg flex items-center justify-start sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+                <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50 z-30"></div>
+                <Image
+                  width={400}
+                  height={500}
+                  className="h-full w-[300px] z-20 object-cover rounded-lg"
+                  src="/career/Frame3.png"
+                  alt="VR Technology Image"
+                />
+                <div className="h-full w-24 flex flex-col  justify-center items-center bg-theme z-10">
+                  {"QuadB".split("").map((char, idx) => (
+                    <span
+                      key={idx}
+                      className="text-[133.3px] rotate-90 p-0 m-0 font-poppins leading-none font-extrabold"
+                      style={{
+                        WebkitTextStroke: '3px white',
+                        color: 'transparent',
+                        lineHeight: '0.8', 
+                      }}
+                    >
+                      {char}
+                    </span>
+                  ))}
+                </div>
               </div>
 
 
+             
               {/* Card 4 */}
-            
-              <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-auto md:max-w-[500px] lg:w-[420px] h-auto  sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center mx-auto">
-  <ul className="flex flex-col gap-3">
-    <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center justify-center bg-white w-fit text-xs sm:text-sm">
-    Develop groundbreaking solutions in blockchain, AI, and cloud computing
-    </li>
-    <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
-    Accelerate your career with continuous learning & growth opportunities.
-    </li>
-    <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs sm:text-sm">
-    Work from anywhere with our flexible, remote-friendly culture.
-    </li>
-  </ul>
-</div>
+                <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-auto md:max-w-[600px] lg:w-[480px] h-auto  sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center mx-auto">
+                  <ul className="flex flex-col gap-3">
+                    <li className="border border-theme rounded-3xl p-1 sm:p-3 flex items-center justify-center bg-white w-fit text-xs lg:text-[12px]">
+                    Develop groundbreaking solutions in blockchain, AI, and cloud computing
+                    </li>
+                    <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs lg:text-[12px]">
+                    Accelerate your career with continuous learning & growth opportunities.
+                    </li>
+                    <li className="border border-theme rounded-3xl p-2 sm:p-3 flex items-center w-fit bg-white text-xs lg:text-[12px]">
+                    Work from anywhere with our flexible, remote-friendly culture.
+                    </li>
+                  </ul>
+                </div>
 
-
-              {/* Card 5 */}
-              <div className="relative border-2 border-theme shadow-xl rounded-lg overflow-hidden mx-auto ml-12 w-full max-w-[300px] aspect-[300/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
-  <Image
-    className="h-full w-full object-cover rounded-lg"
-    src="/blog1.jpeg"
-    alt="logo"
-    width={300}
-    height={300}
-     draggable="false"
-  />
-</div>
-
+                <div className="relative border-2 border-theme shadow-xl rounded-lg ml-16 overflow-hidden mx-auto  w-full max-w-[350px] aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                  <Image
+                    className="h-full w-full object-cover rounded-lg"
+                    src="/blog1.jpeg"
+                    alt="logo"
+                    width={400}
+                    height={200}
+                    draggable="false"
+                  />
+                </div>
+              
             </div>
           </div>
         </section>
