@@ -194,7 +194,7 @@ const GetToKnow = () => {
 
   const textColor = useTransform(
     scrollYProgress,
-    [0.2, 0.8],          
+    [0.6, 0.8],          
     ["#808080", "#000000"]
   );
 
@@ -249,7 +249,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-2 rounded-full text-smtransition-all duration-300 cursor-pointer ml-20"
+            className="button-theme px-4 py-1 rounded-full text-xs transition-all duration-300 cursor-pointer ml-30"
           >
             Get to Know Us!
           </motion.button>
@@ -272,7 +272,7 @@ const GetToKnow = () => {
         >
           
           <motion.h2 
-            className="text-2xl max-w-4xl md:text-2xl lg:text-3xl sm:text-xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug pr-[2px]"
+            className="text-2xl max-w-[88%] md:text-xl lg:text-3xl sm:text-xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug pr-[4px]"
             style={{ color: textColor }} 
           >
            {words.map((word, index) => (
@@ -284,7 +284,7 @@ const GetToKnow = () => {
             marginRight: "4px",
             display: "inline-block",
           }}
-          className='text-[36px] font-[500]'
+          className='text-[35px] font-[500] translate-x-[6px] '
         >
           {word}
         </motion.span>

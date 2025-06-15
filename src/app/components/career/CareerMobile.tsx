@@ -26,11 +26,11 @@ const QuadBIntro = () => {
                     {/* Rotated QuadB text – OUTSIDE orange box but touching right side */}
 
                     <div
-                        className="absolute top-1/2 left-[190px]  transform -translate-y-1/2 rotate-90 text-6xl font-bold ">
+                        className="absolute top-1/2 left-[175px]  transform -translate-y-1/2 rotate-90 text-7xl font-bold ">
                         <h1
-                            className="text-6xl font-extrabold z-10"
+                            className="text-[80px] font-extrabold z-10"
                             style={{
-                                WebkitTextStroke: '1.5px var(--bg-card)',
+                                WebkitTextStroke: '1.7px var(--bg-card)',
                                 color: 'white',
                             }}
                         >
