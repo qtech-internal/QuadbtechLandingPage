@@ -105,7 +105,7 @@ export default function TransformCard() {
       <div className=" flex justify-center items-center  px-4 py-6">
         <div className="relative w-full max-w-sm  rounded-xl overflow-hidden ">
           <img
-            src="/blogs/Subtract-3.svg"
+            src="/Frame 2134280867.png"
             alt="Future of Work"
             className="w-full h-auto object-cover"
           />
