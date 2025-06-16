@@ -32,16 +32,16 @@ export default function SectionThree() {
                         Workspaces
                     </div>
 
-                    <button className="absolute cursor-pointer md:text-[1vw] 2xl:text-[18px]  border-2 border-orange-500 rounded-2xl bottom-1 z-10 text-black bg-white left-45 translate-x-[-20px] md:left-25 lg:left-35 xl:left-45 2xl:left-55 px-2 py-1  ">
-                        Read more
+                    <button className="absolute cursor-pointer item center ml-3 md:text-[1vw] 2xl:text-[18px]  border-2 border-orange-500 rounded-2xl bottom-1 z-10 text-black bg-white left-45 translate-x-[-20px] md:left-25 lg:left-35 xl:left-45 2xl:left-55 px-2 py-1  ">
+                        Read More
                     </button>
 
                     <Image
                         draggable={false}
-                         src="/blogs/section3Image1.png"
+                         src="/Frame 2134280867.png"
                         alt="section_3_Image"
                         objectFit="cover"
-                        className="rounded-2xl transition-all duration-300 "
+                        className="rounded-2xl transition-all duration-300 translate-y-[-10px] rounded-bottom-2xl  "
                         layout="fill"
                     />
                 </div>

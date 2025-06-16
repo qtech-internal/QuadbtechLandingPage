@@ -54,14 +54,15 @@ export default function Home() {
 
   return (
     <div className="bg-white p-4 flex flex-col items-center space-y-10 relative">
-      <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 mb-10 w-full justify-center sm:justify-between text-center sm:text-left">
-        <h1 className="text-2xl md:text-2xl lg:text-3xl font-bold">
-          Join Our Mission to Build the Future.
-        </h1>
-        <button className="px-6 py-2 rounded-full button-theme hidden lg:block md:block">
-          Explore More
-        </button>
-      </div>
+    <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 mb-10 w-full justify-center sm:justify-between">
+  <h1 className="text-2xl md:text-2xl lg:text-3xl font-extrabold text-black leading-tight text-center sm:text-left">
+    Join Our Mission to <br className="block sm:hidden" />
+    <span className="block sm:inline">Build the Future.</span>
+  </h1>
+  <button className="px-6 py-2 rounded-full button-theme hidden md:block lg:block">
+    Explore More
+  </button>
+</div>
 
       <div
         ref={sliderRef}
