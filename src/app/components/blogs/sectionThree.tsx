@@ -38,7 +38,7 @@ export default function SectionThree() {
 
                     <Image
                         draggable={false}
-                         src="/Frame 2134280850.png"
+                         src="/Frame 2134280867.png"
                         alt="section_3_Image"
                         objectFit="cover"
                         className="rounded-2xl transition-all duration-300 translate-y-[-10px] rounded-bottom-2xl  "
