@@ -225,7 +225,7 @@ const GetToKnow = () => {
         transition={{ duration: 2 }}
       >
         <motion.div
-          className="w-full md:w-1/4 flex justify-start lg:translate-x-[-120px] pl-4"
+          className="w-full md:w-1/4 flex justify-start md:pl-10 lg:translate-x-[-120px] pl-4"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={
             isInView && !isMobile
@@ -241,7 +241,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-1 rounded-full text-xs transition-all duration-300 cursor-pointer"
+            className="button-theme px-4 py-2 rounded-full text-xs transition-all duration-300 cursor-pointer"
           >
             Get to Know Us!
           </motion.button>
