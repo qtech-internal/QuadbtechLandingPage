@@ -13,11 +13,11 @@ const GetToKnow = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       setScreenWidth(window.innerWidth);
-      setIsMobile(window.innerWidth < 868);
+      setIsMobile(window.innerWidth < 768);
 
       const handleResize = () => {
         setScreenWidth(window.innerWidth);
-        setIsMobile(window.innerWidth < 786);
+        setIsMobile(window.innerWidth < 768);
       };
 
       window.addEventListener("resize", handleResize);
@@ -25,8 +25,8 @@ const GetToKnow = () => {
     }
   }, []);
 
-  const xValue = screenWidth >= 868 ? -400 : -50;
-  const kValue = screenWidth >= 868 ? 150 : 80;
+  const xValue = screenWidth >= 768 ? -400 : -50;
+  const kValue = screenWidth >= 768 ? 150 : 80;
 
   const containerVariants = {
     hidden: { opacity: 0 },
