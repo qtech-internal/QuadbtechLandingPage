@@ -35,7 +35,7 @@
     "resend": "^4.1.2",
     "slick-carousel": "^1.8.1",
     "snapsvg-cjs": "^0.0.6",
-    "swiper": "^11.2.5"
+    "swiper": "^11.2.8"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
