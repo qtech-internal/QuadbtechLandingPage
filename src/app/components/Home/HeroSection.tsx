@@ -911,7 +911,7 @@ export default function Home() {
               Your Vision, Our Expertise:
             </span>
             <span ref={headline2Ref} className="block whitespace-nowrap lg:ml-42 ml-10">
-              Crafting the <span className="relative px-4 py-1 border-2 border-theme rounded-full">Future of Technology</span>
+              Crafting the <span className="relative px-4 py-1 border-4 border-theme rounded-full">Future of Technology</span>
               <span className="relative inline-block ml-2 -top-6">
                 <svg width="18" height="26" viewBox="0 2 22 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.452 5.434c.876 1.943 1.237 3.84.173 6.016-.019.065-.077.55-.174 1.273-1.02-2.112-2.28-3.768-3.995-5.176l3.996-2.113Z" stroke="var(--bg-card)" strokeWidth="5"/><path d="M4.522 17.235c.71.1.415 1.223.725 2.358-.724-.676-1.529-1.236-2.423-1.699l1.698-.66Z" stroke="var(--bg-card)" strokeWidth="5"/></svg>
               </span>
@@ -919,14 +919,14 @@ export default function Home() {
           </h1>
           {/* Carousel with custom arrow navigation */}
           <div ref={carouselRef} className="relative rounded-[30px] overflow-hidden aspect-video max-h-[500px] ">
-            <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 flex flex-col items-center right-0 -top-6 pt-4 translate-y-[-95%]">
+            <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 flex flex-col items-center right-0 -top-2 pt-2 lg:translate-y-[-120%]">
               {[0, 1, 2].map((idx) => (
                 <div
                   key={idx}
                   className={
                     "flex flex-col items-center justify-center mt-2 cursor-pointer transition-all duration-300 " +
                     (currentSlide === idx
-                      ? "bg-white rounded-full px-2 py-3 shadow-md scale-110"
+                      ? "bg-white rounded-full px-1 py-2 shadow-md scale-110"
                       : "h-8 w-8 rounded-full bg-[#fbe8cc] text-black font-extrabold shadow-md text-base leading-[8px]")
                   }
                   onClick={() => {
@@ -945,11 +945,11 @@ export default function Home() {
                   )}
                 </div>
               ))}
-              <div className="h-8 w-8 rounded-full bg-white text-black font-extrabold mt-3 flex flex-col items-center justify-center shadow-md mt-2 text-base leading-[7px]">
-                <span>.</span>
-                <span>.</span>
-                <span>.</span>
-              </div>
+              {/* <div className="h-8 w-8 rounded-full bg-white text-black font-extrabold mt-3 flex flex-col items-center justify-center shadow-md mt-2 text-base leading-[6px]">
+                <span className='translate-y-[-4px]'>.</span>
+                 <span className='translate-y-[-4px]'>.</span>
+               <span className='translate-y-[-4px]'>.</span>
+              </div> */}
             </div>
             <div className="relative rounded-[30px] overflow-hidden ">
               <div className="relative h-[400px]">
