@@ -91,7 +91,7 @@ const imageControls = useAnimation();
       {/* Left Side */}
       <div className="flex-1">
         {/* Heading */}
-        <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-[#000000] text-xl font-semibold font-roboto">
+        <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-[#000000] text-xl font-semibold font-inter">
           Our Web3 Innovation Lab
           <div className="mt-4 flex">
               <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={200} height={50} />
