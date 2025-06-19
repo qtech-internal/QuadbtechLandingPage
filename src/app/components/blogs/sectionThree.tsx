@@ -47,7 +47,7 @@ export default function SectionThree() {
                 </div>
 
                 <div className="relative w-full md:w-[60%] aspect-[16/16] md:aspect-[4/3] overflow-hidden ">
-                    <div className="absolute top-[20%]  font-bold text-[4vw] sm:text-[3.5vw] md:text-[20px] md:leading-10 lg:text-[26px] 2xl:text-[45px] lg:leading-14 2xl:leading-20 xl:text-[2.5vw] xl:leading-18 leading-14 transition-all duration-300 [word-spacing:0.2rem]">
+                    <div className="absolute top-[20%]    font-bold text-[4vw] sm:text-[3.5vw] md:text-[18px] md:leading-10 lg:text-[24px] 2xl:text-[45px] lg:leading-14 2xl:leading-20 xl:text-[2.5vw] xl:leading-18 leading-14 transition-all duration-300 [word-spacing:0.2rem]">
                         <span>Full-Stack</span>
                         <br />
                         <span>Development in 2024:</span>
@@ -66,7 +66,8 @@ export default function SectionThree() {
                         READ MORE
                     </button>
    {/* <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div> */}
-                    <Image
+                   <div className="relative w-[690px] h-[640px] ml-7 ">
+                     <Image
                         draggable={false}
                         src="/cir.png"
                         alt="section_3_image2"
@@ -75,6 +76,7 @@ export default function SectionThree() {
                         className="rounded-3xl transition-all duration-300 ml-38"
                         
                     />
+                   </div>
                     
                 </div>
             </div>
