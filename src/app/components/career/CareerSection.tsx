@@ -1,13 +1,42 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef,useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+
+const themeImages = {
+  orange: '/career/Frame3.png',
+  olive: '/career/olive_theme_img.png',
+  purple: '/career/purple_theme_img.png',
+  pink: '/career/pink_theme_img.png',
+  red: '/career/red.png',
+  brown: '/career/brown_theme_img.png',
+  cyan: '/career/cryan_theme_img.png'
+};
+
 
 export default function CareerPage() {
   const headingRef = useRef(null);
   const subheadingRef = useRef(null);
   const cardWrapperRef = useRef(null);
+  const [currentTheme, setCurrentTheme] = useState<string>("orange");
+
+  useEffect(() => {
+    // Initialize with current theme
+    const savedTheme = localStorage.getItem("theme") || "orange";
+    setCurrentTheme(savedTheme);
+
+    // Listen for theme changes
+    const handleThemeChange = (e: CustomEvent) => {
+      setCurrentTheme(e.detail);
+    };
+
+    window.addEventListener('themeChanged', handleThemeChange as EventListener);
+    
+    return () => {
+      window.removeEventListener('themeChanged', handleThemeChange as EventListener);
+    };
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -78,15 +107,15 @@ export default function CareerPage() {
 
               {/* Card 3 */}
               <div className="relative bg-theme shadow-xl rounded-lg flex items-center justify-start sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
-                <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50 z-30"></div>
+                {/* <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50 z-30"></div> */}
                 <Image
                   width={400}
                   height={500}
                   className="h-full w-[300px] z-20 object-cover rounded-lg"
-                  src="/career/Frame3.png"
+                  src={themeImages[currentTheme as keyof typeof themeImages] || themeImages.orange}
                   alt="VR Technology Image"
                 />
-                <div className="h-full w-24 flex flex-col  justify-center items-center bg-theme z-10">
+                <div className="h-full w-24 flex flex-col  justify-center items-center bg-theme z-10 fonts-poppins">
                   {"QuadB".split("").map((char, idx) => (
                     <span
                       key={idx}
