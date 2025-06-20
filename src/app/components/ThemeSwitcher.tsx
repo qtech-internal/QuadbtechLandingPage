@@ -43,6 +43,9 @@ export default function ThemeSwitcher() {
     document.documentElement.className = newTheme;
     localStorage.setItem("theme", newTheme);
     setIsDropdownOpen(false);
+
+    const event = new CustomEvent('themeChanged', { detail: newTheme });
+    window.dispatchEvent(event);
   };
 
   const colors = [
