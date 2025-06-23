@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function TransformCard() {
+export default function TransformCard({ image1,image2,image3,image4 }: { image1: string,image2:string,image3: string,image4:string }) {
   return (
     <>
       <div className="max-w-lg rounded-2xl overflow-hidden relative mt-20 mx-auto p-4">
