@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import JobCard from "../JobCard";
+import JobsCarousel from "./JobsCarousel";
 
 export default function Career() {
   const [inputValue, setInputValue] = useState("");
@@ -106,44 +107,40 @@ export default function Career() {
   };
 
   return (
-    <div className=" bg-white  flex flex-col items-center mx-auto  container w-full max-w-7xl  ">
-      <div className="flex flex-col sm:flex-row items-center gap-4 mb-4  w-full justify-between  gap-x-12 mt-16  ">
+    <div className=" bg-white  flex flex-col items-center  justify-center mx-auto  w-full  2xl:max-w-7xl  ">
+      <div className="flex flex-col md:flex-row items-center  mb-4 gap-4 md:gap-50 lg:gap-0  lg:w-full justify-between   mt-16 lg:px-4 xl:px-0  ">
         <h1 className="text-[36px] lg:text-[48px] md:text-[30px]  whitespace-nowrap font-bold ">
           Current Openings
         </h1>
 
         {/* <div className="w-full lg:w-auto  sm:w-[75%] relative"> */}
-        <div className="w-full sm:w-[50%] md:w-[75%] lg:w-auto relative hidden lg:block md:block">
+        <div className="w-full sm:w-[50%] md:w-[75%] lg:w-auto relative hidden md:block  ">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+            <svg
+              className="w-5 h-5 text-secondary"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+              />
+            </svg>
+          </span>
 
-
-  <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
- 
-    <svg
-      className="w-5 h-5 text-secondary"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
-      />
-    </svg>
-  </span>
-
- <input
-  type="text"
-  placeholder={placeholderText}
-  value={inputValue}
-  onChange={handleChange}
-  onFocus={() => setPlaceholderText('')}
-  onBlur={() => setPlaceholderText('Search')}
-  className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 text-secondary focus:outline-none placeholder-black placeholder:font-bold"
-/>
-
-</div>
+          <input
+            type="text"
+            placeholder={placeholderText}
+            value={inputValue}
+            onChange={handleChange}
+            onFocus={() => setPlaceholderText("")}
+            onBlur={() => setPlaceholderText("Search")}
+            className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 text-secondary focus:outline-none placeholder-black placeholder:font-bold"
+          />
+        </div>
 
         {/* 2nd  small*/}
         <div className="w-full sm:hidden relative block">
@@ -176,8 +173,8 @@ export default function Career() {
       </div>
 
       {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8   m-auto justify-items-center"> */}
-      <div className="w-full mx-auto ">
-        <div className="lg:grid grid-cols-1 container sm:grid-cols-2 lg:grid-cols-3 gap-x-40 gap-y-12 hidden ">
+      <div className=" mx-auto ">
+        <div className="md:grid grid-cols-2 container  lg:grid-cols-3 gap-x-16 lg:gap-x-13 xl:gap-x-28 2xl:gap-x-30 gap-y-12 hidden ">
           {currentJobs.map((job, index) => (
             <JobCard
               key={index}
@@ -192,24 +189,11 @@ export default function Career() {
         </div>
 
         {/* Scrollable flex layout for small screens */}
-        <div className="flex lg:hidden gap-4 overflow-x-auto scroll-smooth px-2 py-4">
-          {currentJobs.map((job, index) => (
-            <div className="min-w-[280px] flex-shrink-0" key={index}>
-              <JobCard
-                title={job.title}
-                location={job.location}
-                experience={job.experience}
-                imageSrc={job.imageSrc}
-                isOdd={index % 2 === 0}
-                buttonText="Apply Now"
-              />
-            </div>
-          ))}
-        </div>
+        <JobsCarousel currentJobs={currentJobs} />
       </div>
 
       {/* <div className="flex items-center justify-between gap-4 mt-8"> */}
-      <div className="flex items-center mx-auto justify-evenly gap-4 mt-20 w-full  ">
+      <div className="hidden md:flex items-center mx-auto justify-evenly gap-4 mt-20 w-full  ">
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
