@@ -6,20 +6,6 @@ export default function CareerPage() {
   const whyWorkWithUsRef = useRef(null);
   const benefitCardsRef = useRef(null);
   const bottomCardsRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -151,7 +137,7 @@ export default function CareerPage() {
   ];
 
   return (
-    <div className="flex flex-col text-secondary mx-auto container w-full max-w-7xl ">
+    <div className="hidden lg:flex flex-col text-secondary mx-auto container w-full max-w-7xl ">
       <div className="mt-10">
         <section
           ref={whyWorkWithUsRef}

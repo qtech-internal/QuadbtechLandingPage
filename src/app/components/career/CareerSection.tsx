@@ -29,6 +29,16 @@ export default function CareerPage() {
   const subheadingRef = useRef(null);
   const cardWrapperRef = useRef(null);
   const [currentTheme, setCurrentTheme] = useState<string>("orange");
+  const [isTab, setIsTab] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsTab(window.innerWidth < 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     // Initialize with current theme
@@ -96,7 +106,7 @@ export default function CareerPage() {
   }, []);
 
   return (
-    <main className="flex flex-col text-secondary  w-full ">
+    <main className="">
       <div className=" mt-10">
         {/* Section 1 - Hero */}
         <section className="flex flex-col items-center justify-center py-12 sm:py-16 lg:py-20">
@@ -128,15 +138,18 @@ export default function CareerPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-3">
               {/* Card 1 */}
               <div className="bg-theme p-5 sm:p-6 shadow-xl rounded-lg text-white transition-shadow duration-300 hover:shadow-2xl">
-
                 <p className="text-[18px]  mt-6">
-                At QuadB Tech, we’re more than just a tech company—we’re a community of innovators, problem-solvers, and visionaries shaping the future of Web3 & Web2. Whether you’re a blockchain enthusiast, a software engineer, a designer, or a marketing expert, this is the place to build groundbreaking solutions and grow your career.
-
+                  At QuadB Tech, we’re more than just a tech company—we’re a
+                  community of innovators, problem-solvers, and visionaries
+                  shaping the future of Web3 & Web2. Whether you’re a blockchain
+                  enthusiast, a software engineer, a designer, or a marketing
+                  expert, this is the place to build groundbreaking solutions
+                  and grow your career.
                 </p>
               </div>
 
               {/* Card 2 */}
-              <div className="relative h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
+              <div className="relative h-[310px] lg:h-[45vh] xl:h-[37vh] 2xl:h-[35vh] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <Image
                   className="h-full w-full object-cover rounded-lg"
@@ -145,41 +158,95 @@ export default function CareerPage() {
                   width={410}
                   height={300}
                   priority
+                  draggable={false}
                 />
               </div>
 
+              {/* Card 3 */}
+              <div className="relative bg-theme  lg:w-[450px] shadow-xl rounded-lg flex items-center justify-start sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+                {/* Left Image Section */}
+                <Image
+                  width={450}
+                  height={500}
+                  className="h-full w-[40vw] lg:w-[17vw] xl:w-[290px] z-20 object-cover rounded-lg"
+                  src={
+                    themeImages[currentTheme as keyof typeof themeImages] ||
+                    themeImages.orange
+                  }
+                  alt="VR Technology Image"
+                  draggable={false}
+                />
 
-              
-            {/* Card 3 */}
-<div className="relative bg-theme  lg:w-[450px] shadow-xl rounded-lg flex items-center justify-start sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
-  {/* Left Image Section */}
-  <Image
-    width={450}
-    height={500}
-    className="h-full w-[290px] z-20 object-cover rounded-lg"
-    src={themeImages[currentTheme as keyof typeof themeImages] || themeImages.orange}
-    alt="VR Technology Image"
-  />
-
-  {/* Right Vertical Text Column */}
-  <div className="h-full w-24 flex flex-col justify-center items-center bg-theme z-10">
-    {"QuadB".split("").map((char, idx) => (
-      <span
-        key={idx}
-        className="text-[170px] leading-[100px] font-extrabold font-poppins text-transparent rotate-90 "
-        style={{
-          WebkitTextStroke: '3px white',
-        }}
-      >
-        {char}
-      </span>
-    ))}
-  </div>
-</div>
-
+                {/* Right Vertical Text Column */}
+                <div className="h-full w-24 flex flex-col justify-center items-center bg-theme z-10">
+                  {"QuadB".split("").map((char, idx) => (
+                    <span
+                      key={idx}
+                      className=" text-[75px] lg:text-[150px]  leading-[52px] lg:leading-[100px]   font-extrabold font-poppins text-transparent rotate-90 lg:-ml-0 "
+                      style={{
+                        WebkitTextStroke: "3px white",
+                      }}
+                    >
+                      {char}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              {isTab && (
+                <div className="relative border-2 border-theme shadow-xl rounded-lg  overflow-hidden mx-auto  w-full  transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                  {/* <Image
+                    className="h-full w-full object-cover rounded-lg"
+                    src="/blog1.jpeg"
+                    alt="logo"
+                    width={400}
+                    height={200}
+                    draggable="false"
+                  /> */}
+                  <svg
+                    width="190"
+                    height="200"
+                    viewBox="0 0 133 153"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M130.021 71.473C93.9039 64.3857 82.2248 47.4455 72.4923 0.521133C64.471 58.6076 67.2613 87.2008 103.174 121.331L130.021 71.473Z"
+                      fill="url(#paint0_linear_65148_4780)"
+                    />
+                    <path
+                      d="M1.90104 81.537C38.018 88.6243 49.6971 105.565 59.4296 152.489C67.4509 94.4024 64.6606 65.8093 28.7477 31.679L1.90104 81.537Z"
+                      fill="url(#paint1_linear_65148_4780)"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_65148_4780"
+                        x1="99.403"
+                        y1="0.521133"
+                        x2="99.403"
+                        y2="121.331"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FF9500" />
+                        <stop offset="1" stop-color="#FFC892" />
+                      </linearGradient>
+                      <linearGradient
+                        id="paint1_linear_65148_4780"
+                        x1="32.5189"
+                        y1="152.489"
+                        x2="32.5189"
+                        y2="31.679"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FF9500" />
+                        <stop offset="1" stop-color="#FFC892" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              )}
 
               {/* Card 4 */}
-              <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-auto md:max-w-[600px] lg:w-[480px] h-auto  sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center mx-auto">
+              <div className="div-bg p-5 sm:p-6 shadow-xl rounded-lg w-full  lg:w-[480px] h-auto  sm:col-span-2 lg:col-span-1 transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center mx-auto">
                 <ul className="flex flex-col gap-3">
                   <li className="border border-theme rounded-3xl p-1 sm:p-3 flex items-center justify-center bg-white w-fit text-xs lg:text-[12px]">
                     Develop groundbreaking solutions in blockchain, AI, and
@@ -196,8 +263,9 @@ export default function CareerPage() {
                 </ul>
               </div>
 
-              <div className="relative border-2 border-theme shadow-xl rounded-lg ml-16 overflow-hidden mx-auto  w-full max-w-[350px] aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
-                {/* <Image
+              {!isTab && (
+                <div className="   relative border-2 border-theme shadow-xl rounded-lg lg:ml-35 xl:ml-16 overflow-hidden mx-auto  w-full max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                  {/* <Image
                     className="h-full w-full object-cover rounded-lg"
                     src="/blog1.jpeg"
                     alt="logo"
@@ -205,47 +273,48 @@ export default function CareerPage() {
                     height={200}
                     draggable="false"
                   /> */}
-                <svg
-                  width="190"
-                  height="200"
-                  viewBox="0 0 133 153"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M130.021 71.473C93.9039 64.3857 82.2248 47.4455 72.4923 0.521133C64.471 58.6076 67.2613 87.2008 103.174 121.331L130.021 71.473Z"
-                    fill="url(#paint0_linear_65148_4780)"
-                  />
-                  <path
-                    d="M1.90104 81.537C38.018 88.6243 49.6971 105.565 59.4296 152.489C67.4509 94.4024 64.6606 65.8093 28.7477 31.679L1.90104 81.537Z"
-                    fill="url(#paint1_linear_65148_4780)"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="paint0_linear_65148_4780"
-                      x1="99.403"
-                      y1="0.521133"
-                      x2="99.403"
-                      y2="121.331"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#FF9500" />
-                      <stop offset="1" stop-color="#FFC892" />
-                    </linearGradient>
-                    <linearGradient
-                      id="paint1_linear_65148_4780"
-                      x1="32.5189"
-                      y1="152.489"
-                      x2="32.5189"
-                      y2="31.679"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#FF9500" />
-                      <stop offset="1" stop-color="#FFC892" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
+                  <svg
+                    width="190"
+                    height="200"
+                    viewBox="0 0 133 153"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M130.021 71.473C93.9039 64.3857 82.2248 47.4455 72.4923 0.521133C64.471 58.6076 67.2613 87.2008 103.174 121.331L130.021 71.473Z"
+                      fill="url(#paint0_linear_65148_4780)"
+                    />
+                    <path
+                      d="M1.90104 81.537C38.018 88.6243 49.6971 105.565 59.4296 152.489C67.4509 94.4024 64.6606 65.8093 28.7477 31.679L1.90104 81.537Z"
+                      fill="url(#paint1_linear_65148_4780)"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_65148_4780"
+                        x1="99.403"
+                        y1="0.521133"
+                        x2="99.403"
+                        y2="121.331"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FF9500" />
+                        <stop offset="1" stop-color="#FFC892" />
+                      </linearGradient>
+                      <linearGradient
+                        id="paint1_linear_65148_4780"
+                        x1="32.5189"
+                        y1="152.489"
+                        x2="32.5189"
+                        y2="31.679"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FF9500" />
+                        <stop offset="1" stop-color="#FFC892" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              )}
             </div>
           </div>
         </section>
