@@ -255,7 +255,6 @@
 //   </h1>
 // </div>
 
-
 //         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 //           {/* Left Column: Job Description */}
 //           <div className="lg:col-span-2 lg:pr-8 lg:border-r border-theme">
@@ -775,7 +774,7 @@ const BlockchainDeveloper = () => {
     <div className="w-full min-h-screen py-10 px-4 mt-20">
       <Toaster position="top-right" reverseOrder={false} />
 
-      <div className="max-w-[1500px] mx-auto p-8 relative">
+      <div className="max-w-[1500px] mx-auto  relative">
         <button
           onClick={() => router.back()}
           className="top-4 mb-4   left-4 text-secondary hover:text-black disabled:opacity-50 transition-opacity"
@@ -785,7 +784,7 @@ const BlockchainDeveloper = () => {
         </button>
 
         <div className="w-full flex justify-center mb-16 ">
-          <h1 className="text-3xl md:text-2xl sm:text-xl font-extrabold text-black border-2 border-theme px-8 py-3 rounded-full text-center">
+          <h1 className="text-xl md:text-2xl sm:text-xl font-extrabold text-black border-2 border-theme px-8 py-3 rounded-full text-center">
             Blockchain Developer
           </h1>
         </div>
@@ -806,7 +805,9 @@ const BlockchainDeveloper = () => {
               Solidity, Go, or Rust, and familiarity with frameworks like
               Hyperledger Fabric or Ethereum platforms are highly desirable.
             </p>
-            <h2 className="text-2xl font-extrabold  mb-8">Eligibility Criteria</h2>
+            <h2 className="text-2xl font-extrabold  mb-8">
+              Eligibility Criteria
+            </h2>
             <ul className="space-y-4 mb-8 list-none pl-0">
               {[
                 "Bachelor's degree in Computer Science, Engineering, or related field.",
@@ -825,7 +826,9 @@ const BlockchainDeveloper = () => {
                 </li>
               ))}
             </ul>
-            <h2 className="text-2xl font-extrabold  mb-8">Perks & Conditions</h2>
+            <h2 className="text-2xl font-extrabold  mb-8">
+              Perks & Conditions
+            </h2>
             <ul className="space-y-4 list-none pl-0">
               {[
                 "Competitive salary and performance bonuses.",
@@ -944,7 +947,7 @@ const BlockchainDeveloper = () => {
 
               <div className="w-full">
                 <label className="block text-[18px] font-bold text-[#333333 mb-1">
-                 Resume Upload<span className="text-red-500 ml-1">*</span>
+                  Resume Upload<span className="text-red-500 ml-1">*</span>
                 </label>
                 <div
                   className={`relative w-full border rounded-md p-6 flex items-center justify-center text-center transition duration-150 ease-in-out ${
