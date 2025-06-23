@@ -2,11 +2,20 @@
 
 import Image from "next/image";
 
-export default function TransformCard({ image1,image2,image3,image4 }: { image1: string,image2:string,image3: string,image4:string }) {
+export default function TransformCard({
+  image1,
+  image2,
+  image3,
+  image4,
+}: {
+  image1: string;
+  image2: string;
+  image3: string;
+  image4: string;
+}) {
   return (
     <>
       <div className="max-w-lg rounded-2xl overflow-hidden relative mt-20 mx-auto p-4">
-        
         <h1
           className="border-[4px] border-theme w-1/2
             py-2 px-6 rounded-[80px] text-center mb-10 mt-10 text-[1.5rem] font-extrabold
@@ -32,19 +41,21 @@ export default function TransformCard({ image1,image2,image3,image4 }: { image1:
         </div>
       </div>
       <div className="relative flex flex-col gap-6 max-w-lg mx-auto mt-8 p-4">
-        <div className="div-bg flex flex-col justify-between text-center text-[#222] rounded-2xl relative ">
-          <p className="p-6">
-            &#34;Their team took our vision and turned it into a seamless,
-            high-performance dApp. The UI/UX was flawless, and the smart
-            contracts were secure and gas-efficient. Highly recommend!&#34;
-            <br />
-            <br />
-            <span className="font-bold text-sm ">
-              — Alex R., CEO of BlockFi Ventures
-            </span>
-          </p>
+        <div className="relative">
+          <div className="div-bg flex flex-col justify-between text-center inverted-corners-mobile text-[#222] rounded-2xl overflow-hidden">
+            <p className="p-6">
+              "Their team took our vision and turned it into a seamless,
+              high-performance dApp. The UI/UX was flawless, and the smart
+              contracts were secure and gas-efficient. Highly recommend!"
+              <br />
+              <br />
+              <span className="font-bold text-sm">
+                — Alex R., CEO of BlockFi Ventures
+              </span>
+            </p>
+          </div>
 
-          <div className="absolute border-white border-8 bottom-[-5px] right-[-5px] h-[65px] w-[65px] rounded-4xl flex items-center justify-center div-bg text-[#222]">
+          <div className="absolute bottom-0 right-[6px] h-[55px] w-[55px] rounded-[32px] flex items-center justify-center bg-theme text-white z-10">
             <Image
               src="/blogs/BrownLogos.png"
               alt="brownLogo"
@@ -56,19 +67,23 @@ export default function TransformCard({ image1,image2,image3,image4 }: { image1:
         </div>
 
         {/* Card 2 */}
-        <div className="bg-theme flex flex-col justify-between text-center text-white rounded-2xl relative">
-          <p className="p-6  ">
-            &#34;Collaborating with their team was a game-changer. Our platform
-            scaled smoothly, and their on-chain logic was incredibly
-            optimized.&#34;
-            <br />
-            <br />
-            <span className="font-bold text-sm ">
-              — Alex K., Co-Founder of ChainCraft
-            </span>
-          </p>
+        <div className="relative">
+          <div className="bg-theme flex flex-col inverted-corners-mobile justify-between text-center text-white rounded-2xl overflow-hidden relative">
+            <div className=" p-6">
+              <p>
+                "Collaborating with their team was a game-changer. Our platform
+                scaled smoothly, and their on-chain logic was incredibly
+                optimized."
+                <br />
+                <br />
+                <span className="font-bold text-sm">
+                  — Alex K., Co-Founder of ChainCraft
+                </span>
+              </p>
+            </div>
+          </div>
 
-          <div className="absolute border-white border-8 bottom-[-5px] right-[-5px] h-[65px] w-[65px] rounded-4xl flex items-center justify-center bg-theme text-white">
+          <div className="absolute bottom-0 right-[6px] h-[55px] w-[55px] rounded-[32px] flex items-center justify-center bg-theme text-white z-10">
             <Image
               src="/blogs/whiteLogos.png"
               alt="whiteLogo"
@@ -134,7 +149,7 @@ export default function TransformCard({ image1,image2,image3,image4 }: { image1:
             </span>
             <h2 className="text-black font-[800] text-[20px]  mt-3 leading-[1.9]">
               Full-Stack <br />
-              Development in 2024:  <br />
+              Development in 2024: <br />
               What Skills Do You <br />
               Need?
             </h2>
