@@ -68,7 +68,7 @@ const Mob_images: Record<string, Record<string, string>> = {
     orange: "/blogs/orange_blog_mobile3.png",
     red: "/blogs/red_blog_mobile3.png",
     olive: "/blogs/olive_blog_mobile3.png",
-    purple: "/blogs/pruple_blog_mobile3.png",
+    purple: "/blogs/purple_blog_mobile3.png",
     pink: "/blogs/pink_blog_mobile3.png",
     brown: "/blogs/brown_blog_mobile3.png",
     cyan: "/blogs/cyan_blog_mobile3.png",
