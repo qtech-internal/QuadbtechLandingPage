@@ -7,10 +7,12 @@ import WhyWork from "../components/career/WhyWork";
 import WhyWorkLg from "../components/career/WhyWorkLg";
 export default function CareerPage() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isTab, setIsTab] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
+      setIsTab(window.innerWidth < 1024);
     };
 
     handleResize();
@@ -26,7 +28,7 @@ export default function CareerPage() {
         {/* < CareerSection /> */}
         {isMobile ? <CareerMobile /> : <CareerSection />}
         <Career />
-        {isMobile ? <WhyWork /> : <WhyWorkLg />}
+        {isMobile || isTab ? <WhyWork /> : <WhyWorkLg />}
       </div>
     </main>
   );
