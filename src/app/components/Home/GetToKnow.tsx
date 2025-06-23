@@ -145,9 +145,19 @@
 
 // export default GetToKnow;
 
-"use client"
+"use client";
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+
+const themeGradients: { [key: string]: { start: string; end: string } } = {
+  orange: { start: "#FF9500", end: "#FFC892" },
+  olive: { start: "#b5b567", end: "#d7d7a3" },
+  purple: { start: "#c866d7", end: "#e6b8f0" },
+  pink: { start: "#ff69b4", end: "#ffc0cb" },
+  red: { start: "#bc4f5a", end: "#f08080" },
+  brown: { start: "#846353", end: "#b99b8b" },
+  cyan: { start: "#00a7a7", end: "#a1e3e3" },
+};
 
 const GetToKnow = () => {
   const ref = useRef(null);
@@ -156,7 +166,17 @@ const GetToKnow = () => {
   const [currentWord, setCurrentWord] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [screenWidth, setScreenWidth] = useState(0);
+  const [currentTheme, setCurrentTheme] = useState("orange");
 
+ useEffect(() => {
+  const savedTheme = localStorage.getItem("theme") || "orange";
+  setCurrentTheme(savedTheme);
+
+  const handleThemeChange = (e: Event) => setCurrentTheme((e as CustomEvent<string>).detail);
+  window.addEventListener("themeChanged", handleThemeChange);
+  return () => window.removeEventListener("themeChanged", handleThemeChange);
+}, []);
+  
   useEffect(() => {
     if (typeof window !== "undefined") {
       setScreenWidth(window.innerWidth);
@@ -195,6 +215,23 @@ const GetToKnow = () => {
     [0.6, 0.8],
     ["#808080", "#000000"]
   );
+
+  
+  useEffect(() => {
+    const { start, end } = themeGradients[currentTheme] || themeGradients.orange;
+
+    
+    const stop1_1 = document.getElementById("stop1-1");
+    const stop1_2 = document.getElementById("stop1-2");
+    if (stop1_1) stop1_1.setAttribute("stop-color", start);
+    if (stop1_2) stop1_2.setAttribute("stop-color", end);
+
+  
+    const stop2_1 = document.getElementById("stop2-1");
+    const stop2_2 = document.getElementById("stop2-2");
+    if (stop2_1) stop2_1.setAttribute("stop-color", start);
+    if (stop2_2) stop2_2.setAttribute("stop-color", end);
+  }, [currentTheme]);
 
   const words = " At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.".split(" ");
 
@@ -248,7 +285,7 @@ const GetToKnow = () => {
         </motion.div>
 
         <motion.div
-          className="w-full md:w-3/4 ml-0 2xl:ml-50 align-left justify-between z-30"
+          className="w-full md:w-3/4 ml-0 2xl:ml-50 align-left justify-between z-30 translate-x-[-55px]"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={
             isInView && !isMobile
@@ -265,29 +302,26 @@ const GetToKnow = () => {
             className="text-2xl max-w-[88%] md:text-xl lg:text-3xl sm:text-xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug pr-[4px]"
             style={{ color: textColor }}
           >
-        <motion.span className="text-[35px] font-[500] translate-x-[4px] -mr-3" style={{ color: "#000000" }}>
-  “
-</motion.span>
-
-{words.map((word, index) => (
-  <motion.span
-    key={index}
-    style={{
-      color: index <= currentWord ? "#000000" : "#808080",
-      transition: "color 0.3s ease",
-      marginRight: "4px",
-      display: "inline-block",
-    }}
-    className='text-[35px] font-[500] translate-x-[6px]'
-  >
-    {word}
-  </motion.span>
-))}
-
-<motion.span className="text-[35px] font-[500] translate-x-[6px] ml-1" style={{ color: "#000000" }}>
-  ”
-</motion.span>
-
+            <motion.span className="text-[35px] font-[500] translate-x-[4px] -mr-3" style={{ color: "#000000" }}>
+              “
+            </motion.span>
+            {words.map((word, index) => (
+              <motion.span
+                key={index}
+                style={{
+                  color: index <= currentWord ? "#000000" : "#808080",
+                  transition: "color 0.3s ease",
+                  marginRight: "4px",
+                  display: "inline-block",
+                }}
+                className='text-[40px] font-[500] translate-x-[6px]'
+              >
+                {word}
+              </motion.span>
+            ))}
+            <motion.span className="text-[35px] font-[500] translate-x-[6px] ml-1" style={{ color: "#000000" }}>
+              ”
+            </motion.span>
           </motion.h2>
 
           <motion.div
@@ -302,13 +336,30 @@ const GetToKnow = () => {
         </motion.div>
       </motion.div>
 
+      {/* Dynamic SVG with theme gradient stroke */}
       <div className="absolute top-100 lg:top-0 md:top-0 sm:top-80 right-0 h-full w-full flex justify-end pointer-events-none">
-        <img
-          src="back.png"
-          alt=""
-          className="w-[60%] md:w-auto h-auto max-h-[200px] md:max-h-none"
-          draggable="false"
-        />
+        <svg width="376" height="436" viewBox="0 0 376 436" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="strokeGradient1" x1="206" y1="1" x2="293" y2="344" gradientUnits="userSpaceOnUse">
+              <stop id="stop1-1" stopColor="#FF9500" />
+              <stop id="stop1-2" offset="1" stopColor="#FFC892" />
+            </linearGradient>
+            <linearGradient id="strokeGradient2" x1="169" y1="432" x2="82" y2="90" gradientUnits="userSpaceOnUse">
+              <stop id="stop2-1" stopColor="#FF9500" />
+              <stop id="stop2-2" offset="1" stopColor="#FFC892" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M369.166 202.759C266.848 182.681 233.761 134.69 206.19 1.75488C183.466 166.312 191.37 247.315 293.11 344.005L369.166 202.759Z"
+            stroke="url(#strokeGradient1)"
+            strokeWidth="6.98039"
+          />
+          <path
+            d="M6.38898 231.27C108.707 251.348 141.793 299.339 169.365 432.274C192.089 267.717 184.184 186.714 82.4445 90.024L6.38898 231.27Z"
+            stroke="url(#strokeGradient2)"
+            strokeWidth="6.98039"
+          />
+        </svg>
       </div>
     </section>
   );

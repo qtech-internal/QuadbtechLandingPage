@@ -771,6 +771,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdArrowForwardIos, MdKeyboardArrowDown } from "react-icons/md";
 
+
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
@@ -781,6 +782,74 @@ export default function Home() {
   const headline2Ref = useRef<HTMLSpanElement>(null); 
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider | null>(null);
+
+  const [currentTheme, setCurrentTheme] = useState("orange");
+
+ const themeImages: { [key: string]: string[] } = {
+  orange: [
+    "/home/AFrame1.png",
+    "/home/CFrame1.png",
+    "/home/BFrame1.png",
+  ],
+  olive: [
+    "/home/AFrame2.png",
+    "/home/CFrame2.png",
+    "/home/BFrame2.png",
+  ],
+  purple: [
+    "/home/AFrame3.png",
+    "/home/CFrame3.png",
+    "/home/BFrame3.png",
+  ],
+  pink: [
+    "/home/AFrame4.png",
+    "/home/CFrame4.png",
+    "/home/BFrame4.png",
+  ],
+  cyan: [
+    "/home/AFrame5.png",
+    "/home/CFrame5.png",
+    "/home/BFrame5.png",
+  ],
+  brown: [
+    "/home/AFrame6.png",
+    "/home/CFrame6.png",
+    "/home/BFrame6.png",
+  ],
+  red: [
+    "/home/AFrame7.png",
+    "/home/CFrame7.png",
+    "/home/BFrame7.png",
+  ],
+};
+const themeGradients: { [key: string]: { start: string; end: string } } = {
+  orange: { start: "#FF9500", end: "#FFC892" },
+  olive: { start: "#b5b567", end: "#d7d7a3" },
+  purple: { start: "#c866d7", end: "#e6b8f0" },
+  pink: { start: "#ff69b4", end: "#ffc0cb" },
+  red: { start: "#bc4f5a", end: "#f08080" },
+  brown: { start: "#846353", end: "#b99b8b" },
+  cyan: { start: "#00a7a7", end: "#a1e3e3" },
+};
+const { start, end } = themeGradients[currentTheme] || themeGradients.orange;
+
+useEffect(() => {
+  const savedTheme = localStorage.getItem("theme") || "orange";
+  setCurrentTheme(savedTheme);
+
+  const handleThemeChange = (e) => setCurrentTheme(e.detail);
+  window.addEventListener("themeChanged", handleThemeChange);
+  return () => window.removeEventListener("themeChanged", handleThemeChange);
+}, []);
+
+
+useEffect(() => {
+  const { start, end } = themeGradients[currentTheme] || themeGradients.orange;
+  const stop1 = document.getElementById("mini-hero-stop-1");
+  const stop2 = document.getElementById("mini-hero-stop-2");
+  if (stop1) stop1.setAttribute("stop-color", start);
+  if (stop2) stop2.setAttribute("stop-color", end);
+}, [currentTheme]);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -820,26 +889,25 @@ export default function Home() {
     return () => ctx.revert(); 
   }, []);
 
-  const carouselItems = [
-    {
-      title: "Transforming Ideas into Reality",
-      description: "Learn More",
-      iconSrc: "/first.gif",
-      imageSrc: "/home/home3.jpeg",
-    },
-    {
-      title: "Innovate Your Business",
-      description: "Discover How",
-      iconSrc: "/first.gif",
-      imageSrc: "/home/home1.png",
-    },
-    {
-      title: "Engineering the Future",
-      description: "Get Started",
-      iconSrc: "/first.gif",
-      imageSrc: "/home/home2.jpeg",
-    },
-  ];
+ const carouselTitles = [
+  "Transforming Ideas into Reality",
+  "Innovate Your Business",
+  "Engineering the Future"
+];
+const carouselDescriptions = [
+  "Learn More",
+  "Discover How",
+  "Get Started"
+];
+
+const themeImageArray = themeImages[currentTheme] || themeImages.orange;
+
+const carouselItems = carouselTitles.map((title, idx) => ({
+  title,
+  description: carouselDescriptions[idx],
+  iconSrc: "/first.gif",
+  imageSrc: themeImageArray[idx] || themeImageArray[0], // fallback to first if not enough images
+}));
 
   const settings = {
     infinite: true,
@@ -870,20 +938,26 @@ export default function Home() {
         </div>
       </div>
       {/* Main Content */}
-      <div className="w-full max-w-7xl flex flex-row items-start gap-12">
+      <div className="w-full   flex flex-row items-start gap-12 ">
         {/* Sidebar */}
-        <div ref={sidebarRef} className="w-3/12 flex flex-col items-start gap-y-10">
-          <button className="px-6 py-2 text-black font-medium rounded-full border border-theme hover:bg-theme hover:text-white transition-colors border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)] ">
+        <div ref={sidebarRef} className="w-3/12 flex flex-col items-start gap-y-10 ">
+          <button className="px-6 py-2 ml-4 text-black font-medium rounded-full border border-theme hover:bg-theme hover:text-white transition-colors border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)] ">
             Start Building Today
           </button>
           <div className="relative">
-             <p className='ml-37 translate-y-[20px]'>
-        <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M19.9996 12.3509C14.2216 11.2171 12.3532 8.50699 10.7962 1C9.51294 10.2927 9.95934 14.8671 15.7047 20.3272L19.9996 12.3509Z" stroke="#F97F07" stroke-width="0.613563"/>
-<path d="M1.00035 18.1793C6.77836 19.3132 8.64679 22.0233 10.2038 29.5303C11.4871 20.2376 11.0407 15.6632 5.2953 10.203L1.00035 18.1793Z" stroke="#F97F07" stroke-width="0.613563"/>
-</svg>
-      </p>
-            <p className="font-semibold text-black text-left text-lg">
+            <p className='ml-40 translate-y-[20px] '>
+  <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="miniHeroGradient" x1="0" y1="0" x2="21" y2="30" gradientUnits="userSpaceOnUse">
+        <stop id="mini-hero-stop-1" stopColor="#FF9500" />
+        <stop id="mini-hero-stop-2" offset="1" stopColor="#FFC892" />
+      </linearGradient>
+    </defs>
+    <path d="M19.9996 12.3509C14.2216 11.2171 12.3532 8.50699 10.7962 1C9.51294 10.2927 9.95934 14.8671 15.7047 20.3272L19.9996 12.3509Z" stroke="url(#miniHeroGradient)" strokeWidth="0.613563"/>
+    <path d="M1.00035 18.1793C6.77836 19.3132 8.64679 22.0233 10.2038 29.5303C11.4871 20.2376 11.0407 15.6632 5.2953 10.203L1.00035 18.1793Z" stroke="url(#miniHeroGradient)" strokeWidth="0.613563"/>
+  </svg>
+</p>
+            <p className="font-semibold text-black text-left text-lg ml-4">
               Empowered Teams,<br/>Endless Possibilities
             </p>
      
@@ -914,8 +988,8 @@ export default function Home() {
 </div>
 
 
-          <div className="mt-4 space-y-1">
-            <div className="flex gap-2  p-2 rounded">
+          <div className="mt-4 space-y-1 ml-4">
+            <div className="flex gap-2  p-2 rounded ">
               <span className="px-3 py-1 border border-theme rounded-full text-sm ">Scalable</span>
               <span className="px-3 py-1 bg-theme text-white rounded-full text-sm ">Reliable</span>
             </div>
@@ -928,7 +1002,7 @@ export default function Home() {
           </div>
         </div>
         {/* Main Section */}
-        <div className="w-9/12 flex flex-col gap-y-6">
+        <div className="w-9/12 flex flex-col gap-y-6 translate-x-[-20px]">
           <h1 ref={headlineContainerRef} className="text-3xl lg:text-4xl xl:text-5xl font-medium flex flex-col gap-4">
             <span ref={headline1Ref} className="block whitespace-nowrap">
               <span className="relative inline-block -top-8 -ml-4">
@@ -936,7 +1010,7 @@ export default function Home() {
               </span>
               Your Vision, Our Expertise:
             </span>
-            <span ref={headline2Ref} className="block whitespace-nowrap lg:ml-42 ml-10">
+            <span ref={headline2Ref} className="block whitespace-nowrap lg:ml-42 2xl:ml-83 ml-10">
               Crafting the <span className="relative px-4 py-1 border-4 border-theme rounded-full">Future of Technology</span>
               <span className="relative inline-block ml-2 -top-6">
                 <svg width="18" height="26" viewBox="0 2 22 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.452 5.434c.876 1.943 1.237 3.84.173 6.016-.019.065-.077.55-.174 1.273-1.02-2.112-2.28-3.768-3.995-5.176l3.996-2.113Z" stroke="var(--bg-card)" strokeWidth="5"/><path d="M4.522 17.235c.71.1.415 1.223.725 2.358-.724-.676-1.529-1.236-2.423-1.699l1.698-.66Z" stroke="var(--bg-card)" strokeWidth="5"/></svg>
@@ -948,18 +1022,29 @@ export default function Home() {
             <div className="absolute top-1/2 right-8 transform -translate-y-1/2 z-10 flex flex-col items-center right-0 -top-2 pt-2 lg:translate-y-[-120%]">
               {[0, 1, 2].map((idx) => (
                 <div
-                  key={idx}
-                  className={
-                    "flex flex-col items-center justify-center mt-2 cursor-pointer transition-all duration-300 " +
-                    (currentSlide === idx
-                      ? "bg-white rounded-full px-1 py-2 shadow-md scale-110"
-                      : "h-8 w-8 rounded-full bg-[#fbe8cc] text-black font-extrabold shadow-md text-base leading-[8px]")
-                  }
-                  onClick={() => {
-                    sliderRef.current?.slickGoTo(idx);
-                    setCurrentSlide(idx);
-                  }}
-                >
+  key={idx}
+  className={
+    "flex flex-col items-center justify-center mt-2 cursor-pointer transition-all duration-300 " +
+    (currentSlide === idx
+      ? "rounded-full px-1 py-2 shadow-md scale-110"
+      : "h-8 w-8 rounded-full shadow-md text-base leading-[8px]")
+  }
+  style={
+    currentSlide === idx
+      ? {
+          background: `linear-gradient(90deg, ${start}, ${end})`,
+          color: "#fff"
+        }
+      : {
+          background: "#fbe8cc",
+          color: "#000"
+        }
+  }
+  onClick={() => {
+    sliderRef.current?.slickGoTo(idx);
+    setCurrentSlide(idx);
+  }}
+>
                   <span className={currentSlide === idx ? "font-bold" : ""}>{idx + 1}</span>
                   {currentSlide === idx && (
                     <>
@@ -983,7 +1068,7 @@ export default function Home() {
                   {carouselItems.map((item, index) => (
                     <div key={index} className="relative h-[400px] w-full ">
                       <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${item.imageSrc})` }}></div>
-                      <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
+                      <div className="absolute inset-0 bg-[var(--bg-card)] opacity-10"></div>
                       <div className="absolute bottom-8 left-8 max-w-md bg-white/10 backdrop-blur-md p-4 rounded-xl shadow-lg flex items-center space-x-4">
                         <div className="div-bg p-2 rounded-lg shadow-md">
                           <img src={item.iconSrc} alt="Icon" className="w-12 h-12" />
