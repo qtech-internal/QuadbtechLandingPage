@@ -890,26 +890,26 @@ export default function Home() {
           </div>
        <div className="relative flex flex-col items-center bg-[#FFF8EB] rounded-[40px] shadow-lg p-4 hover:scale-105 transition-transform duration-300 ease-in-out w-fit">
   {/* Main Orange Bar on the Right */}
-  <div className="absolute top-23 -right-2 w-[6px] h-22 bg-[#F97316] rounded-r-full z-0">
+  <div className="absolute top-23 -right-2 w-[6px] h-22 bg-[#F97316] rounded-r-full bg-theme  z-0">
     {/* Raised Notch Bulge in the Center */}
-    <div className="absolute top-1/2 -translate-y-1/2 right-[-3px] w-[6px] h-[20px] bg-[#F97316] rounded-full shadow-md"></div>
+    <div className="absolute top-1/2 -translate-y-1/2 right-[-3px] w-[6px] h-[20px] bg-[#F97316] rounded-full bg-theme  shadow-md"></div>
   </div>
 
   {/* Team Members */}
   <img
     src="/home/home6.jpeg"
     alt="Team member 1"
-    className="w-20 h-20 rounded-full border-[4px] border-[#F97316] z-10"
+    className="w-20 h-20 rounded-full border-[4px] border-4 border-theme z-10"
   />
   <img
     src="/home/home5.jpeg"
     alt="Team member 2"
-    className="w-20 h-20 rounded-full border-[4px] border-[#F97316] z-10"
+    className="w-20 h-20 rounded-full border-[4px] border-4 border-theme z-10"
   />
   <img
     src="/home/home4.jpeg"
     alt="Team member 3"
-    className="w-20 h-20 rounded-full border-[4px] border-[#F97316] z-10"
+    className="w-20 h-20 rounded-full border-[4px] border-4 border-theme z-10"
   />
 </div>
 
