@@ -1,30 +1,29 @@
 "use client";
-import { useEffect, useRef,useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default function CareerPage() {
- const whyWorkWithUsRef = useRef(null);
+  const whyWorkWithUsRef = useRef(null);
   const benefitCardsRef = useRef(null);
   const bottomCardsRef = useRef(null);
-    const [isMobile, setIsMobile] = useState(false);
-   
-    useEffect(() => {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth < 768);
-      
-      };
-  
-      handleResize();
-      window.addEventListener("resize", handleResize);
-  
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
- // Auto-starting animations for initial load and navigation from other pages
+    // Auto-starting animations for initial load and navigation from other pages
     const ctx = gsap.context(() => {
       // Section 1 - Hero Animations - Start automatically
 
@@ -44,11 +43,10 @@ export default function CareerPage() {
         },
       });
 
-   
       // Section 3 - Why Work With Us Animations - Enhanced transitions
       if (whyWorkWithUsRef.current) {
-       gsap.from(".why-work-section-title", {
-          y: 100,  // Coming from bottom
+        gsap.from(".why-work-section-title", {
+          y: 100, // Coming from bottom
           opacity: 0,
           duration: 1,
           ease: "power2.out",
@@ -61,7 +59,7 @@ export default function CareerPage() {
         });
 
         gsap.from(".why-work-section-subtitle", {
-          y: 100,  // Coming from bottom
+          y: 100, // Coming from bottom
           opacity: 0,
           duration: 1,
           delay: 0.15,
@@ -76,7 +74,7 @@ export default function CareerPage() {
 
         // Enhanced right cards animation with improved stagger - coming from bottom
         gsap.from(".benefit-card", {
-          y: 100,  // Coming from bottom
+          y: 100, // Coming from bottom
           opacity: 0,
           duration: 0.9,
           stagger: 0.15,
@@ -91,7 +89,7 @@ export default function CareerPage() {
 
         // Enhanced bottom cards animation - coming from bottom
         gsap.from(".bottom-card", {
-          y: 100,  // Coming from bottom
+          y: 100, // Coming from bottom
           opacity: 0,
           duration: 0.9,
           stagger: 0.2,
@@ -131,8 +129,6 @@ export default function CareerPage() {
       }, 200);
     };
 
-
-
     // Clean up
     return () => {
       ctx.revert();
@@ -152,15 +148,14 @@ export default function CareerPage() {
       paragraph:
         "We understand that great work happens in different ways. Whether you prefer remote work, hybrid setups, or in-office collaboration, we offer flexibility to help you thrive.",
     },
-  
   ];
 
   return (
-    <div className="flex flex-col text-secondary    ">
+    <div className="flex flex-col text-secondary mx-auto container w-full max-w-7xl ">
       <div className="mt-10">
         <section
           ref={whyWorkWithUsRef}
-          className=" flex flex-col py-16 sm:py-20 lg:py-24  relative"
+          className=" flex flex-col py-16 sm:py-20 lg:py-24 justify-center relative"
         >
           <div className="flex flex-col lg:flex-row  lg:justify-between lg:items-start ">
             {/* Top left content - Better spacing */}
@@ -198,31 +193,39 @@ export default function CareerPage() {
             ref={bottomCardsRef}
             className="bottom-cards-container w-full flex flex-col sm:flex-row gap-4 lg:gap-6 mt-[-50]  "
           >
-        {/* bottom */}
+            {/* bottom */}
 
-                      <div className="bottom-card border-2 border-theme w-full sm:w-3/5 h-auto p-5 sm:p-6 rounded-xl div-bg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
-  <h3 className="text-lg sm:text-xl font-semibold mb-4 text-black">
-    Perks & Benefits
-  </h3>
-  <ul className="list-disc pl-5 space-y-3 text-sm sm:text-base text-black">
-    <li>
-      <span className="font-semibold">Competitive Salary</span> – We offer market-leading compensation, with crypto & fiat payment options
-    </li>
-    <li>
-      <span className="font-semibold">Learning & Development</span> – Access to courses, certifications, and mentorship
-    </li>
-    <li>
-      <span className="font-semibold">Remote-Friendly</span> – Work from anywhere with flexible schedules
-    </li>
-    <li>
-      <span className="font-semibold">Health & Wellness</span> – Medical benefits, wellness programs, and mental health support
-    </li>
-    <li>
-      <span className="font-semibold">Team Retreats & Hackathons</span> – Engage in exciting events, meetups, and innovation challenges
-    </li>
-  </ul>
-</div>
-
+            <div className="bottom-card border-2 border-theme w-full sm:w-3/5 h-auto p-5 sm:p-6 rounded-xl div-bg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
+              <h3 className="text-lg sm:text-xl font-semibold mb-4 text-black">
+                Perks & Benefits
+              </h3>
+              <ul className="list-disc pl-5 space-y-3 text-sm sm:text-base text-black">
+                <li>
+                  <span className="font-semibold">Competitive Salary</span> – We
+                  offer market-leading compensation, with crypto & fiat payment
+                  options
+                </li>
+                <li>
+                  <span className="font-semibold">Learning & Development</span>{" "}
+                  – Access to courses, certifications, and mentorship
+                </li>
+                <li>
+                  <span className="font-semibold">Remote-Friendly</span> – Work
+                  from anywhere with flexible schedules
+                </li>
+                <li>
+                  <span className="font-semibold">Health & Wellness</span> –
+                  Medical benefits, wellness programs, and mental health support
+                </li>
+                <li>
+                  <span className="font-semibold">
+                    Team Retreats & Hackathons
+                  </span>{" "}
+                  – Engage in exciting events, meetups, and innovation
+                  challenges
+                </li>
+              </ul>
+            </div>
 
             <div className="bottom-card border-2 border-theme w-full sm:w-1/5 h-auto p-5 sm:p-6 rounded-xl div-bg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
               <h3 className="text-lg sm:text-xl font-semibold mb-3">
@@ -236,10 +239,12 @@ export default function CareerPage() {
             </div>
             <div className="bottom-card mt-20 border-2 border-theme w-full sm:w-2/5  h-auto p-5 sm:p-6 rounded-xl div-bg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
               <h3 className="text-lg sm:text-xl font-semibold mb-3">
-              A Culture of Collaboration
+                A Culture of Collaboration
               </h3>
               <p className="text-sm sm:text-base">
-              Our team is our greatest strength. We foster an environment where ideas are shared, challenges are tackled together, and learning never stops.
+                Our team is our greatest strength. We foster an environment
+                where ideas are shared, challenges are tackled together, and
+                learning never stops.
               </p>
             </div>
           </div>
