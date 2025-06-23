@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 
-export default function SectionTwo() {
+export default function SectionTwo({ image }: { image: string}) {
     // section two animation elements declarations
     const sect_Two = useRef<HTMLDivElement[]>([]);
     const sect_Two_Read_More = useRef(null);
@@ -49,7 +49,7 @@ export default function SectionTwo() {
             <div className="relative w-full mx-auto min-h-[500px] md:min-h-0 container">
                 {/* Image */}
                 <img
-                    src="./fish.png"
+                    src={image}
                     draggable={false}
                     alt="section2Image"
                     className="w-full sm:h-full h-[300px] object-cover rounded-3xl hidden md:block transition-all"
@@ -59,7 +59,7 @@ export default function SectionTwo() {
                 {/* Mobile image */}
                 <img
                     draggable={false}
-                    src="./blogsection2.jpg" // Image for mobile screens
+                    // src={image2} // Image for mobile screens
                     alt="section2Image Mobile"
                     className="absolute w-full h-[300px] sm:h-full object-cover rounded-3xl md:hidden transition-all ease-in-out bottom-20" // Hide on larger screens
                 />
@@ -92,7 +92,7 @@ export default function SectionTwo() {
               text-[3.75vw] sm:px-6 px-4 sm:py-2 py-1 md:text-[0.75vw] md:bottom-0 md:left-[14.5%]
 
 
-              transition-all duration-10 ease-in-out md:px-3 md:py-1 border-amber-500 border 2xl:text-[15px]
+              transition-all duration-10 ease-in-out md:px-3 md:py-1 border border-theme 2xl:text-[15px]
             "
                 >
                     Read More

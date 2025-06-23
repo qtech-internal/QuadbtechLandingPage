@@ -4,12 +4,12 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 
-export default function SectionOne() {
+export default function SectionOne({ image }: { image: string }) {
     const headerRef = useRef(null);
     const imageref = useRef(null);
     const textRef = useRef(null);
     const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
-
+    
     useEffect(() => {
         // Section 1 animation code
         const tl = gsap.timeline();
@@ -116,7 +116,7 @@ export default function SectionOne() {
                         </div>
 
                         <Image
-                            src="/blog4.jpeg"
+                            src={image}
                             alt="blogImage"
                             width={924}
                             height={514}
