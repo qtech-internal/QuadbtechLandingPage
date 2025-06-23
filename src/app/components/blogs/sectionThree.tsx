@@ -18,12 +18,12 @@ export default function SectionThree({ image1,image2 }: { image1: string,image2:
               md:top-[-6%] md:left-[-8%]
               lg:top-[-6%] lg:left-[-5%]
               2xl:left-[-4%] 2xl:top-[-5%]
-              text-[5vw] sm:text-[4.7vw] md:text-[14px] font-semibold
+              text-[5vw] sm:text-[4.7vw] md:text-[14px] 
               md:leading-6.5 lg:leading-9.5 lg:text-[20px]
               xl:text-[26px] xl:leading-13
               2xl:text-[32px] 2xl:leading-14
               sm:leading-12 !text-yellow-950
-              leading-10
+              leading-10 font-bold
               px-4 sm:p-6 rounded-lg transition-all duration-300 [word-spacing:0.2rem]"
                     >
                         The Future of Work:
@@ -62,7 +62,7 @@ export default function SectionThree({ image1,image2 }: { image1: string,image2:
                         Next Gen
                     </button>
 
-                    <button className="absolute cursor-pointer left-2 bottom-20 md:text-[1vw]  font-bold  rounded-2xl z-10 text-white bg-theme  md:left-5 md:bottom-13 lg:bottom-18 xl:bottom-22 2xl:bottom-28 px-4 py-2 2xl:text-[18px]">
+                    <button className="absolute cursor-pointer left-2 bottom-20 md:text-[1vw]  font-semibold  rounded-2xl z-10 text-white bg-theme  md:left-5 md:bottom-13 lg:bottom-18 xl:bottom-22 2xl:bottom-28 px-4 py-1 2xl:text-[18px]">
                         READ MORE
                     </button>
    {/* <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div> */}
