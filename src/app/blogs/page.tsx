@@ -7,40 +7,80 @@ import BlogMobile from "@/app/components/blogs/BlogMobile";
 
 const images: Record<string, Record<string, string>> = {
   section1: {
-    orange: "/blogs/orange_blog_1.jpg",
-    red: "/blogs/red_blog_1.png",
+    orange: "/blogs/orange_blog1.png",
+    red: "/blogs/red_blog1.png",
     olive: "/blogs/olive_blog_3.png",
     purple: "/blogs/purple_blog3.png",
-    pink: "/blogs/pink_blog_1.png",
-    brown: "/blogs/brown_blog_1.png",
-    cyan: "/blogs/cyan_blog_1.png",
+    pink: "/blogs/pink_blog1.png",
+    brown: "/blogs/brown_blog1.png",
+    cyan: "/blogs/cyan_blur1.png",
   },
   section2: {
-    orange: "/blogs/section2/orange.jpg",
-    red: "/blogs/section2/red.jpg",
+    orange: "/blogs/orange_blog2.png",
+    red: "/blogs/red_blog2.png",
     olive: "/blogs/olive_blog_1.png",
     purple: "/blogs/purple_blog_1.png",
-    pink: "/blogs/pink_blog_2.png",
-    brown: "/blogs/brown_blog_2.png",
-    cyan: "/blogs/cyan_blog_3.png",
+    pink: "/blogs/pink_blog2.png",
+    brown: "/blogs/brown_blog2.png",
+    cyan: "/blogs/cyan_blur2.png",
   },
   section3: {
-    orange: "/blogs/orange_blog_3.jpg",
-    red: "/blogs/red_blog_3.jpg",
+    orange: "/blogs/orange_blur3.png",
+    red: "/blogs/red_blog3.png",
     olive: "/blogs/olive_blog_4.png",
     purple: "/blogs/pruple_blog_4.png",
-    pink: "/blogs/pink_blog_3.png",
-    brown: "/blogs/brown_blog_3.png",
-    cyan: "/blogs/cyan_blog_3.png",
+    pink: "/blogs/pink_blog3.png",
+    brown: "/blogs/brown_blog3.png",
+    cyan: "/blogs/cyan_blog3.png",
   },
   section4: {
-    orange: "/blogs/orange_blog_4.jpg",
-    red: "/blogs/red_blog_4.jpg",
+    orange: "/blogs/orange_blog4.png",
+    red: "/blogs/red_blog4.png",
     olive: "/blogs/olive_blog_2.png",
     purple: "/blogs/purple_blgo_2.png",
-    pink: "/blogs/pink_blog_4.png",
-    brown: "/blogs/brown_blog_4.png",
-    cyan: "/blogs/cyan_blog_4.png",
+    pink: "/blogs/pink_blog4.png",
+    brown: "/blogs/brown_blog4.png",
+    cyan: "/blogs/cyan_blog4.png",
+  },
+};
+
+
+const Mob_images: Record<string, Record<string, string>> = {
+  image1: {
+    orange: "/blogs/orange_blog_mobile1.png",
+    red: "/blogs/red_blog_mobile1.png",
+    olive: "/blogs/olive_blog_mobile1.png",
+    purple: "/blogs/purple_blog_mobile1.png",
+    pink: "/blogs/pink_blog_mobile1.png",
+    brown: "/blogs/brown_blog_mobile1.png",
+    cyan: "/blogs/cyan_blog_mobile1.png",
+  },
+  image2: {
+    orange: "/blogs/orange_blog_mobile2.png",
+    red: "/blogs/red_blog_mobile2.png",
+    olive: "/blogs/olive_blog_mobile2.png",
+    purple: "/blogs/purple_blog_mobile2.png",
+    pink: "/blogs/pink_blog_mobile2.png",
+    brown: "/blogs/brown_blog_mobile2.png",
+    cyan: "/blogs/cyan_blog_mobile2.png",
+  },
+  image3: {
+    orange: "/blogs/orange_blog_mobile3.png",
+    red: "/blogs/red_blog_mobile3.png",
+    olive: "/blogs/olive_blog_mobile3.png",
+    purple: "/blogs/pruple_blog_mobile3.png",
+    pink: "/blogs/pink_blog_mobile3.png",
+    brown: "/blogs/brown_blog_mobile3.png",
+    cyan: "/blogs/cyan_blog_mobile3.png",
+  },
+  image4: {
+    orange: "/blogs/orange_blog_mobile4.png",
+    red: "/blogs/red_blog_mobile4.png",
+    olive: "/blogs/olive_blog_mobile4.png",
+    purple: "/blogs/purple_blog_mobile4.png",
+    pink: "/blogs/pink_blog_mobile4.png",
+    brown: "/blogs/brown_blog_mobile4.png",
+    cyan: "/blogs/cyan_blog_mobile4.png",
   },
 };
 
@@ -74,7 +114,10 @@ export default function Home() {
     <div>
       <main>
         {isMobile ? (
-          <BlogMobile />
+          <BlogMobile image1={Mob_images.image1[currentTheme] || Mob_images.image1.orange}
+           image2={Mob_images.image2[currentTheme] || Mob_images.image2.orange} 
+           image3={Mob_images.image3[currentTheme] || Mob_images.image3.orange}
+           image4={Mob_images.image4[currentTheme] || Mob_images.image4.orange} />
         ) : (
           <>
             <SectionOne image={images.section1[currentTheme] || images.section1.orange} />
