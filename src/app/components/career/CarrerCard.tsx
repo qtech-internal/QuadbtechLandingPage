@@ -73,14 +73,15 @@ export default function Career() {
   </span>
 
  <input
-      type="text"
-      placeholder={placeholderText}
-      value={inputValue}
-      onChange={handleChange}
-      onFocus={() => setPlaceholderText('')}
-      onBlur={() => setPlaceholderText('Search')}
-      className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full  sm:w-72 focus:outline-none text-secondary placeholder-black "
-    />
+  type="text"
+  placeholder={placeholderText}
+  value={inputValue}
+  onChange={handleChange}
+  onFocus={() => setPlaceholderText('')}
+  onBlur={() => setPlaceholderText('Search')}
+  className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 text-secondary focus:outline-none placeholder-black placeholder:font-bold"
+/>
+
 </div>
         {/* 2nd  small*/}
         <div className="w-full sm:hidden relative block">

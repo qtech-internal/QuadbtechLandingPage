@@ -196,7 +196,7 @@ const GetToKnow = () => {
     ["#808080", "#000000"]
   );
 
-  const words = "At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.".split(" ");
+  const words = " At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.".split(" ");
 
   useEffect(() => {
     if (isInView) {
@@ -225,7 +225,7 @@ const GetToKnow = () => {
         transition={{ duration: 2 }}
       >
         <motion.div
-          className="w-full md:w-1/4 flex justify-start md:pl-10 lg:translate-x-[-120px] pl-4"
+          className="w-full md:w-1/4 flex justify-start md:pl-10 lg:pl-20 lg:translate-x-[-195px]  pl-4 position-fixed"
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={
             isInView && !isMobile
@@ -265,20 +265,29 @@ const GetToKnow = () => {
             className="text-2xl max-w-[88%] md:text-xl lg:text-3xl sm:text-xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug pr-[4px]"
             style={{ color: textColor }}
           >
-            {words.map((word, index) => (
-              <motion.span
-                key={index}
-                style={{
-                  color: index <= currentWord ? "#000000" : "#808080",
-                  transition: "color 0.3s ease",
-                  marginRight: "4px",
-                  display: "inline-block",
-                }}
-                className='text-[35px] font-[500] translate-x-[6px] '
-              >
-                {word}
-              </motion.span>
-            ))}
+        <motion.span className="text-[35px] font-[500] translate-x-[4px] -mr-3" style={{ color: "#000000" }}>
+  “
+</motion.span>
+
+{words.map((word, index) => (
+  <motion.span
+    key={index}
+    style={{
+      color: index <= currentWord ? "#000000" : "#808080",
+      transition: "color 0.3s ease",
+      marginRight: "4px",
+      display: "inline-block",
+    }}
+    className='text-[35px] font-[500] translate-x-[6px]'
+  >
+    {word}
+  </motion.span>
+))}
+
+<motion.span className="text-[35px] font-[500] translate-x-[6px] ml-1" style={{ color: "#000000" }}>
+  ”
+</motion.span>
+
           </motion.h2>
 
           <motion.div

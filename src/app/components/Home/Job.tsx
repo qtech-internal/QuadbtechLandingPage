@@ -53,9 +53,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-white p-4 flex flex-col items-center space-y-10 relative">
-    <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 mb-10 w-full justify-center sm:justify-between">
-  <h1 className="text-2xl md:text-2xl lg:text-3xl font-extrabold text-black leading-tight text-center sm:text-left">
+    <div className="bg-white p-4 flex flex-col items-center space-y-10 relative lg:translate-y-[-185px] sm:translate-y-[-50px] ">
+    <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 mb-10 w-full justify-center sm:justify-between lg:mt-70 sm:mt-60">
+  <h1 className="text-2xl md:text-3xl lg:text-6xl font-extrabold text-black leading-tight text-center sm:text-left">
     Join Our Mission to <br className="block sm:hidden" />
     <span className="block sm:inline">Build the Future.</span>
   </h1>
@@ -76,7 +76,7 @@ export default function Home() {
         {jobs.map((job, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-full sm:w-[80%] md:w-[300px] lg:w-[350px] snap-start "
+            className="flex-shrink-0 w-full sm:w-[80%] md:w-[350px] lg:w-[350px] snap-start "
           >
             <JobCard
               title={job.title}
@@ -90,9 +90,9 @@ export default function Home() {
       </div>
 
       {/* Scroll */}
-      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full lg:block">
-        <div className="w-24 h-24 bg-white rounded-full text-theme flex items-center justify-center cursor-pointer z-30">
-          <div className="flex items-center gap-2 z-30 text-p">
+      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full lg:block ">
+        <div className="w-26 h-26 bg-white rounded-full text-theme flex items-center justify-center cursor-pointer z-30 ">
+          <div className="flex items-center gap-2 z-30 text-p ">
             <ChevronLeft className="w-6 h-6 cursor-pointer" onClick={handleScrollLeft} />
             <span className="font-bold">DRAG</span>
             <ChevronRight className="w-6 h-6 cursor-pointer" onClick={handleScrollRight} />

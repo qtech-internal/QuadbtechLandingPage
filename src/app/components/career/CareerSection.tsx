@@ -87,7 +87,7 @@ export default function CareerPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-3">
               {/* Card 1 */}
               <div className="bg-theme p-5 sm:p-6 shadow-xl rounded-lg text-white transition-shadow duration-300 hover:shadow-2xl">
-                <p className="text-sm sm:text-base">
+                <p className="text-[18px]  mt-6">
                 At QuadB Tech, we’re more than just a tech company—we’re a community of innovators, problem-solvers, and visionaries shaping the future of Web3 & Web2. Whether you’re a blockchain enthusiast, a software engineer, a designer, or a marketing expert, this is the place to build groundbreaking solutions and grow your career.
                 </p>
               </div>
@@ -105,32 +105,33 @@ export default function CareerPage() {
                 />
               </div>
 
-              {/* Card 3 */}
-              <div className="relative bg-theme shadow-xl rounded-lg flex items-center justify-start sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
-                {/* <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50 z-30"></div> */}
-                <Image
-                  width={400}
-                  height={500}
-                  className="h-full w-[300px] z-20 object-cover rounded-lg"
-                  src={themeImages[currentTheme as keyof typeof themeImages] || themeImages.orange}
-                  alt="VR Technology Image"
-                />
-                <div className="h-full w-24 flex flex-col  justify-center items-center bg-theme z-10 fonts-poppins">
-                  {"QuadB".split("").map((char, idx) => (
-                    <span
-                      key={idx}
-                      className="text-[133.3px] rotate-90 p-0 m-0 font-poppins leading-none font-extrabold"
-                      style={{
-                        WebkitTextStroke: '3px white',
-                        color: 'transparent',
-                        lineHeight: '0.8', 
-                      }}
-                    >
-                      {char}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              
+            {/* Card 3 */}
+<div className="relative bg-theme  lg:w-[450px] shadow-xl rounded-lg flex items-center justify-start sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+  {/* Left Image Section */}
+  <Image
+    width={450}
+    height={500}
+    className="h-full w-[290px] z-20 object-cover rounded-lg"
+    src={themeImages[currentTheme as keyof typeof themeImages] || themeImages.orange}
+    alt="VR Technology Image"
+  />
+
+  {/* Right Vertical Text Column */}
+  <div className="h-full w-24 flex flex-col justify-center items-center bg-theme z-10">
+    {"QuadB".split("").map((char, idx) => (
+      <span
+        key={idx}
+        className="text-[170px] leading-[100px] font-extrabold font-poppins text-transparent rotate-90 "
+        style={{
+          WebkitTextStroke: '3px white',
+        }}
+      >
+        {char}
+      </span>
+    ))}
+  </div>
+</div>
 
 
              
