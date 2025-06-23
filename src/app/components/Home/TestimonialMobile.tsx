@@ -83,15 +83,15 @@ const TestimonialMobile = () => {
       >
         <div
           className="absolute border-2 border-theme rounded-full"
-          style={{ width: `360px`, height: `360px` }}
+          style={{ width: `400px`, height: `400px` }}
         ></div>
 
         {outerImages.map(({ id, src }, index) => {
-          const newAngle = (index * 45 + outerRotation) % 180;
+          const newAngle = (index * 45 + outerRotation) % 200;
           return (
             <div
               key={id}
-              className="absolute rounded-full bg-white shadow-lg overflow-hidden"
+              className="absolute rounded-full bg-white shadow-lg overflow-hidden translate-y-[-26px]"
               style={{
                 width: `34px`,
                 height: `34px`,
@@ -160,7 +160,7 @@ const TestimonialMobile = () => {
       </div>
 
       <div
-        className="absolute bottom-[67px] max-w-sm div-bg shadow-lg px-4 rounded-lg flex flex-col items-center w-[90%]"
+        className="absolute bottom-[67px] max-w-70 div-bg shadow-lg px-4 rounded-lg flex flex-col items-center w-[90%]"
         style={{ height: `144px` }}
       >
         <div

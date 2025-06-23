@@ -202,7 +202,7 @@ export default function ContactUs() {
     >
       {/* Title */}
       <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-semibold text-secondary text-center leading-none relative z-0 select-none">
-        CONTACT <span className="ml-2 ">US</span>
+        CONTACT <span className="-ml-2 ">US</span>
       </h1>
 
       {/* Address Box */}
@@ -374,7 +374,23 @@ export default function ContactUs() {
 
 
       </form>
- {showSuccessPopup && <ThankYouPopup onClose={() => setShowSuccessPopup(false)} />}
+{showSuccessPopup && (
+  <ThankYouPopup
+    onClose={() => {
+      setShowSuccessPopup(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+      recaptchaRef.current?.reset(); // Optional: also reset CAPTCHA if desired
+      setRecaptchaToken(null);
+    }}
+  />
+)}
+
       {/* ReCAPTCHA */}
       {/* <div className="flex justify-center mt-8">
         <ReCAPTCHA

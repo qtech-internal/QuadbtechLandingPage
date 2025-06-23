@@ -20,12 +20,12 @@ const JobCard: React.FC<JobCardProps> = ({
   return (
     <div
       className={`rounded-[20px] border border-theme font-roboto  
-        w-[300px] h-[360px] lg:w-[320px] lg:h-[380px] flex flex-col justify-between p-4 relative 
+        w-[350px] h-[360px] lg:w-[350px] lg:h-[390px] flex flex-col justify-between p-4 relative 
         shadow-md transition-all duration-300 hover:shadow-gray-400 hover:shadow-lg hover:scale-102
         ${isOdd ? "bg-white" : "job-card"}`}
     >
       {/* Top Content */}
-      <div className="space-y-4 z-10 ml-auto relative ">
+      <div className="space-y-4 z-10 ml-auto relative  ">
         <div className="relative inline-block">
           <img
             src="Group 6.png"
@@ -34,8 +34,8 @@ const JobCard: React.FC<JobCardProps> = ({
           />
 
           <h3
-            className={`inline-block px-3 py-1 rounded-full text-sm relative z-10 
-    ${isOdd ? "job-card text-white" : "bg-white text-black"}`}
+            className={`inline-block px-3 py-1 rounded-full text-sm relative z-10  
+    ${isOdd ? "job-card text-white" : "bg-white text-black font-bold"}`}
           >
             {title}
           </h3>

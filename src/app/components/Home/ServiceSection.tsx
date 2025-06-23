@@ -35,7 +35,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       className={`
     group relative w-full h-16 
     transition-all duration-600 ease-in-out overflow-visible rounded-md
-    flex items-center justify-center text-xs sm:text-sm md:text-base font-medium cursor-pointer px-3
+    flex items-center justify-center text-xs sm:text-sm md:text-base font-bold cursor-pointer px-3
     ${bg} ${textColor}
      ${border ? "border border-theme" : ""}
     ${isHovered ? "z-20" : "z-10"}
@@ -225,11 +225,11 @@ const ServiceSection: React.FC = () => {
 
 
       {/* First Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 items-start relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 font-bold lg:grid-cols-4 gap-4 mt-10 items-start relative">
         <div className="div-bg h-16 flex items-center justify-center rounded-r-md hidden lg:flex"></div>
         {/* {renderRow(firstRow)} */}
-        {renderRow(firstRow, { bg: "bg-theme", hoverBg: "bg-theme", textColor: "text-white" }, 0)}
-        <div className="div-bg h-16 flex items-center justify-center rounded-l-md hidden lg:flex"></div>
+        {renderRow(firstRow, { bg: "bg-theme", hoverBg: "bg-theme", textColor: "text-white"  }, 0)}
+        <div className="div-bg h-16 flex items-center justify-center rounded-l-md hidden lg:flex font-bold"></div>
       </div>
 
       {/* Second Row */}

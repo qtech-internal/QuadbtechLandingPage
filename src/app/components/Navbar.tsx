@@ -82,7 +82,7 @@ const Navbar = () => {
 
 
         {/* NAV LINKS (Desktop only) */}
-        <div id="nav-links" className="hidden md:flex space-x-6 font-medium text-lg">
+        <div id="nav-links" className="hidden md:flex space-x-6 font-extrabold text-lg">
           {[
             { path: "/", label: "Home" },
             { path: "/career", label: "Career" },
