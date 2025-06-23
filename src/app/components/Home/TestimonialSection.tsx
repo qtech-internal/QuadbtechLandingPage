@@ -78,13 +78,15 @@ const TestimonialSection = () => {
 
   return (
 
-    <div className="relative flex items-center justify-center py-20 bg-white mx-2
+    <div
+  className="relative flex items-center justify-center py-20 bg-white mx-2
     before:absolute before:top-0 before:left-0 before:w-40 before:h-40
-    before:bg-[url('/vector2.png')] before:bg-contain before:bg-no-repeat before:opacity-30
+    before:bg-[url('/vector2.png')] before:bg-contain before:bg-no-repeat before:opacity-70 before:bg-transparent before:content-['']
     after:absolute after:bottom-0 after:right-0 after:w-40 after:h-40
-    after:bg-[url('/vector2.png')] after:bg-contain after:bg-no-repeat after:opacity-30">
+    after:bg-[url('/vector2.png')] after:bg-contain after:bg-no-repeat after:opacity-70 after:bg-transparent after:content-['']"
+>
       <div className="relative w-[700px] h-[700px] flex items-center justify-center">
-        <div className="absolute w-[600px] h-[600px] border-2 border-theme rounded-full"></div>
+        <div className="absolute w-[700px] h-[700px] border-2 border-[#B73B06] rounded-full"></div>
 
         {/* outer  img */}
         {outerImages.map(({ id, src }, index) => {
@@ -94,7 +96,7 @@ const TestimonialSection = () => {
               key={id}
               className="absolute w-14 h-14 rounded-full bg-white shadow-lg overflow-hidden "
               style={{
-                transform: `rotate(${newAngle}deg) translateX(-300px) rotate(-${newAngle}deg)`,
+                transform: `rotate(${newAngle}deg) translateX(-350px) rotate(-${newAngle}deg)`,
               }}
             >
               <img src={src} className="w-full h-full object-cover" alt={`Outer ${id}`} />
@@ -104,7 +106,7 @@ const TestimonialSection = () => {
         })}
 
         {/* inner circle */}
-        <div className="absolute w-[430px] h-[430px]  border-2 border-theme rounded-full"></div>
+        <div className="absolute w-[430px] h-[430px]  border-2 border-[#B73B06] rounded-full"></div>
         {innerImages.map(({ id, src, comment }, index) => {
           const newIndex = (index - currentIndex + innerImages.length) % innerImages.length;
           const newAngle = newIndex * 45;
@@ -151,14 +153,14 @@ const TestimonialSection = () => {
       </div>
       <div className="absolute text-center max-w-lg top-[35%]">
 <h2 className="text-2xl lg:text-3xl md:text-xl sm:text-sm  font-poppins">
-  Over <span className="font-Poppins">10K+ Clients</span> <br/> Trust{" "}
+  Over <span className="font-Poppins text-semibold">10K+ Clients</span> <br/> Trust{" "}
   <span className=" tracking-tight font-black ">Quadb</span>
 </h2>
 
 
 
       </div>
-      <div className="absolute bottom-48 h-60 w-full div-bg shadow-lg px-6 font-roboto  rounded-lg max-w-xl flex flex-col items-center">
+      <div className="absolute bottom-48 h-60 md:w-110  div-bg shadow-lg px-6 font-roboto  rounded-lg max-w-xl flex flex-col items-center">
 
         <div className="absolute -top-5 -right-5 w-20 h-20 bg-white rounded-full flex items-center justify-center overflow-hidden">
           <div className="w-14 h-14 div-bg rounded-full flex items-center justify-center">

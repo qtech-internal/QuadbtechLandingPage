@@ -114,32 +114,37 @@ export default function Career() {
 
         {/* <div className="w-full lg:w-auto  sm:w-[75%] relative"> */}
         <div className="w-full sm:w-[50%] md:w-[75%] lg:w-auto relative hidden lg:block md:block">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
-            <svg
-              className="w-5 h-5 text-secondary"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
-              />
-            </svg>
-          </span>
 
-          <input
-            type="text"
-            placeholder={placeholderText}
-            value={inputValue}
-            onChange={handleChange}
-            onFocus={() => setPlaceholderText("")}
-            onBlur={() => setPlaceholderText("Search")}
-            className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full  sm:w-72 focus:outline-none text-secondary placeholder-black "
-          />
-        </div>
+
+  <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+ 
+    <svg
+      className="w-5 h-5 text-secondary"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+      />
+    </svg>
+  </span>
+
+ <input
+  type="text"
+  placeholder={placeholderText}
+  value={inputValue}
+  onChange={handleChange}
+  onFocus={() => setPlaceholderText('')}
+  onBlur={() => setPlaceholderText('Search')}
+  className="border border-theme rounded-lg pl-10 pr-4 py-2 w-full sm:w-72 text-secondary focus:outline-none placeholder-black placeholder:font-bold"
+/>
+
+</div>
+
         {/* 2nd  small*/}
         <div className="w-full sm:hidden relative block">
           <span className="absolute inset-y-0 left-0 flex items-center pl-10 pointer-events-none">

@@ -792,7 +792,7 @@ const BlockchainDeveloper = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 lg:pr-8 lg:border-r border-theme">
-            <h2 className="text-xl font-extrabold mb-4">About The Job</h2>
+            <h2 className="text-2xl font-extrabold mb-4">About The Job</h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
               Join our innovative team as a Blockchain Developer. You will be
               responsible for designing, implementing, and supporting
@@ -806,7 +806,7 @@ const BlockchainDeveloper = () => {
               Solidity, Go, or Rust, and familiarity with frameworks like
               Hyperledger Fabric or Ethereum platforms are highly desirable.
             </p>
-            <h2 className="text-xl font-extrabold  mb-8">Eligibility Criteria</h2>
+            <h2 className="text-2xl font-extrabold  mb-8">Eligibility Criteria</h2>
             <ul className="space-y-4 mb-8 list-none pl-0">
               {[
                 "Bachelor's degree in Computer Science, Engineering, or related field.",
@@ -825,7 +825,7 @@ const BlockchainDeveloper = () => {
                 </li>
               ))}
             </ul>
-            <h2 className="text-xl font-extrabold  mb-8">Perks & Conditions</h2>
+            <h2 className="text-2xl font-extrabold  mb-8">Perks & Conditions</h2>
             <ul className="space-y-4 list-none pl-0">
               {[
                 "Competitive salary and performance bonuses.",
@@ -853,12 +853,12 @@ const BlockchainDeveloper = () => {
               className="w-full h-auto rounded-lg object-cover "
               draggable="false"
             />
-            <h2 className="text-xl font-extrabold ">Application Form</h2>
+            <h2 className="text-2xl font-extrabold ">Application Form</h2>
             <form className="space-y-4" onSubmit={handleSubmit} noValidate>
               <div>
                 <label
                   htmlFor="blockchain-dev-name"
-                  className="block text-sm font-bold text-[#333333] mb-1"
+                  className="block text-[18px] font-bold text-[#333333] mb-1"
                 >
                   Name<span className="text-red-500 ml-1">*</span>
                 </label>
@@ -879,7 +879,7 @@ const BlockchainDeveloper = () => {
               <div>
                 <label
                   htmlFor="blockchain-dev-email"
-                  className="block text-sm font-bold text-[#333333] mb-1"
+                  className="block text-[18px] font-bold text-[#333333] mb-1"
                 >
                   Email<span className="text-red-500 ml-1">*</span>
                 </label>
@@ -903,7 +903,7 @@ const BlockchainDeveloper = () => {
               <div>
                 <label
                   htmlFor="blockchain-dev-phone"
-                  className="block text-sm font-bold text-[#333333 mb-1"
+                  className="block text-[18px] font-bold text-[#333333 mb-1"
                 >
                   Phone Number<span className="text-red-500 ml-1">*</span>
                 </label>
@@ -943,7 +943,7 @@ const BlockchainDeveloper = () => {
               </div>
 
               <div className="w-full">
-                <label className="block text-sm font-bold text-[#333333 mb-1">
+                <label className="block text-[18px] font-bold text-[#333333 mb-1">
                  Resume Upload<span className="text-red-500 ml-1">*</span>
                 </label>
                 <div
@@ -987,7 +987,7 @@ const BlockchainDeveloper = () => {
                   {fileName ? (
                     <div className="flex flex-col sm:flex-row items-center justify-between w-full px-2 space-y-2 sm:space-y-0 sm:space-x-4">
                       <p
-                        className="text-sm text-gray-700 truncate flex-grow"
+                        className="text-[18px]text-gray-700 truncate flex-grow"
                         title={fileName}
                       >
                         {fileName}
@@ -1008,7 +1008,7 @@ const BlockchainDeveloper = () => {
                       aria-hidden="true"
                     >
                       <Upload className="h-8 w-8 text-gray-400" />
-                      <p className="text-sm">Upload Your Resume Here</p>
+                      <p className="text-[18px]">Upload Your Resume Here</p>
                     </div>
                   )}
                 </div>
@@ -1017,7 +1017,7 @@ const BlockchainDeveloper = () => {
               <div>
                 <label
                   htmlFor="blockchain-dev-whyjoin"
-                  className="block text-sm font-bold text-[#333333 mb-1"
+                  className="block text-[18px] font-bold text-[#333333 mb-1"
                 >
                   Why do you want to join?
                   <span className="text-red-500 ml-1">*</span>

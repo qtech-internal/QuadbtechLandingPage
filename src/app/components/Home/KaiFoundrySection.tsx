@@ -94,7 +94,7 @@ const imageControls = useAnimation();
         <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-[#000000] text-xl font-semibold font-inter">
           Our Web3 Innovation Lab
           <div className="mt-4 flex">
-              <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={200} height={50} />
+              <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={300} height={60} />
             
           </div>
         </motion.div>
@@ -121,22 +121,22 @@ const imageControls = useAnimation();
  <div className="flex-1 relative">
     {/* Use CSS Grid to define the layout */}
     <div className="grid grid-cols-2 justify-items-center gap-4 mt-10">
-      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold">
         Smart Contracts & DeFi Solutions
       </span>
-      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold">
         Metaverse & Blockchain Gaming
       </span>
 
       {/* This item spans both columns to sit on its own row */}
-      <span className="col-span-2 border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+      <span className="col-span-2 border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold">
         NFT Marketplaces & Tokenization
       </span>
 
-      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+      <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold">
         dApps & Web3 Infrastructure
       </span>
-      <span className="bg-theme text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+      <span className="bg-theme text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold">
         And Many More
       </span>
     </div>
