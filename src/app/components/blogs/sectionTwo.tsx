@@ -87,7 +87,7 @@ export default function SectionTwo({ image }: { image: string}) {
                     className=" cursor-pointer
               absolute
               bottom-[-0vh] left-[50%] transform -translate-x-1/2
-              border-theme bg-white font-semibold rounded-2xl
+              border-theme bg-white  rounded-2xl
 
               text-[3.75vw] sm:px-6 px-4 sm:py-2 py-1 md:text-[0.75vw] md:bottom-0 md:left-[14.5%]
 

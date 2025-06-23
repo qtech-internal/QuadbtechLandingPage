@@ -10,7 +10,7 @@ export default function SectionThree({ image1,image2 }: { image1: string,image2:
     return (
         <section  className="w-full py-12 px-4 md:px-6 lg:px-8">
             <div className="container relative flex flex-col md:flex-row max-auto max-w-8xl gap-8">
-                <div className="relative w-full md:w-[40%] aspect-[16/16] md:aspect-[4/3] ">
+                <div className="relative w-full md:w-[40%]  aspect-[16/16] md:aspect-[4/3] ">
                     <div
 
                         className="
@@ -32,7 +32,7 @@ export default function SectionThree({ image1,image2 }: { image1: string,image2:
                         Workspaces
                     </div>
 
-                    <button className="absolute cursor-pointer item center ml-3 md:text-[1vw] 2xl:text-[18px] border border-theme rounded-2xl -bottom-5 z-10 text-black bg-white left-45 translate-x-[-20px] md:left-25 lg:left-35 xl:left-45 2xl:left-53 px-2 py-1   ">
+                    <button className="absolute cursor-pointer items-center ml-3 md:text-[1vw] 2xl:text-[16px] border border-theme rounded-3xl bottom-4 z-10 text-black bg-white left-45 translate-x-[-20px] md:left-25 lg:left-35 xl:left-45 2xl:left-52.5 px-4 py-1   ">
                         Read More
                     </button>
 
@@ -40,7 +40,7 @@ export default function SectionThree({ image1,image2 }: { image1: string,image2:
                         draggable={false}
                         src={image1}
                         alt="section_3_Image"
-                        objectFit="cover"
+                        
                         className="rounded-2xl transition-all duration-300 translate-y-[-10px] rounded-bottom-2xl  "
                         layout="fill"
                     />
@@ -72,7 +72,6 @@ export default function SectionThree({ image1,image2 }: { image1: string,image2:
                         src={image2}
                         alt="section_3_image2"
                         layout="fill"
-                        objectFit="cover"
                         className="rounded-3xl transition-all duration-300 ml-38"
                         
                     />

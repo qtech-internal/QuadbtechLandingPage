@@ -100,7 +100,7 @@ export default function SectionOne({ image }: { image: string }) {
                     >
                         <div
                             ref={textRef}
-                            className="absolute bottom-0 left-0 z-10 sm:bottom-[-75] sm:left-0 font-bold sm:w-full sm:h-60 bg-white  flex flex-col gap-6  p-4 w-full h-[20vh] "
+                            className="absolute bottom-0 left-0 z-10 sm:bottom-[-75] sm:left-0 font-bold sm:w-full sm:h-60 bg-white  flex flex-col gap-6  px-4 py-0 w-full h-[20vh] "
                             style={{
                                 clipPath:
                                     "path('M118 19C118 8.5 109.5 0 99 0H19C8.5 0 0 8.5 0 19V158C0 168.5 8.5 177 19 177H324C334.5 177 343 168.5 343 158V126C343 115.5 334.5 107 324 107H302C291.5 107 283 98.5 283 88V68C283 57.5 274.5 49 264 49H137C126.5 49 118 40.5 118 30V19Z')",
