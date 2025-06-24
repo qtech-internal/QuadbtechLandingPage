@@ -1,6 +1,14 @@
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const ApplicationSubmittedPopup = ({ isOpen, onClose }) => {
+  const route = useRouter();
+
+  const handleExplore = () => {
+    onClose()              // your existing close logic
+    route.push('/form')  // navigate to /form
+  }
+
   if (!isOpen) return null;
 
   return (
@@ -26,7 +34,7 @@ const ApplicationSubmittedPopup = ({ isOpen, onClose }) => {
           We appreciate your interest and can’t wait to learn more about you!
         </p>
         <button
-          onClick={onClose}
+          onClick={handleExplore}
           className="bg-theme text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-600 transition"
         >
           EXPLORE MORE

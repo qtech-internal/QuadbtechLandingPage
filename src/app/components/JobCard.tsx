@@ -7,7 +7,7 @@ interface JobCardProps {
   experience: string;
   imageSrc: string;
   isOdd: boolean;
-  buttonText?: string; 
+  buttonText?: string;
 }
 const JobCard: React.FC<JobCardProps> = ({
   title,
@@ -20,7 +20,7 @@ const JobCard: React.FC<JobCardProps> = ({
   return (
     <div
       className={`rounded-[20px] border border-theme font-roboto  
-        w-[350px] h-[360px] lg:w-[350px] lg:h-[390px] flex flex-col justify-between p-4 relative 
+        w-[320px] lg:w-[300px] h-[360px] xl:w-[350px] lg:h-[390px] flex flex-col justify-between p-4 relative 
         shadow-md transition-all duration-300 hover:shadow-gray-400 hover:shadow-lg hover:scale-102
         ${isOdd ? "bg-white" : "job-card"}`}
     >
@@ -62,7 +62,6 @@ const JobCard: React.FC<JobCardProps> = ({
 
       {/* Image Section */}
       <div className="relative w-full h-72 flex flex-col justify-end overflow-visible">
-      
         <div className="absolute left-[-30px] bottom-[-40px] w-56 h-80 z-10 overflow-visible ">
           <Image
             src={imageSrc}
@@ -70,21 +69,21 @@ const JobCard: React.FC<JobCardProps> = ({
             width={500}
             height={500}
             className="object-contain w-full h-full mix-blend-multiply  opacity-90"
-             draggable="false"
-            style={{ mixBlendMode: "multiply" }} 
+            draggable="false"
+            style={{ mixBlendMode: "multiply" }}
           />
         </div>
 
         {/* Button */}
         <div className="z-20 flex justify-end pb-4 ">
-      <Link href="/form">
-        <button
-          className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 underline cursor-pointer 
-            ${isOdd ?"button-theme bg-white": "bg-white text-black border border-gray-400" }`}
-        >
-        {buttonText}
-        </button>
-      </Link>
+          <Link href="/form">
+            <button
+              className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 underline cursor-pointer 
+            ${isOdd ? "button-theme bg-white" : "bg-white text-black border border-gray-400"}`}
+            >
+              {buttonText}
+            </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -92,4 +91,3 @@ const JobCard: React.FC<JobCardProps> = ({
 };
 
 export default JobCard;
-
