@@ -11,7 +11,7 @@ import Contact from "./components/Home/Contact";
 import HeroMobile from "./components/Home/HeroMobile";
 import KaiMobile from "./components/Home/KaiMobile";
 import ServiceMobile from "./components/Home/ServiceMobile";
-import GetToKnowMobile from "./components/Home/GetToKnowMobile"
+import GetToKnowMobile from "./components/Home/GetToKnowMobile";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -37,7 +37,7 @@ export default function Home() {
       <section className="mt-20 container mx-auto">
         {isMobile ? <HeroMobile /> : <HeroSection />}
         {isService ? <GetToKnowMobile /> : <GetToKnow />}
-        
+
         {isService ? <ServiceMobile /> : <ServiceSection />}
         {isMobile ? <KaiMobile /> : <KaiFoundrySection />}
         {isMobile ? <TestimonialMobile /> : <TestimonialSection />}

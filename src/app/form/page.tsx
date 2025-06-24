@@ -771,7 +771,7 @@ const BlockchainDeveloper = () => {
   };
 
   return (
-    <div className="w-full min-h-screen py-10 px-4 mt-20">
+    <div className="w-full min-h-screen py-10 px-4 lg:px-10 mt-20">
       <Toaster position="top-right" reverseOrder={false} />
 
       <div className="max-w-[1500px] mx-auto  relative">
