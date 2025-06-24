@@ -70,21 +70,26 @@ export default function ThemeSwitcher() {
           />
         </button>
 
-        {isDropdownOpen && (
-          <div className="absolute left-0 mt-2 w-full bg-white shadow-lg rounded-md border border-gray-300 z-50 p-3 flex flex-wrap gap-3 justify-center">
-            {colors.map(({ name, color }) => (
-              <div
-                key={name}
-                className={`w-10 h-10 flex items-center justify-center cursor-pointer border-2 rounded-full ${
-                  theme === name ? "border-gray-300" : "border-transparent"
-                } hover:border-gray-400 transition`}
-                onClick={() => handleThemeChange(name)}
-              >
-                <FaPalette className={`w-6 h-6 ${color}`} />
-              </div>
-            ))}
-          </div>
-        )}
+      {isDropdownOpen && (
+  <div className="
+    absolute left-0
+    bottom-full mb-2 mt-0
+    md:top-full md:bottom-auto md:mb-0 md:mt-2
+    w-full bg-white shadow-lg rounded-md border border-gray-300 z-50 p-3 flex flex-wrap gap-3 justify-center
+  ">
+    {colors.map(({ name, color }) => (
+      <div
+        key={name}
+        className={`w-10 h-10 flex items-center justify-center cursor-pointer border-2 rounded-full ${
+          theme === name ? "border-gray-300" : "border-transparent"
+        } hover:border-gray-400 transition`}
+        onClick={() => handleThemeChange(name)}
+      >
+        <FaPalette className={`w-6 h-6 ${color}`} />
+      </div>
+    ))}
+  </div>
+)}
       </div>
     </div>
   );
