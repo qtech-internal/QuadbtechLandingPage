@@ -107,7 +107,7 @@ export default function CareerPage() {
 
   return (
     <main className="">
-      <div className=" mt-10">
+      <div className=" mt-10 mx-10 2xl:mx-0">
         {/* Section 1 - Hero */}
         <section className="flex flex-col items-center justify-center py-12 sm:py-16 lg:py-20">
           <img
@@ -149,7 +149,7 @@ export default function CareerPage() {
               </div>
 
               {/* Card 2 */}
-              <div className="relative h-[310px] lg:h-[45vh] xl:h-[37vh] 2xl:h-[35vh] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
+              <div className="relative h-[310px] lg:h-[52vh] xl:h-[41vh] 2xl:h-[35vh] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <Image
                   className="h-full w-full object-cover rounded-lg"
@@ -163,7 +163,7 @@ export default function CareerPage() {
               </div>
 
               {/* Card 3 */}
-              <div className="relative bg-theme  lg:w-[450px] shadow-xl rounded-lg flex items-center justify-start sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+              <div className="relative bg-theme  2xl:w-[450px] shadow-xl rounded-lg flex items-center justify-start sm:h-[300px] lg:row-span-2 lg:h-auto overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
                 {/* Left Image Section */}
                 <Image
                   width={450}
@@ -182,7 +182,7 @@ export default function CareerPage() {
                   {"QuadB".split("").map((char, idx) => (
                     <span
                       key={idx}
-                      className=" text-[75px] lg:text-[150px]  leading-[52px] lg:leading-[100px]   font-extrabold font-poppins text-transparent rotate-90 lg:-ml-0 "
+                      className=" text-[75px] lg:text-[150px] xl:text-[100px]  2xl:text-[150px] leading-[52px] lg:leading-[100px]  xl:leading-[70px]  2xl:leading-[100px] font-extrabold font-poppins text-transparent rotate-90 lg:-ml-0 xl:-ml-8 2xl:-ml-0 "
                       style={{
                         WebkitTextStroke: "3px white",
                       }}
@@ -264,7 +264,7 @@ export default function CareerPage() {
               </div>
 
               {!isTab && (
-                <div className="   relative border-2 border-theme shadow-xl rounded-lg lg:ml-35 xl:ml-16 overflow-hidden mx-auto  w-full max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                <div className="   relative border-2 border-theme shadow-xl rounded-lg lg:ml-42 xl:ml-25 overflow-hidden mx-auto lg:w-[14vw] xl:w-auto  2xl:w-full  max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
                   {/* <Image
                     className="h-full w-full object-cover rounded-lg"
                     src="/blog1.jpeg"

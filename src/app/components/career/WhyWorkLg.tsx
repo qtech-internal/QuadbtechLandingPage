@@ -138,7 +138,7 @@ export default function CareerPage() {
 
   return (
     <div className="hidden lg:flex flex-col text-secondary mx-auto container w-full max-w-7xl ">
-      <div className="mt-10">
+      <div className="mt-10 px-10">
         <section
           ref={whyWorkWithUsRef}
           className=" flex flex-col py-16 sm:py-20 lg:py-24 justify-center relative"
