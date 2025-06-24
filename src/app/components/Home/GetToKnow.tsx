@@ -310,7 +310,7 @@ const GetToKnow = () => {
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: "easeInOut" }}
         >
           <motion.h2
-            className="text-2xl 2xl:w-full lg:ml-10 2xl:-ml-1 md:text-2xl lg:text-4xl sm:text-2xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug mx-auto"
+            className="text-2xl 2xl:w-full lg:ml-10 2xl:ml-1 md:text-2xl lg:text-4xl sm:text-2xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug mx-auto"
             style={{ color: textColor }}
           >
             <motion.span
@@ -342,7 +342,7 @@ const GetToKnow = () => {
           </motion.h2>
 
           <motion.div
-            className="mt-6 flex flex-col lg:ml-10 2xl:-ml-1 sm:flex-row justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
+            className="mt-6 flex flex-col lg:ml-10 2xl:ml-2 sm:flex-row justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "visible"}
@@ -358,7 +358,7 @@ const GetToKnow = () => {
       </motion.div>
 
       {/* Dynamic SVG with theme gradient stroke */}
-      <div className="absolute top-100 lg:top-0 md:top-0 sm:top-80 right-0 h-full w-full flex justify-end pointer-events-none">
+      <div className="absolute top-100 lg:top-0 md:top-0 sm:top-80 right-0 h-full w-full flex justify-end pointer-events-none opacity-38">
         <svg
           width="376"
           height="436"
