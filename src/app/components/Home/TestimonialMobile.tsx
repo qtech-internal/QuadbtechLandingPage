@@ -81,10 +81,16 @@ const TestimonialMobile = () => {
         className="relative flex items-center justify-center"
         style={{ width: `420px`, height: `420px` }}
       >
-        <div
-          className="absolute border-2 border-theme rounded-full"
-          style={{ width: `400px`, height: `400px` }}
-        ></div>
+       <div
+    className="absolute bottom-0 left-1/2 -translate-x-1/2 border-2 border-theme rounded-full"
+    style={{
+      width: `400px`,
+      height: `400px`,
+      
+      WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 85%)",
+      // maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)"
+    }}
+  ></div>
 
         {outerImages.map(({ id, src }, index) => {
           const newAngle = (index * 45 + outerRotation) % 200;

@@ -4,31 +4,66 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdArrowForwardIos } from "react-icons/md";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const carouselItems = [
-    {
-      title: "Transforming Ideas into Reality",
-      description: "Learn More",
-      iconSrc: "/first.gif",
-      bgColor: "/bg.webp",
-      imageSrc: "/home/home1.png",
-    },
-    {
-      title: "Innovate Your Business",
-      description: "Discover How",
-      iconSrc: "/first.gif",
-      bgColor: "/bg.webp",
-      imageSrc: "/home/home2.jpeg",
-    },
-    {
-      title: "Engineering Future",
-      description: "Get Started",
-      iconSrc: "/first.gif",
-      bgColor: "/bg.webp",
-      imageSrc: "/home/home3.jpeg",
-    },
+  const [currentTheme, setCurrentTheme] = useState("orange");
+  const themeImages: { [key: string]: string[] } = {
+    orange: ["/home/AFrame1.png", "/home/CFrame1.png", "/home/BFrame1.png"],
+    olive: ["/home/AFrame2.png", "/home/CFrame2.png", "/home/BFrame2.png"],
+    purple: ["/home/AFrame3.png", "/home/CFrame3.png", "/home/BFrame3.png"],
+    pink: ["/home/AFrame4.png", "/home/CFrame4.png", "/home/BFrame4.png"],
+    cyan: ["/home/AFrame5.png", "/home/CFrame5.png", "/home/BFrame5.png"],
+    brown: ["/home/AFrame6.png", "/home/CFrame6.png", "/home/BFrame6.png"],
+    red: ["/home/AFrame7.png", "/home/CFrame7.png", "/home/BFrame7.png"],
+  };
+  const themeGradients: { [key: string]: { start: string; end: string } } = {
+    orange: { start: "#FF9500", end: "#FFC892" },
+    olive: { start: "#b5b567", end: "#d7d7a3" },
+    purple: { start: "#c866d7", end: "#e6b8f0" },
+    pink: { start: "#ff69b4", end: "#ffc0cb" },
+    red: { start: "#bc4f5a", end: "#f08080" },
+    brown: { start: "#846353", end: "#b99b8b" },
+    cyan: { start: "#00a7a7", end: "#a1e3e3" },
+  };
+  const { start, end } = themeGradients[currentTheme] || themeGradients.orange;
+ 
+
+   useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "orange";
+    setCurrentTheme(savedTheme);
+
+    const handleThemeChange = (e: Event) =>
+      setCurrentTheme((e as CustomEvent<string>).detail);
+    window.addEventListener("themeChanged", handleThemeChange);
+    return () => window.removeEventListener("themeChanged", handleThemeChange);
+  }, []);
+
+
+  useEffect(() => {
+    const { start, end } =
+      themeGradients[currentTheme] || themeGradients.orange;
+    const stop1 = document.getElementById("mini-hero-stop-1");
+    const stop2 = document.getElementById("mini-hero-stop-2");
+    if (stop1) stop1.setAttribute("stop-color", start);
+    if (stop2) stop2.setAttribute("stop-color", end);
+  }, [currentTheme]);
+
+ const carouselTitles = [
+    "Transforming Ideas into Reality",
+    "Innovate Your Business",
+    "Engineering the Future",
   ];
+  const carouselDescriptions = ["Learn More", "Discover How", "Get Started"];
+
+  const themeImageArray = themeImages[currentTheme] || themeImages.orange;
+
+  const carouselItems = carouselTitles.map((title, idx) => ({
+    title,
+    description: carouselDescriptions[idx],
+    iconSrc: "/first.gif",
+    imageSrc: themeImageArray[idx] || themeImageArray[0], // fallback to first if not enough images
+  }));
 
   const settings = {
     infinite: true,
@@ -43,14 +78,16 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full max-w-[1500px] overflow-x-hidden bg-white text-black flex flex-col items-center justify-center p-4">
+    <div
+      className="w-full max-w-[1500px] overflow-x-hidden text-black flex flex-col items-center justify-center p-4"
+     
+    >
       <button
-       className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)] cursor-pointer"
->
+        className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)] cursor-pointer"
+      >
         Start Building Today
       </button>
-      {/* <div className="text-center text-2xl border-2 border-black font-semibold mt-10 mb-8 font-poppins  "> */}
-   <div className="text-center text-2xl  font-semibold mt-10 mb-8 font-poppins leading-[1.2]" style={{ letterSpacing: '-0.02em' }}>
+      <div className="text-center text-2xl  font-semibold mt-10 mb-8 font-poppins leading-[1.2]" style={{ letterSpacing: '-0.02em' }}>
         <span className=" flex">
         <svg width="30" height="20" viewBox="0 0 20 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.51976 8.34108C8.51912 10.1024 8.86702 11.7138 9.58089 13.4069C9.61535 13.4887 9.65071 13.5707 9.68698 13.6531C9.91403 12.204 10.3733 10.8427 11.0584 9.52226L8.51976 8.34108Z" stroke="var(--bg-card)" strokeWidth="6" />
@@ -70,7 +107,6 @@ export default function Home() {
             </svg>
         </span>
       </div>
-
       {/* Carousel */}
       <div className="w-full max-w-3xl mx-auto rounded-[30px] overflow-hidden">
         <Slider {...settings} className="h-[300px] md:h-[400px]">
@@ -80,8 +116,14 @@ export default function Home() {
                 className="w-full h-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${item.imageSrc})` }}
               ></div>
-              <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
-              <div className={`absolute inset-0 ${item.bgColor}`}></div>
+              {/* Gradient overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(135deg, ${start}, ${end})`,
+                  opacity: 0.5
+                }}
+              ></div>
               <div className="absolute bottom-8 left-4 bg-white/10 backdrop-blur-md p-4 rounded-xl flex items-center space-x-4">
                 <div className="div-bg p-2 rounded-lg shadow-md">
                   <img src={item.iconSrc} alt="Icon" className="w-12 h-12" />
@@ -98,22 +140,18 @@ export default function Home() {
         </Slider>
       </div>
       <Link href="#contact">
-      <button className=" mt-10 font-semibold button-theme px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black  hover:bg-[var(--bg-card)] hover:text-white">
-        <span>Book Free Consultancy</span>
-        <div className="relative w-12 h-12 rounded-full   border-theme flex items-center justify-center">
-          <div className="w-10 h-10 rounded-full bg-theme  flex items-center justify-center">
-            <span className="text-white text-xl leading-none -mt-1"><MdArrowForwardIos /></span>
+        <button className=" mt-10 font-semibold button-theme px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black  hover:bg-[var(--bg-card)] hover:text-white">
+          <span>Book Free Consultancy</span>
+          <div className="relative w-12 h-12 rounded-full   border-theme flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-theme  flex items-center justify-center">
+              <span className="text-white text-xl leading-none -mt-1"><MdArrowForwardIos /></span>
+            </div>
           </div>
-        </div>
-
-
         </button>
       </Link>
-
       {/* Sidebar */}
-
       <p className="mt-4 font-semibold text-black text-left">Empowered Teams, <br /> Endless Possibilities</p>
-      <div className="relative mt-10 div-bg flex flex-row items-center space-x-8 my-10 ml-0 rounded-xl shadow-lg justify-start p-4 bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
+      <div className="relative mt-10 div-bg flex flex-row items-center space-x-0 my-10 ml-0 rounded-xl shadow-lg justify-start p-4 bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
         <div className="absolute top-[-6px] left-1/2 -translate-x-1/2 w-16 h-2 bg-theme rounded-t-full shadow-md cursor-pointer">
           <div className="absolute left-1/2 -translate-x-1/2 -top-[4px] w-4 h-2 bg-theme rounded-t-full shadow-md"></div>
         </div>

@@ -8,18 +8,15 @@ type ThankYouPopupProps = {
 const ThankYouPopup: React.FC<ThankYouPopupProps> = ({ onClose }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm bg-white/60">
-      {/* Popup Box */}
       <div className="relative rounded-lg max-w-2xl w-full px-6 py-10 text-center shadow-lg overflow-hidden bg-white">
-        
         {/* Background Image INSIDE the popup */}
         <img
           src="back.png"
           alt="Background"
-          className="absolute left-0 top-0 h-full w-auto max-w-[60%] object-contain pointer-events-none z-0 translate-y-[-20px]"
+          className="absolute right-0 top-0 h-full w-auto max-w-[60%] object-contain pointer-events-none z-0 translate-y-[-20px]"
           draggable="false"
         />
 
-        {/* Actual Content */}
         <div className="relative z-10">
           <h2 className="text-5xl font-extrabold text-black mb-4">
             Thank You for Reaching Out!
@@ -51,7 +48,6 @@ const ThankYouPopup: React.FC<ThankYouPopupProps> = ({ onClose }) => {
           </button>
         </div>
 
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-6 text-2xl font-bold text-gray-400 hover:text-black z-20"
