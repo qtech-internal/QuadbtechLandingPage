@@ -117,7 +117,7 @@
 //   export default SvgImage;
   import React from 'react';
 
-const SvgImage = ({ width = 700, height = 500 }) => { 
+const SvgImage = ({ width = 900, height =700 }) => { 
     const themecolor = "var(--k-bg)";
     return (
       <>

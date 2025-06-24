@@ -69,17 +69,15 @@ const imageControls = useAnimation();
     ref={ref}
     className="relative px-6  md:px-10 py-20 md:py-20 my-20 flex mx-auto  mb-20 justify-center bg-white text-black"
   >
-    {/* image  Page Animation */}
     <motion.div
-      initial={{ y: -200, opacity: 0 }}
-      animate={imageControls}
-      className="absolute z-30"
-      style={{ top: "40%", left: "30%", transform: "translate(-50%, -40%)" }}
-    >
-      
-        <SvgImage  />
-        </motion.div>
-
+  initial={{ y: -200, opacity: 0 }}
+  animate={imageControls}
+  className="absolute z-30 right-2 md:right-8 lg:right-30 2xl:right-60  lg:top-14 flex items-end"
+>
+  <div className=" w-full translate-x-[180px]">
+    <SvgImage />
+  </div>
+</motion.div>
     {!imageAnimationDone && <div className="absolute inset-0 bg-white z-20"></div>}
   
     {/* main  */}
@@ -91,7 +89,7 @@ const imageControls = useAnimation();
       {/* Left Side */}
       <div className="flex-1">
         {/* Heading */}
-        <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-[#000000] text-xl font-semibold font-inter">
+        <motion.div initial={{ x: -100, opacity: 0 }} animate={headingControls} className="text-[#000000] text-xl font-medium font-inter">
           Our Web3 Innovation Lab
           <div className="mt-4 flex">
               <Image src="/kaifoundary.png" alt="Kai Foundry Logo" width={300} height={60} />

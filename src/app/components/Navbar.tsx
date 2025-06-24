@@ -13,7 +13,6 @@ const Navbar = () => {
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement | null>(null); 
 
-  // Animate desktop navbar
   useEffect(() => {
     const tl = gsap.timeline();
     tl.from("#logo", {
@@ -35,7 +34,6 @@ const Navbar = () => {
     });
   }, []);
 
-  // Animate mobile menu
   useEffect(() => {
     if (menuOpen) {
       gsap.from("#mobile-menu a", {
@@ -47,41 +45,31 @@ const Navbar = () => {
     }
   }, [menuOpen]);
 
-  // Close mobile menu on outside click
   useEffect(() => {
     const handleScroll = () => {
       if (menuOpen) {
         setMenuOpen(false);
       }
     };
-  
     if (menuOpen) {
       window.addEventListener("scroll", handleScroll);
     }
-  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [menuOpen]);
 
-
   return (
     <header className="fixed top-0 left-0 w-full px-6 py-4 backdrop-blur-lg bg-white shadow-md font-poppins z-50">
       <nav className="max-w-[1600px] mx-auto flex justify-between items-center">
-        {/* LOGO + Mobile CONTACT US Button */}
- 
-
-<div
-  id="logo"
-  className="flex flex-1 items-center md:justify-start md:flex-none hidden lg:block"
->
-  <Link href="/">
-    <Image src="/Logo Black.png" alt="QuadB Tech" width={120} height={40} />
-  </Link>
-</div>
-
-
-        {/* NAV LINKS (Desktop only) */}
+        <div
+          id="logo"
+          className="flex flex-1 items-center md:justify-start md:flex-none hidden lg:block"
+        >
+          <Link href="/">
+            <Image src="/Logo Black.png" alt="QuadB Tech" width={120} height={40} />
+          </Link>
+        </div>
         <div id="nav-links" className="hidden md:flex space-x-6 font-extrabold text-lg">
           {[
             { path: "/", label: "Home" },
@@ -91,7 +79,7 @@ const Navbar = () => {
             <Link
               key={path}
               href={path}
-                prefetch={true}
+              prefetch={true}
               className={`px-3 py-1 rounded-full ${
                 pathname === path
                   ? "border-2 border-theme font-semibold"
@@ -102,11 +90,8 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-
-        {/* CONTACT US + THEME SWITCHER (Desktop only) */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link href="/contact"
-              prefetch={true}>
+          <Link href="/contact" prefetch={true}>
             <button
               id="contact-button"
               className={`px-4 py-2 rounded-full font-semibold button-theme cursor-pointer ${
@@ -121,24 +106,16 @@ const Navbar = () => {
           <ThemeSwitcher />
         </div>
       </nav>
-
-      {/* MOBILE NAVBAR */}
       <div className="flex items-center justify-between w-full md:hidden">
-        {/* Menu Button */}
         <button onClick={() => setMenuOpen(true)} className="text-gray-600">
           <FaBars size={20} />
         </button>
-
-        {/* Logo */}
-    <div className="flex items-center justify-center">
-  <Link href="/">
-    <Image src="/Logo Black.png" alt="QuadB Tech" width={100} height={30} />
-  </Link>
-</div>
-
-        {/* Contact Us Button */}
-        <Link href="/contact"
-            prefetch={true}>
+        <div className="flex items-center justify-center">
+          <Link href="/">
+            <Image src="/Logo Black.png" alt="QuadB Tech" width={100} height={30} />
+          </Link>
+        </div>
+        <Link href="/contact" prefetch={true}>
           <button
             id="contact-button"
             className={`px-2 py-1 rounded-full font-semibold text-[10px] button-theme ${
@@ -151,46 +128,51 @@ const Navbar = () => {
           </button>
         </Link>
       </div>
-
-      {/* MOBILE MENU SIDEBAR */}
-      <div
-        ref={menuRef}
-        className={`fixed top-0 left-0 h-screen w-[50%] sm:w-2/5 div-bg shadow-lg p-6 transition-transform duration-500 z-50 ${
-          menuOpen ? "translate-x-0" : "-translate-x-full"
+     <div
+  ref={menuRef}
+  className={`fixed top-0 left-0 h-screen w-[50%] sm:w-2/5 div-bg shadow-lg p-6 transition-transform duration-500 z-50 ${
+    menuOpen ? "translate-x-0" : "-translate-x-full"
+  }`}
+>
+  <div className="flex justify-between items-center mb-4">
+    <div className="flex items-center justify-center">
+          <Link href="/">
+            <Image src="/Logo Black.png" alt="QuadB Tech" width={100} height={30} />
+          </Link>
+        </div>
+    {/* Right: Close Button */}
+    <button onClick={() => setMenuOpen(false)} className="text-gray-600">
+      <FaXmark size={24} />
+    </button>
+  </div>
+  <div className="fixed bottom-4 right-4 z-[999] md:hidden">
+    <ThemeSwitcher />
+  </div>
+  <div
+    id="mobile-menu"
+    className="flex flex-col items-center p-10 space-y-6 text-secondary text-lg mt-10 whitespace-nowrap"
+  >
+    {[
+      { path: "/", label: "Home" },
+      { path: "/career", label: "Career" },
+      { path: "/blogs", label: "Blogs" },
+    ].map(({ path, label }) => (
+      <Link
+        key={path}
+        href={path}
+        prefetch={true}
+        onClick={() => setMenuOpen(false)}
+        className={`px-4 py-2 rounded-full ${
+          pathname === path
+            ? "border-2 border-theme text-secondary font-semibold"
+            : ""
         }`}
       >
-        <div className="flex justify-between items-center w-full">
-          <ThemeSwitcher  />
-          <button onClick={() => setMenuOpen(false)} className="text-gray-600">
-            <FaXmark size={20} />
-          </button>
-        </div>
-
-        <div
-          id="mobile-menu"
-          className="flex flex-col items-center p-10 space-y-6 text-secondary text-lg mt-10 whitespace-nowrap"
-        >
-          {[
-            { path: "/", label: "Home" },
-            { path: "/career", label: "Career" },
-            { path: "/blogs", label: "Blogs" },
-          ].map(({ path, label }) => (
-            <Link
-              key={path}
-              href={path}
-                prefetch={true}
-              onClick={() => setMenuOpen(false)}
-              className={`px-4 py-2 rounded-full ${
-                pathname === path
-                  ? "border-2 border-theme text-secondary font-semibold"
-                  : ""
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
-      </div>
+        {label}
+      </Link>
+    ))}
+  </div>
+</div>
     </header>
   );
 };

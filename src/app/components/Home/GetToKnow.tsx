@@ -6,7 +6,7 @@
 //   const isInView = useInView(ref, { once: false, margin: "-100px" });
 
 //   const [isMobile, setIsMobile] = useState(false);
-//   const [screenWidth, setScreenWidth] = useState(0); 
+//   const [screenWidth, setScreenWidth] = useState(0);
 //   useEffect(() => {
 //     if (typeof window !== "undefined") {
 //       setScreenWidth(window.innerWidth);
@@ -31,7 +31,6 @@
 //   // screenWidth >= 1280 ? 180 :
 //   // screenWidth >= 768 ? 150 :
 //   // 80;
-
 
 //   const containerVariants = {
 //     hidden: { opacity: 0 },
@@ -84,7 +83,6 @@
 //           </motion.button>
 //         </motion.div>
 
-
 //         <motion.div
 //           // className="w-full md:w-3/4 text-center md:text-left z-30 "
 //           className="w-full md:w-3/4 text-left z-30"
@@ -103,13 +101,11 @@
 //           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
 //         >
 // <h2 className="text-2xl md:text-2xl style={{ color: #000000' }} lg:text-3xl sm:text-xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug pr-[2px]">
-// At QuadB, we specialize in cutting-edge software development, from robust Web2 
+// At QuadB, we specialize in cutting-edge software development, from robust Web2
 // <span className='text-gray-400 font-Poppins' style={{ color: '#808080' }}>
 //      applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.&rdquo;
 // </span>
 // </h2>
-
-
 
 //           <motion.div
 //             // className="mt-6 flex flex-col sm:flex-row justify-center md:justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
@@ -128,16 +124,13 @@
 
 //       {/* Bg Shape */}
 // <div className="absolute top-100 lg:top-0 md:top-0 sm:top-80 right-0 h-full w-full flex justify-end pointer-events-none">
-//   <img 
-//     src="back.png" 
-//     alt="" 
+//   <img
+//     src="back.png"
+//     alt=""
 //           className="w-[60%] md:w-auto h-auto max-h-[200px] md:max-h-none"
 //           draggable="false"
 //   />
 // </div>
-
-
-
 
 //     </section>
 //   );
@@ -146,8 +139,8 @@
 // export default GetToKnow;
 
 "use client";
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const themeGradients: { [key: string]: { start: string; end: string } } = {
   orange: { start: "#FF9500", end: "#FFC892" },
@@ -168,15 +161,16 @@ const GetToKnow = () => {
   const [screenWidth, setScreenWidth] = useState(0);
   const [currentTheme, setCurrentTheme] = useState("orange");
 
- useEffect(() => {
-  const savedTheme = localStorage.getItem("theme") || "orange";
-  setCurrentTheme(savedTheme);
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "orange";
+    setCurrentTheme(savedTheme);
 
-  const handleThemeChange = (e: Event) => setCurrentTheme((e as CustomEvent<string>).detail);
-  window.addEventListener("themeChanged", handleThemeChange);
-  return () => window.removeEventListener("themeChanged", handleThemeChange);
-}, []);
-  
+    const handleThemeChange = (e: Event) =>
+      setCurrentTheme((e as CustomEvent<string>).detail);
+    window.addEventListener("themeChanged", handleThemeChange);
+    return () => window.removeEventListener("themeChanged", handleThemeChange);
+  }, []);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       setScreenWidth(window.innerWidth);
@@ -202,12 +196,16 @@ const GetToKnow = () => {
   };
   const itemVariants = {
     hidden: { x: -100, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end 0.7"]
+    offset: ["start end", "end 0.7"],
   });
 
   const textColor = useTransform(
@@ -216,24 +214,25 @@ const GetToKnow = () => {
     ["#808080", "#000000"]
   );
 
-  
   useEffect(() => {
-    const { start, end } = themeGradients[currentTheme] || themeGradients.orange;
+    const { start, end } =
+      themeGradients[currentTheme] || themeGradients.orange;
 
-    
     const stop1_1 = document.getElementById("stop1-1");
     const stop1_2 = document.getElementById("stop1-2");
     if (stop1_1) stop1_1.setAttribute("stop-color", start);
     if (stop1_2) stop1_2.setAttribute("stop-color", end);
 
-  
     const stop2_1 = document.getElementById("stop2-1");
     const stop2_2 = document.getElementById("stop2-2");
     if (stop2_1) stop2_1.setAttribute("stop-color", start);
     if (stop2_2) stop2_2.setAttribute("stop-color", end);
   }, [currentTheme]);
 
-  const words = " At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.".split(" ");
+  const words =
+    " At QuadB, we specialize in cutting-edge software development, from robust Web2 applications to blockchain-powered Web3 ecosystems. Whether you're a startup or an enterprise, we bring your vision to life with secure, scalable, and future-ready technology.".split(
+      " "
+    );
 
   useEffect(() => {
     if (isInView) {
@@ -254,35 +253,47 @@ const GetToKnow = () => {
   }, [startWordAnimation, words.length]);
 
   return (
-    <section ref={ref} className="relative bg-white pt-0 pb-4 px-6 overflow-hidden ">
+    <section
+      ref={ref}
+      className="relative bg-white pt-0 pb-4 px-6 overflow-hidden "
+    >
       <motion.div
         className="max-w-[1500px] mx-auto flex flex-col items-start md:items-center gap-10"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 1 }}
         transition={{ duration: 2 }}
       >
-        <motion.div
-          className="w-full md:w-1/4 flex justify-start md:pl-10 lg:pl-20 lg:translate-x-[-195px]  pl-4 position-fixed"
-          initial={{ x: 0, y: 0, opacity: 0 }}
-          animate={
-            isInView && !isMobile
-              ? {
-                  x: [0, xValue, xValue],
-                  y: [0, 0, 40],
-                  opacity: [0, 1, 1],
-                }
-              : { x: 0, y: 0, opacity: 1 }
-          }
-          transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
-        >
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-2 rounded-full text-xs transition-all duration-300 cursor-pointer"
-          >
-            Get to Know Us!
-          </motion.button>
-        </motion.div>
+      <motion.div
+  className="
+    w-full
+    md:w-1/4
+    flex justify-start
+    position-fixed
+    md:translate-x-[40px]
+    lg:translate-x-[-40px]
+    xl:translate-x-[-150px]
+    2xl:translate-x-[-243px]
+  "
+  initial={{ x: 0, y: 0, opacity: 0 }}
+  animate={
+    isInView && !isMobile
+      ? {
+          x: [0, xValue, xValue],
+          y: [0, 0, 40],
+          opacity: [0, 1, 1],
+        }
+      : { x: 0, y: 0, opacity: 1 }
+  }
+  transition={{ duration: 3.5, times: [0, 0.5, 1], ease: "easeInOut" }}
+>
+  <motion.button
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    className="button-theme px-4 py-2 rounded-full text-xs transition-all duration-300 cursor-pointer"
+  >
+    Get to Know Us!
+  </motion.button>
+</motion.div>
 
         <motion.div
           className="w-full md:w-3/4 ml-0 2xl:ml-50 align-left justify-between z-30 translate-x-[-55px]"
@@ -296,13 +307,16 @@ const GetToKnow = () => {
                 }
               : { x: 0, y: 0, opacity: 1 }
           }
-          transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
+          transition={{ duration: 3.5, times: [0, 0.5, 1], ease: "easeInOut" }}
         >
           <motion.h2
-            className="text-2xl max-w-[88%] md:text-xl lg:text-3xl sm:text-xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug pr-[4px]"
+            className="text-2xl 2xl:w-full lg:ml-10 2xl:-ml-1 md:text-2xl lg:text-4xl sm:text-2xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug mx-auto"
             style={{ color: textColor }}
           >
-            <motion.span className="text-[35px] font-[500] translate-x-[4px] -mr-3" style={{ color: "#000000" }}>
+            <motion.span
+              className="text-[35px] font-[500] translate-x-[-6px] -mr-2"
+              style={{ color: "#000000" }}
+            >
               “
             </motion.span>
             {words.map((word, index) => (
@@ -314,37 +328,64 @@ const GetToKnow = () => {
                   marginRight: "4px",
                   display: "inline-block",
                 }}
-                className='text-[40px] font-[500] translate-x-[6px]'
+                className="text-[40px] font-[500] "
               >
                 {word}
               </motion.span>
             ))}
-            <motion.span className="text-[35px] font-[500] translate-x-[6px] ml-1" style={{ color: "#000000" }}>
+            <motion.span
+              className="text-[35px] font-[500] translate-x-[4px] ml-1"
+              style={{ color: "#000000" }}
+            >
               ”
             </motion.span>
           </motion.h2>
 
           <motion.div
-            className="mt-6 flex flex-col sm:flex-row justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
+            className="mt-6 flex flex-col lg:ml-10 2xl:-ml-1 sm:flex-row justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "visible"}
           >
-            <motion.span variants={itemVariants}>100+ Successful Projects</motion.span>
-            <motion.span variants={itemVariants}>10+ Years of Expertise</motion.span>
+            <motion.span variants={itemVariants}>
+              100+ Successful Projects
+            </motion.span>
+            <motion.span variants={itemVariants}>
+              10+ Years of Expertise
+            </motion.span>
           </motion.div>
         </motion.div>
       </motion.div>
 
       {/* Dynamic SVG with theme gradient stroke */}
       <div className="absolute top-100 lg:top-0 md:top-0 sm:top-80 right-0 h-full w-full flex justify-end pointer-events-none">
-        <svg width="376" height="436" viewBox="0 0 376 436" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="376"
+          height="436"
+          viewBox="0 0 376 436"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <defs>
-            <linearGradient id="strokeGradient1" x1="206" y1="1" x2="293" y2="344" gradientUnits="userSpaceOnUse">
+            <linearGradient
+              id="strokeGradient1"
+              x1="206"
+              y1="1"
+              x2="293"
+              y2="344"
+              gradientUnits="userSpaceOnUse"
+            >
               <stop id="stop1-1" stopColor="#FF9500" />
               <stop id="stop1-2" offset="1" stopColor="#FFC892" />
             </linearGradient>
-            <linearGradient id="strokeGradient2" x1="169" y1="432" x2="82" y2="90" gradientUnits="userSpaceOnUse">
+            <linearGradient
+              id="strokeGradient2"
+              x1="169"
+              y1="432"
+              x2="82"
+              y2="90"
+              gradientUnits="userSpaceOnUse"
+            >
               <stop id="stop2-1" stopColor="#FF9500" />
               <stop id="stop2-2" offset="1" stopColor="#FFC892" />
             </linearGradient>

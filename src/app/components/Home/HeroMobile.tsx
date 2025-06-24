@@ -113,7 +113,7 @@ export default function Home() {
       {/* Sidebar */}
 
       <p className="mt-4 font-semibold text-black text-left">Empowered Teams, <br /> Endless Possibilities</p>
-      <div className="relative mt-10 div-bg flex flex-row items-center space-x-8 my-10 ml-0 rounded-xl shadow-lg justify-start p-4 bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
+      <div className="relative mt-10 div-bg flex flex-row items-center space-x-0 my-10 ml-0 rounded-xl shadow-lg justify-start p-4 bg-[#FFF8EB] hover:scale-110 transition-transform duration-300 ease-in-out">
         <div className="absolute top-[-6px] left-1/2 -translate-x-1/2 w-16 h-2 bg-theme rounded-t-full shadow-md cursor-pointer">
           <div className="absolute left-1/2 -translate-x-1/2 -top-[4px] w-4 h-2 bg-theme rounded-t-full shadow-md"></div>
         </div>
