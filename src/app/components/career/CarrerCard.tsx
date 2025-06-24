@@ -107,15 +107,14 @@ export default function Career() {
   };
 
   return (
-    <div className=" bg-white  flex flex-col items-center  justify-center mx-auto  w-full  2xl:max-w-7xl  ">
-      <div className="flex flex-col md:flex-row items-center  mb-4 gap-4 md:gap-50 lg:gap-0  lg:w-full justify-between   mt-16 lg:px-4 xl:px-0  ">
-        <h1 className="text-[36px] lg:text-[48px] md:text-[30px]  whitespace-nowrap font-bold ">
+    <div className="  flex flex-col items-center  justify-cente w-full  2xl:mx-auto    2xl:max-w-7xl  ">
+      <div className="flex flex-col md:flex-row items-center mb-4 gap-4 md:gap-50 lg:gap-74  justify-between mt-16 w-full">
+        <h1 className="text-[36px] lg:text-[48px] md:text-[30px] whitespace-nowrap font-bold ">
           Current Openings
         </h1>
 
-        {/* <div className="w-full lg:w-auto  sm:w-[75%] relative"> */}
-        <div className="w-full sm:w-[50%] md:w-[75%] lg:w-auto relative hidden md:block  ">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+        <div className="w-full sm:w-[50%] md:w-[75%] lg:w-auto relative hidden md:block">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
               className="w-5 h-5 text-secondary"
               fill="none"
@@ -130,7 +129,6 @@ export default function Career() {
               />
             </svg>
           </span>
-
           <input
             type="text"
             placeholder={placeholderText}
@@ -142,7 +140,6 @@ export default function Career() {
           />
         </div>
 
-        {/* 2nd  small*/}
         <div className="w-full sm:hidden relative block">
           <span className="absolute inset-y-0 left-0 flex items-center pl-10 pointer-events-none">
             <svg
@@ -159,7 +156,6 @@ export default function Career() {
               />
             </svg>
           </span>
-
           <input
             type="text"
             placeholder={placeholderText}
@@ -173,8 +169,8 @@ export default function Career() {
       </div>
 
       {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8   m-auto justify-items-center"> */}
-      <div className=" mx-auto ">
-        <div className="md:grid grid-cols-2 container  lg:grid-cols-3 gap-x-16 lg:gap-x-13 xl:gap-x-28 2xl:gap-x-30 gap-y-12 hidden ">
+      <div className="">
+        <div className="md:grid grid-cols-2 lg:grid-cols-3 gap-x-26 lg:gap-x-[5vw] xl:gap-x-28 2xl:gap-x-30 gap-y-12 hidden ">
           {currentJobs.map((job, index) => (
             <JobCard
               key={index}
