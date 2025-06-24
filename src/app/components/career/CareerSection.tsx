@@ -125,7 +125,7 @@ export default function CareerPage() {
               </div>
 
               {/* Card 2 */}
-              <div className="relative h-[310px] lg:h-[52vh] xl:h-[41vh] 2xl:h-[35vh] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
+              <div className="relative h-[60vh] lg:h-[52vh] xl:h-[41vh] 2xl:h-[35vh] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <Image
                   className="h-full w-full object-cover rounded-lg"
@@ -158,7 +158,7 @@ export default function CareerPage() {
                   {"QuadB".split("").map((char, idx) => (
                     <span
                       key={idx}
-                      className=" text-[75px] lg:text-[150px] xl:text-[100px]  2xl:text-[150px] leading-[52px] lg:leading-[100px]  xl:leading-[70px]  2xl:leading-[100px] font-extrabold font-poppins text-transparent rotate-90 lg:-ml-0 xl:-ml-8 2xl:-ml-0 "
+                      className=" text-[75px] lg:text-[150px] xl:text-[120px]  2xl:text-[150px] leading-[52px] lg:leading-[100px]  xl:leading-[80px]  2xl:leading-[100px] font-extrabold font-poppins text-transparent rotate-90 lg:ml-1 xl:-ml-4 2xl:ml-1 "
                       style={{
                         WebkitTextStroke: "3px white",
                       }}
