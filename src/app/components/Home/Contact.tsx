@@ -83,6 +83,8 @@ export default function ContactUs() {
     }
   };
 
+  // console.log(formData)
+
   const isFormValid =
   formData.name.trim() !== "" &&
   formData.email.trim() !== "" &&
@@ -233,7 +235,7 @@ export default function ContactUs() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { name: "name", placeholder: "Name", type: "text" },
-            { name: "email", placeholder: "Email", type: "email" },
+            { name: "email", placeholder: "Email", type: "text" },
             { name: "phone", placeholder: "Phone No.", type: "tel" }, // Use tel type
             { name: "subject", placeholder: "Subject", type: "text" },
           ].map((field) => (
