@@ -773,16 +773,38 @@ const BlockchainDeveloper = () => {
   };
 
   return (
-    <div className="w-full min-h-screen py-10 px-4 lg:px-10 mt-20">
+    <div className="w-full min-h-screen py-10 px-4 lg:px-10  mt-20">
       <Toaster position="top-right" reverseOrder={false} />
 
       <div className="max-w-[1500px] mx-auto  relative">
         <button
           onClick={() => router.back()}
-          className="top-4 mb-4   left-4 text-secondary hover:text-black disabled:opacity-50 transition-opacity"
+          className="top-4 mb-4   left-4 text-secondary flex gap-3 text-[#4D4D4D] font-[500] text-[20px] items-center hover:text-black disabled:opacity-50 transition-opacity"
           disabled={loading}
         >
-          ← Back
+          <svg
+            width="20"
+            height="16"
+            viewBox="0 0 20 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 8H1.5"
+              stroke="#4D4D4D"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M8 15L1 8L8 1"
+              stroke="#4D4D4D"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Back
         </button>
 
         <div className="w-full flex justify-center mb-16 ">
@@ -1043,7 +1065,7 @@ const BlockchainDeveloper = () => {
               {/* at 1044 i changed bg-theme to bg-[#F97F07] */}
               <button
                 type="submit"
-                className="w-full cursor-pointer sm:w-1/2 mx-auto flex justify-center items-center bg-[#ecad6e] text-white font-semibold py-3 px-6 rounded-full hover:bg-[#F97F07] focus-ring-bg transition duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full lg:w-[139px] cursor-pointer sm:w-1/2 mx-auto flex justify-center items-center bg-theme text-white font-[400] py-3 px-6 rounded-full  focus-ring-bg transition duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed"
                 disabled={loading}
               >
                 {loading ? (

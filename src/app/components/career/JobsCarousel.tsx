@@ -199,7 +199,7 @@ const JobsCarousel: FC<JobsCarouselProps> = ({ currentJobs }) => {
         ))}
       </div>
 
-      <div className="absolute right-0 top-[55%] transform -translate-y-1/2 z-40 border-theme border-2 rounded-full md:hideen">
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full md:hideen">
         <div className="w-26 h-26 bg-white rounded-full text-theme flex items-center justify-center z-30">
           <div className="flex items-center gap-2 z-30 text-p px-3">
             <ChevronLeft

@@ -1,13 +1,24 @@
 "use client";
 
-import { Inter } from "next/font/google";
+import { Inter,Poppins } from "next/font/google";
+
 
 const inter = Inter({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
   fallback: ["sans-serif"],
+  
 });
+
+const poppins = Poppins({
+  weight: "500",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["sans-serif"],
+  
+});
+
 const QuadBIntro = () => {
   return (
     <>
@@ -39,11 +50,11 @@ const QuadBIntro = () => {
 
           {/* Rotated QuadB text – OUTSIDE orange box but touching right side */}
 
-          <div className="absolute top-1/2 left-[192px] text-center  transform -translate-y-1/2 rotate-90 text-7xl font-bold -ml-1 ">
+          <div className="absolute top-1/2 left-[192px] text-center  transform -translate-y-1/2 rotate-90 text-[64px] font-bold -ml-2 ">
             <h1
-              className={`text-[65px] font-extrabold z-10 ${inter.className} `}
+              className={`text-[62px] font-extrabold z-10 ${poppins.className} `}
               style={{
-                WebkitTextStroke: "1.7px var(--bg-card)",
+                WebkitTextStroke: "3px var(--bg-card)",
                 color: "white",
               }}
             >
@@ -103,14 +114,14 @@ const QuadBIntro = () => {
           <div className="relative w-2/3 rounded-xl overflow-hidden">
             {/* Image */}
             <img
-              src="/career/bot2.png"
+              src="/career/career4.png"
               alt="VR Vision"
-              className="w-full h-full object-cover opacity-50"
+              className="w-full h-full object-cover "
               draggable={false}
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
+            {/* <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div> */}
           </div>
         </div>
       </div>

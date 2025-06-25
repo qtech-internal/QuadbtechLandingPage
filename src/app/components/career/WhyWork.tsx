@@ -6,10 +6,10 @@ const WhyWork = () => {
     <section className="flex flex-col justify-center items-center  py-16 sm:py-20 lg:py-24 relative ">
       {/* Top Section */}
       <div className="w-full mb-12 justify-center text-center">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold">
+        <h2 className="text-[32px] font-[700]">
           Why Work With Us?
         </h2>
-        <p className="text-base sm:text-lg mt-4   ">
+        <p className="text-[16px] mt-5 font-[400] text-[#333333] px-2   ">
           Leverage the power of our developer network to fuel your next big
           breakthrough!
         </p>

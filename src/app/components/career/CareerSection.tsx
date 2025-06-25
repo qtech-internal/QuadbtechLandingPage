@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import { Inter,Poppins } from "next/font/google";
 
 const themeImages = {
   orange: "/career/Frame3.png",
@@ -20,6 +20,14 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   fallback: ["sans-serif"],
+});
+
+const poppins = Poppins({
+  weight: "500",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["sans-serif"],
+  
 });
 
 export default function CareerPage() {
@@ -91,7 +99,7 @@ export default function CareerPage() {
 
   return (
     <main className="">
-      <div className=" mt-10 mx-10 2xl:mx-0 ">
+      <div className=" mt-10 mx-10 2xl:mx-0  ">
         {/* Section 1 - Hero */}
         <section className="flex flex-col items-center justify-center py-12 sm:py-16 lg:py-20">
           <img
@@ -119,7 +127,7 @@ export default function CareerPage() {
             ref={cardWrapperRef}
             className="container w-full max-w-7xl mt-10 sm:mt-12 lg:mt-16"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-3 overflow-hidden rounded-lg">
               {/* Card 1 */}
               <div className="bg-theme p-5 sm:p-6 shadow-xl rounded-lg text-white transition-shadow duration-300 hover:shadow-2xl">
                 <p className="text-[18px]  mt-6">
@@ -133,7 +141,7 @@ export default function CareerPage() {
               </div>
 
               {/* Card 2 */}
-              <div className="relative h-[61vh] lg:h-[52vh] xl:h-[41vh] 2xl:h-[38vh] 3xl:h-[29vh]  overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
+              <div className="relative h-[61vh] lg:h-[52vh] xl:h-[41vh] 2xl:h-[42vh] 3xl:h-[29vh]  overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <Image
                   className="h-full w-full object-cover rounded-lg"
@@ -175,7 +183,7 @@ export default function CareerPage() {
                     </span>
                   ))} */}
                   <h1
-                    className={`text-[75px] ${inter.className} lg:text-[150px] xl:text-[120px]  2xl:text-[150px] leading-[52px] lg:leading-[100px]  xl:leading-[80px]  2xl:leading-[100px] 3xl:leading-[180px] font-extrabold  text-transparent rotate-90 lg:ml-1 xl:-ml-4 2xl:ml-1 `}
+                    className={`text-[75px] ${poppins.className} lg:text-[150px] xl:text-[120px]  2xl:text-[150px] leading-[52px] lg:leading-[100px]  xl:leading-[80px]  2xl:leading-[100px] 3xl:leading-[180px] font-extrabold  text-transparent rotate-90 lg:ml-2 xl:-ml-5 2xl:ml-2 `}
                     style={{
                       WebkitTextStroke: "3px white",
                       // color: "white",

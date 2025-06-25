@@ -93,7 +93,7 @@ const ApplicationSubmittedPopup = ({ isOpen, onClose }) => {
         </p>
         <button
           onClick={handleExplore}
-          className="bg-theme text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-600 transition"
+          className="bg-[#F97F07] text-white px-6 py-2 border border-theme cursor-pointer  rounded-full font-semibold hover:bg-orange-50 transition"
         >
           EXPLORE MORE
         </button>

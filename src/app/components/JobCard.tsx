@@ -25,14 +25,14 @@ const JobCard: React.FC<JobCardProps> = ({
         ${isOdd ? "bg-white" : "job-card"}`}
     >
       {/* Top Content */}
-      <div className="space-y-4 z-10 ml-auto relative  ">
+      <div className="space-y-2 lg:space-y-4 z-10 ml-auto relative  ">
         <div className="relative inline-block">
           <img
             src="Group 6.png"
             alt=""
             className="absolute -top-2 -left-3 w-8 h-8 z-0"
           />
-
+          
           <h3
             className={`inline-block px-3 py-1 rounded-full text-sm relative z-10  
     ${isOdd ? "job-card text-white" : "bg-white text-black font-bold"}`}
@@ -41,19 +41,19 @@ const JobCard: React.FC<JobCardProps> = ({
           </h3>
         </div>
 
-        <div>
+        <div className="flex justify-end">
           <p
             className={`rounded-full text-sm px-2 py-1 mb-1 inline-block border 
-              ${isOdd ? "border-gray-300 text-black" : "border-theme text-theme"}`}
+              ${isOdd ? "border-gray-300 text-black" : "border border-white text-theme"}`} //border-theme
           >
             Location: {location}
           </p>
         </div>
 
-        <div>
+        <div className="flex justify-end">
           <p
             className={`rounded-full text-sm px-2 py-1 inline-block border 
-              ${isOdd ? "border-gray-300 text-black" : "border-theme text-theme"}`}
+              ${isOdd ? "border-gray-300 text-black" : "border border-white text-theme"}`} // border-theme
           >
             Experience: {experience}
           </p>
@@ -79,7 +79,7 @@ const JobCard: React.FC<JobCardProps> = ({
           <Link href="/form">
             <button
               className={`text-sm font-medium py-2 px-6 rounded-full transition duration-300 underline cursor-pointer 
-            ${isOdd ? "button-theme bg-white" : "bg-white text-black border border-gray-400"}`}
+            ${isOdd ? "button-theme bg-white " : "bg-white text-black border border-gray-400"}`}
             >
               {buttonText}
             </button>
