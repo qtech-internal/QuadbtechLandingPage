@@ -71,38 +71,41 @@ const Navbar = () => {
           </Link>
         </div>
         <div id="nav-links" className="hidden md:flex space-x-6 font-extrabold text-lg">
-          {[
-            { path: "/", label: "Home" },
-            { path: "/career", label: "Career" },
-            { path: "/blogs", label: "Blogs" },
-          ].map(({ path, label }) => (
-            <Link
-              key={path}
-              href={path}
-              prefetch={true}
-              className={`px-3 py-1 rounded-full ${
-                pathname === path
-                  ? "border-2 border-theme font-semibold"
-                  : "hover:text-theme"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
+{[
+  { path: "/", label: "Home" },
+  { path: "/career", label: "Career" },
+  { path: "/blogs", label: "Blogs" },
+].map(({ path, label }) => (
+  <Link
+    key={path}
+    href={path}
+    prefetch={true}
+    className={`
+      relative px-3 py-1 rounded-full font-semibold
+      after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1
+      after:h-[1px] after:bg-black after:rounded after:transition-all after:duration-300
+      after:scale-x-0 after:opacity-0
+      hover:after:scale-x-100 hover:after:opacity-100
+      ${pathname === path ? "border-2 border-theme" : "hover:text-theme"}
+    `}
+  >
+    {label}
+  </Link>
+))}    </div>
         <div className="hidden md:flex items-center space-x-4">
-          <Link href="/contact" prefetch={true}>
-            <button
-              id="contact-button"
-              className={`px-4 py-2 rounded-full font-semibold button-theme cursor-pointer ${
-                pathname === "/contact"
-                  ? "border-theme text-theme"
-                  : "hover:bg-theme hover:text-secondary"
-              }`}
-            >
-              CONTACT US
-            </button>
-          </Link>
+        <Link href="/contact" prefetch={true}>
+  <button
+    id="contact-button"
+    className={`px-4 py-2 rounded-full font-semibold button-theme cursor-pointer
+      ${
+        pathname === "/contact"
+          ? "bg-theme text-secondary border-theme" // Always show as hovered when on /contact
+          : "hover:bg-theme hover:text-secondary"
+      }`}
+  >
+    CONTACT US
+  </button>
+</Link>
           <ThemeSwitcher />
         </div>
       </nav>
@@ -116,17 +119,18 @@ const Navbar = () => {
           </Link>
         </div>
         <Link href="/contact" prefetch={true}>
-          <button
-            id="contact-button"
-            className={`px-2 py-1 rounded-full font-semibold text-[10px] button-theme ${
-              pathname === "/contact"
-                ? "border-theme text-theme"
-                : "hover:bg-theme hover:text-secondary"
-            }`}
-          >
-            CONTACT 
-          </button>
-        </Link>
+  <button
+    id="contact-button"
+    className={`px-2 py-1 rounded-full font-semibold text-[10px] button-theme
+      ${
+        pathname === "/contact"
+          ? "bg-theme text-secondary border-theme"
+          : "hover:bg-theme hover:text-secondary"
+      }`}
+  >
+    CONTACT
+  </button>
+</Link>
       </div>
      <div
   ref={menuRef}
@@ -152,25 +156,29 @@ const Navbar = () => {
     id="mobile-menu"
     className="flex flex-col items-center p-10 space-y-6 text-secondary text-lg mt-10 whitespace-nowrap"
   >
-    {[
-      { path: "/", label: "Home" },
-      { path: "/career", label: "Career" },
-      { path: "/blogs", label: "Blogs" },
-    ].map(({ path, label }) => (
-      <Link
-        key={path}
-        href={path}
-        prefetch={true}
-        onClick={() => setMenuOpen(false)}
-        className={`px-4 py-2 rounded-full ${
-          pathname === path
-            ? "border-2 border-theme text-secondary font-semibold"
-            : ""
-        }`}
-      >
-        {label}
-      </Link>
-    ))}
+ {[
+  { path: "/", label: "Home" },
+  { path: "/career", label: "Career" },
+  { path: "/blogs", label: "Blogs" },
+].map(({ path, label }) => (
+  <Link
+    key={path}
+    href={path}
+    prefetch={true}
+    onClick={() => setMenuOpen(false)}
+    className={`
+  relative px-4 py-2 rounded-full font-semibold
+  after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1
+  after:h-[1px] after:bg-black after:rounded after:transition-all after:duration-300
+  after:scale-x-0 after:opacity-0
+  hover:after:scale-x-100 hover:after:opacity-100
+  active:after:scale-x-100 active:after:opacity-100
+  ${pathname === path ? "border-2 border-theme text-secondary font-semibold" : ""}
+`}
+  >
+    {label}
+  </Link>
+))}
   </div>
 </div>
     </header>

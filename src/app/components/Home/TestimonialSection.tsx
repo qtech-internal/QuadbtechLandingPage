@@ -159,7 +159,7 @@ const TestimonialSection = () => {
           />
         </g>
       </svg>
-      {/* ...rest of your TestimonialSection code (unchanged)... */}
+   
       <div className="relative w-[700px] h-[700px] flex items-center justify-center  overflow-hidden">
         <div
           className="absolute w-[650px] h-[650px] border-2 border-[#B73B06] rounded-full mt-6"
@@ -205,7 +205,7 @@ const TestimonialSection = () => {
                 <div className="relative">
                   <div className="absolute left-full -top-20 -translate-y-1/2 ml-2 w-48 p-2 text-[20px] lg:text-[20px] sm:text-[14px] text-white bg-theme rounded-lg shadow-lg opacity-100 transition-opacity duration-300 z-50 whitespace-nowrap">
                     {comment}
-                    <div className="absolute left-0 bottom-0 translate-x-[-6px] translate-y-[6px] rotate-[-20deg] 
+                    <div className="absolute left-0 bottom-0 translate-x-[-1px] translate-y-[6px] rotate-[-20deg] 
                       w-0 h-0 border-t-4 border-t-transparent border-b-4 border-b-transparent 
                       border-r-4 border-r-[var(--border-card)]">
                     </div>

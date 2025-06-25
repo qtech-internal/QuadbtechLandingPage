@@ -140,9 +140,9 @@ export default function Home() {
         </Slider>
       </div>
       <Link href="#contact">
-        <button className=" mt-10 font-semibold button-theme px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black  hover:bg-[var(--bg-card)] hover:text-white">
+        <button className=" mt-10 font-semibold button-theme px-10 py-0 text-[15px] rounded-full shadow-md flex items-center space-x-2 text-black  hover:bg-[var(--bg-card)] hover:text-white">
           <span>Book Free Consultancy</span>
-          <div className="relative w-12 h-12 rounded-full   border-theme flex items-center justify-center">
+          <div className="relative w-12 h-12 rounded-full    border-theme flex items-center justify-center translate-x-[20px]">
             <div className="w-10 h-10 rounded-full bg-theme  flex items-center justify-center">
               <span className="text-white text-xl leading-none -mt-1"><MdArrowForwardIos /></span>
             </div>
