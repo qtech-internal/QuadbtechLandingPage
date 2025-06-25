@@ -129,7 +129,7 @@ export default function CareerPage() {
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <Image
                   className="h-full w-full object-cover rounded-lg"
-                  src="/career/career1.png"
+                  src="/career/Frame2.svg"
                   alt="Abstract Technology Image"
                   width={410}
                   height={300}

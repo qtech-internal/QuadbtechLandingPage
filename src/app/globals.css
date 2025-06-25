@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-
-
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -26,7 +24,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
- 
+
 /* @font-face {
   font-family: "Manrope";
   src: url("/font/regular.otf") format("opentype");
@@ -95,13 +93,15 @@ body {
 }
 
 body {
- color: var(--foreground);
-  width:100dvw;
+  color: var(--foreground);
+  width: 100dvw;
   height: 100dvh;
-  background-color: #ffffff; 
+  background-color: #ffffff;
 }
 .custom-clip {
-  clip-path: path('M120,0 H100% V100% H120 C100,100% 0,80% 0,50% C0,20% 100,0 120,0 Z');
+  clip-path: path(
+    "M120,0 H100% V100% H120 C100,100% 0,80% 0,50% C0,20% 100,0 120,0 Z"
+  );
   border-radius: 24px;
 }
 
@@ -111,21 +111,20 @@ body {
 
 /* Default */
 :root {
-  --bg-card: #F97316;
+  --bg-card: #f97316;
   --border-card: #e65100;
   --text-primary: #ffffff;
   --text-secondary: #000000;
   --button-bg: #ff9800;
   --button-text: #1b1a1a;
-  --button-border: #F97F07;
-  --p-text:#B73B06;
-  --div-bg:#FFF2E4;
+  --button-border: #f97f07;
+  --p-text: #b73b06;
+  --div-bg: #fff2e4;
   /* --k-bg:#C866D7; */
-  --k-bg:#F97316;
-  --bg-cards: #FF7E00;
-  --job-card-bg: #E98800;
+  --k-bg: #f97316;
+  --bg-cards: #ff7e00;
+  --job-card-bg: #e98800;
 }
-
 
 .olive {
   --bg-card: #b5b567;
@@ -136,29 +135,27 @@ body {
   /* --button-text: #ffffff; */
   --button-text: #1b1a1a;
   --button-border: #3b442a;
-  --p-text:#115640;
-  --div-bg:#c0cda9;
-  --k-bg: #8A9A5B;
-  --bg-cards:#dada65;
+  --p-text: #115640;
+  --div-bg: #c0cda9;
+  --k-bg: #8a9a5b;
+  --bg-cards: #dada65;
   --job-card-bg: #b5b567;
 }
 
-
 .purple {
-  --bg-card: #C866D7;
+  --bg-card: #c866d7;
   --border-card: #8e66ab;
   --text-primary: #ffffff;
   --text-secondary: #000000;
   --button-bg: #6a0dad;
   /* --button-text: #ffffff; */
   --button-text: #1b1a1a;
-  --button-border: #C866D7;
-  --p-text:rgb(8, 50, 79);
-  --div-bg:#f1eaf7;
-  --k-bg: #C866D7;
+  --button-border: #c866d7;
+  --p-text: rgb(8, 50, 79);
+  --div-bg: #f1eaf7;
+  --k-bg: #c866d7;
   --bg-cards: #d6c4e0;
   --job-card-bg: #9a58a4;
-  
 }
 
 .pink {
@@ -171,51 +168,50 @@ body {
   --button-border: #d1478f;
   --p-text: #8c1f4d;
   --div-bg: #ffd1dc;
-  --k-bg: #FF85C1;
+  --k-bg: #ff85c1;
   --bg-cards: #f7c6d7;
   --job-card-bg: #d886af;
- 
 }
 
 .red {
   --bg-card: #bc4f5a;
-  --border-card: #8B0000;
+  --border-card: #8b0000;
   --text-primary: #ffffff;
   --text-secondary: #000000;
-  --button-bg: #7C020F;
+  --button-bg: #7c020f;
   --button-text: #1b1a1a;
-  --button-border: #8B0000;
-  --p-text: #A52A2A;
+  --button-border: #8b0000;
+  --p-text: #a52a2a;
   --div-bg: #c59198;
-  --k-bg: #D96C75;
+  --k-bg: #d96c75;
   --bg-cards: #f7d1d3;
   --job-card-bg: #b85c65;
 }
 .brown {
   --bg-card: #846353;
-  --border-card: #8B5A2B;
+  --border-card: #8b5a2b;
   --text-primary: #ffffff;
   --text-secondary: #000000;
-  --button-bg: #7D4E36;
+  --button-bg: #7d4e36;
   --button-text: #1b1a1a;
   --button-border: #c3b3a5;
-  --p-text: #A67B5B;
+  --p-text: #a67b5b;
   --div-bg: #f3dec7;
-  --k-bg: #B68C72;
+  --k-bg: #b68c72;
   --bg-cards: #d6c4b5;
   --job-card-bg: #958076;
 }
 .cyan {
-  --bg-card: #00A7A7;
-  --border-card: #008B8B;
+  --bg-card: #00a7a7;
+  --border-card: #008b8b;
   --text-primary: #ffffff;
   --text-secondary: #000000;
-  --button-bg: #00CCCC;
+  --button-bg: #00cccc;
   --button-text: #1b1a1a;
-  --button-border: #008B8B;
-  --p-text: #20B2AA;
+  --button-border: #008b8b;
+  --p-text: #20b2aa;
   --div-bg: #d6f7f7;
-  --k-bg: #52D1C5;
+  --k-bg: #52d1c5;
   --bg-cards: #a4d8e1;
   --job-card-bg: #50a6a6;
 }
@@ -236,7 +232,7 @@ body {
   box-shadow: 0 0 0 2px var(--bg-card);
 }
 
-.brd-theme:hover{
+.brd-theme:hover {
   border-color: var(--button-border);
 }
 
@@ -247,7 +243,7 @@ body {
   color: var(--p-text);
 }
 .button-theme {
- color: var(--button-text);
+  color: var(--button-text);
   border: 2px solid var(--button-border);
 }
 
@@ -268,22 +264,29 @@ body {
 }
 
 .blog-1-image {
-    clip-path: path("M18 0C8.05887 0 0 8.05887 0 18V316C0 326.493 8.50659 335 19 335H99C109.493 335 118 343.507 118 354V365C118 375.493 126.507 384 137 384H264C274.493 384 283 392.507 283 403V423C283 433.493 291.507 442 302 442H324C334.493 442 343 450.507 343 461V493C343 503.493 351.507 512 362 512H906C915.941 512 924 503.941 924 494V18C924 8.05887 915.941 0 906 0H18Z");
-
+  clip-path: path(
+    "M18 0C8.05887 0 0 8.05887 0 18V316C0 326.493 8.50659 335 19 335H99C109.493 335 118 343.507 118 354V365C118 375.493 126.507 384 137 384H264C274.493 384 283 392.507 283 403V423C283 433.493 291.507 442 302 442H324C334.493 442 343 450.507 343 461V493C343 503.493 351.507 512 362 512H906C915.941 512 924 503.941 924 494V18C924 8.05887 915.941 0 906 0H18Z"
+  );
 }
 
 .custom-clip {
-  clip-path: path("M18 0C8.05887 0 0 8.05887 0 18V583C0 592.941 8.05891 601 18 601H121C131.493 601 140 592.493 140 582V577C140 566.507 148.507 558 159 558H251C261.493 558 270 566.507 270 577V582C270 592.493 278.507 601 289 601H1405C1414.94 601 1423 592.941 1423 583V184C1423 173.507 1414.49 165 1404 165H1023C1012.51 165 1004 156.493 1004 146V98C1004 87.5066 1012.51 79 1023 79H1043C1053.49 79 1062 70.4934 1062 60V19C1062 8.50659 1053.49 0 1043 0H18Z");
+  clip-path: path(
+    "M18 0C8.05887 0 0 8.05887 0 18V583C0 592.941 8.05891 601 18 601H121C131.493 601 140 592.493 140 582V577C140 566.507 148.507 558 159 558H251C261.493 558 270 566.507 270 577V582C270 592.493 278.507 601 289 601H1405C1414.94 601 1423 592.941 1423 583V184C1423 173.507 1414.49 165 1404 165H1023C1012.51 165 1004 156.493 1004 146V98C1004 87.5066 1012.51 79 1023 79H1043C1053.49 79 1062 70.4934 1062 60V19C1062 8.50659 1053.49 0 1043 0H18Z"
+  );
 }
 
 .element {
-  clip-path: path("M118 19C118 8.50659 109.493 0 99 0H19C8.50659 0 0 8.50659 0 19V49V70V107V119V158C0 168.493 8.50659 177 19 177H324C334.493 177 343 168.493 343 158V126C343 115.507 334.493 107 324 107H302C291.507 107 283 98.4934 283 88V68C283 57.5066 274.493 49 264 49H137C126.507 49 118 40.4934 118 30V19Z");
+  clip-path: path(
+    "M118 19C118 8.50659 109.493 0 99 0H19C8.50659 0 0 8.50659 0 19V49V70V107V119V158C0 168.493 8.50659 177 19 177H324C334.493 177 343 168.493 343 158V126C343 115.507 334.493 107 324 107H302C291.507 107 283 98.4934 283 88V68C283 57.5066 274.493 49 264 49H137C126.507 49 118 40.4934 118 30V19Z"
+  );
 }
 
 .section-element {
   .element {
-  clip-path: path("M18 0C8.05887 0 0 8.05887 0 18V316C0 326.493 8.50659 335 19 335H99C109.493 335 118 343.507 118 354V365C118 375.493 126.507 384 137 384H264C274.493 384 283 392.507 283 403V423C283 433.493 291.507 442 302 442H324C334.493 442 343 450.507 343 461V493C343 503.493 351.507 512 362 512H906C915.941 512 924 503.941 924 494V18C924 8.05887 915.941 0 906 0H18Z");
-}
+    clip-path: path(
+      "M18 0C8.05887 0 0 8.05887 0 18V316C0 326.493 8.50659 335 19 335H99C109.493 335 118 343.507 118 354V365C118 375.493 126.507 384 137 384H264C274.493 384 283 392.507 283 403V423C283 433.493 291.507 442 302 442H324C334.493 442 343 450.507 343 461V493C343 503.493 351.507 512 362 512H906C915.941 512 924 503.941 924 494V18C924 8.05887 915.941 0 906 0H18Z"
+    );
+  }
 }
 
 .blog-section3-1 {
@@ -294,10 +297,14 @@ body {
 
 @keyframes clipMorph {
   0% {
-    clip-path: path("M18 0C8.05887 0 0 8.05887 0 18V583C0 592.941 8.05891 601 18 601H1405C1414.94 601 1423 592.941 1423 583V18C1423 8.05887 1414.94 0 1405 0H18Z");
+    clip-path: path(
+      "M18 0C8.05887 0 0 8.05887 0 18V583C0 592.941 8.05891 601 18 601H1405C1414.94 601 1423 592.941 1423 583V18C1423 8.05887 1414.94 0 1405 0H18Z"
+    );
   }
   100% {
-    clip-path: path("M18 0C8.05887 0 0 8.05887 0 18V583C0 592.941 8.05891 601 18 601H1405C1414.94 601 1423 592.941 1423 583V184C1423 173.507 1414.49 165 1404 165H1023C1012.51 165 1004 156.493 1004 146V98C1004 87.5066 1012.51 79 1023 79H1043C1053.49 79 1062 70.4934 1062 60V19C1062 8.50659 1053.49 0 1043 0H18Z");
+    clip-path: path(
+      "M18 0C8.05887 0 0 8.05887 0 18V583C0 592.941 8.05891 601 18 601H1405C1414.94 601 1423 592.941 1423 583V184C1423 173.507 1414.49 165 1404 165H1023C1012.51 165 1004 156.493 1004 146V98C1004 87.5066 1012.51 79 1023 79H1043C1053.49 79 1062 70.4934 1062 60V19C1062 8.50659 1053.49 0 1043 0H18Z"
+    );
   }
 }
 
@@ -307,7 +314,6 @@ body {
   object-fit: cover;
   animation: clipMorph 2s ease-in-out 3s forwards;
 }
-
 
 .letter {
   position: absolute;
@@ -341,21 +347,26 @@ body {
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, #0f0e0e, #ff9e32, #ffaa4d, #ff6b00, #ff4500);
+  background: linear-gradient(
+    90deg,
+    #0f0e0e,
+    #ff9e32,
+    #ffaa4d,
+    #ff6b00,
+    #ff4500
+  );
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientMove 3s infinite linear ;
+  animation: gradientMove 3s infinite linear;
   transition: all;
 }
 .left-clamp {
   left: clamp(10rem, 30vw, 45rem);
 }
-.job-card{
+.job-card {
   background-color: var(--job-card-bg);
-
 }
-
 
 .inverted-corners {
   --r: 32px; /* corner radius */
@@ -363,32 +374,35 @@ body {
   --x: 10px; /* horizontal offset adjustment */
 
   /* Shared mask properties */
-  --_m: /calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 69%,#0000 72%);
+  --_m: /calc(2 * var(--r)) calc(2 * var(--r))
+    radial-gradient(#000 69%, #0000 72%);
   --_d: calc(var(--s) + var(--r));
-  
+
   /* For top-right and bottom-left inverted corners */
-  --_g: conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)), #0000 25%, #000 0);
-  
+  --_g: conic-gradient(
+    from 90deg at calc(100% - var(--r)) calc(100% - var(--r)),
+    #0000 25%,
+    #000 0
+  );
+
   -webkit-mask:
     calc(100% - var(--_d) - var(--x)) 100% var(--_m),
     100% calc(100% - var(--_d)) var(--_m),
-    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) 
-      calc(-1*var(--r) - var(--x)) calc(-1*var(--r)),
-    var(--_g) calc(-1*var(--_d) - var(--x)) 0,
-    var(--_g) 0 calc(-1*var(--_d));
+    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x)) calc(-1 * var(--r)),
+    var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(-1 * var(--_d));
   -webkit-mask-repeat: no-repeat;
-  
+
   mask:
     calc(100% - var(--_d) - var(--x)) 100% var(--_m),
     100% calc(100% - var(--_d)) var(--_m),
-    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) 
-      calc(-1*var(--r) - var(--x)) calc(-1*var(--r)),
-    var(--_g) calc(-1*var(--_d) - var(--x)) 0,
-    var(--_g) 0 calc(-1*var(--_d));
+    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x)) calc(-1 * var(--r)),
+    var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(-1 * var(--_d));
   mask-repeat: no-repeat;
- 
 }
-
 
 .inverted-corners-mobile {
   --r: 30px; /* corner radius */
@@ -396,29 +410,35 @@ body {
   --x: 5px; /* horizontal offset adjustment */
 
   /* Shared mask properties */
-  --_m: /calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 69%,#0000 72%);
+  --_m: /calc(2 * var(--r)) calc(2 * var(--r))
+    radial-gradient(#000 69%, #0000 72%);
   --_d: calc(var(--s) + var(--r));
-  
+
   /* For top-right and bottom-left inverted corners */
-  --_g: conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)), #0000 25%, #000 0);
-  
+  --_g: conic-gradient(
+    from 90deg at calc(100% - var(--r)) calc(100% - var(--r)),
+    #0000 25%,
+    #000 0
+  );
+
   -webkit-mask:
     calc(100% - var(--_d) - var(--x)) 100% var(--_m),
     100% calc(100% - var(--_d)) var(--_m),
-    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) 
-      calc(-1*var(--r) - var(--x)) calc(-1*var(--r)),
-    var(--_g) calc(-1*var(--_d) - var(--x)) 0,
-    var(--_g) 0 calc(-1*var(--_d));
+    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x)) calc(-1 * var(--r)),
+    var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(-1 * var(--_d));
   -webkit-mask-repeat: no-repeat;
-  
+
   mask:
     calc(100% - var(--_d) - var(--x)) 100% var(--_m),
     100% calc(100% - var(--_d)) var(--_m),
-    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px)) 
-      calc(-1*var(--r) - var(--x)) calc(-1*var(--r)),
-    var(--_g) calc(-1*var(--_d) - var(--x)) 0,
-    var(--_g) 0 calc(-1*var(--_d));
+    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x)) calc(-1 * var(--r)),
+    var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(-1 * var(--_d));
   mask-repeat: no-repeat;
- 
 }
-
+@theme {
+  --breakpoint-3xl: 120rem;
+}
