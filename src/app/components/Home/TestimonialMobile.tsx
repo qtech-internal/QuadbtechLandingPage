@@ -82,7 +82,7 @@ const TestimonialMobile = () => {
         style={{ width: `420px`, height: `420px` }}
       >
        <div
-    className="absolute bottom-0 left-1/2 -translate-x-1/2 border-2 border-theme rounded-full"
+    className="absolute bottom-0 left-1/2 -translate-x-1/2 border-2 border-[#B73B06] rounded-full"
     style={{
       width: `400px`,
       height: `400px`,
@@ -101,7 +101,7 @@ const TestimonialMobile = () => {
               style={{
                 width: `34px`,
                 height: `34px`,
-                transform: `rotate(${newAngle}deg) translateX(-180px) rotate(-${newAngle}deg)`,
+                transform: `rotate(${newAngle}deg) translateX(-170px) rotate(-${newAngle}deg)`,
               }}
             >
               <img
@@ -115,7 +115,7 @@ const TestimonialMobile = () => {
         })}
 
         <div
-          className="absolute border-2 border-theme rounded-full"
+          className="absolute border-2 border-[#B73B06] rounded-full"
           style={{ width: `258px`, height: `258px` }}
         ></div>
 
@@ -157,10 +157,10 @@ const TestimonialMobile = () => {
           );
         })}
 
-        <div className="absolute text-center max-w-lg top-[35%]">
-          <h2 className="text-[13px] font-semibold font-poppins">
-            Over <span className="font-semibold">10K+ Clients</span> Trust{" "}
-            <span className="tracking-tight font-black text-p">Quadb</span>
+        <div className="absolute text-center max-w-lg top-[30%] ">
+          <h2 className="text-[17px] font-medium  font-poppins">
+            Over <span className="font-medium font-poppins">10K+ Clients <br/></span> Trust{" "}
+            <span className="font-black ">Quadb</span>
           </h2>
         </div>
       </div>

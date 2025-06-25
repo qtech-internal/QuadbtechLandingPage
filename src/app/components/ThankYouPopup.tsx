@@ -1,14 +1,23 @@
 'use client';
 import React from 'react';
+import { useRouter } from "next/navigation";
 
 type ThankYouPopupProps = {
   onClose: () => void;
 };
 
 const ThankYouPopup: React.FC<ThankYouPopupProps> = ({ onClose }) => {
+  const router = useRouter();
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm bg-white/60">
-      <div className="relative rounded-lg max-w-2xl w-full px-6 py-10 text-center shadow-lg overflow-hidden bg-white">
+    <div
+      className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm bg-white/60"
+      onClick={onClose}
+    >
+      <div
+        className="relative rounded-lg max-w-3xl w-full px-6 py-10 text-center shadow-lg overflow-hidden bg-white"
+        onClick={e => e.stopPropagation()}
+      >
         {/* Background Image INSIDE the popup */}
         <img
           src="back.png"
@@ -24,7 +33,7 @@ const ThankYouPopup: React.FC<ThankYouPopupProps> = ({ onClose }) => {
           <p className="text-gray-700 mb-4">
             We've received your message and our team will get back to you soon.
           </p>
-          <p className="text-gray-700 mb-4">In the meantime, feel free to:</p>
+          <p className="text-gray-700 mb-2">In the meantime, feel free to:</p>
 
           <div className="mb-6 space-y-2 text-[15px] font-medium">
             <div>
@@ -42,18 +51,23 @@ const ThankYouPopup: React.FC<ThankYouPopupProps> = ({ onClose }) => {
           </p>
 
           <button
-            className="bg-[#F97316] hover:bg-orange-600 text-white px-6 py-2 rounded-full font-semibold transition"
+            className="
+              bg-[#F97316] 
+              border-4 border-[#F97316]
+              text-white 
+              px-10 py-1 
+              rounded-full 
+              font-semibold 
+              transition 
+              hover:bg-white 
+              hover:text-black 
+              hover:border-[#F97316]
+            "
+            onClick={() => router.push("/contact")}
           >
             EXPLORE MORE
           </button>
         </div>
-
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-6 text-2xl font-bold text-gray-400 hover:text-black z-20"
-        >
-          ×
-        </button>
       </div>
     </div>
   );

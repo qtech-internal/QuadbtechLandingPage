@@ -82,13 +82,14 @@ export default function Home() {
       className="w-full max-w-[1500px] overflow-x-hidden text-black flex flex-col items-center justify-center p-4"
      
     >
-      <button
-        className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)] cursor-pointer"
-      >
-        Start Building Today
-      </button>
+      <button className="px-6 py-2  font-medium rounded-full border border-theme hover:bg-theme transition-colors bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]">
+  <span className="bg-gradient-to-r from-black via-black to-transparent bg-clip-text text-transparent ">
+    Start Building Today
+  </span>
+</button>
+
       <div className="text-center text-2xl  font-semibold mt-10 mb-8 font-poppins leading-[1.2]" style={{ letterSpacing: '-0.02em' }}>
-        <span className=" flex">
+        <span className=" flex -ml-3">
         <svg width="30" height="20" viewBox="0 0 20 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.51976 8.34108C8.51912 10.1024 8.86702 11.7138 9.58089 13.4069C9.61535 13.4887 9.65071 13.5707 9.68698 13.6531C9.91403 12.204 10.3733 10.8427 11.0584 9.52226L8.51976 8.34108Z" stroke="var(--bg-card)" strokeWidth="6" />
               <mask id="path-2-inside-1_65020_1056" fill="white">
@@ -140,9 +141,9 @@ export default function Home() {
         </Slider>
       </div>
       <Link href="#contact">
-        <button className=" mt-10 font-semibold button-theme px-4 py-2 rounded-full shadow-md flex items-center space-x-2 text-black  hover:bg-[var(--bg-card)] hover:text-white">
+        <button className=" mt-10 font-semibold button-theme px-10 py-0 text-[15px] rounded-full shadow-md flex items-center space-x-2 text-black  hover:bg-[var(--bg-card)] hover:text-white">
           <span>Book Free Consultancy</span>
-          <div className="relative w-12 h-12 rounded-full   border-theme flex items-center justify-center">
+          <div className="relative w-12 h-12 rounded-full    border-theme flex items-center justify-center translate-x-[20px]">
             <div className="w-10 h-10 rounded-full bg-theme  flex items-center justify-center">
               <span className="text-white text-xl leading-none -mt-1"><MdArrowForwardIos /></span>
             </div>

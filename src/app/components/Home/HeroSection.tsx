@@ -788,7 +788,7 @@ export default function Home() {
     if (stop2) stop2.setAttribute("stop-color", end);
   }, [currentTheme]);
 
-  useEffect(() => {
+ useEffect(() => {
   let ctx = gsap.context(() => {
     const sidebar = sidebarRef.current;
     const carousel = carouselRef.current;
@@ -796,8 +796,9 @@ export default function Home() {
     const h1Line1 = headline1Ref.current;
     const h1Line2 = headline2Ref.current;
 
-    if (!h1) return;
-    gsap.set(h1, { opacity: 0 });
+    if (!h1 || !h1Line1 || !h1Line2 || !carousel || !sidebar) return;
+
+    // Calculate position to center entire h1 container
     const h1Rect = h1.getBoundingClientRect();
     const viewportCenterX = window.innerWidth / 2;
     const viewportCenterY = window.innerHeight / 2;
@@ -806,34 +807,38 @@ export default function Home() {
     const xToCenter = viewportCenterX - h1CenterX;
     const yToCenter = viewportCenterY - h1CenterY;
 
+    // Set initial states
     gsap.set(logoRef.current, { autoAlpha: 1 });
     gsap.set(sidebar, { autoAlpha: 0, x: "-100%" });
     gsap.set(carousel, { autoAlpha: 0, x: 50, y: 50, scale: 0.95 });
-    gsap.set(h1, { x: xToCenter, y: yToCenter, autoAlpha: 0 });
-    gsap.set(h1Line1, { x: -30, autoAlpha: 0 });
-    gsap.set(h1Line2, { x: 30, autoAlpha: 0 });
+    gsap.set(h1, { x: xToCenter, y: yToCenter, autoAlpha: 1 });
+    gsap.set(h1Line1, { x: -50, autoAlpha: 0 }); // Line 1 from left
+    gsap.set(h1Line2, { x: 50, autoAlpha: 0 });  // Line 2 from right
 
-    const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-    tl.to(
-      logoRef.current,
-      { autoAlpha: 0, scale: 0.5, duration: 0.6 },
-      "+=0.4"
-    )
-      .set(h1, { autoAlpha: 1 })
-      .to([h1Line1, h1Line2], {
-        x: 0,
-        autoAlpha: 1,
-        duration: 1,
-        stagger: 0.1,
-      })
-      .to({}, { duration: 0.3 })
-      .to(h1, { x: 0, y: 0, duration: 1.2 })
-      .to(sidebar, { autoAlpha: 1, x: "0%", duration: 1 }, "-=1.2")
-      .to(carousel, { autoAlpha: 1, x: 0, y: 0, scale: 1, duration: 1 }, "<");
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+    tl.to(logoRef.current, { autoAlpha: 0, scale: 0.5, duration: 0.6 }, "+=0.4")
+
+      // Line 1 slides in from left
+      .to(h1Line1, { x: 0, autoAlpha: 1, duration: 0.8 })
+
+      // Line 2 slides in from right, slight delay
+      .to(h1Line2, { x: 0, autoAlpha: 1, duration: 0.8 }, "-=0.5")
+
+      // Then move whole h1 to center
+      .to(h1, { x: 0, y: 0, duration: 1 })
+
+      // Show carousel AFTER heading is in place
+      .to(carousel, { autoAlpha: 1, x: 0, y: 0, scale: 1, duration: 1 }, "+=0.3")
+
+      // Sidebar comes in last
+      .to(sidebar, { autoAlpha: 1, x: "0%", duration: 1 }, "-=0.5");
   });
+
   return () => ctx.revert();
 }, []);
-  const themeOrder = ["orange", "olive", "pink", "cyan", "brown", "red"];
+
+  
 
   const carouselTitles = [
     "Transforming Ideas into Reality",
@@ -902,9 +907,13 @@ export default function Home() {
           ref={sidebarRef}
           className="w-3/12 flex flex-col items-start gap-y-10 "
         >
-          <button className="px-6 py-2 ml-4 text-black font-medium rounded-full border border-theme hover:bg-theme hover:text-white transition-colors border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)] ">
-            Start Building Today
-          </button>
+<button className="px-6 py-2 ml-4 font-medium rounded-full border border-theme hover:bg-theme transition-colors bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]">
+  <span className="bg-gradient-to-r from-black via-black to-transparent bg-clip-text text-transparent ">
+    Start Building Today
+  </span>
+</button>
+
+
           <div className="relative">
             <p className="ml-40 translate-y-[20px] ">
               <svg

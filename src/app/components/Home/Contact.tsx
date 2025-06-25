@@ -83,6 +83,15 @@ export default function ContactUs() {
     }
   };
 
+  const isFormValid =
+  formData.name.trim() !== "" &&
+  formData.email.trim() !== "" &&
+  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email) &&
+  formData.phone.length === 10 &&
+  formData.subject.trim() !== "" &&
+  formData.message.trim() !== "" &&
+  !!recaptchaToken;
+
   // Handler for form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -196,13 +205,13 @@ export default function ContactUs() {
     <div
       id="contact"
       ref={ref}
-      className={`relative max-w-[1500px] mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
+      className={`relative max-w-[1500px]  mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       }`}
     >
       {/* Title */}
       <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-semibold text-secondary text-center leading-none relative z-0 select-none">
-        CONTACT <span className="-ml-2 ">US</span>
+        CONTACT <span className="ml-2 ">US</span>
       </h1>
 
       {/* Address Box */}
@@ -218,7 +227,7 @@ export default function ContactUs() {
       <form
         onSubmit={handleSubmit}
         noValidate // Disable browser's native validation to rely on custom logic
-        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6"
+        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6 lg:translate-y-[-120px]"
       >
         {/* Input Fields Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -296,22 +305,28 @@ export default function ContactUs() {
 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
   {/* Message Textarea */}
   <div className="relative lg:col-span-2">
-    <textarea
-      name="message"
-      id="message"
-      value={formData.message}
-      onChange={handleChange}
-      onBlur={(e) =>
-        setFormData((prev) => ({
-          ...prev,
-          message: e.target.value.trim(),
-        }))
-      }
-      placeholder="Message"
-      rows={4}
-      className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition "
-      required
-    ></textarea>
+   <textarea
+  name="message"
+  id="message"
+  value={formData.message}
+  onChange={(e) =>
+    setFormData((prev) => ({
+      ...prev,
+      message: e.target.value, // Allow multi-line input
+    }))
+  }
+  onBlur={(e) =>
+    setFormData((prev) => ({
+      ...prev,
+      message: e.target.value.trim(), // Optional trim on blur
+    }))
+  }
+  placeholder="Message"
+  rows={4}
+  className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition "
+  required
+></textarea>
+
   </div>
   <div className="flex justify-center  block md:hidden">
   <ReCAPTCHA
@@ -332,26 +347,27 @@ export default function ContactUs() {
 
 
   {/* Submit Button */}
-  <button
-    type="submit"
-    className={`flex flex-col justify-center items-center text-white rounded-2xl w-full py-6 transition ${
-      loading || isRateLimited
-        ? "bg-theme cursor-not-allowed"
-        : "bg-theme hover:bg-theme/90"
-    }`}
-    disabled={loading || isRateLimited}
-  >
-    {loading ? (
-      <span className="text-base font-medium">Sending...</span>
-    ) : isRateLimited ? (
-      <span className="text-base font-medium">Wait...</span>
-    ) : (
-      <>
-        <Send className="w-6 h-6 mb-1" />
-        <span className="text-base font-medium">Send</span>
-      </>
-    )}
-  </button>
+ <button
+  type="submit"
+  className={`flex flex-col justify-center items-center text-white rounded-2xl w-full py-6 transition bg-theme
+    ${isFormValid && !loading && !isRateLimited
+      ? "opacity-100 cursor-pointer"
+      : "opacity-50 "
+    }
+  `}
+  disabled={!isFormValid || loading || isRateLimited}
+>
+  {loading ? (
+    <span className="text-base font-medium">Sending...</span>
+  ) : isRateLimited ? (
+    <span className="text-base font-medium">Wait...</span>
+  ) : (
+    <>
+      <Send className="w-6 h-6 mb-1" />
+      <span className="text-base font-medium">Send</span>
+    </>
+  )}
+</button>
 </div>
 
 {/* ✅ ReCAPTCHA - Visible only on MEDIUM+ SCREENS */}
