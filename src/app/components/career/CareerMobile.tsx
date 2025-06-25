@@ -1,10 +1,19 @@
 "use client";
+
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["sans-serif"],
+});
 const QuadBIntro = () => {
   return (
     <>
       <div className="mt-20  w-full">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center">
-          Join Quadbians
+          Join QuadBians
         </h1>
 
         <p className="text-base sm:text-lg font-light text-center px-4 max-w-2xl mt-4 sm:mt-5">
@@ -30,9 +39,9 @@ const QuadBIntro = () => {
 
           {/* Rotated QuadB text – OUTSIDE orange box but touching right side */}
 
-          <div className="absolute top-1/2 left-[192px] text-center  transform -translate-y-1/2 rotate-90 text-7xl font-bold -ml-2 ">
+          <div className="absolute top-1/2 left-[192px] text-center  transform -translate-y-1/2 rotate-90 text-7xl font-bold -ml-1 ">
             <h1
-              className="text-[65px] font-extrabold z-10 font-poppins "
+              className={`text-[65px] font-extrabold z-10 ${inter.className} `}
               style={{
                 WebkitTextStroke: "1.7px var(--bg-card)",
                 color: "white",
