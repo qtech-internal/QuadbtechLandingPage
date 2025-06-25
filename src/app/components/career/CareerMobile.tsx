@@ -30,9 +30,9 @@ const QuadBIntro = () => {
 
           {/* Rotated QuadB text – OUTSIDE orange box but touching right side */}
 
-          <div className="absolute top-1/2 left-[192px]  transform -translate-y-1/2 rotate-90 text-7xl font-bold ">
+          <div className="absolute top-1/2 left-[192px] text-center  transform -translate-y-1/2 rotate-90 text-7xl font-bold -ml-2 ">
             <h1
-              className="text-[65px] font-extrabold z-10 font-poppins"
+              className="text-[65px] font-extrabold z-10 font-poppins "
               style={{
                 WebkitTextStroke: "1.7px var(--bg-card)",
                 color: "white",

@@ -155,7 +155,7 @@ export default function CareerPage() {
 
                 {/* Right Vertical Text Column */}
                 <div className="h-full w-24 flex flex-col justify-center items-center bg-theme z-10">
-                  {"QuadB".split("").map((char, idx) => (
+                  {/* {"QuadB".split("").map((char, idx) => (
                     <span
                       key={idx}
                       className=" text-[75px] lg:text-[150px] xl:text-[120px]  2xl:text-[150px] leading-[52px] lg:leading-[100px]  xl:leading-[80px]  2xl:leading-[100px] font-extrabold font-poppins text-transparent rotate-90 lg:ml-1 xl:-ml-4 2xl:ml-1 "
@@ -165,7 +165,16 @@ export default function CareerPage() {
                     >
                       {char}
                     </span>
-                  ))}
+                  ))} */}
+                  <h1
+                    className="text-[75px] lg:text-[150px] xl:text-[120px]  2xl:text-[150px] leading-[52px] lg:leading-[100px]  xl:leading-[80px]  2xl:leading-[100px] font-extrabold font-poppins text-transparent rotate-90 lg:ml-1 xl:-ml-4 2xl:ml-1  "
+                    style={{
+                      WebkitTextStroke: "3px white",
+                      // color: "white",
+                    }}
+                  >
+                    QuadB
+                  </h1>
                 </div>
               </div>
               {isTab && (
