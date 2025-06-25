@@ -121,13 +121,15 @@ const Navbar = () => {
         <Link href="/contact" prefetch={true}>
  <button
   id="contact-button"
-  className={`px-2 py-1 rounded-full font-semibold text-[10px] text-white
-    ${pathname === "/contact" ? "bg-theme border-theme" : "hover:bg-theme"}
-  `}
+  className={`px-2 py-1 rounded-full font-semibold text-[10px] button-theme text-white
+    ${
+      pathname === "/contact"
+        ? "bg-theme border-theme"
+        : "hover:bg-theme"
+    }`}
 >
   CONTACT
 </button>
-
 </Link>
       </div>
      <div
