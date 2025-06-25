@@ -155,32 +155,61 @@ const imageControls = useAnimation();
     animate={tagsControls}
     className="flex flex-col items-center gap-4 mt-10"
   >
-    {/* Row 1 - Two tags */}
-<div className="flex gap-2 justify-center flex-wrap">
+  {/* Row 1 - Two tags */}
+{/* <div className="flex gap-2 justify-center flex-wrap">
   <span className="border border-theme text-black px-4 py-[6px] rounded-full text-[13px] whitespace-nowrap">
     Smart Contracts & DeFi Solutions
   </span>
   <span className="border border-theme text-black px-4 py-[6px] rounded-full text-[13px] whitespace-nowrap">
     dApps & Web3 Infrastructure
   </span>
-</div>
+</div> */}
 
 {/* Row 2 - One centered tag */}
-<div className="flex justify-center mt-3">
-  <span className="border border-theme text-black px-4 py-[6px] rounded-full text-[13px] whitespace-nowrap">
+{/* <div className="flex justify-center mt-3">
+  <span className="border border-theme  text-black px-4 py-[6px] rounded-full text-[13px] whitespace-nowrap">
     NFT Marketplaces & Tokenization
   </span>
-</div>
+</div> */}
 
 {/* Row 3 - Two tags */}
-<div className="flex gap-2 justify-center flex-wrap mt-3">
-  <span className="border border-theme text-black px-4 py-[6px] rounded-full text-[13px] whitespace-nowrap">
+{/* <div className="flex gap-2 justify-center flex-wrap mt-3">
+  <span className="border border-theme  text-black px-4 py-[6px] rounded-full text-[13px] whitespace-nowrap">
     Metaverse & Blockchain Gaming
   </span>
   <span className="border border-theme text-black px-4 py-[6px] rounded-full text-[13px] whitespace-nowrap">
     And Many More
   </span>
+</div> */}
+
+
+{/* Row 1 - Two tags */}
+<div className="flex gap-2 justify-center">
+  <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-[8px] md:text-xs">
+    Smart Contracts & DeFi Solutions
+  </span>
+  <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-[8px] md:text-xs">
+    dApps & Web3 Infrastructure
+  </span>
 </div>
+
+{/* Row 2 - One centered tag */}
+<div className="flex justify-center mt-3">
+  <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-[8px] md:text-xs">
+    NFT Marketplaces & Tokenization
+  </span>
+</div>
+
+{/* Row 3 - Two tags */}
+<div className="flex gap-2 justify-center mt-3">
+  <span className="border border-theme text-gray-800 px-3 py-1 md:px-4 md:py-2 rounded-full text-[8px] md:text-xs">
+    Metaverse & Blockchain Gaming
+  </span>
+  <span className="bg-theme text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-[8px] md:text-xs">
+    And Many More
+  </span>
+</div>
+
 
   </motion.div>
 </div>
