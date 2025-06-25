@@ -139,7 +139,7 @@ const Navbar = () => {
   }`}
 >
   <div className="flex justify-between items-center mb-4">
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center -ml-5">
           <Link href="/">
             <Image src="/Logo Black.png" alt="QuadB Tech" width={100} height={30} />
           </Link>
