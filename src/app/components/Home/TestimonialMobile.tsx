@@ -82,7 +82,7 @@ const TestimonialMobile = () => {
         style={{ width: `420px`, height: `420px` }}
       >
        <div
-    className="absolute bottom-0 left-1/2 -translate-x-1/2 border-2 border-theme rounded-full"
+    className="absolute bottom-0 left-1/2 -translate-x-1/2 border-2 border-[#B73B06] rounded-full"
     style={{
       width: `400px`,
       height: `400px`,
@@ -115,7 +115,7 @@ const TestimonialMobile = () => {
         })}
 
         <div
-          className="absolute border-2 border-theme rounded-full"
+          className="absolute border-2 border-[#B73B06] rounded-full"
           style={{ width: `258px`, height: `258px` }}
         ></div>
 
