@@ -60,7 +60,7 @@ const ThankYouPopup: React.FC<ThankYouPopupProps> = ({ onClose }) => {
               font-semibold 
               transition 
               hover:bg-white 
-              hover:text-white 
+              hover:text-black 
               hover:border-[#F97316]
             "
             onClick={() => router.push("/contact")}

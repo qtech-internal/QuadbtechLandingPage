@@ -80,9 +80,11 @@ export default function Footer() {
           className="relative z-10"
         />
       </div>
-      <button className="border-2 cursor-pointer font-semibold button-theme px-6 py-2 mb-4 rounded-full hover:text-secondary transition block sm:hidden">
-        CONTACT US
-      </button>
+      <Link href="/contact" prefetch={true}>
+        <button className="border-2 cursor-pointer font-semibold button-theme px-6 py-2 mb-4 rounded-full hover:text-secondary transition block sm:hidden">
+          CONTACT US
+        </button>
+      </Link>
       <div className="flex space-x-4 text-[var(--bg-card)] text-xl md:text-2xl mb-6 md:mb-0">
         {[FaInstagram, FaDribbble, FaXTwitter, FaWordpress, FaDiscord, FaLinkedin, FaFacebook].map(
           (Icon, index) => (
