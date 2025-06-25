@@ -3,13 +3,13 @@ import React from "react";
 
 const WhyWork = () => {
   return (
-    <section className="flex flex-col py-16 sm:py-20 lg:py-24 relative ">
+    <section className="flex flex-col justify-center items-center  py-16 sm:py-20 lg:py-24 relative ">
       {/* Top Section */}
       <div className="w-full mb-12 justify-center text-center">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold">
           Why Work With Us?
         </h2>
-        <p className="text-base sm:text-lg mt-4 max-w-xl">
+        <p className="text-base sm:text-lg mt-4   ">
           Leverage the power of our developer network to fuel your next big
           breakthrough!
         </p>
