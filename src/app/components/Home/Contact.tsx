@@ -37,7 +37,7 @@ export default function ContactUs() {
     if (name === "phone") {
       // Keep only digits and limit to 10 characters maximum during input
       processedValue = value.replace(/[^0-9]/g, "").substring(0, 10);
-    } else if (name !== "email") {
+    } else if (name === "email") {
       // Trim leading space and replace multiple spaces with single for other fields
       processedValue = value.replace(/^\s+/, "").replace(/\s+/g, " ");
     }
@@ -83,7 +83,7 @@ export default function ContactUs() {
     }
   };
 
-  // console.log(formData)
+   console.log(formData)
 
   const isFormValid =
   formData.name.trim() !== "" &&
@@ -254,30 +254,30 @@ export default function ContactUs() {
                       ? handlePhoneBlur
                       : undefined
                 }
-                onKeyDown={(e) => {
-                  // Prevent space in email input
-                  if (field.type === "email" && e.key === " ") {
-                    e.preventDefault();
-                  }
-                  // Allow only digits and specific control keys for phone input
-                  if (
-                    field.type === "tel" &&
-                    !/^[0-9]$/.test(e.key) && // Check if key is NOT a digit
-                    ![
-                      "Backspace",
-                      "Delete",
-                      "ArrowLeft",
-                      "ArrowRight",
-                      "Tab",
-                      "Enter",
-                      "Home",
-                      "End",
-                    ].includes(e.key) && // Check if key is NOT an allowed control/navigation key
-                    !(e.metaKey || e.ctrlKey) // Allow Cmd/Ctrl shortcuts (e.g., Cmd+A, Cmd+C)
-                  ) {
-                    e.preventDefault(); // Prevent the key press if it's not allowed
-                  }
-                }}
+                // onKeyDown={(e) => {
+                //   // Prevent space in email input
+                //   if (field.type === "email" && e.key === " ") {
+                //     e.preventDefault();
+                //   }
+                //   // Allow only digits and specific control keys for phone input
+                //   if (
+                //     field.type === "tel" &&
+                //     !/^[0-9]$/.test(e.key) && // Check if key is NOT a digit
+                //     ![
+                //       "Backspace",
+                //       "Delete",
+                //       "ArrowLeft",
+                //       "ArrowRight",
+                //       "Tab",
+                //       "Enter",
+                //       "Home",
+                //       "End",
+                //     ].includes(e.key) && // Check if key is NOT an allowed control/navigation key
+                //     !(e.metaKey || e.ctrlKey) // Allow Cmd/Ctrl shortcuts (e.g., Cmd+A, Cmd+C)
+                //   ) {
+                //     e.preventDefault(); // Prevent the key press if it's not allowed
+                //   }
+                // }}
                 // placeholder={field.placeholder}
                 placeholder={
                   formData[field.name as keyof typeof formData] ? "" : field.placeholder
