@@ -440,5 +440,5 @@ body {
   mask-repeat: no-repeat;
 }
 @theme {
-  --breakpoint-3xl: 120rem;
+  --breakpoint-3xl: 115rem;
 }
