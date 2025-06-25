@@ -2,6 +2,7 @@
 import { useState } from "react";
 import JobCard from "../JobCard";
 import JobsCarousel from "./JobsCarousel";
+import Job from "../../components/Home/Job";
 
 export default function Career() {
   const [inputValue, setInputValue] = useState("");
@@ -108,12 +109,12 @@ export default function Career() {
 
   return (
     <div className="  flex flex-col items-center px-4 xl:px-10   justify-cente w-full  2xl:mx-auto      ">
-      <div className="flex flex-col md:flex-row items-center mb-4 gap-4  md:gap-44 lg:gap-74   2xl:gap-80 3xl:gap-90  justify-between  mt-16 w-full 2xl:ml-[30px] 3xl:ml-[25px]  2xl:w-[85vw] 3xl:w-[68vw] ">
+      <div className="flex flex-col md:flex-row items-center justify-center mb-4 gap-4  md:gap-44 lg:gap-74   2xl:gap-80 3xl:gap-90  md:justify-between  mt-16 w-full 2xl:ml-[30px] 3xl:ml-[25px]  2xl:w-[85vw] 3xl:w-[68vw] ">
         <h1 className="text-[36px] lg:text-[48px] md:text-[30px] whitespace-nowrap font-bold  ">
           Current Openings
         </h1>
 
-        <div className="w-full sm:w-[50%] md:w-[75%] lg:w-auto relative hidden md:block">
+        <div className="w-[30%] sm:w-[50%] md:w-[75%] lg:w-auto relative hidden md:block">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
               className="w-5 h-5 text-secondary"
@@ -186,6 +187,7 @@ export default function Career() {
 
         {/* Scrollable flex layout for small screens */}
         <JobsCarousel currentJobs={currentJobs} />
+        {/* <Job /> */}
       </div>
 
       {/* <div className="flex items-center justify-between gap-4 mt-8"> */}
