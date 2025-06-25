@@ -838,7 +838,7 @@ export default function Home() {
   return () => ctx.revert();
 }, []);
 
-  const themeOrder = ["orange", "olive", "pink", "cyan", "brown", "red"];
+  
 
   const carouselTitles = [
     "Transforming Ideas into Reality",
