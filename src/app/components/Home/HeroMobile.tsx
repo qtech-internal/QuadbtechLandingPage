@@ -89,7 +89,7 @@ export default function Home() {
 </button>
 
       <div className="text-center text-2xl  font-semibold mt-10 mb-8 font-poppins leading-[1.2]" style={{ letterSpacing: '-0.02em' }}>
-        <span className=" flex">
+        <span className=" flex -ml-3">
         <svg width="30" height="20" viewBox="0 0 20 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.51976 8.34108C8.51912 10.1024 8.86702 11.7138 9.58089 13.4069C9.61535 13.4887 9.65071 13.5707 9.68698 13.6531C9.91403 12.204 10.3733 10.8427 11.0584 9.52226L8.51976 8.34108Z" stroke="var(--bg-card)" strokeWidth="6" />
               <mask id="path-2-inside-1_65020_1056" fill="white">
