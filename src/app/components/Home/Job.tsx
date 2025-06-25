@@ -95,14 +95,16 @@ const router = useRouter();
       </div>
 
       {/* Scroll */}
-     <div className="
-  absolute right-2 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full lg:block
-  xl:translate-x-[-50px] xl:mt-24
-  sm:translate-x-[-150px] sm:mt-15
-  lg:translate-x-[-230px] lg:mt-28
+    <div className="
+  absolute right-2 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full 
+
+  sm:translate-x-[-150px] sm:mt-10
+  md:translate-x-[-330px] md:mt-12
+  lg:translate-x-[-215px] lg:mt-28
+  xl:translate-x-[-75px] xl:mt-24
   2xl:translate-x-[-300px] 2xl:mt-20
-  md:translate-x-[-330px]
 ">
+
         <div className="w-26 h-26  bg-white rounded-full text-theme flex items-center justify-center cursor-pointer z-30  ">
           <div className="flex items-center gap-2 z-30 text-p ">
             <ChevronLeft className="w-6 h-6 cursor-pointer" onClick={handleScrollLeft} />
@@ -113,7 +115,7 @@ const router = useRouter();
       </div>
     
 <Link href="/career" prefetch={true}>
- <button className="block sm:hidden px-6 py-2 rounded-full button-theme mt-6 sm:mt-0">
+ <button className="block sm:hidden px-6 py-2 rounded-full button-theme mt-6 translate-y-[50px]  sm:mt-0">
   Explore More
 </button>
 </Link>
