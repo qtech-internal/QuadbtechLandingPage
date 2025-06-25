@@ -115,7 +115,7 @@ export default function Career() {
           Current Openings
         </h1>
 
-        <div className="w-[30%] sm:w-[50%] md:w-[75%] lg:w-auto h-10 relative hidden md:flex gap-3 border border-theme rounded-lg">
+        <div className="w-[30%] sm:w-[50%] md:w-[75%] lg:w-auto h-10 relative hidden lg:flex gap-3 border border-theme rounded-lg">
           <span className="flex items-center justify-center h-10 pl-3 pointer-events-none ">
             <svg
               className="w-5 h-5 text-secondary"
@@ -173,7 +173,7 @@ export default function Career() {
       {/* <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8   m-auto justify-items-center"> */}
       <div className="max-w-7xl mt-8">
         {/* <div className="md:grid grid-cols-2 lg:grid-cols-3 gap-x-24 lg:gap-x-[5vw] xl:gap-x-28 2xl:gap-x-40 gap-y-12 xl:ml-10 2xl:ml-0 hidden"> */}
-        <div className="md:grid grid-cols-2 lg:grid-cols-3 gap-x-28 gap-y-12 items-center mx-auto justify-center hidden ">
+        <div className="md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-x-28 gap-y-12 items-center mx-auto justify-center hidden ">
           {currentJobs.map((job, index) => (
             <JobCard
               key={index}
