@@ -226,7 +226,7 @@ export default function ContactUs() {
       <form
         onSubmit={handleSubmit}
         noValidate // Disable browser's native validation to rely on custom logic
-        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6"
+        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6 lg:translate-y-[-120px]"
       >
         {/* Input Fields Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
