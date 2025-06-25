@@ -82,11 +82,12 @@ export default function Home() {
       className="w-full max-w-[1500px] overflow-x-hidden text-black flex flex-col items-center justify-center p-4"
      
     >
-      <button
-        className="relative px-6 py-2 text-black font-medium rounded-full border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)] cursor-pointer"
-      >
-        Start Building Today
-      </button>
+      <button className="px-6 py-2  font-medium rounded-full border border-theme hover:bg-theme transition-colors bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]">
+  <span className="bg-gradient-to-r from-black via-black to-transparent bg-clip-text text-transparent ">
+    Start Building Today
+  </span>
+</button>
+
       <div className="text-center text-2xl  font-semibold mt-10 mb-8 font-poppins leading-[1.2]" style={{ letterSpacing: '-0.02em' }}>
         <span className=" flex">
         <svg width="30" height="20" viewBox="0 0 20 40" fill="none" xmlns="http://www.w3.org/2000/svg">
