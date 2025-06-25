@@ -160,25 +160,26 @@ const GetToKnow = () => {
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: 'easeInOut' }}
         >
           <motion.h2
-            className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-medium leading-snug pr-[2px] font-Poopins"
-            style={{ color: textColor }}
-          >
-            {words.map((word, index) => (
-              <motion.span
-                key={index}
-                style={{
-                  color: index <= currentWord ? "#000000" : "#808080",
-                  transition: "color 0.3s ease",
-                  marginRight: "4px",
-                  display: "inline-block",
-                }}
-                className='text-[24px] font-[500]'
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.h2>
-
+  className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-medium leading-snug pr-[2px] font-Poopins"
+  style={{ color: textColor }}
+>
+  &quot;
+  {words.map((word, index) => (
+    <motion.span
+      key={index}
+      style={{
+        color: index <= currentWord ? "#000000" : "#808080",
+        transition: "color 0.3s ease",
+        marginRight: "4px",
+        display: "inline-block",
+      }}
+      className='text-[24px] font-[500]'
+    >
+      {word + (index < words.length - 1 ? " " : "")}
+    </motion.span>
+  ))}
+  &quot;
+</motion.h2>
           <motion.div
             className="mt-6 flex flex-col sm:flex-row justify-start md:justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
             variants={containerVariants}
