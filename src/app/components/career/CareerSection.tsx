@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { Inter } from "next/font/google";
 
 const themeImages = {
   orange: "/career/Frame3.png",
@@ -13,6 +14,13 @@ const themeImages = {
   brown: "/career/brown_theme_img.png",
   cyan: "/career/cryan_theme_img.png",
 };
+
+const inter = Inter({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["sans-serif"],
+});
 
 export default function CareerPage() {
   const headingRef = useRef(null);
@@ -125,7 +133,7 @@ export default function CareerPage() {
               </div>
 
               {/* Card 2 */}
-              <div className="relative h-[60vh] lg:h-[52vh] xl:h-[41vh] 2xl:h-[35vh] overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
+              <div className="relative h-[61vh] lg:h-[52vh] xl:h-[41vh] 2xl:h-[38vh] 3xl:h-[29vh]  overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <Image
                   className="h-full w-full object-cover rounded-lg"
@@ -167,7 +175,7 @@ export default function CareerPage() {
                     </span>
                   ))} */}
                   <h1
-                    className="text-[75px] lg:text-[150px] xl:text-[120px]  2xl:text-[150px] leading-[52px] lg:leading-[100px]  xl:leading-[80px]  2xl:leading-[100px] font-extrabold font-poppins text-transparent rotate-90 lg:ml-1 xl:-ml-4 2xl:ml-1  "
+                    className={`text-[75px] ${inter.className} lg:text-[150px] xl:text-[120px]  2xl:text-[150px] leading-[52px] lg:leading-[100px]  xl:leading-[80px]  2xl:leading-[100px] 3xl:leading-[180px] font-extrabold  text-transparent rotate-90 lg:ml-1 xl:-ml-4 2xl:ml-1 `}
                     style={{
                       WebkitTextStroke: "3px white",
                       // color: "white",
