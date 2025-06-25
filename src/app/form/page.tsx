@@ -599,7 +599,9 @@ const BlockchainDeveloper = () => {
         setPhone(processedValue);
         break;
       case "whyJoin":
-        processedValue = value.replace(/^\s+/, "").replace(/\s+/g, " ");
+        // Replace two or more consecutive spaces/tabs with a single space.
+        // This leaves newline characters (`\n`) untouched.
+        processedValue = value.replace(/[ \t]{2,}/g, " ");
         setWhyJoin(processedValue);
         break;
       default:
