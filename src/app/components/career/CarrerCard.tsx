@@ -193,7 +193,7 @@ export default function Career() {
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
-          className={`px-4 py-2 w-[90px] border cursor-pointer text-center rounded-lg ${currentPage === 1 ? " text-gray-500 cursor-not-allowed" : " text-secondary"}`}
+          className={`px-4 py-2 w-[90px] border cursor-pointer text-center rounded-lg ${currentPage === 1 ? " text-gray-500 cursor-not-allowed" : "text-[#2A2A2A]"}`}
         >
           Previous
         </button>
@@ -203,7 +203,7 @@ export default function Career() {
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 w-[90px] border text-center cursor-pointer rounded-lg ${currentPage === totalPages ? " text-gray-500 cursor-not-allowed" : " text-secondary"}`}
+          className={`px-4 py-2 w-[90px] border text-center cursor-pointer rounded-lg ${currentPage === totalPages ? " text-gray-500 cursor-not-allowed" : "text-[#2A2A2A]"}`}
         >
           Next
         </button>
