@@ -38,9 +38,9 @@ export default function Footer() {
 
   const { start, end } = themeGradients[currentTheme] || themeGradients.orange;
   const router = useRouter();
-  const handleNavigation = () => {
-    router.push("/contact");
-  };
+  // const handleNavigation = () => {
+  //   router.push("/contact");
+  // };
 
   return (
     <footer className="relative flex flex-col items-center justify-center text-center py-10 px-6 bg-white md:flex-row md:justify-between md:items-center md:text-left md:px-10">
