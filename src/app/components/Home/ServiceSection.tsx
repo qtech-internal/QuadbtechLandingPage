@@ -218,7 +218,7 @@ const ServiceSection: React.FC = () => {
       <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-black font-poppins">
         Our Services – Future-Ready Tech Solutions
       </h2>
-      <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-base lg:w-3/4 mx-auto">
+      <p className="text-gray-600 mt-2 text-xs sm:text-sm md:text-base lg:w-3/4 mx-auto mt-6">
   &ldquo;From Traditional to Decentralized – We Build the Future of Digital Innovation.&rdquo; <br />
   We offer custom-tailored Web2 &amp; Web3 solutions designed for scalability, security, and seamless user experience. Whether you&apos;re launching a blockchain-powered platform or optimizing your digital presence, our expertise ensures success.
 </p>

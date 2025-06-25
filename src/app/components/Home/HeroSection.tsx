@@ -902,9 +902,13 @@ export default function Home() {
           ref={sidebarRef}
           className="w-3/12 flex flex-col items-start gap-y-10 "
         >
-          <button className="px-6 py-2 ml-4 text-black font-medium rounded-full border border-theme hover:bg-theme hover:text-white transition-colors border border-theme bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)] ">
-            Start Building Today
-          </button>
+<button className="px-6 py-2 ml-4 font-medium rounded-full border border-theme hover:bg-theme transition-colors bg-gradient-to-r from-[var(--div-bg)] to-transparent hover:from-[var(--div-bg)]">
+  <span className="bg-gradient-to-r from-black via-black to-transparent bg-clip-text text-transparent ">
+    Start Building Today
+  </span>
+</button>
+
+
           <div className="relative">
             <p className="ml-40 translate-y-[20px] ">
               <svg

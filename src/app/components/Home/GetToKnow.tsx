@@ -342,7 +342,7 @@ const GetToKnow = () => {
           </motion.h2>
 
           <motion.div
-            className="mt-6 flex flex-col lg:ml-10 2xl:ml-2 sm:flex-row justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
+            className="mt-6 flex flex-col mt-10 lg:ml-10 2xl:ml-2 sm:flex-row justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "visible"}

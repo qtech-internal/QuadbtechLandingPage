@@ -8,7 +8,7 @@ const ServiceSection = () => {
 
       <span className="whitespace-nowrap mt-2 text-[24px]">Future-Ready Tech Solutions</span>  
       </h2>
-      <p className="text-[#00000099] mt-2 text-[16px]">
+      <p className="text-[#00000099] mt-6 text-[16px]">
         "From Traditional to Decentralized – We Build the Future of Digital Innovation."
       </p>
       <p className="text-[#00000099] text-[16px]">

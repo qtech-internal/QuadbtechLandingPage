@@ -196,13 +196,13 @@ export default function ContactUs() {
     <div
       id="contact"
       ref={ref}
-      className={`relative max-w-[1500px] mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
+      className={`relative max-w-[1500px]  mx-auto px-4 py-20 sm:py-24 md:py-32 mt-1 transition-all duration-1000 ease-out ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       }`}
     >
       {/* Title */}
       <h1 className="text-[48px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-semibold text-secondary text-center leading-none relative z-0 select-none">
-        CONTACT <span className="-ml-2 ">US</span>
+        CONTACT <span className="ml-2 ">US</span>
       </h1>
 
       {/* Address Box */}
@@ -218,7 +218,7 @@ export default function ContactUs() {
       <form
         onSubmit={handleSubmit}
         noValidate // Disable browser's native validation to rely on custom logic
-        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6"
+        className="mt-40 sm:mt-44 md:mt-48 grid grid-cols-1 gap-6 lg:translate-y-[-90px]"
       >
         {/* Input Fields Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
