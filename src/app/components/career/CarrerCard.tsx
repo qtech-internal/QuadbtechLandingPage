@@ -108,7 +108,7 @@ export default function Career() {
 
   return (
     <div className="  flex flex-col items-center px-4 xl:px-10   justify-cente w-full  2xl:mx-auto      ">
-      <div className="flex flex-col md:flex-row items-center mb-4 gap-4  md:gap-44 lg:gap-74   2xl:gap-80 3xl:gap-90  justify-between  mt-16 w-full 2xl:ml-[24px] 3xl:ml-[25px]  2xl:w-[85vw] 3xl:w-[68vw] ">
+      <div className="flex flex-col md:flex-row items-center mb-4 gap-4  md:gap-44 lg:gap-74   2xl:gap-80 3xl:gap-90  justify-between  mt-16 w-full 2xl:ml-[30px] 3xl:ml-[25px]  2xl:w-[85vw] 3xl:w-[68vw] ">
         <h1 className="text-[36px] lg:text-[48px] md:text-[30px] whitespace-nowrap font-bold  ">
           Current Openings
         </h1>
