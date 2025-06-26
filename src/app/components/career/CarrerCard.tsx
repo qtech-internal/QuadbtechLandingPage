@@ -108,10 +108,13 @@ export default function Career() {
 
   return (
     <div className="mx-0 lg:mx-10">
-      <div className="  flex flex-col items-center px-4 xl:px-0 mt-10 lg:mt-0  justify-cente w-full  2xl:mx-auto      ">
+      <div className="  flex flex-col items-center  px-4 xl:px-0 mt-10 lg:mt-0  justify-cente w-full  2xl:mx-auto      ">
         {/* <div className="flex flex-col md:flex-row items-center justify-center mb-4 gap-4   md:gap-44 lg:gap-74   2xl:gap-80 3xl:gap-90  md:justify-between  mt-16 w-full 2xl:ml-[30px] 3xl:ml-[25px]  2xl:w-[80vw] 3xl:w-[71vw] "> */}
-        <div className="flex flex-col  md:flex-row justify-between items-center   lg:max-w-7xl    w-full ">
-          <h1 className=" text-[10vw] lg:text-[48px]  md:text-[30px] whitespace-nowrap font-bold  ">
+        <div className="flex flex-col   md:flex-row justify-between items-center   lg:max-w-7xl    w-full ">
+          <h1 className=" text-[9.7vw] text-balance   lg:text-[48px]  md:text-[30px] whitespace-nowrap font-bold hidden  md:block ">
+            Current Openings
+          </h1>
+          <h1 className="text-[9.7vw]  text-balance whitespace-nowrap font-bold w-full text-center md:hidden">
             Current Openings
           </h1>
 
@@ -142,8 +145,8 @@ export default function Career() {
             />
           </div>
 
-          <div className="w-[100vw] md:hidden relative block mt-5 ">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-10 pointer-events-none">
+          <div className="w-full  md:hidden relative block mt-5 ">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
               <svg
                 className="w-5 h-5 text-secondary"
                 fill="none"
@@ -165,7 +168,7 @@ export default function Career() {
               onChange={handleChange}
               onFocus={() => setPlaceholderText("")}
               onBlur={() => setPlaceholderText("Search")}
-              className="border border-theme rounded-xl pl-10 pr-4 py-2 w-[85%] mx-auto block focus:outline-none text-secondary placeholder-black"
+              className="border border-theme rounded-xl pl-10 pr-4 py-2 w-full mx-auto block focus:outline-none text-secondary placeholder-black"
             />
           </div>
         </div>
