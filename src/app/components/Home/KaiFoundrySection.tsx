@@ -7,14 +7,15 @@ import SvgImage from "../SvgImage";
 import { useRouter } from "next/navigation";
 
 export default function KaiFoundrySection() {
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: false });
-  const imageControls = useAnimation();
-  const headingControls = useAnimation();
-  const paraControls = useAnimation();
-  const tagsControls = useAnimation();
-  const router = useRouter();
 
-  const [imageAnimationDone, setImageAnimationDone] = useState(false);
+const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: false });
+const imageControls = useAnimation();
+ const headingControls = useAnimation();
+ const paraControls = useAnimation();
+ const tagsControls = useAnimation();
+ const router = useRouter();
+ const [imageAnimationDone, setImageAnimationDone] = useState(false);
+
 
   useEffect(() => {
     const sequence = async () => {
