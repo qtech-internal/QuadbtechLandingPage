@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { Inter,Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 
 const themeImages = {
   orange: "/career/Frame3.png",
@@ -27,7 +27,6 @@ const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
   fallback: ["sans-serif"],
-  
 });
 
 export default function CareerPage() {
@@ -66,37 +65,110 @@ export default function CareerPage() {
     };
   }, []);
 
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+
+  //   // Hide elements initially
+  //   gsap.set(
+  //     [headingRef.current, subheadingRef.current, cardWrapperRef.current],
+  //     { opacity: 0, y: 50 }
+  //   );
+
+  //   gsap.to(
+  //     [headingRef.current, subheadingRef.current, cardWrapperRef.current],
+  //     {
+  //       y: 0,
+  //       opacity: 1,
+  //       duration: 1.2,
+  //       stagger: 0.2,
+  //       ease: "power3.out",
+  //       scrollTrigger: {
+  //         trigger: cardWrapperRef.current,
+  //         start: "top 80%",
+  //         toggleActions: "play none none none",
+  //         once: true,
+  //       },
+  //     }
+  //   );
+
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    // Initialize with current theme
+    const savedTheme = localStorage.getItem("theme") || "orange";
+    setCurrentTheme(savedTheme);
+
+    // Listen for theme changes
+    const handleThemeChange = (e: CustomEvent) => {
+      setCurrentTheme(e.detail);
+    };
+
+    window.addEventListener("themeChanged", handleThemeChange as EventListener);
+
+    return () => {
+      window.removeEventListener(
+        "themeChanged",
+        handleThemeChange as EventListener
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    gsap.set([headingRef.current, subheadingRef.current], {
+      opacity: 0,
+      yPercent: -50,
+      top: "50%",
+      position: "absolute",
+    });
+
+    gsap.set(cardWrapperRef.current, {
+      opacity: 0,
+      y: 50,
+    });
+  }, []);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hide elements initially
-    gsap.set(
-      [headingRef.current, subheadingRef.current, cardWrapperRef.current],
-      { opacity: 0, y: 50 }
-    );
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: cardWrapperRef.current, // triggers when card wrapper enters
+        start: "top 80%",
+        toggleActions: "play none none none",
+        once: true,
+      },
+    });
 
-    gsap.to(
-      [headingRef.current, subheadingRef.current, cardWrapperRef.current],
+    // Step 1: Animate heading & subheading from center to top
+    tl.to([headingRef.current, subheadingRef.current], {
+      top: 0,
+      yPercent: 0,
+      position: "relative",
+      opacity: 1,
+      duration: 1.2,
+      ease: "power3.out",
+      stagger: 0.2,
+    });
+
+    // Step 2: Animate cardWrapper
+    tl.to(
+      cardWrapperRef.current,
       {
-        y: 0,
         opacity: 1,
+        y: 0,
         duration: 1.2,
-        stagger: 0.2,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: cardWrapperRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-          once: true,
-        },
-      }
-    );
+      },
+      "+=0.2"
+    ); // slight delay after headings
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
-
   return (
     <main className="">
       <div className=" mt-10 mx-10 2xl:mx-0  ">
