@@ -175,7 +175,7 @@ const GetToKnow = () => {
       }}
       className='text-[24px] font-[500]'
     >
-      {word + (index < words.length - 1 ? " " : "")}
+      {word}
     </motion.span>
   ))}
   &quot;
