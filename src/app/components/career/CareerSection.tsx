@@ -300,8 +300,8 @@ export default function CareerPage() {
                         y2="121.331"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#FF9500" />
-                        <stop offset="1" stop-color="#FFC892" />
+                        <stop stopColor="#FF9500" />
+                        <stop offset="1" stopColor="#FFC892" />
                       </linearGradient>
                       <linearGradient
                         id="paint1_linear_65148_4780"
@@ -311,8 +311,8 @@ export default function CareerPage() {
                         y2="31.679"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#FF9500" />
-                        <stop offset="1" stop-color="#FFC892" />
+                        <stop stopColor="#FF9500" />
+                        <stop offset="1" stopColor="#FFC892" />
                       </linearGradient>
                     </defs>
                   </svg>
@@ -338,7 +338,7 @@ export default function CareerPage() {
               </div>
 
               {!isTab && (
-                <div className="   relative border-2 border-theme shadow-xl rounded-lg lg:ml-42 xl:ml-25 2xl:ml-16 overflow-hidden mx-auto lg:w-[14vw] xl:w-auto  2xl:w-full  max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                <div className="   relative border-2 border-theme shadow-xl  rounded-lg lg:ml-42 xl:ml-25 2xl:ml-16 overflow-hidden mx-auto lg:w-[14vw] xl:w-auto  2xl:w-full  max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
                   {/* <Image
                     className="h-full w-full object-cover rounded-lg"
                     src="/blog1.jpeg"
@@ -371,8 +371,8 @@ export default function CareerPage() {
                         y2="121.331"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#FF9500" />
-                        <stop offset="1" stop-color="#FFC892" />
+                        <stop stopColor="#FF9500" />
+                        <stop offset="1" stopColor="#FFC892" />
                       </linearGradient>
                       <linearGradient
                         id="paint1_linear_65148_4780"
@@ -382,8 +382,8 @@ export default function CareerPage() {
                         y2="31.679"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#FF9500" />
-                        <stop offset="1" stop-color="#FFC892" />
+                        <stop stopColor="#FF9500" />
+                        <stop offset="1" stopColor="#FFC892" />
                       </linearGradient>
                     </defs>
                   </svg>

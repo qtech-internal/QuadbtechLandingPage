@@ -783,8 +783,8 @@ export default function Home() {
       themeGradients[currentTheme] || themeGradients.orange;
     const stop1 = document.getElementById("mini-hero-stop-1");
     const stop2 = document.getElementById("mini-hero-stop-2");
-    if (stop1) stop1.setAttribute("stop-color", start);
-    if (stop2) stop2.setAttribute("stop-color", end);
+    if (stop1) stop1.setAttribute("stopColor", start);
+    if (stop2) stop2.setAttribute("stopColor", end);
   }, [currentTheme]);
 
   useEffect(() => {
