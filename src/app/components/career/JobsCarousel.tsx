@@ -122,9 +122,11 @@
 
 // export default JobsCarousel;
 
+"use client";
 import React, { FC, useRef, useState, useEffect } from "react";
 import JobCard from "../JobCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export interface Job {
   title: string;
@@ -135,17 +137,19 @@ export interface Job {
 
 interface JobsCarouselProps {
   currentJobs: Job[];
+  showHeadingAndButton?: boolean;
+    disableMdHidden?: boolean;
 }
 
-const JobsCarousel: FC<JobsCarouselProps> = ({ currentJobs }) => {
+const JobsCarousel: FC<JobsCarouselProps> = ({ currentJobs, showHeadingAndButton , disableMdHidden = false,}) => {
+  
   const scrollRef = useRef<HTMLDivElement>(null);
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // The button states are now derived directly from the index
   const atStart = currentIndex === 0;
   const atEnd = currentIndex >= currentJobs.length - 1;
 
-  // This effect runs whenever the currentIndex changes, handling the scroll
   useEffect(() => {
     const el = scrollRef.current;
     if (!el || el.children.length === 0) return;
@@ -153,40 +157,35 @@ const JobsCarousel: FC<JobsCarouselProps> = ({ currentJobs }) => {
     const card = el.children[currentIndex] as HTMLElement;
     if (!card) return;
 
-    // Calculate the position of the target card
     const scrollLeftPosition = card.offsetLeft - el.offsetLeft;
+    el.scrollTo({ left: scrollLeftPosition, behavior: "smooth" });
+  }, [currentIndex]);
 
-    el.scrollTo({
-      left: scrollLeftPosition,
-      behavior: "smooth",
-    });
-  }, [currentIndex]); // Re-run the effect when currentIndex changes
-
-  const handleScrollLeft = () => {
-    // Go to the previous index, but not below 0
-    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-  };
-
-  const handleScrollRight = () => {
-    // Go to the next index, but not past the last item
-    setCurrentIndex((prevIndex) =>
-      Math.min(prevIndex + 1, currentJobs.length - 1)
-    );
-  };
+  const handleScrollLeft = () => setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  const handleScrollRight = () =>
+    setCurrentIndex((prev) => Math.min(prev + 1, currentJobs.length - 1));
 
   return (
-    <div className="block md:hidden relative w-full max-w-[90vw] mx-auto">
+    <div  className={`relative w-full max-w-[90vw] mx-auto ${
+        disableMdHidden ? "" : "md:hidden"
+      }`}>
+      {/* Heading */}
+      {showHeadingAndButton && (
+        <div className="text-center mb-6 px-4">
+          <h1 className="text-2xl font-extrabold text-black leading-tight">
+            Join Our Mission to <br />
+            <span className="inline-block">Build the Future.</span>
+          </h1>
+        </div>
+      )}
+
+      {/* Scrollable Job Cards */}
       <div
         ref={scrollRef}
-        className="
-          flex gap-6 overflow-x-auto
-          py-4 px-2
-          scrollbar-hidden scroll-smooth
-          cursor-grab active:cursor-grabbing
-        "
+        className="flex gap-6 overflow-x-auto py-4 px-2 scroll-smooth scrollbar-hidden cursor-grab active:cursor-grabbing"
       >
         {currentJobs.map((job, i) => (
-          <div className="min-w-[280px] sm:min-w-[300px] flex-shrink-0" key={i}>
+          <div key={i} className="min-w-[280px] sm:min-w-[300px] flex-shrink-0">
             <JobCard
               title={job.title}
               location={job.location}
@@ -199,29 +198,33 @@ const JobsCarousel: FC<JobsCarouselProps> = ({ currentJobs }) => {
         ))}
       </div>
 
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full md:hideen">
-        <div className="w-26 h-26 bg-white rounded-full text-theme flex items-center justify-center z-30">
-          <div className="flex items-center gap-2 z-30 text-p px-3">
-            <ChevronLeft
-              className={`w-6 h-6 transition-opacity ${
-                atStart
-                  ? "opacity-30  cursor-not-allowed"
-                  : "cursor-pointer text-[#B73B06] "
-              }`}
-              onClick={handleScrollLeft}
-            />
-            <span className="font-bold select-none text-[#B73B06]">DRAG</span>
-            <ChevronRight
-              className={`w-6 h-6 transition-opacity ${
-                atEnd
-                  ? "opacity-30 cursor-not-allowed"
-                  : "cursor-pointer text-[#B73B06]"
-              }`}
-              onClick={handleScrollRight}
-            />
-          </div>
+      {/* DRAG Controls */}
+      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full">
+        <div className="w-26 h-26 bg-white rounded-full text-theme flex items-center justify-center z-30 px-3">
+          <ChevronLeft
+            className={`w-6 h-6 transition-opacity ${
+              atStart ? "opacity-30 cursor-not-allowed" : "cursor-pointer text-[#B73B06]"
+            }`}
+            onClick={handleScrollLeft}
+          />
+          <span className="font-bold select-none text-[#B73B06]">DRAG</span>
+          <ChevronRight
+            className={`w-6 h-6 transition-opacity ${
+              atEnd ? "opacity-30 cursor-not-allowed" : "cursor-pointer text-[#B73B06]"
+            }`}
+            onClick={handleScrollRight}
+          />
         </div>
       </div>
+
+      {/* Explore Button */}
+      {showHeadingAndButton && (
+        <div className="w-full text-center mt-8">
+          <Link href="/career" prefetch>
+            <button className="px-6 py-2 rounded-full button-theme mt-6">Explore More</button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

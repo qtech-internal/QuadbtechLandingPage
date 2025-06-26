@@ -17,12 +17,15 @@ import JobsCarousel from "./components/career/JobsCarousel";
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [isService, setIsService] = useState(false);
+  const [jobWidthForTab, setJobWidthForTab] =useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       setIsMobile(width < 900); // Change to 1570 for mobile view
       setIsService(width < 768); // Keep this for service section
+      setJobWidthForTab(width < 1002)
+
     };
 
     handleResize();
@@ -116,7 +119,7 @@ export default function Home() {
         {isService ? <ServiceMobile /> : <ServiceSection />}
         {isMobile ? <KaiMobile /> : <KaiFoundrySection />}
         {isMobile ? <TestimonialMobile /> : <TestimonialSection />}
-        {isMobile ? <JobsCarousel currentJobs={jobs} /> : <Job />}
+        {isMobile || jobWidthForTab ?  <JobsCarousel currentJobs={jobs} showHeadingAndButton={true}  disableMdHidden={true}/>:<Job/>}
 
         <Contact />
       </section>
