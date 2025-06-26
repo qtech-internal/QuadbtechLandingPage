@@ -163,7 +163,7 @@ const GetToKnow = () => {
   className="text-2xl md:text-2xl lg:text-3xl sm:text-xl font-medium leading-snug pr-[2px] font-Poopins"
   style={{ color: textColor }}
 >
-  &quot;
+
   {words.map((word, index) => (
     <motion.span
       key={index}
@@ -175,10 +175,10 @@ const GetToKnow = () => {
       }}
       className='text-[24px] font-[500]'
     >
-      {word + (index < words.length - 1 ? " " : "")}
+      {word}
     </motion.span>
   ))}
-  &quot;
+
 </motion.h2>
           <motion.div
             className="mt-6 flex flex-col sm:flex-row justify-start md:justify-start sm:space-x-10 sm:space-y-0 space-y-4 text-lg font-semibold text-p"
