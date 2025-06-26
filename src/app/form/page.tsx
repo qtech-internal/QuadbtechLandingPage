@@ -592,16 +592,23 @@ const BlockchainDeveloper = () => {
         setName(processedValue);
         break;
       case "email":
-        setEmail(value);
+        processedValue = value.replace(/^\s+/, "").replace(/\s+/g, " ");
+        setEmail(processedValue);
         break;
       case "phone":
         processedValue = value.replace(/[^0-9]/g, "").substring(0, 10);
         setPhone(processedValue);
         break;
       case "whyJoin":
-        // Replace two or more consecutive spaces/tabs with a single space.
-        // This leaves newline characters (`\n`) untouched.
-        processedValue = value.replace(/[ \t]{2,}/g, " ");
+        const rawValue = value;
+
+        processedValue = rawValue;
+
+        // Collapse multiple spaces and prevent leading space
+        processedValue = rawValue.replace(/ {2,}/g, " ");
+        if (processedValue === " ") {
+          processedValue = "";
+        }
         setWhyJoin(processedValue);
         break;
       default:
@@ -912,13 +919,13 @@ const BlockchainDeveloper = () => {
                 </label>
                 <input
                   id="blockchain-dev-email"
-                  type="email"
+                  type="text"
                   placeholder="Enter your E-mail"
                   className="w-full p-3 border border-gray-300 rounded-md focus-ring-bg focus:border-transparent disabled:opacity-60 disabled:bg-gray-100 disabled:cursor-not-allowed focus:placeholder-transparent transition"
                   value={email}
                   onChange={handleInputChange}
                   onBlur={handleEmailBlur}
-                  onKeyDown={(e) => e.key === " " && e.preventDefault()}
+                  // onKeyDown={(e) => e.key === " " && e.preventDefault()}
                   name="email"
                   required
                   disabled={loading}
