@@ -7,11 +7,10 @@ import toast from "react-hot-toast";
 import { Send } from "lucide-react";
 import ThankYouPopup from "../ThankYouPopup";
 
-
 export default function ContactUs() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: false });
   const recaptchaRef = useRef<ReCAPTCHA>(null); // Ref for ReCAPTCHA
-   const [showSuccessPopup, setShowSuccessPopup] = useState(false); 
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const [formData, setFormData] = useState<{
     [key in "name" | "email" | "phone" | "subject" | "message"]: string;
@@ -37,7 +36,7 @@ export default function ContactUs() {
     if (name === "phone") {
       // Keep only digits and limit to 10 characters maximum during input
       processedValue = value.replace(/[^0-9]/g, "").substring(0, 10);
-    } else if (name === "email") {
+    } else if (name === "email" || name === "name" || name === "subject") {
       // Trim leading space and replace multiple spaces with single for other fields
       processedValue = value.replace(/^\s+/, "").replace(/\s+/g, " ");
     }
@@ -83,16 +82,16 @@ export default function ContactUs() {
     }
   };
 
-   console.log(formData)
+  console.log(formData);
 
   const isFormValid =
-  formData.name.trim() !== "" &&
-  formData.email.trim() !== "" &&
-  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email) &&
-  formData.phone.length === 10 &&
-  formData.subject.trim() !== "" &&
-  formData.message.trim() !== "" &&
-  !!recaptchaToken;
+    formData.name.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email) &&
+    formData.phone.length === 10 &&
+    formData.subject.trim() !== "" &&
+    formData.message.trim() !== "" &&
+    !!recaptchaToken;
 
   // Handler for form submission
   const handleSubmit = async (e: React.FormEvent) => {
@@ -165,7 +164,7 @@ export default function ContactUs() {
       });
 
       if (response.data.success) {
-         setShowSuccessPopup(true);
+        setShowSuccessPopup(true);
         // toast.success("Email Sent Successfully!");
         setFormData({
           // Reset form fields
@@ -198,7 +197,7 @@ export default function ContactUs() {
       setRecaptchaToken(null);
     } finally {
       setLoading(false);
-       setShowSuccessPopup(true);// Ensure loading state is turned off
+      setShowSuccessPopup(true); // Ensure loading state is turned off
     }
   };
 
@@ -280,7 +279,9 @@ export default function ContactUs() {
                 // }}
                 // placeholder={field.placeholder}
                 placeholder={
-                  formData[field.name as keyof typeof formData] ? "" : field.placeholder
+                  formData[field.name as keyof typeof formData]
+                    ? ""
+                    : field.placeholder
                 }
                 className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none transition "
                 required // Indicates field is mandatory (useful for accessibility)
@@ -300,114 +301,118 @@ export default function ContactUs() {
         </div>
 
         {/* Message Textarea and Submit Button Row */}
-      {/* ✅ ReCAPTCHA - Visible only on SMALL SCREENS */}
+        {/* ✅ ReCAPTCHA - Visible only on SMALL SCREENS */}
 
+        {/* ✅ Message Textarea + Submit Button (Visible on all screens) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
+          {/* Message Textarea */}
+          <div className="relative lg:col-span-2">
+            <textarea
+              name="message"
+              id="message"
+              value={formData.message}
+              onChange={(e) => {
+                const rawValue = e.target.value;
 
-{/* ✅ Message Textarea + Submit Button (Visible on all screens) */}
-<div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
-  {/* Message Textarea */}
-  <div className="relative lg:col-span-2">
-   <textarea
-  name="message"
-  id="message"
-  value={formData.message}
-  onChange={(e) =>
-    setFormData((prev) => ({
-      ...prev,
-      message: e.target.value, // Allow multi-line input
-    }))
-  }
-  onBlur={(e) =>
-    setFormData((prev) => ({
-      ...prev,
-      message: e.target.value.trim(), // Optional trim on blur
-    }))
-  }
-  placeholder="Message"
-  rows={4}
-  className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition "
-  required
-></textarea>
+                let processedValue = rawValue;
 
-  </div>
-  <div className="flex justify-center  block md:hidden">
-  <ReCAPTCHA
-    ref={recaptchaRef}
-    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-    onChange={(token) => setRecaptchaToken(token)}
-    onErrored={() => {
-      toast.error("reCAPTCHA failed. Please refresh and try again.");
-      setRecaptchaToken(null);
-    }}
-    onExpired={() => {
-      toast.error("reCAPTCHA expired. Please verify again.");
-      setRecaptchaToken(null);
-    }}
-  />
-</div>
+                // Collapse multiple spaces and prevent leading space
+                processedValue = rawValue.replace(/ {2,}/g, " ");
+                if (formData.message === "" && processedValue === " ") {
+                  processedValue = "";
+                }
 
+                setFormData((prev) => ({
+                  ...prev,
+                  message: processedValue, // Allow multi-line input
+                }));
+              }}
+              onBlur={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  message: e.target.value.trim(), // Optional trim on blur
+                }))
+              }
+              placeholder="Message"
+              rows={4}
+              className="p-3 rounded-2xl div-bg placeholder-black placeholder:font-bold text-sm w-full focus-ring-bg outline-none resize-none transition "
+              required
+            ></textarea>
+          </div>
+          <div className="flex justify-center  block md:hidden">
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+              onChange={(token) => setRecaptchaToken(token)}
+              onErrored={() => {
+                toast.error("reCAPTCHA failed. Please refresh and try again.");
+                setRecaptchaToken(null);
+              }}
+              onExpired={() => {
+                toast.error("reCAPTCHA expired. Please verify again.");
+                setRecaptchaToken(null);
+              }}
+            />
+          </div>
 
-
-  {/* Submit Button */}
- <button
-  type="submit"
-  className={`flex flex-col justify-center items-center text-white rounded-2xl w-full py-6 transition bg-theme
-    ${isFormValid && !loading && !isRateLimited
-      ? "opacity-100 cursor-pointer"
-      : "opacity-50 "
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className={`flex flex-col justify-center items-center text-white rounded-2xl w-full py-6 transition bg-theme
+    ${
+      isFormValid && !loading && !isRateLimited
+        ? "opacity-100 cursor-pointer"
+        : "opacity-50 "
     }
   `}
-  disabled={!isFormValid || loading || isRateLimited}
->
-  {loading ? (
-    <span className="text-base font-medium">Sending...</span>
-  ) : isRateLimited ? (
-    <span className="text-base font-medium">Wait...</span>
-  ) : (
-    <>
-      <Send className="w-6 h-6 mb-1" />
-      <span className="text-base font-medium">Send</span>
-    </>
-  )}
-</button>
-</div>
+            disabled={!isFormValid || loading || isRateLimited}
+          >
+            {loading ? (
+              <span className="text-base font-medium">Sending...</span>
+            ) : isRateLimited ? (
+              <span className="text-base font-medium">Wait...</span>
+            ) : (
+              <>
+                <Send className="w-6 h-6 mb-1" />
+                <span className="text-base font-medium">Send</span>
+              </>
+            )}
+          </button>
+        </div>
 
-{/* ✅ ReCAPTCHA - Visible only on MEDIUM+ SCREENS */}
-<div className="flex justify-center mt-8 hidden md:flex">
-  <ReCAPTCHA
-    ref={recaptchaRef}
-    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-    onChange={(token) => setRecaptchaToken(token)}
-    onErrored={() => {
-      toast.error("reCAPTCHA failed. Please refresh and try again.");
-      setRecaptchaToken(null);
-    }}
-    onExpired={() => {
-      toast.error("reCAPTCHA expired. Please verify again.");
-      setRecaptchaToken(null);
-    }}
-  />
-</div>
-
-
-
+        {/* ✅ ReCAPTCHA - Visible only on MEDIUM+ SCREENS */}
+        <div className="flex justify-center mt-8 hidden md:flex">
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+            onChange={(token) => setRecaptchaToken(token)}
+            onErrored={() => {
+              toast.error("reCAPTCHA failed. Please refresh and try again.");
+              setRecaptchaToken(null);
+            }}
+            onExpired={() => {
+              toast.error("reCAPTCHA expired. Please verify again.");
+              setRecaptchaToken(null);
+            }}
+          />
+        </div>
       </form>
-{showSuccessPopup && (
-  <ThankYouPopup
-    onClose={() => {
-      setShowSuccessPopup(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-      recaptchaRef.current?.reset(); // Optional: also reset CAPTCHA if desired
-      setRecaptchaToken(null);
-    }}
-  />
-)}
+      {showSuccessPopup && (
+        <ThankYouPopup
+          onClose={() => {
+            setShowSuccessPopup(false);
+            setFormData({
+              name: "",
+              email: "",
+              phone: "",
+              subject: "",
+              message: "",
+            });
+            recaptchaRef.current?.reset(); // Optional: also reset CAPTCHA if desired
+            setRecaptchaToken(null);
+          }}
+        />
+      )}
 
       {/* ReCAPTCHA */}
       {/* <div className="flex justify-center mt-8">
