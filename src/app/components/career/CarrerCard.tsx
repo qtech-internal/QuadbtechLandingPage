@@ -142,7 +142,7 @@ export default function Career() {
             />
           </div>
 
-          <div className="w-100 md:hidden relative block ">
+          <div className="w-100 md:hidden relative block mt-5 ">
             <span className="absolute inset-y-0 left-0 flex items-center pl-10 pointer-events-none">
               <svg
                 className="w-5 h-5 text-secondary"
