@@ -270,7 +270,7 @@ const GetToKnow = () => {
     flex justify-start
     position-fixed
     md:translate-x-[40px]
-    lg:translate-x-[-40px]
+    lg:translate-x-[-50px]
     xl:translate-x-[-150px]
     2xl:translate-x-[-243px]
     3xl:translate-x-[-355px]
@@ -311,7 +311,7 @@ const GetToKnow = () => {
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: "easeInOut" }}
         >
           <motion.h2
-            className="text-2xl 2xl:w-full lg:ml-10 2xl:ml-1 md:text-2xl 3xl:ml-6 lg:text-4xl sm:text-2xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug mx-auto"
+            className="text-2xl 2xl:w-full lg:ml-10 2xl:ml-1 md:text-2xl lg:translate-[-50px] lg:mt-11 xl:translate-[2px] 2xl:translate-[-12px]  3xl:ml-6 lg:text-4xl sm:text-2xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug mx-auto"
             style={{ color: textColor }}
           >
             <motion.span
