@@ -141,7 +141,8 @@ export default function CareerPage() {
               </div>
 
               {/* Card 2 */}
-              <div className="relative h-[61vh] lg:h-[52vh] xl:h-[41vh] 2xl:h-[42vh] 3xl:h-[29vh]  overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
+              {/* <div className="relative h-[61vh] md:h-[40vh] lg:h-[66vh] xl:h-[41vh] 2xl:h-[42vh] 3xl:h-[29vh]  overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl"> */}
+              <div className="relative overflow-hidden rounded-lg shadow-xl transition-shadow duration-300 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div>
                 <Image
                   className="h-full w-full object-cover rounded-lg"
