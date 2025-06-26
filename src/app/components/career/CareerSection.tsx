@@ -260,7 +260,7 @@ export default function CareerPage() {
                 </div>
               </div>
               {isTab && (
-                <div className="relative bg-theme border-2 border-theme shadow-xl rounded-lg  overflow-hidden mx-auto  w-full  transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                <div className="relative  border-2 border-theme shadow-xl rounded-lg  overflow-hidden mx-auto  w-full  transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
                   {/* <Image
                     className="h-full w-full object-cover rounded-lg"
                     src="/blog1.jpeg"
@@ -331,7 +331,7 @@ export default function CareerPage() {
               </div>
 
               {!isTab && (
-                <div className="   relative border-2  bg-theme border-theme shadow-xl  rounded-lg lg:ml-42 xl:ml-25 2xl:ml-16 overflow-hidden mx-auto lg:w-[14vw] xl:w-auto  2xl:w-full  max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                <div className="   relative border-2   border-theme shadow-xl  rounded-lg lg:ml-42 xl:ml-25 2xl:ml-16 overflow-hidden mx-auto lg:w-[14vw] xl:w-auto  2xl:w-full  max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
                   {/* <Image
                     className="h-full w-full object-cover rounded-lg"
                     src="/blog1.jpeg"
