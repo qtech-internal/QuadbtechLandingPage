@@ -171,7 +171,7 @@ export default function CareerPage() {
   }, []);
   return (
     <main className="">
-      <div className=" mt-10 mx-10 2xl:mx-0  ">
+      <div className=" mt-10  2xl:mx-0  ">
         {/* Section 1 - Hero */}
         <section className="flex flex-col items-center justify-center py-12 sm:py-16 lg:py-20">
           <img
