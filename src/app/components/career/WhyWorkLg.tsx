@@ -137,11 +137,11 @@ export default function CareerPage() {
   ];
 
   return (
-    <div className="hidden lg:flex flex-col text-secondary mx-auto container w-full  ">
-      <div className="mt-10 px-10 2xl:px-25">
+    <div className="hidden lg:flex flex-col text-secondary mx-10  ">
+      <div className="mt-10 ">
         <section
           ref={whyWorkWithUsRef}
-          className=" flex flex-col py-16 sm:py-20 lg:py-24 justify-center relative"
+          className=" flex flex-col py-16 sm:py-20 lg:py-24 max-w-7xl mx-auto justify-center relative"
         >
           <div className="flex flex-col lg:flex-row  lg:justify-between lg:items-start ">
             {/* Top left content - Better spacing */}
