@@ -37,7 +37,7 @@ export default function ContactUs() {
     if (name === "phone") {
       // Keep only digits and limit to 10 characters maximum during input
       processedValue = value.replace(/[^0-9]/g, "").substring(0, 10);
-    } else if (name === "email") {
+    } else if (name === "email" || name === "name" || name === "subject") {
       // Trim leading space and replace multiple spaces with single for other fields
       processedValue = value.replace(/^\s+/, "").replace(/\s+/g, " ");
     }
