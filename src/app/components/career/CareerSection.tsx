@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { Inter, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 
 const themeImages = {
   orange: "/career/Frame3.png",
@@ -14,13 +14,6 @@ const themeImages = {
   brown: "/career/brown_theme_img.png",
   cyan: "/career/cryan_theme_img.png",
 };
-
-const inter = Inter({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["sans-serif"],
-});
 
 const poppins = Poppins({
   weight: "500",
@@ -267,7 +260,7 @@ export default function CareerPage() {
                 </div>
               </div>
               {isTab && (
-                <div className="relative border-2 border-theme shadow-xl rounded-lg  overflow-hidden mx-auto  w-full  transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                <div className="relative bg-theme border-2 border-theme shadow-xl rounded-lg  overflow-hidden mx-auto  w-full  transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
                   {/* <Image
                     className="h-full w-full object-cover rounded-lg"
                     src="/blog1.jpeg"
@@ -338,7 +331,7 @@ export default function CareerPage() {
               </div>
 
               {!isTab && (
-                <div className="   relative border-2 border-theme shadow-xl  rounded-lg lg:ml-42 xl:ml-25 2xl:ml-16 overflow-hidden mx-auto lg:w-[14vw] xl:w-auto  2xl:w-full  max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                <div className="   relative border-2  bg-theme border-theme shadow-xl  rounded-lg lg:ml-42 xl:ml-25 2xl:ml-16 overflow-hidden mx-auto lg:w-[14vw] xl:w-auto  2xl:w-full  max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
                   {/* <Image
                     className="h-full w-full object-cover rounded-lg"
                     src="/blog1.jpeg"
