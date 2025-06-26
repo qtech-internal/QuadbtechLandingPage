@@ -97,7 +97,7 @@ export default function Footer() {
           CONTACT US
         </button>
       </Link>
-      <div className="flex space-x-4 text-[var(--bg-card)] text-xl md:text-2xl mb-6 md:mb-0">
+      <div className="flex space-x-4 text-[var(--bg-card)] text-xl md:text-2xl mb-6 md:mb-0  lg:translate-x-[-80px] xl:translate-x-[-105px]  3xl:translate-x-[-200px] 2xl:translate-x-[-160px]    sm:translate-x-[-5px]">
         {[
           FaInstagram,
           FaDribbble,
