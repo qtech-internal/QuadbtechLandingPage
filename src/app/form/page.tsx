@@ -559,7 +559,7 @@
 // export default BlockchainDeveloper;
 "use client";
 
-import React, { useState, useRef, FormEvent, FocusEvent } from "react";
+import React, { useState, useRef, FormEvent, FocusEvent, useEffect } from "react";
 import { Upload, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
@@ -577,6 +577,8 @@ const BlockchainDeveloper = () => {
   const [fileName, setFileName] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [formIsComplete, setFormIsComplete] = useState(false);
+
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -608,6 +610,20 @@ const BlockchainDeveloper = () => {
         break;
     }
   };
+
+  useEffect(() => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const isFormReady =
+    name.trim() &&
+    email.trim() &&
+    emailRegex.test(email) &&
+    phone.length === 10 &&
+    whyJoin.trim() &&
+    resumeFile;
+
+  setFormIsComplete(Boolean(isFormReady));
+}, [name, email, phone, whyJoin, resumeFile]);
+
 
   const handleEmailBlur = (e: FocusEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -1063,39 +1079,47 @@ const BlockchainDeveloper = () => {
                 ></textarea>
               </div>
               {/* at 1044 i changed bg-theme to bg-[#F97F07] */}
-              <button
-                type="submit"
-                className="w-full lg:w-[139px] cursor-pointer sm:w-1/2 mx-auto flex justify-center items-center bg-theme text-white font-[400] py-3 px-6 rounded-full  focus-ring-bg transition duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <svg
-                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                    Submitting...
-                  </>
-                ) : (
-                  "Submit"
-                )}
-              </button>
+           <button
+  type="submit"
+  className={`w-full lg:w-[139px] sm:w-1/2 mx-auto flex justify-center items-center font-[400] py-3 px-6 rounded-full transition duration-150 ease-in-out
+    ${
+      formIsComplete && !loading
+        ? "bg-theme text-white hover:bg-[#fbbd7e] cursor-pointer"
+        : "bg-gray-300 text-gray-500 cursor-not-allowed"
+    }
+    disabled:opacity-60 disabled:cursor-not-allowed`}
+  disabled={!formIsComplete || loading}
+>
+  {loading ? (
+    <>
+      <svg
+        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        ></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+      Submitting...
+    </>
+  ) : (
+    "Submit"
+  )}
+</button>
+
+
             </form>
             {showPopup && (
               <ApplicationSubmittedPopup

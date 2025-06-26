@@ -274,6 +274,7 @@ const GetToKnow = () => {
     xl:translate-x-[-150px]
     2xl:translate-x-[-243px]
     3xl:translate-x-[-355px]
+   
   "
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={
@@ -290,7 +291,7 @@ const GetToKnow = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="button-theme px-4 py-2 rounded-full text-xs transition-all duration-300 cursor-pointer"
+            className="button-theme px-4 py-2 rounded-full text-xs transition-all duration-300 cursor-pointer  xl:translate-y-[47px] 2xl:translate-y-[35px] "
           >
             Get to Know Us!
           </motion.button>
@@ -311,7 +312,7 @@ const GetToKnow = () => {
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: "easeInOut" }}
         >
           <motion.h2
-            className="text-2xl 2xl:w-full lg:ml-10 2xl:ml-1 md:text-2xl lg:translate-[-50px] lg:mt-11 xl:translate-[2px] 2xl:translate-[-12px]  3xl:ml-6 lg:text-4xl sm:text-2xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug mx-auto"
+            className="text-2xl 2xl:w-full lg:ml-10 2xl:ml-1 md:text-2xl  lg:translate-[-50px] lg:mt-11 xl:translate-[2px] 2xl:translate-[-12px]  3xl:ml-6 lg:text-4xl sm:text-2xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug mx-auto"
             style={{ color: textColor }}
           >
             <motion.span
