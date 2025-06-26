@@ -601,7 +601,6 @@ const BlockchainDeveloper = () => {
         break;
       case "whyJoin":
         const rawValue = value;
-
         processedValue = rawValue;
 
         // Collapse multiple spaces and prevent leading space
