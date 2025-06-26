@@ -107,7 +107,7 @@ export default function Career() {
   };
 
   return (
-    <div className="mx-0 lg:mx-10">
+    <div className="">
       <div className="  flex flex-col items-center  px-4 xl:px-0 mt-10 lg:mt-0  justify-cente w-full  2xl:mx-auto      ">
         {/* <div className="flex flex-col md:flex-row items-center justify-center mb-4 gap-4   md:gap-44 lg:gap-74   2xl:gap-80 3xl:gap-90  md:justify-between  mt-16 w-full 2xl:ml-[30px] 3xl:ml-[25px]  2xl:w-[80vw] 3xl:w-[71vw] "> */}
         <div className="flex flex-col   md:flex-row justify-between items-center   lg:max-w-7xl    w-full ">

@@ -137,7 +137,7 @@ export default function CareerPage() {
   ];
 
   return (
-    <div className="hidden lg:flex flex-col text-secondary mx-10  ">
+    <div className="hidden lg:flex flex-col text-secondary mx-10 md:mx-0  ">
       <div className="mt-10 ">
         <section
           ref={whyWorkWithUsRef}
