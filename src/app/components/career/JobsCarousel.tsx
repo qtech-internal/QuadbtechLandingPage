@@ -139,9 +139,10 @@ interface JobsCarouselProps {
   currentJobs: Job[];
   showHeadingAndButton?: boolean;
     disableMdHidden?: boolean;
+    isFromHome?: boolean; 
 }
 
-const JobsCarousel: FC<JobsCarouselProps> = ({ currentJobs, showHeadingAndButton , disableMdHidden = false,}) => {
+const JobsCarousel: FC<JobsCarouselProps> = ({ currentJobs, showHeadingAndButton , disableMdHidden = false, isFromHome = false,}) => {
   
   const scrollRef = useRef<HTMLDivElement>(null);
   
@@ -192,7 +193,7 @@ const JobsCarousel: FC<JobsCarouselProps> = ({ currentJobs, showHeadingAndButton
               experience={job.experience}
               imageSrc={job.imageSrc}
               isOdd={i % 2 === 0}
-              buttonText="Apply Now"
+             buttonText={isFromHome ? "Know More" : "Apply Now"}
             />
           </div>
         ))}

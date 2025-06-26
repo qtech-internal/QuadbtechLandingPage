@@ -119,7 +119,7 @@ export default function Home() {
         {isService ? <ServiceMobile /> : <ServiceSection />}
         {isMobile ? <KaiMobile /> : <KaiFoundrySection />}
         {isMobile ? <TestimonialMobile /> : <TestimonialSection />}
-        {isMobile || jobWidthForTab ?  <JobsCarousel currentJobs={jobs} showHeadingAndButton={true}  disableMdHidden={true}/>:<Job/>}
+        {isMobile || jobWidthForTab ?  <JobsCarousel currentJobs={jobs} showHeadingAndButton={true}  disableMdHidden={true} isFromHome={true} />:<Job/>}
 
         <Contact />
       </section>

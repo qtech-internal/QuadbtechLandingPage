@@ -96,13 +96,7 @@ const router = useRouter();
 
       {/* Scroll */}
     <div className="
-  absolute right-2 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full 
-
-  sm:translate-x-[-150px] sm:mt-10
-  md:translate-x-[-330px] md:mt-12
-  lg:translate-x-[-215px] lg:mt-28
-  xl:translate-x-[-75px] xl:mt-24
-  2xl:translate-x-[-300px] 2xl:mt-20
+  absolute right-2 top-1/2 transform -translate-y-1/2 z-40 border-theme border-2 rounded-full mt-20
 ">
 
         <div className="w-26 h-26  bg-white rounded-full text-theme flex items-center justify-center cursor-pointer z-30  ">
