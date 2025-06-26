@@ -15,8 +15,7 @@ const imageControls = useAnimation();
  const paraControls = useAnimation();
  const tagsControls = useAnimation();
  const router = useRouter();
-
-  const [imageAnimationDone, setImageAnimationDone] = useState(false);
+ const [imageAnimationDone, setImageAnimationDone] = useState(false);
 
   useEffect(() => {
     const sequence = async () => {
