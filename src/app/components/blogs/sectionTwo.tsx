@@ -46,8 +46,15 @@ export default function SectionTwo({ image }: { image: string}) {
     }, []);
     return (
         <section className="w-full py-12 px-4 md:px-6 lg:px-10 ">
-            <div className="relative w-full mx-auto min-h-[500px] md:min-h-0 container">
-                {/* Image */}
+                <img
+                    src="/blogs/blog_section2.png"
+                    draggable={false}
+                    alt="section2Image"
+                    className="w-full sm:h-full h-[300px] object-cover rounded-3xl hidden md:block transition-all"
+                    loading="lazy"
+                />
+            {/* <div className="relative w-full mx-auto min-h-[500px] md:min-h-0 container">
+                
                 <img
                     src={image}
                     draggable={false}
@@ -56,7 +63,7 @@ export default function SectionTwo({ image }: { image: string}) {
                     loading="lazy"
                 />
 
-                {/* Mobile image */}
+                
                 <img
                     draggable={false}
                     // src={image2} // Image for mobile screens
@@ -81,7 +88,7 @@ export default function SectionTwo({ image }: { image: string}) {
                         Ideas into Reality
                     </h1>
                 </div>
-                {/* Read More Button */}
+                
                 <button
 
                     className=" cursor-pointer
@@ -97,7 +104,7 @@ export default function SectionTwo({ image }: { image: string}) {
                 >
                     Read More
                 </button>
-            </div>
+            </div> */}
         </section>
     );
 }

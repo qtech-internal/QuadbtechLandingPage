@@ -8,8 +8,17 @@ export default function SectionThree({ image1,image2 }: { image1: string,image2:
 
 
     return (
-        <section  className="w-full py-12 px-4 md:px-6 lg:px-8">
-            <div className="container relative flex flex-col md:flex-row max-auto max-w-8xl gap-8">
+        <section  className="w-full py-12 px-4 md:px-6 lg:px-4">
+            <Image
+                        draggable={false}
+                        src="/blogs/blog_secton3.png"
+                        alt="section_3_Image"
+                        width={800}
+                        height={800}
+                        className="w-full h-full"
+                        
+                    />
+            {/* <div className="container relative flex flex-col md:flex-row max-auto max-w-8xl gap-8">
                 <div className="relative w-full md:w-[40%]  aspect-[16/16] md:aspect-[4/3] ">
                     <div
 
@@ -65,7 +74,7 @@ export default function SectionThree({ image1,image2 }: { image1: string,image2:
                     <button className="absolute cursor-pointer left-2 bottom-20 md:text-[1vw]  font-semibold  rounded-2xl z-10 text-white bg-theme  md:left-5 md:bottom-13 lg:bottom-18 xl:bottom-22 2xl:bottom-28 px-4 py-1 2xl:text-[18px]">
                         READ MORE
                     </button>
-   {/* <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div> */}
+    <div className="absolute inset-0 bg-[var(--bg-card)] opacity-50"></div> 
                    <div className="relative w-[690px] h-[640px] ml-7 ">
                      <Image
                         draggable={false}
@@ -78,7 +87,7 @@ export default function SectionThree({ image1,image2 }: { image1: string,image2:
                    </div>
                     
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 }
