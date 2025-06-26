@@ -592,7 +592,7 @@ const BlockchainDeveloper = () => {
         setName(processedValue);
         break;
       case "email":
-        processedValue = value.replace(/^\s+/, "").replace(/\s+/g, " ");
+        processedValue = value.trim().replace(/\s+/g, "");
         setEmail(processedValue);
         break;
       case "phone":
