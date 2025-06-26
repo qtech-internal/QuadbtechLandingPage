@@ -94,7 +94,8 @@ const Navbar = () => {
       after:h-[1px] after:bg-black after:rounded after:transition-all after:duration-300
       after:scale-x-0 after:opacity-0
       hover:after:scale-x-100 hover:after:opacity-100
-      ${pathname === path ? "border-2 border-theme" : "hover:text-theme"}
+    border-2 ${pathname === path ? "border-theme" : "border-transparent hover:text-theme"}
+
     `}
             >
               {label}
