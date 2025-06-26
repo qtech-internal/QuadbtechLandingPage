@@ -107,7 +107,7 @@ export default function Career() {
   };
 
   return (
-    <div className="">
+    <div className="mx-0 lg:mx-10 2xl:mx-0">
       <div className="  flex flex-col items-center  px-4 xl:px-0 mt-10 lg:mt-0  justify-cente w-full  2xl:mx-auto      ">
         {/* <div className="flex flex-col md:flex-row items-center justify-center mb-4 gap-4   md:gap-44 lg:gap-74   2xl:gap-80 3xl:gap-90  md:justify-between  mt-16 w-full 2xl:ml-[30px] 3xl:ml-[25px]  2xl:w-[80vw] 3xl:w-[71vw] "> */}
         <div className="flex flex-col   md:flex-row justify-between items-center   lg:max-w-7xl    w-full ">
@@ -118,7 +118,7 @@ export default function Career() {
             Current Openings
           </h1>
 
-          <div className="w-[30%] sm:w-[50%]  lg:w-auto h-10 relative hidden md:flex gap-3 border border-theme rounded-lg">
+          <div className="w-[35%]  lg:w-auto h-10 relative hidden md:flex gap-3 border border-theme rounded-lg">
             <span className="flex items-center justify-center h-10 pl-3 pointer-events-none ">
               <svg
                 className="w-5 h-5 text-secondary"
