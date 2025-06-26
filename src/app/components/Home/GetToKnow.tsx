@@ -220,13 +220,13 @@ const GetToKnow = () => {
 
     const stop1_1 = document.getElementById("stop1-1");
     const stop1_2 = document.getElementById("stop1-2");
-    if (stop1_1) stop1_1.setAttribute("stop-color", start);
-    if (stop1_2) stop1_2.setAttribute("stop-color", end);
+    if (stop1_1) stop1_1.setAttribute("stopColor", start);
+    if (stop1_2) stop1_2.setAttribute("stopColor", end);
 
     const stop2_1 = document.getElementById("stop2-1");
     const stop2_2 = document.getElementById("stop2-2");
-    if (stop2_1) stop2_1.setAttribute("stop-color", start);
-    if (stop2_2) stop2_2.setAttribute("stop-color", end);
+    if (stop2_1) stop2_1.setAttribute("stopColor", start);
+    if (stop2_2) stop2_2.setAttribute("stopColor", end);
   }, [currentTheme]);
 
   const words =

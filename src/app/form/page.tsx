@@ -814,16 +814,16 @@ const BlockchainDeveloper = () => {
             <path
               d="M19 8H1.5"
               stroke="#4D4D4D"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M8 15L1 8L8 1"
               stroke="#4D4D4D"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           Back

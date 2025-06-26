@@ -1,22 +1,12 @@
 "use client";
 
-import { Inter,Poppins } from "next/font/google";
-
-
-const inter = Inter({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["sans-serif"],
-  
-});
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   weight: "500",
   subsets: ["latin"],
   display: "swap",
   fallback: ["sans-serif"],
-  
 });
 
 const QuadBIntro = () => {
