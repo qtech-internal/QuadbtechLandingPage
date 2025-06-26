@@ -114,7 +114,7 @@ export default function Career() {
           <h1 className=" text-[9.7vw] text-balance   lg:text-[48px]  md:text-[30px] whitespace-nowrap font-bold hidden  md:block ">
             Current Openings
           </h1>
-          <h1 className="text-[9.7vw]  text-balance whitespace-nowrap font-bold w-full text-center md:hidden">
+          <h1 className="text-[9.7vw]  text-balance whitespace-nowrap font-bold w-full  md:hidden">
             Current Openings
           </h1>
 
