@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { Inter,Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 
 const themeImages = {
   orange: "/career/Frame3.png",
@@ -15,19 +15,11 @@ const themeImages = {
   cyan: "/career/cryan_theme_img.png",
 };
 
-const inter = Inter({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["sans-serif"],
-});
-
 const poppins = Poppins({
   weight: "500",
   subsets: ["latin"],
   display: "swap",
   fallback: ["sans-serif"],
-  
 });
 
 export default function CareerPage() {
@@ -66,40 +58,113 @@ export default function CareerPage() {
     };
   }, []);
 
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+
+  //   // Hide elements initially
+  //   gsap.set(
+  //     [headingRef.current, subheadingRef.current, cardWrapperRef.current],
+  //     { opacity: 0, y: 50 }
+  //   );
+
+  //   gsap.to(
+  //     [headingRef.current, subheadingRef.current, cardWrapperRef.current],
+  //     {
+  //       y: 0,
+  //       opacity: 1,
+  //       duration: 1.2,
+  //       stagger: 0.2,
+  //       ease: "power3.out",
+  //       scrollTrigger: {
+  //         trigger: cardWrapperRef.current,
+  //         start: "top 80%",
+  //         toggleActions: "play none none none",
+  //         once: true,
+  //       },
+  //     }
+  //   );
+
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    // Initialize with current theme
+    const savedTheme = localStorage.getItem("theme") || "orange";
+    setCurrentTheme(savedTheme);
+
+    // Listen for theme changes
+    const handleThemeChange = (e: CustomEvent) => {
+      setCurrentTheme(e.detail);
+    };
+
+    window.addEventListener("themeChanged", handleThemeChange as EventListener);
+
+    return () => {
+      window.removeEventListener(
+        "themeChanged",
+        handleThemeChange as EventListener
+      );
+    };
+  }, []);
+
+  useEffect(() => {
+    gsap.set([headingRef.current, subheadingRef.current], {
+      opacity: 0,
+      yPercent: -50,
+      top: "50%",
+      position: "absolute",
+    });
+
+    gsap.set(cardWrapperRef.current, {
+      opacity: 0,
+      y: 50,
+    });
+  }, []);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hide elements initially
-    gsap.set(
-      [headingRef.current, subheadingRef.current, cardWrapperRef.current],
-      { opacity: 0, y: 50 }
-    );
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: cardWrapperRef.current, // triggers when card wrapper enters
+        start: "top 80%",
+        toggleActions: "play none none none",
+        once: true,
+      },
+    });
 
-    gsap.to(
-      [headingRef.current, subheadingRef.current, cardWrapperRef.current],
+    // Step 1: Animate heading & subheading from center to top
+    tl.to([headingRef.current, subheadingRef.current], {
+      top: 0,
+      yPercent: 0,
+      position: "relative",
+      opacity: 1,
+      duration: 1.2,
+      ease: "power3.out",
+      stagger: 0.2,
+    });
+
+    // Step 2: Animate cardWrapper
+    tl.to(
+      cardWrapperRef.current,
       {
-        y: 0,
         opacity: 1,
+        y: 0,
         duration: 1.2,
-        stagger: 0.2,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: cardWrapperRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-          once: true,
-        },
-      }
-    );
+      },
+      "+=0.2"
+    ); // slight delay after headings
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
-
   return (
     <main className="">
-      <div className=" mt-10 mx-10 2xl:mx-0  ">
+      <div className=" mt-10  lg:mx-10 2xl:mx-0  ">
         {/* Section 1 - Hero */}
         <section className="flex flex-col items-center justify-center py-12 sm:py-16 lg:py-20">
           <img
@@ -195,7 +260,7 @@ export default function CareerPage() {
                 </div>
               </div>
               {isTab && (
-                <div className="relative border-2 border-theme shadow-xl rounded-lg  overflow-hidden mx-auto  w-full  transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                <div className="relative  border-2 border-theme shadow-xl rounded-lg  overflow-hidden mx-auto  w-full  transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
                   {/* <Image
                     className="h-full w-full object-cover rounded-lg"
                     src="/blog1.jpeg"
@@ -228,8 +293,8 @@ export default function CareerPage() {
                         y2="121.331"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#FF9500" />
-                        <stop offset="1" stop-color="#FFC892" />
+                        <stop stopColor="#FF9500" />
+                        <stop offset="1" stopColor="#FFC892" />
                       </linearGradient>
                       <linearGradient
                         id="paint1_linear_65148_4780"
@@ -239,8 +304,8 @@ export default function CareerPage() {
                         y2="31.679"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#FF9500" />
-                        <stop offset="1" stop-color="#FFC892" />
+                        <stop stopColor="#FF9500" />
+                        <stop offset="1" stopColor="#FFC892" />
                       </linearGradient>
                     </defs>
                   </svg>
@@ -266,7 +331,7 @@ export default function CareerPage() {
               </div>
 
               {!isTab && (
-                <div className="   relative border-2 border-theme shadow-xl rounded-lg lg:ml-42 xl:ml-25 2xl:ml-16 overflow-hidden mx-auto lg:w-[14vw] xl:w-auto  2xl:w-full  max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
+                <div className="   relative border-2   border-theme shadow-xl  rounded-lg lg:ml-42 xl:ml-25 2xl:ml-16 overflow-hidden mx-auto lg:w-[14vw] xl:w-auto  2xl:w-full  max-w-[200px] xl:max-w-[350px] xl:aspect-[390/280] transition-shadow duration-300 hover:shadow-2xl flex items-center justify-center">
                   {/* <Image
                     className="h-full w-full object-cover rounded-lg"
                     src="/blog1.jpeg"
@@ -299,8 +364,8 @@ export default function CareerPage() {
                         y2="121.331"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#FF9500" />
-                        <stop offset="1" stop-color="#FFC892" />
+                        <stop stopColor="#FF9500" />
+                        <stop offset="1" stopColor="#FFC892" />
                       </linearGradient>
                       <linearGradient
                         id="paint1_linear_65148_4780"
@@ -310,8 +375,8 @@ export default function CareerPage() {
                         y2="31.679"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#FF9500" />
-                        <stop offset="1" stop-color="#FFC892" />
+                        <stop stopColor="#FF9500" />
+                        <stop offset="1" stopColor="#FFC892" />
                       </linearGradient>
                     </defs>
                   </svg>

@@ -220,13 +220,13 @@ const GetToKnow = () => {
 
     const stop1_1 = document.getElementById("stop1-1");
     const stop1_2 = document.getElementById("stop1-2");
-    if (stop1_1) stop1_1.setAttribute("stop-color", start);
-    if (stop1_2) stop1_2.setAttribute("stop-color", end);
+    if (stop1_1) stop1_1.setAttribute("stopColor", start);
+    if (stop1_2) stop1_2.setAttribute("stopColor", end);
 
     const stop2_1 = document.getElementById("stop2-1");
     const stop2_2 = document.getElementById("stop2-2");
-    if (stop2_1) stop2_1.setAttribute("stop-color", start);
-    if (stop2_2) stop2_2.setAttribute("stop-color", end);
+    if (stop2_1) stop2_1.setAttribute("stopColor", start);
+    if (stop2_2) stop2_2.setAttribute("stopColor", end);
   }, [currentTheme]);
 
   const words =
@@ -258,42 +258,44 @@ const GetToKnow = () => {
       className="relative bg-white pt-0 pb-4 px-6 overflow-hidden "
     >
       <motion.div
-        className="max-w-[1500px] mx-auto flex flex-col items-start md:items-center gap-10"
+        className="max-w-[1500px] 3xl:max-w-[1841px] mx-auto flex flex-col items-start md:items-center gap-10"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 1 }}
         transition={{ duration: 2 }}
       >
-      <motion.div
-  className="
+        <motion.div
+          className="
     w-full
     md:w-1/4
     flex justify-start
     position-fixed
     md:translate-x-[40px]
-    lg:translate-x-[-40px]
+    lg:translate-x-[-50px]
     xl:translate-x-[-150px]
     2xl:translate-x-[-243px]
+    3xl:translate-x-[-355px]
+   
   "
-  initial={{ x: 0, y: 0, opacity: 0 }}
-  animate={
-    isInView && !isMobile
-      ? {
-          x: [0, xValue, xValue],
-          y: [0, 0, 40],
-          opacity: [0, 1, 1],
-        }
-      : { x: 0, y: 0, opacity: 1 }
-  }
-  transition={{ duration: 3.5, times: [0, 0.5, 1], ease: "easeInOut" }}
->
-  <motion.button
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.95 }}
-    className="button-theme px-4 py-2 rounded-full text-xs transition-all duration-300 cursor-pointer"
-  >
-    Get to Know Us!
-  </motion.button>
-</motion.div>
+          initial={{ x: 0, y: 0, opacity: 0 }}
+          animate={
+            isInView && !isMobile
+              ? {
+                  x: [0, xValue, xValue],
+                  y: [0, 0, 40],
+                  opacity: [0, 1, 1],
+                }
+              : { x: 0, y: 0, opacity: 1 }
+          }
+          transition={{ duration: 3.5, times: [0, 0.5, 1], ease: "easeInOut" }}
+        >
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="button-theme px-4 py-2 rounded-full text-xs transition-all duration-300 cursor-pointer  xl:translate-y-[47px] 2xl:translate-y-[35px] "
+          >
+            Get to Know Us!
+          </motion.button>
+        </motion.div>
 
         <motion.div
           className="w-full md:w-3/4 ml-0 2xl:ml-50 align-left justify-between z-30 translate-x-[-55px]"
@@ -310,11 +312,11 @@ const GetToKnow = () => {
           transition={{ duration: 3.5, times: [0, 0.5, 1], ease: "easeInOut" }}
         >
           <motion.h2
-            className="text-2xl 2xl:w-full lg:ml-10 2xl:ml-1 md:text-2xl lg:text-4xl sm:text-2xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug mx-auto"
+            className="text-2xl 2xl:w-full lg:ml-10 2xl:ml-1 md:text-2xl  lg:translate-[-50px] lg:mt-11 xl:translate-[2px] 2xl:translate-[-12px]  3xl:ml-6 lg:text-4xl sm:text-2xl font-Poppins lg:font-Poppins sm:font-medium md:font-medium leading-snug mx-auto"
             style={{ color: textColor }}
           >
             <motion.span
-              className="text-[35px] font-[500] translate-x-[-6px] -mr-2"
+              className="text-[35px] font-[500] translate-x-[-6px]  -mr-2"
               style={{ color: "#000000" }}
             >
               “
