@@ -187,7 +187,7 @@ const Navbar = () => {
               prefetch={true}
               onClick={() => setMenuOpen(false)}
               className={`
-  relative px-4 py-2 rounded-full font-semibold
+  relative px-4 py-2 rounded-full font-semibold w-[8rem] text-center
   after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1
   after:h-[1px] after:bg-black after:rounded after:transition-all after:duration-300
   after:scale-x-0 after:opacity-0
